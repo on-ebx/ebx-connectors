@@ -102,8 +102,8 @@ public final class MappingEngine
 		{
 			pContext.setDocumentRoot(root);
 		}
-		// Gartner lot A: a document carrying a confidence envelope (ConfidenceEnvelope) proposes what is below its threshold
-		final ConfidenceEnvelope envelope = ConfidenceEnvelope.of(root);
+		// Gartner lot A: a document carrying a confidence envelope (DocumentExtraction) proposes what is below its threshold
+		final DocumentExtraction.Envelope envelope = DocumentExtraction.envelope(root);
 		for (final MappingRule rule : pMapping.getRules())
 		{
 			try

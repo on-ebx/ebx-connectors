@@ -674,20 +674,6 @@
       "implementation": "com.on.ebx.connect.connectors.DocumentConnector",
       "registrationMode": "BUILT_IN",
       "workflowStatus": "IN_PROGRESS"
-    },
-    {
-      "id": "CAT-CLOUDERA-HIVE",
-      "connectorType": "cloudera-hive",
-      "implementation": "com.on.ebx.connect.connectors.ClouderaHiveConnector",
-      "registrationMode": "BUILT_IN",
-      "workflowStatus": "IN_PROGRESS"
-    },
-    {
-      "id": "CAT-CLOUDERA-IMPALA",
-      "connectorType": "cloudera-impala",
-      "implementation": "com.on.ebx.connect.connectors.ClouderaImpalaConnector",
-      "registrationMode": "BUILT_IN",
-      "workflowStatus": "IN_PROGRESS"
     }
   ],
   "externalTargets": [

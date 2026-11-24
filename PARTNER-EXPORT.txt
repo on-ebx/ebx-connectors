@@ -1,3 +1,3 @@
-Exported from EBX-Connectors commit c6d95687641c4f0fbfb4d2144a8b1f09c96a7fa7
-Merge fix/release-page-order-and-dates: the release-notes page lists the newest release first and writes its date as a date
+Exported from EBX-Connectors commit 4ff1ad40f256de18eb3799eedf98571aea002599
+Record in the operator guide that the packaged war was installed as built on a standard instance (X3-07)
 This repository is generated: every sync replaces its whole content. A change made here is lost at the next sync.

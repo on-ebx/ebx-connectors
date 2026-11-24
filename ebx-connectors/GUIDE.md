@@ -387,7 +387,7 @@ caller of this SPI; a connector that does not implement it simply cannot receive
 ### 3.4 Creating a connector from an OpenAPI specification
 
 The module reads an **OpenAPI 3** specification (JSON, or YAML thanks to `jackson-dataformat-yaml`
-and `snakeyaml`, which the war carries since 1.4.1; a YAML specification over 3 MiB is refused) and turns it into a connector of type `rest`:
+and `snakeyaml` in the Tomcat classpath) and turns it into a connector of type `rest`:
 
 | In the specification | In the connector |
 |---|---|
@@ -1921,7 +1921,7 @@ seeded connector, and in the module's README.
 
 ## 18. Dependencies: which jar for which connector
 
-The module itself needs only the ON EBX API (`ebx.jar`, supplied by ON EBX) and Jackson 2.18.12 with the SLF4J API,
+The module itself needs only the ON EBX API (`ebx.jar`, supplied by ON EBX) and Jackson 2.14.2 with the SLF4J API,
 which the war carries in its `WEB-INF/lib` (a standard ON EBX `lib/` has neither). Every other library is **optional**: a connector type whose
 library is absent is simply not registered (the registry loads those types quietly), the others keep
 working. Put the jars in Tomcat's shared `lib` (the `common.loader` folder, `ebx-ps-fasttrack-server/lib`
@@ -1930,7 +1930,7 @@ in the FastTrack workspaces) or in `ebx-connectors/WEB-INF/lib`, and add them to
 
 | Connector types | Library | Maven coordinates (tested version) | Notes |
 |---|---|---|---|
-| OpenAPI import in **YAML** (`rest` created from a YAML specification) | `jackson-dataformat-yaml`, `snakeyaml` | `com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.18.12`, `org.yaml:snakeyaml:2.3` | carried by the war since 1.4.1 (loaded by reflection; without them JSON specifications still work) |
+| OpenAPI import in **YAML** (`rest` created from a YAML specification) | `jackson-dataformat-yaml`, `snakeyaml` | `com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.14.2`, `org.yaml:snakeyaml:1.33` | loaded by reflection; without them JSON specifications still work |
 | `kafka` | `kafka-clients` (+ `slf4j-api`, carried by the war) | `org.apache.kafka:kafka-clients:3.6.1` | compression codecs (`lz4-java`, `snappy-java`, `zstd-jni`) only if the topics use them; SASL/SSL configured through connector properties |
 | `sftp` | `jsch` | `com.github.mwiede:jsch:0.2.16` (or `com.jcraft:jsch:0.1.55`) | password or private-key authentication |
 | `redshift` | the Amazon Redshift JDBC driver | `com.amazon.redshift:redshift-jdbc42:2.1.x` | copied by hand into `WEB-INF/lib`; the driver class is loaded from there, never from a connector property |

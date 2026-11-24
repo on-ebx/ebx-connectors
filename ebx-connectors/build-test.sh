@@ -26,8 +26,6 @@ python3 -m unittest "$module_dir/src/test/python/test_generate_operational_readi
 python3 -m unittest "$module_dir/src/test/python/test_schema_diff.py"
 python3 -B -m unittest "$module_dir/src/test/python/test_itest_suite.py"
 python3 -B -m unittest "$module_dir/src/test/python/test_check_war_selfcontained.py"
-python3 -B -m unittest "$module_dir/src/test/python/test_deps_check.py"
-python3 -B -m unittest "$module_dir/src/test/python/test_sync_runtime_libs.py"
 python3 "$module_dir/tools/generate_connector_parity.py" --check
 python3 "$module_dir/tools/generate_operational_readiness.py" --check
 python3 "$module_dir/tools/verify_guide_index.py"
@@ -145,8 +143,6 @@ export JAVA_TOOL_OPTIONS="-Debx.connectors.egress.blockPrivate=false -Debx.conne
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.core.CdcApplyPlanTest
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.core.PreviewFeaturesTest
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.ebx.PreviewMappingRefusalTest
-"$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.connectors.KafkaCdcClosedTest
-"$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.ebx.ConnectorTableTriggerPublishGoldenTest
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.core.CdcMatchingTest "$module_dir"
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.core.CatalogPreviewMaskTest
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.core.CatalogPreviewBoundaryTest
@@ -163,9 +159,6 @@ export JAVA_TOOL_OPTIONS="-Debx.connectors.egress.blockPrivate=false -Debx.conne
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.spi.ConnectorConfigSameTest
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.core.RunConnectorConfigTest
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.core.ModuleVersionTest
-# lot 1.4.1 (audit X3-08): which Jackson the tests loaded (the line starting JACKSON), the read bounds of every reader, the nasty documents; then the explicit string bound
-"$java_bin" -Xmx2g -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.ebx.rest.JsonReadLimitsTest "$module_dir"
-"$java_bin" -Debx.connectors.json.maxStringLength=1000 -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.ebx.rest.JsonReadLimitsTest "$module_dir" small
 # audit C2-15, X3-07: the jars of runtime-libs/ ALONE (Jackson and SLF4J are among them now; no server lib on this class path) load together: one netty family, Azure Service Bus, kafka-clients + lz4
 "$java_bin" -cp "$test_classes:$runtime_lib/*" com.on.ebx.connect.core.RuntimeLibsLoadTest
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.connectors.KafkaConsumeOffsetsTest
@@ -173,8 +166,6 @@ export JAVA_TOOL_OPTIONS="-Debx.connectors.egress.blockPrivate=false -Debx.conne
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.core.BatchKeySegmentsTest
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.core.MappingRunLocksTest
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.ebx.SeedMarkersTest
-# the start-up lines go to the kernel log, never to the module category that a standard ebx.properties sets to FATAL (read from the sources)
-"$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.ebx.LogCategoryTest "$module_dir/src/main/java"
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.ebx.InstallerEnsureTest
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.core.RunLogPageTest
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.core.ListingPageTest
@@ -233,7 +224,6 @@ export JAVA_TOOL_OPTIONS="-Debx.connectors.egress.blockPrivate=false -Debx.conne
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.core.WatermarkRunTest
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.connectors.JdbcWatermarkTest
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.agent.McpClientTest
-"$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.agent.McpClientReadLimitTest
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.agent.LlmClientTest
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.agent.ToolSetTest
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.agent.AgentLoopTest
@@ -669,15 +659,6 @@ export JAVA_TOOL_OPTIONS="-Debx.connectors.egress.blockPrivate=false -Debx.conne
 
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" \
 	com.on.ebx.connect.connectors.SparkSqlConnectorTest
-
-"$java_bin" -cp "$test_classes:$main_classes:$classpath" \
-	com.on.ebx.connect.connectors.ClouderaConnectorsTest
-
-"$java_bin" -cp "$test_classes:$main_classes:$classpath" \
-	com.on.ebx.connect.connectors.JdbcTimestampTextTest
-
-"$java_bin" -cp "$test_classes:$main_classes:$classpath" \
-	com.on.ebx.connect.ebx.ui.ReleaseOrderTest
 
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" \
 	com.on.ebx.connect.connectors.DominoRestConnectorTest

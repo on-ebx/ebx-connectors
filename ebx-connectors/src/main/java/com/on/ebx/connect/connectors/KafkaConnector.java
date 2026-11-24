@@ -101,8 +101,6 @@ public final class KafkaConnector implements Connector
 		final KafkaCdcExecution.Applier pApplier, final CdcCheckpointCoordinator pCoordinator,
 		final Date pCompletedAt) throws Exception
 	{
-		// preview function, closed by default: nothing of the change data capture runs, whoever calls
-		com.on.ebx.connect.core.PreviewFeatures.require(com.on.ebx.connect.core.PreviewFeatures.Feature.CDC);
 		if (this.config == null) throw new IllegalStateException("Kafka connector is not configured");
 		final Properties properties = this.clientProperties();
 		properties.put(ConsumerConfig.GROUP_ID_CONFIG, this.config.getProperty("group.id", "ebx-connectors-" + this.config.getId()) + "-cdc-no-commit");
@@ -240,8 +238,6 @@ public final class KafkaConnector implements Connector
 	 */
 	private JsonNode previewCdc(final Map<String, String> pInputs) throws ConnectorException
 	{
-		// preview function, closed by default (the direct call that previews the next batch is part of it)
-		com.on.ebx.connect.core.PreviewFeatures.require(com.on.ebx.connect.core.PreviewFeatures.Feature.CDC);
 		if (this.config == null) throw new ConnectorException("Kafka connector is not configured");
 		final int maxEvents = KafkaConnector.cdcMaxEvents(pInputs);
 		final String checkpoint = pInputs == null || pInputs.get("checkpoint") == null ? "" : pInputs.get("checkpoint");

@@ -1,9 +1,6 @@
 # Change data capture: Debezium on Kafka, and JDBC watermarks
 
-> **Closed by default (1.4.2).** The `kafka` / `cdc` capture described below does nothing - no feed, no direct preview, no read of the topic - until the server administrator adds the word `cdc` to the JVM property `-Debx.connectors.preview`;
-> closed, every entry (REST, MCP, screen, scheduled task, workflow step, in-JVM contract) answers `[CN-PREVIEW-CLOSED]`. The ordinary Kafka `consume`, `peek` and `publish` are not part of it. Two limits of this function are **not corrected**
-> and decide whether to open it: a retention gap is skipped without a word and an unreadable message blocks the flow (audit C3-13, below and OPERATIONS.md section 10), and the Kafka client of capture is created without the module's class loader (C3-15).
-> `matching=afterApply|off` and `publish=golden` (see REALTIME-MASTERING.md) need `cdcMatching` in the same property, and `cdcMatching` opens nothing without `cdc`. A run-time input never replaces what the mapping configures on a `cdc` feed (audit C3-04): only `maxEvents` and `maxBytes`, and only downwards; the others are reported as ignored.
+> **Closed by default (decision of 2026-11-12):** `matching=afterApply|off` and `publish=golden` (see REALTIME-MASTERING.md) run only when `cdcMatching` is in the JVM property `-Debx.connectors.preview`. A run-time input never replaces what the mapping configures on a `cdc` feed (audit C3-04): only `maxEvents` and `maxBytes`, and only downwards; the others are reported as ignored.
 
 Two ways for EBX to follow a source's changes instead of reloading it. Each is **idempotent**: running it
 twice leaves the table as running it once. Each is **resumable**: a stopped or failed run is picked up by
@@ -96,10 +93,7 @@ checkpoint (per mapping) ──► poll from checkpoint+1 on every partition, NO
 - **No broker commit.** The consumer group (`<group.id>-cdc-no-commit`) never commits, so resetting a feed is
   deleting its checkpoint row (`SynchronizationCheckpoint`, key = mapping id): the next run starts from the
   earliest retained offset. A checkpoint below the topic's retention is clamped to the first offset still
-  there, and the gap is not reported (limit C3-13, not corrected: the function is closed by default, and the run is green after a gap). Size the topic retention above your longest pause.
-- **An unreadable message blocks the flow** (limit C3-13, not corrected): a message whose JSON is invalid fails the batch before any write, the position does not move, and the next run reads the same message again until the
-  `SynchronizationCheckpoint` row is edited past it.
-- **The Kafka client of capture is created without the module's class loader** (limit C3-15, not corrected): from a scheduled task or a workflow step the client resolves its classes with the loader of the calling thread.
+  there, and the gap is not reported. Size the topic retention above your longest pause.
 
 ### Not covered
 

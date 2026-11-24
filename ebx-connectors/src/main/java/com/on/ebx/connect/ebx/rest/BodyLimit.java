@@ -16,9 +16,9 @@ import com.on.ebx.connect.ebx.ui.Messages;
  * Bounds of what the module reads from a caller (audit C2-06): the size of a request body, the number of messages of a
  * JSON-RPC batch and the nesting depth of a JSON body. Every route that reads a body (the MCP endpoint, the REST routes
  * that take a document, the two in-JVM bridges) checks the caller's right FIRST, then reads at most one byte past the bound
- * ({@link #readBounded}) and refuses with a coded answer that names the JVM property to raise. The depth the module accepts
- * from a caller (64) is much below Jackson's own limit (1000, from 2.15) and is counted here by streaming the tokens, before
- * anything is parsed into a tree. What Jackson itself refuses past that (a string, a number, a name) is {@link JsonReadLimits}.
+ * ({@link #readBounded}) and refuses with a coded answer that names the JVM property to raise. The server's Jackson (2.14)
+ * has no read constraints of its own, so the depth is counted here by streaming the tokens, before anything is parsed into a
+ * tree.
  * <p>
  * Each bound is a JVM property, read at each request (a change needs no restart of the module, only of the JVM that holds
  * the property); a missing, non-numeric or non-positive value reads as the default.
@@ -45,7 +45,7 @@ public final class BodyLimit
 	public static final String CODE_BATCH = "CN_BATCH_TOO_LONG";
 	public static final String CODE_DEPTH = "CN_JSON_TOO_DEEP";
 
-	private static final JsonFactory FACTORY = JsonReadLimits.newFactory();
+	private static final JsonFactory FACTORY = new JsonFactory();
 
 	private BodyLimit()
 	{

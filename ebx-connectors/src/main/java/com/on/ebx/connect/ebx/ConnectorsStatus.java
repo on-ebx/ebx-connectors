@@ -109,8 +109,6 @@ public final class ConnectorsStatus
 		limits.put("mcpMaxJsonDepth", com.on.ebx.connect.ebx.rest.BodyLimit.maxMcpDepth());
 		limits.put("restMaxBodyBytes", com.on.ebx.connect.ebx.rest.BodyLimit.maxRestBodyBytes());
 		limits.put("restMaxJsonDepth", com.on.ebx.connect.ebx.rest.BodyLimit.maxRestDepth());
-		// lot 1.4.1: the Jackson that is loaded and the read constraints the module's mapper really carries
-		com.on.ebx.connect.ebx.rest.JsonReadLimits.status(limits);
 		final ObjectNode retention = pOut.putObject("retention");
 		retention.put("enabled", Retention.enabled());
 		retention.put("days", Retention.days());

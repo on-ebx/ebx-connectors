@@ -58,8 +58,8 @@ if [[ -z "$EBX_API_JAR" ]]; then
 fi
 # Jackson is compiled against the copies the war ships (runtime-libs/), not against whatever the server lib holds
 RT="$HERE/runtime-libs"
-if [[ ! -f "$RT/jackson-databind-2.18.12.jar" ]]; then
-	printf 'Missing Jackson under %s (runtime-libs/jackson-*-2.18.12.jar)\n' "$RT" >&2
+if [[ ! -f "$RT/jackson-databind-2.14.2.jar" ]]; then
+	printf 'Missing Jackson under %s (runtime-libs/jackson-*-2.14.2.jar)\n' "$RT" >&2
 	exit 2
 fi
 # MameGoldenRecords (com.orchestranetworks.addon.mame.*) is part of the closure below, unconditionally:
@@ -82,7 +82,7 @@ JAR_BIN="${JAVA_HOME_VALUE:+$JAVA_HOME_VALUE/bin/}jar"
 # Jars only on the classpath -- no directory, and no sibling module source path -- so javac cannot
 # silently pull in another .java file of this module to satisfy a reference: an accidental dependency
 # on anything outside the explicit source list below fails the build with "cannot find symbol".
-CP="$EBX_API_JAR:$LB/ebx-addons.jar:$RT/jackson-core-2.18.12.jar:$RT/jackson-databind-2.18.12.jar:$RT/jackson-annotations-2.18.12.jar"
+CP="$EBX_API_JAR:$LB/ebx-addons.jar:$RT/jackson-core-2.14.2.jar:$RT/jackson-databind-2.14.2.jar:$RT/jackson-annotations-2.14.2.jar"
 
 SRC_DIR="$HERE/src/main/java/com/on/ebx/connect"
 SOURCES=(
@@ -117,9 +117,6 @@ SOURCES=(
 	"$SRC_DIR/core/KeyPredicatePrimaryKey.java"
 	"$SRC_DIR/core/Watermark.java"
 	"$SRC_DIR/core/Redaction.java"
-	"$SRC_DIR/core/CdcMatching.java"
-	"$SRC_DIR/core/ConfidenceEnvelope.java"
-	"$SRC_DIR/core/PreviewFeatures.java"
 	"$SRC_DIR/ebx/DatasetLocator.java"
 	"$SRC_DIR/spi/ConnectorConfig.java"
 	"$SRC_DIR/spi/ConnectorException.java"
@@ -156,12 +153,8 @@ if [[ -n "$UNEXPECTED" ]]; then
 	exit 2
 fi
 
-# reproducible (audit F3-100, 1.4.2): see tools/jar_repro.sh. EBX_JAR_OUT_DIR is where the jar goes (default dist/); tools/package.sh sets it.
-source "$HERE/tools/jar_repro.sh"
-EPOCH="$(repro_epoch "$HERE")"
-VERSION="$(repro_version "$EPOCH")"
-DIST="${EBX_JAR_OUT_DIR:-$HERE/dist}"
-mkdir -p "$DIST"
-printf 'Manifest-Version: 1.0\nCreated-By: ebx-connectors tools/jar_repro.sh\nImplementation-Title: on-ebx-mapping\nImplementation-Version: %s\n' "$VERSION" > "$OUT/MANIFEST.MF"
-repro_jar "$JAR_BIN" "$DIST/on-ebx-mapping.jar" "$OUT/MANIFEST.MF" "$EPOCH" "$OUT"
-echo "built $DIST/on-ebx-mapping.jar ($VERSION): $(unzip -l "$DIST/on-ebx-mapping.jar" | grep -c '\.class$') classes"
+VERSION="$(date +%Y.%m.%d)"
+mkdir -p "$HERE/dist"
+printf 'Manifest-Version: 1.0\nImplementation-Title: on-ebx-mapping\nImplementation-Version: %s\n' "$VERSION" > "$OUT/MANIFEST.MF"
+"$JAR_BIN" cfm "$HERE/dist/on-ebx-mapping.jar" "$OUT/MANIFEST.MF" -C "$OUT" com
+echo "built $HERE/dist/on-ebx-mapping.jar ($VERSION): $(unzip -l "$HERE/dist/on-ebx-mapping.jar" | grep -c '\.class$') classes"

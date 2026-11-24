@@ -17,9 +17,9 @@ import com.on.ebx.connect.spi.ConnectorException;
 /**
  * The functions that arrived after the October release and are CLOSED by default (decision of 2026-11-12, audit
  * C3-03..C3-06): the server administrator opens each by name in the JVM property {@value #PROPERTY}, a comma-separated list
- * of {@code documents}, {@code cdc}, {@code cdcMatching} and {@code redshift}. This is the only class that reads that property.
+ * of {@code documents}, {@code cdcMatching} and {@code redshift}. This is the only class that reads that property.
  * <p>
- * Absent, empty or misspelt means closed: a word that is not a known one is reported once with a WARN and never
+ * Absent, empty or misspelt means closed: a word that is not one of the three is reported once with a WARN and never
  * taken for an opening. A closed function stays known to the registry (a connection of that type still reads and shows),
  * but refuses to run, with a coded message in English and French that names the property to set (see
  * {@code docs/OPERATIONS.md}, "Preview functions"). The property is read at each call, so a test or an operator
@@ -40,16 +40,7 @@ public final class PreviewFeatures
 	{
 		/** Connection type {@code documents}: reading, extraction, DAMA annotation, vision. */
 		DOCUMENTS("documents", "preview.documents"),
-		/**
-		 * Debezium change data capture through Kafka (audit C3-13, C3-15, decision of 2026-11-12): the {@code cdc} operation of the Kafka connector,
-		 * as a feed (REST, MCP, screen, schedule, workflow, in-JVM contract) and as a direct call. The ordinary {@code consume} / {@code peek}
-		 * reads of the same connector (older than November) stay open.
-		 */
-		CDC("cdc", "preview.cdc"),
-		/**
-		 * Inputs {@code matching=afterApply|off} of a CDC feed and {@code publish=golden} of an outbound trigger. It opens nothing
-		 * unless {@link #CDC} is open too: the matching works on CDC batches and on the golden of records they merged.
-		 */
+		/** Inputs {@code matching=afterApply|off} of a CDC feed and {@code publish=golden} of an outbound trigger. */
 		CDC_MATCHING("cdcMatching", "preview.cdcMatching"),
 		/** Connection type {@code redshift}. */
 		REDSHIFT("redshift", "preview.redshift");
@@ -87,7 +78,7 @@ public final class PreviewFeatures
 		return PreviewFeatures.opened().contains(pFeature);
 	}
 
-	/** The functions the property opens now ({@code cdcMatching} only together with {@code cdc}). */
+	/** The functions the property opens now. */
 	public static Set<Feature> opened()
 	{
 		final Set<Feature> open = EnumSet.noneOf(Feature.class);
@@ -99,24 +90,7 @@ public final class PreviewFeatures
 				open.add(feature);
 			}
 		}
-		if (!open.contains(Feature.CDC))
-		{
-			open.remove(Feature.CDC_MATCHING);
-		}
 		return open;
-	}
-
-	/** Whether the word {@code cdcMatching} is in the property while {@code cdc} is not: it then opens nothing, and the status and the start-up log say so. */
-	public static boolean cdcMatchingWithoutCdc()
-	{
-		boolean matching = false;
-		boolean cdc = false;
-		for (final String word : PreviewFeatures.words())
-		{
-			matching |= Feature.CDC_MATCHING.word().equals(word);
-			cdc |= Feature.CDC.word().equals(word);
-		}
-		return matching && !cdc;
 	}
 
 	/** The words of the property that name no function (misspelt, other case, retired), in order. */
@@ -148,25 +122,6 @@ public final class PreviewFeatures
 			return Feature.REDSHIFT;
 		}
 		return null;
-	}
-
-	/**
-	 * The operation of a connector type that belongs to a preview function: only the {@code cdc} operation of {@code kafka} (change data
-	 * capture). {@code consume}, {@code peek} and {@code publish} are not: they are older than November and stay open. Null for any other pair.
-	 */
-	public static Feature featureOfOperation(final String pType, final String pOperation)
-	{
-		return "kafka".equals(pType) && "cdc".equals(pOperation) ? Feature.CDC : null;
-	}
-
-	/** {@link #require} for a connector type and operation: nothing happens for a pair that is not a preview one. */
-	public static void requireOperation(final String pType, final String pOperation) throws ConnectorException
-	{
-		final Feature feature = PreviewFeatures.featureOfOperation(pType, pOperation);
-		if (feature != null)
-		{
-			PreviewFeatures.require(feature);
-		}
 	}
 
 	/** Refuses with the coded message when the function is closed. */
@@ -222,18 +177,6 @@ public final class PreviewFeatures
 		}
 	}
 
-	/**
-	 * Refuses a trigger or a setting that asks for {@code publish=golden} while {@code cdcMatching} is closed; used when the trigger is
-	 * registered (model compilation) and when it fires.
-	 */
-	public static void requirePublishAllowed(final String pPublish) throws ConnectorException
-	{
-		if (PreviewFeatures.publishGoldenRequested(pPublish))
-		{
-			PreviewFeatures.require(Feature.CDC_MATCHING);
-		}
-	}
-
 	/** The refusal text: code, then English, then French, both naming the property and the word to set. */
 	public static String closedMessage(final Feature pFeature)
 	{
@@ -280,27 +223,9 @@ public final class PreviewFeatures
 		{
 			unknown.add(word);
 		}
-		out.put("cdcMatchingWithoutCdc", PreviewFeatures.cdcMatchingWithoutCdc());
 		out.put("note", "Functions closed by default; an administrator opens one by naming it in -D" + PreviewFeatures.PROPERTY
-			+ " (documents, cdc, cdcMatching, redshift), then restarts the server. cdcMatching opens nothing without cdc. See docs/OPERATIONS.md.");
+			+ " (documents, cdcMatching, redshift), then restarts the server. See docs/OPERATIONS.md.");
 		return out;
-	}
-
-	/** One line at start-up: what the property opens, what it does not understand, and the {@code cdcMatching}-without-{@code cdc} case. */
-	public static void logAtStartup()
-	{
-		final StringBuilder open = new StringBuilder();
-		for (final Feature feature : PreviewFeatures.opened())
-		{
-			open.append(open.length() == 0 ? "" : ", ").append(feature.word());
-		}
-		com.orchestranetworks.service.LoggingCategory.getKernel().info("[connectors] preview functions open: " + (open.length() == 0 ? "none" : open) + " (-D" + PreviewFeatures.PROPERTY + "="
-			+ (System.getProperty(PreviewFeatures.PROPERTY) == null ? "" : System.getProperty(PreviewFeatures.PROPERTY)) + ")");
-		if (PreviewFeatures.cdcMatchingWithoutCdc())
-		{
-			com.orchestranetworks.service.LoggingCategory.getKernel().warn("[connectors] " + PreviewFeatures.PROPERTY + " names cdcMatching without cdc: cdcMatching opens nothing "
-				+ "(matching=afterApply|off and publish=golden stay refused). Add the word cdc to open change data capture.");
-		}
 	}
 
 	private static Feature of(final String pWord)
@@ -353,8 +278,8 @@ public final class PreviewFeatures
 		}
 		if (!unknown.isEmpty())
 		{
-			com.orchestranetworks.service.LoggingCategory.getKernel().warn("[connectors] " + PreviewFeatures.PROPERTY + " names " + unknown
-				+ ", which is not a preview function: it opens nothing. Known words: documents, cdc, cdcMatching, redshift (exact spelling).");
+			ConnectorService.log().warn("[connectors] " + PreviewFeatures.PROPERTY + " names " + unknown
+				+ ", which is not a preview function: it opens nothing. Known words: documents, cdcMatching, redshift (exact spelling).");
 		}
 	}
 }

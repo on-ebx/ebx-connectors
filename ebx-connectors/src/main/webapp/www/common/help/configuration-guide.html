@@ -594,7 +594,7 @@ caller of this SPI; a connector that does not implement it simply cannot receive
 (<code>connectors_publish</code> answers a clear <code>ERROR</code> naming the connector and its type).</p>
 <h3 id="34-creating-a-connector-from-an-openapi-specification">3.4 Creating a connector from an OpenAPI specification</h3>
 <p>The module reads an <strong>OpenAPI 3</strong> specification (JSON, or YAML thanks to <code>jackson-dataformat-yaml</code>
-and <code>snakeyaml</code>, which the war carries since 1.4.1; a YAML specification over 3 MiB is refused) and turns it into a connector of type <code>rest</code>:</p>
+and <code>snakeyaml</code> in the Tomcat classpath) and turns it into a connector of type <code>rest</code>:</p>
 <table>
 <thead>
 <tr>
@@ -2854,7 +2854,7 @@ approved allow-list of procedures and treat every invocation as a live write.</p
 <p>The details of every type (authentication, properties, answer format) are in the description of its
 seeded connector, and in the module's README.</p>
 <h2 id="18-dependencies-which-jar-for-which-connector">18. Dependencies: which jar for which connector</h2>
-<p>The module itself needs only the ON EBX API (<code>ebx.jar</code>, supplied by ON EBX) and Jackson 2.18.12 with the SLF4J API,
+<p>The module itself needs only the ON EBX API (<code>ebx.jar</code>, supplied by ON EBX) and Jackson 2.14.2 with the SLF4J API,
 which the war carries in its <code>WEB-INF/lib</code> (a standard ON EBX <code>lib/</code> has neither). Every other library is <strong>optional</strong>: a connector type whose
 library is absent is simply not registered (the registry loads those types quietly), the others keep
 working. Put the jars in Tomcat's shared <code>lib</code> (the <code>common.loader</code> folder, <code>ebx-ps-fasttrack-server/lib</code>
@@ -2873,8 +2873,8 @@ in the FastTrack workspaces) or in <code>ebx-connectors/WEB-INF/lib</code>, and 
 <tr>
 <td>OpenAPI import in <strong>YAML</strong> (<code>rest</code> created from a YAML specification)</td>
 <td><code>jackson-dataformat-yaml</code>, <code>snakeyaml</code></td>
-<td><code>com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.18.12</code>, <code>org.yaml:snakeyaml:2.3</code></td>
-<td>carried by the war since 1.4.1 (loaded by reflection; without them JSON specifications still work)</td>
+<td><code>com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.14.2</code>, <code>org.yaml:snakeyaml:1.33</code></td>
+<td>loaded by reflection; without them JSON specifications still work</td>
 </tr>
 <tr>
 <td><code>kafka</code></td>

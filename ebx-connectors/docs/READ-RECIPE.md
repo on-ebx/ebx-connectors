@@ -46,7 +46,7 @@ builds the JSON text once, shared by every writer below, so the shape never drif
 
 | Family | Writer | Recipe |
 |---|---|---|
-| JDBC (+ SparkSql, ClouderaHive and ClouderaImpala, which extend it) | `JdbcConnector.catalog()` | `query` op, `sql = SELECT <quoted cols> FROM <quoted qualified name>` (driver's own `quote()`), `itemsPath = rows` |
+| JDBC (+ SparkSql, which extends it) | `JdbcConnector.catalog()` | `query` op, `sql = SELECT <quoted cols> FROM <quoted qualified name>` (driver's own `quote()`), `itemsPath = rows` |
 | Snowflake, Databricks | `CatalogOperations.catalog(..., connectorId)` (new 5-arg overload; the old 4-arg one delegates with `null` — no recipe, used internally by `profile()`/`sample()` for the table list only) | same shape, `Dialect.quote()` | 
 | Salesforce | `SalesforceCatalog.catalog()` (constructor now takes the connector id) | `query` op, `soql = SELECT <fields> FROM <sObject>`, compound `address`/`location` fields excluded (they fail a SOQL SELECT with their parts present), `itemsPath = records` |
 | File connectors (`AbstractFileConnector` + `SampleFileConnector`) | `catalog()` | `read` op, `inputs = {path}`, `itemsPath = rows` |

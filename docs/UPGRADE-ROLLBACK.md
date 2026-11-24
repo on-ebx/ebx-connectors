@@ -5,184 +5,6 @@ after. It does not replace a repository backup, and nothing in it has been rehea
 two upgrade paths it describes (a new table or field, a changed primary key) were read in the model history and in
 EBX's own documentation, not exercised end to end. Where that matters it says "not verified".
 
-## From 1.4.2 to 1.5.0
-
-**Rehearsed on 2026-11-23, before the tag, on a blank ON EBX 6.3.0-gp of the standard distribution** (ten core wars, no add-on, embedded H2), with the package built from commit `a3a464f` (stamped `1.4.2-10-ga3a464f`; the commit after it changes this section and the
-release-notes entry only): the repository the released 1.4.2 had created, then 1.4.2 → 1.5.0 → 1.4.2 → 1.5.0, and a new repository. **Not rehearsed**: a FastTrack workspace (`tools/install.sh`), a repository that holds mappings, runs or provenance (that one held connections and
-templates only), a real Cloudera connection inside ON EBX, the package built from the tag. The three HiveServer2 connections were played against a real Apache Hive 4.0.1, outside ON EBX.
-Each statement says how it is known: **measured** (a command or a test), **read** (in the code), or **not tried**.
-
-| Step of the rehearsal | Start | ERROR lines | What was read |
-|---|---|---|---|
-| 1.4.2, its own repository | 15 s | 0 | 102 connections, 231 properties, 7 templates, 104 seed markers |
-| → package of 1.5.0 | 20 s | 0 | `seeded 2 missing wave connector catalog record(s)`: 104 connections, 235 properties; `tools/upgrade_snapshot.py compare`: every earlier key and value preserved; `smoke.sh` 0 failed; `itest.sh` 58 passed, 0 failed, 2 not run (as on 1.4.2) |
-| → 1.4.2 again (the rollback) | 18 s | 0 | compare: preserved; the two Cloudera cards still listed; `smoke.sh` 0 failed |
-| → package of 1.5.0 again | 17 s | 0 | nothing seeded twice; compare: preserved; `smoke.sh` 0 failed |
-| package of 1.5.0, new repository | 25 s | 0 | 51 `[connectors]` lines in the kernel log, 104 connections, 7 templates; `smoke.sh` (administrator only) 0 failed |
-
-### What changes for the operator
-
-**The data model**: nothing (**measured**: `git diff v1.4.2 -- '*.xsd'` is empty). No JVM option is new. Replace the war as a unit and restart Tomcat, as for every release.
-
-**Two more connection cards.** `ClouderaHive` and `ClouderaImpala` are created by the additive seed at the first start (**measured** in the rehearsal: 102 → 104 connections, once), with placeholder URL and credentials, like every seeded card. Not with `-Debx.connectors.seed=none`; a card deleted afterwards stays deleted (`SeedMarker`).
-No driver is packaged for them: see `ebx-connectors/docs/CLOUDERA-USER-GUIDE.html`.
-
-**The Apache Spark SQL connection behaves differently**, because it could not work before on the Apache Hive driver (**measured** on Apache Hive 4.0.1, `tools/live-hive/run.sh`: the generic engine fails on every query, preview, discovery and description; the connection now passes them):
-
-| What | 1.4.2 | 1.5.0 |
-|---|---|---|
-| a query, a preview, a discovery, a description | failed on the Hive driver ("Method not supported", "Enabling read-only mode not supported") | answer |
-| `SELECT TRANSFORM(...) USING '...'` (and `MAP` / `REDUCE ... USING`) | reached the server and ran there | refused before the server is contacted |
-| the columns of a `SELECT *` | `table.column` | `column` (unless two columns would share a name) |
-| a URL with `principal=`, `AuthMech=1`, a `Krb...` option | accepted at validation | reported at validation: Kerberos is not handled |
-
-A mapping written against the `table.column` names of a `SELECT *` could not have run on 1.4.2, so nothing that worked changes its field names.
-
-**A timestamp read through JDBC keeps its seconds** (**measured** on a real in-memory H2 by `JdbcTimestampTextTest`, and on Apache Hive): `2026-11-20T10:15:00` where 1.4.2 wrote `2026-11-20T10:15`, for the rows of every JDBC connection, the profiler's minimum and maximum, and the Snowflake connector.
-What it changes on an instance: a dateTime field fed from a timestamp that falls on a whole minute (midnight included) was refused by ON EBX and stayed empty, the run reading `PARTIAL`; it is written at the next run of its flow. Values already stored are not touched. A watermark stored without seconds still compares (**measured**:
-the watermark tests read both forms). The refusal itself was **not replayed** on a JDBC mapping of a running ON EBX (it was measured on the catalogue scans in September, which write through the same call); whether ON EBX accepts a dateTime text carrying an offset is **not established**.
-
-**The installer's start-up lines are in the kernel log** (**measured** on a blank standard ON EBX 6.3.0-gp: 51 `[connectors]` lines where 1.4.2 showed 27). An alert on `[connectors]` ERROR lines can now fire for an installation that fails, which is its purpose. The line
-`ebx.log4j.category.log.wbp= INFO, Console, ebxFile:kernel` that `OPERATIONS.md` section 7.2 gave for 1.4.2 is no longer needed for them.
-
-### Before the first start of 1.5.0
-
-1. Stop the schedules and Tomcat; keep the 1.4.2 war with its libraries (the rollback).
-2. Replace the war as a unit (or `tools/install.sh` on a FastTrack workspace), restart Tomcat.
-3. `tools/smoke.sh` with `EXPECT_VERSION=1.5.0`; read `GET /v1/status`: `version.version` `1.5.0`, `installation.installerCompleted` `true`; read the `[connectors]` lines of the kernel log.
-4. The Factory's package embeds `on-ebx-agent.jar` and `on-ebx-mapping.jar`: none of the classes of their closures changed (**read**: `build-agent.sh`, `build-mapping.sh`), so the Factory may keep the jars of 1.4.2. The jars of this package differ in bytes all the same (their manifest carries the date of the commit).
-
-### Rolling back from 1.5.0 to 1.4.2
-
-Nothing in the data depends on 1.5.0 (no model change). Stop the schedules and Tomcat, put the 1.4.2 war back whole with its libraries, start (**measured** in the rehearsal: 18 s, no ERROR line, every value preserved, `smoke.sh` green). Two things stay behind: the two Cloudera cards, whose
-connection type 1.4.2 does not know (1.4.2 still lists them, with their type name; delete them or leave them unused: what its connection catalogue SCREEN draws for them was **not looked at**), and the dateTime values 1.5.0 wrote, which are ordinary values (**not tried**: that repository held no mapping).
-
-## From 1.4.1 to 1.4.2
-
-**Nothing in this section was rehearsed on a running instance.** 1.4.2 was built and tested offline (the suite, the package); the upgrade from 1.4.1 and the rollback to it were not run on a copy of a repository.
-Each statement says how it is known: **measured** (a command or a test on the source tree), **read** (in the code), or **not tried**.
-
-### What changes for the operator
-
-**The data model**: nothing (no field, no table, no key: **read**, the XSD is untouched in this lot). Replace the war as a unit and restart Tomcat, as for every release.
-
-**The capture is closed (the one change that can stop a flow).** In 1.4.0 and 1.4.1 the Debezium capture (`kafka` / `cdc`) was open; in 1.4.2 it is a preview function with its own word, **`cdc`**, closed by default like `documents`,
-`cdcMatching` and `redshift`. If a capture feed runs on this instance (a mapping on operation `cdc`, scheduled or started by hand), **add `cdc` to `-Debx.connectors.preview` before the restart**, in `ebx.sh` AND in the Eclipse launcher.
-Without it the next run answers `[CN-PREVIEW-CLOSED]` (coded, bilingual, before the broker is contacted), the checkpoint does not move, and the run reads the same batch once the word is added. **Measured** by `KafkaCdcClosedTest` and
-`PreviewFeaturesTest`. The ordinary Kafka operations (`consume`, `peek`, `publish`, the catalog operations) and a `consume` feed are NOT concerned and keep running with every word closed. `cdcMatching` opens nothing without `cdc`:
-`GET /v1/status` → `preview.cdcMatchingWithoutCdc` is `true` and the start-up log says so. Example: `-Debx.connectors.preview=documents,cdc,cdcMatching,redshift` (only the words actually in use).
-
-**New refusals** (all `[CN-PREVIEW-CLOSED]`, none is a 500; **measured**, offline tests named in the release notes):
-
-| What | Refused while | Before 1.4.2 |
-|---|---|---|
-| any run of a capture feed, and a direct `connectors_call` of `kafka` / `cdc` | `cdc` is not named | ran |
-| accepting a conflict whose field starts with `dama:` (a write into DAMA from the conflict screen) | `documents` is not named | wrote into DAMA |
-| a trigger or setting with `publish=golden`, when it is registered (the model does not compile) and when it fires (the user's save is refused, nothing is queued) | `cdc` and `cdcMatching` are not both named | accepted, then died after five attempts in the outbound queue |
-| the confidence envelope (`_minConfidence` in a document a mapping reads) | `documents` is not named | applied to every connector |
-
-A conflict refused for a closed `documents` stays open and can be accepted once the word is added. Rejecting a `dama:` conflict is not a DAMA write and is not refused.
-
-**`POST /v1/webhook/{feed}`** checks the session and the RUN right before it looks at the feed: a caller without the right now gets 401 or 403 and learns nothing about a mapping (before: 404, 400 or 403 with the connection's id). **Measured** by the integration suite of the lot (not rerun here).
-
-**What the permission rule now hides**: `FieldProvenance.source` and `Conflict.comment` (they quote the words of a document) follow the rule of the other stored values: a reader who cannot read the origin record sees them hidden. Rows already
-written are covered at once (the rule is applied at display); nothing is rewritten.
-
-### Before the first start of 1.4.2
-
-1. Stop the schedules and Tomcat; keep the 1.4.1 war with its libraries (the rollback).
-2. Add `cdc` to `-Debx.connectors.preview` if a capture feed runs here (above).
-3. Replace the war as a unit (or `tools/install.sh` on a FastTrack workspace), restart Tomcat. `tools/install.sh` now also delivers `tools/upgrade_snapshot.py` inside the module copy (`<workspace>/ebx-connectors/tools/`); it writes nothing in `<workspace>/tools/`.
-4. `tools/smoke.sh` with `EXPECT_VERSION=1.4.2`; read `GET /v1/status`: `version.version` `1.4.2`, `preview.open`, `preview.cdcMatchingWithoutCdc` `false`.
-5. The Factory's package embeds `on-ebx-agent.jar` and `on-ebx-mapping.jar`: take them from `jars/` of this package (their SHA-256 are in `SHA256SUMS`) and update the Factory's pins together with this war. `on-ebx-mapping.jar` could not be built from 1.4.0 and 1.4.1 (the mapping engine had grown out of its closure): the jar the Factory holds is older than the engine.
-
-### Taking the snapshot before an upgrade
-
-`tools/upgrade_snapshot.py capture <folder>` now reads 21 of the 27 tables; it leaves out `OutboundQueue` (the sender consumes its rows: count them by hand and let the queue drain) and the five `Release*` tables (rewritten from the release notes at every start). Both
-lists, with the reason, are in the script and checked against the model by `src/test/python/verify_upgrade_snapshot.py`. **Never run on a real upgrade.**
-
-### Rolling back from 1.4.2 to 1.4.1
-
-Nothing in the data depends on 1.4.2 (no model change). Stop the schedules and Tomcat, put the 1.4.1 war back whole with its libraries, start. 1.4.1 has no `cdc` word: a capture feed runs again by itself, which is what it did before. Conflicts and rows
-written by 1.4.2 are readable by 1.4.1. **Not tried.**
-
-## From 1.4.0 to 1.4.1
-
-**Rehearsed on 2026-11-12, after the text below was written.** The three 1.4.1 wars, as packaged, were installed on a clean ON EBX 6.3.0-gp built from the standard distribution: new repository, 28 s, 0 ERROR, `/rest/v1/status` 200 for the three modules, each reporting Jackson 2.18.12 and its own read bounds; a body nested 80 and 5,000 levels deep got the coded refusal on the Connectors and catalog MCP entries; the OpenAPI import in YAML and the catalog's YAML contract route answered. The same wars then started on the repository created by 1.4.0, with Match and Merge and DAMA (43 s, 0 ERROR). `tools/install.sh` of the three modules was run on a copy of the development workspace: jars added and replaced, unknown jars left, Eclipse `.classpath` amended, build green, second run a no-op. Not done: an installation on the running development instance, a start from Eclipse, Kafka with snappy, a real Service Bus, a project of the MDM Factory from end to end, the way back to 1.4.0.
-
-Libraries only: no function, no table and no field changes. Each statement says how it is known: **measured** (a command or a test run on
-the source tree), **read** (in the code or the documentation of a library), or **not tried**. **Nothing in this section was rehearsed on a
-running instance**: 1.4.1 was built and tested offline, and the upgrade from 1.4.0 and the rollback to it were not run on a copy of a repository.
-
-### What changes
-
-**The data model**: nothing (measured, `tools/schema_diff.py --git v1.4.0 HEAD`: "0 additive change(s), 0 data-affecting change(s)"). Restart Tomcat after replacing the war
-all the same, as for every library change.
-
-**Libraries** of the war (`runtime-libs/`, 71 jars in 1.4.0, 73 in 1.4.1; sha256 in `SHA256SUMS`, coordinates in `MANIFEST.txt`, pinned in `PINNED-WAR-JARS.txt`):
-
-| Library | 1.4.0 | 1.4.1 | Why |
-|---|---|---|---|
-| `jackson-core`, `jackson-databind`, `jackson-annotations`, `jackson-datatype-jsr310` | 2.14.2 | 2.18.12 | 11 advisories on core and databind (measured: `tools/deps_check.sh --require-osv`, OSV, 2026-11-12), among them parsing of deeply nested documents and of huge numbers |
-| `snappy-java.jar` (Kafka compression) | 1.1.10.5 | 1.1.10.12 | 3 advisories; the file keeps its unversioned name |
-| `proton-j` (Azure Service Bus, through azure-core-amqp) | 0.34.1 | 0.35.0 | 1 advisory; azure-core-amqp 2.12.1 declares 0.34.1 and was not changed |
-| `jackson-dataformat-yaml`, `snakeyaml` | not in the war (read from the server `lib/`, optional) | 2.18.12, 2.3 | the OpenAPI import in YAML reaches them by name; a YAML factory of a server `lib/` that holds Jackson 2.14 cannot be used by the module's Jackson 2.18 (measured with two class loaders, a parent holding the FastTrack Jackson 2.14.2 and YAML and a child-first loader holding 2.18.12: `YAMLFactory cannot be cast to JsonFactory`; Tomcat itself was not run) |
-
-After the change `tools/deps_check.sh --require-osv` reports no advisory except the two accepted lines of `runtime-libs/DEPS-KNOWN.txt` (`amqp-client` 5.35.0 and `h2` 2.1.212, decisions of
-2026-10-24, unchanged). It now also asks OSV about seven jars it silently skipped before (`bson`, `mongodb-driver-core`, `mongodb-driver-sync`, `jna`, `jna-platform`,
-`mysql-connector-j`, `kafka-clients`): none has an advisory (measured, 73 of 73 jars asked).
-
-**JVM property** (new, optional): `ebx.connectors.json.maxStringLength`, see below.
-
-### The read limits of the module (a written choice)
-
-Jackson 2.15 and later reads with limits; 2.14.2 had none (read in the Jackson release notes; the effect measured by `JsonReadLimitsTest`). What this module does with them, and where to see it
-(`GET /ebx-connectors/rest/v1/status`, block `requestLimits`, sub-block `jackson`, which reports what the module's own reader **carries**, not only the setting):
-
-| Limit | Jackson's default | Value in 1.4.1 | Why |
-|---|---|---|---|
-| Nesting depth | 1000 | 1000 (kept) | the depth the module accepts FROM A CALLER is 64 (`ebx.connectors.mcp.maxJsonDepth`, `ebx.connectors.rest.maxJsonDepth`) and is checked before any parse; 1000 is what remains for the **answers of called services**, which the module does not bound by depth |
-| Number length | 1000 characters | 1000 (kept) | no legitimate number is longer |
-| Name length | 50,000 characters | 50,000 (kept) | same |
-| String length | 20,000,000 characters | **134,217,728** by default: the largest of 20,000,000, `rest.maxBodyBytes` (32 MiB), `mcp.maxBodyBytes` (4 MiB) and the HTTP response ceiling (`ebx.connectors.http.maxResponseBytes`, 128 MiB; unlimited when set to 0) | the **byte** bound of each entry governs: a document in base64 inside a JSON string can pass 20 million characters on the REST routes, and a string cannot hold more characters than its document holds bytes. `-Debx.connectors.json.maxStringLength=N` sets it explicitly |
-
-The string bound is applied once, as the default of every Jackson reader created afterwards, by the first statement of the module's registration listener, and again by the factory of `BodyLimit`;
-it is **read at start**: raising a body bound later without restarting the JVM does not raise it (the status block then says `readersCarryTheSetting: false`). It applies to every reader of the web application, the libraries of the war included (Avro, for instance). **Proved offline**: a scan of the sources lists
-every place that creates a reader (8 files; a new one fails the suite until it is listed), the six static holders and a new mapper/factory all carry the bound, a 21,000,000-character string passes the REST entry, the
-parser and an HTTP answer, a number of 1100 digits and a name of 60,000 characters in a small body are answered as a parse error (`400`, JSON-RPC `-32700`) and never as a `500`, and 65, 1001 and 100,000 levels are refused `400 CN_JSON_TOO_DEEP` on
-the REST entry, the MCP entry and the in-JVM bridge without a `StackOverflowError`. **Not run**: the same through a running Tomcat.
-
-**What a call refused by a limit looks like**: on the MCP and REST entries, a coded `400` (`CN_JSON_TOO_DEEP`, or a parse error that names Jackson's limit); in the answer of a called service, a body deeper than 1000 levels is not parsed into a tree (the raw text is kept and the caller sees an unparsable answer, as it already did for a non-JSON answer), a string over the bound is the same.
-
-### What was looked at between Jackson 2.14.2 and 2.18.12
-
-- **The whole offline suite passes on 2.18.12 with no existing test changed** (measured 2026-11-12: about 265 lines containing `PASS`, none `FAIL`); the suite compiles and runs on the Jackson of `runtime-libs/`, not on the 2.14.2 of the FastTrack `lib/`, and says so in the line `JACKSON loaded by the tests` (jar path and version).
-- **The OpenAPI import in YAML** now runs through SnakeYAML 2.3, which refuses a document of more than 3,145,728 characters ("The incoming YAML document exceeds the limit", measured with a 4 MB specification). Not measured on 2.14.2 + SnakeYAML 1.33.
-- **Not looked at**: any other difference in how 2.18 reads or writes a document (number formatting, coercion of empty strings, `JsonNode` equality or `toString`). The suite did not show one. A connection type whose answers are unusual should be read once after the upgrade, as in 1.4.0.
-- **The agent, mapping and SPI jars** (`on-ebx-agent.jar`, `on-ebx-mapping.jar`, `ebx-connectors-spi.jar`, built by `build-agent.sh`, `build-mapping.sh`, `build-spi.sh`) are consumed by other modules, pinned there by checksum. Their sources are unchanged, and **they were not rebuilt or redistributed for 1.4.1**: they use only the stable Jackson API (`readTree`, `ObjectNode`...) and run on whichever Jackson the consuming module has. The scripts that build them now name the 2.18.12 jars; a rebuild would change their checksum.
-
-### `tools/install.sh` and the libraries
-
-On a FastTrack workspace, `tools/install.sh` used to leave `src/main/webapp/WEB-INF/lib` alone, so the code compiled and tested on Jackson 2.18 would have run on the 2.14.2 of the workspace. It now runs
-`ebx-connectors/tools/sync_runtime_libs.py`: a jar of `runtime-libs/` missing from the workspace is **added**, another version of the same library (same file name without its version) is **replaced** after a copy to
-`<workspace>/ebx-connectors/.runtime-libs-replaced/<time>/`, a jar of no known library (for example `ebx-connectors-extension-sample.jar`, or an older jar that 1.3 dropped such as a netty 4.2 one) is **left as it is**, and the three lists are
-printed. `--dry-run` prints them without writing. It also amends the project's Eclipse `.classpath` (no longer overwritten by the copy): `jackson-core`, `-databind` and `-annotations` of `WEB-INF/lib` as `lib` entries BEFORE the `/ebx-ps-fasttrack-server` project, whose own `lib/` exports Jackson 2.14.2; idempotent, backup `.classpath.bak-<date>` at the first change, nothing created when there is no `.classpath`. **After the installation refresh the project in Eclipse (F5).** If Eclipse is opened on a workspace that was not amended, it recompiles `target/classes` against 2.14.2 and writes classes holding "Unresolved compilation problem" (the module dies at start, naming `StreamReadConstraints`): stop Tomcat, run the installation again, refresh and clean the project. After the copy the script checks that every jar of `runtime-libs/` is in the workspace byte for byte. **A jar left in place is not removed**: look at the `LEFT` list once, and remove by hand a stale
-library of a family the module ships (a second netty line is the usual case).
-Tested on a fake workspace (see the lot's report), never on the real one. Run it with Tomcat stopped, as before.
-
-### Before the first start of 1.4.1
-
-1. Stop the schedules and Tomcat; keep the 1.4.0 war with its libraries (the rollback).
-2. Replace the war as a unit (or `tools/install.sh` on a FastTrack workspace), restart Tomcat.
-3. `tools/smoke.sh` with `EXPECT_VERSION=1.4.1`, then read `GET /ebx-connectors/rest/v1/status`: `version.version` `1.4.1`, `requestLimits.jackson.version` `2.18.12`, `requestLimits.jackson.readersCarryTheSetting` `true`, and
-   `requestLimits.jackson.maxStringLength` at least your largest legitimate document.
-4. One read through each connection type you use that relies on a changed library: Kafka with snappy compression (`snappy-java`), Azure Service Bus (`proton-j`), an OpenAPI import in YAML. **None of these was run against a real service with 1.4.1.**
-
-### Rolling back from 1.4.1 to 1.4.0
-
-Nothing in the data depends on 1.4.1. Stop the schedules and Tomcat, put the 1.4.0 war back whole with its libraries, delete the exploded directory, start. On a FastTrack workspace: install 1.4.0 with its own `tools/install.sh` **and**
-copy back the jars kept in `.runtime-libs-replaced/<time>/` (the 1.4.0 script does not touch `WEB-INF/lib`, so it would leave Jackson 2.18 there: the 1.4.0 code on that Jackson was not tried).
-
 ## From 1.3.1 to 1.4.0
 
 This section is the one to read first for 1.4.0. Each statement says how it is known: **measured** (a command run on
@@ -204,7 +26,7 @@ was read (document feeds only); `OutboundQueue.publish` holds `golden` when a tr
 
 | Property | Default in 1.4.0 | Meaning |
 |---|---|---|
-| `ebx.connectors.preview` | unset: everything closed | Comma-separated list of `documents`, `cdcMatching`, `redshift` in 1.4.0 and 1.4.1 (the capture itself was open); since 1.4.2 also `cdc`, and `cdcMatching` needs `cdc` too. Exact spelling; a misspelt word opens nothing and is logged once. |
+| `ebx.connectors.preview` | unset: everything closed | Comma-separated list of `documents`, `cdcMatching`, `redshift`; opens the three preview functions. Exact spelling; a misspelt word opens nothing and is logged once. |
 | `ebx.connectors.mcp.maxBodyBytes` | `4194304` (4 MiB) | Largest body of `POST /rest/mcp` and of the in-JVM bridges. |
 | `ebx.connectors.mcp.maxBatch` | `20` | Messages in one JSON-RPC batch. |
 | `ebx.connectors.mcp.maxJsonDepth` | `64` | Nesting depth of a message. |
@@ -309,7 +131,9 @@ over a repository that 1.4.0 has opened is not a rollback.** What 1.3.1 then doe
   `cdcMatching`: scenario B8 was never run on an instance. `redshift`, SAP OData, Workday and BigQuery: never run against a tenant.
   The capture feed itself ran against a live Kafka broker with Debezium-format events (17 checks), never against a real
   Debezium connector.
-- **`tools/upgrade_snapshot.py`** covered 17 of the 27 tables in 1.4.0 and 1.4.1; since 1.4.2 it covers 21 (see "From 1.4.1 to 1.4.2").
+- **`tools/upgrade_snapshot.py`** covers 17 of the 27 tables. It does not cover `AccessRight`, `OutboundQueue`, `SeedMarker`,
+  `Publication`, `Favorite` and the five `Release*` tables: count at least `AccessRight` and `OutboundQueue` by hand before and
+  after (Data Services `GET` on the table).
 - **A reload of the module's context on a live instance** has not been measured for this version (threads of the module and the
   class loader they carry). Replace the war with Tomcat stopped; do not touch a context file while EBX boots.
 

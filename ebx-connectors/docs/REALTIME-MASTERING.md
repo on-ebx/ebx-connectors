@@ -1,6 +1,6 @@
 # Real-time mastering: CDC in, matching on the changed records, golden records out
 
-> **Closed by default (decision of 2026-11-12).** `matching=afterApply|off` on a `cdc` feed and `publish=golden` on an outbound trigger run only when the server administrator adds `cdc` AND `cdcMatching` to the JVM property `-Debx.connectors.preview` (docs/OPERATIONS.md, "Preview functions"); a mapping that carries them is refused when saved and when run while it is closed.
+> **Closed by default (decision of 2026-11-12).** `matching=afterApply|off` on a `cdc` feed and `publish=golden` on an outbound trigger run only when the server administrator adds `cdcMatching` to the JVM property `-Debx.connectors.preview` (docs/OPERATIONS.md, "Preview functions"); a mapping that carries them is refused when saved and when run while it is closed.
 
 Status, 2026-11-06: **implemented and tested offline (`CdcMatchingTest`, `OutboundQueueTest`), not yet run on an
 instance.** The questions of §8 were answered with the proposed defaults. A restart is needed after the install (new

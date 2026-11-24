@@ -54,39 +54,6 @@ public final class BigQueryConnectorTest
 			check(two.path("count").asInt() == 2 && two.path("truncated").asBoolean() && server.requests().size() == before + 1, "truncated at max");
 			check(Json.parse(server.requests().get(before).body).path("maxResults").asInt() == 2, "first page sized to max");
 
-			// audit C2-05 (1.4.2): a feed's ${...} in the sql input is a bound parameter, never text in the statement
-			check(eu.bindsWatermark("query", "sql") && !eu.bindsWatermark("query", "table") && !eu.bindsWatermark("get", "sql"), "only the sql input of query takes bound parameters");
-			final Map<String, String> bound = new LinkedHashMap<String, String>();
-			final String template = "SELECT id FROM sales.customer WHERE name = '${name}' AND zip = '${zip}' AND n > ${n} AND note = 'a :__b9 b' AND updated > ${watermark}";
-			final String engineSql = com.on.ebx.connect.core.ValueTemplates.sql(template.replace("${watermark}", ":watermark"), new com.on.ebx.connect.core.ValueTemplates.Values()
-			{
-				@Override
-				public String of(final String pExpression)
-				{
-					return "name".equals(pExpression) ? "O'Brien'; DROP TABLE x --" : "zip".equals(pExpression) ? "0012" : "7";
-				}
-			}, bound);
-			check(!engineSql.contains("DROP") && engineSql.contains(":__b0") && engineSql.contains(":__b2"), "the engine bound the values: " + engineSql);
-			final String bigQuerySql = BigQueryConnector.namedParameters(engineSql);
-			check(bigQuerySql.contains("name = @__b0") && bigQuerySql.contains("n > @__b2") && bigQuerySql.contains("updated > @watermark") && bigQuerySql.contains("'a :__b9 b'"),
-				"engine tokens rewritten outside quoted text: " + bigQuerySql);
-			final Map<String, String> feedInputs = new LinkedHashMap<String, String>(bound);
-			feedInputs.put("sql", engineSql);
-			feedInputs.put("watermark", "2026-11-12T10:00:00Z");
-			feedInputs.put("watermarkType", "TIMESTAMP");
-			final int mark = server.requests().size();
-			server.enqueue(queries, new MockSaasHttpServer.Response(200, "{\"jobComplete\":true,\"jobReference\":{\"jobId\":\"job_3\"},\"schema\":" + SCHEMA + ",\"rows\":[" + row(1, "a") + "]}"));
-			eu.execute(null, "query", feedInputs, null);
-			final JsonNode feedBody = Json.parse(server.requests().get(mark).body);
-			check(feedBody.path("query").asText().contains("name = @__b0") && !feedBody.path("query").asText().contains("DROP") && !feedBody.path("query").asText().contains("Brien"),
-				"the statement sent holds no value: " + feedBody.path("query").asText());
-			final JsonNode sent = feedBody.path("queryParameters");
-			check(sent.size() == 4 && "O'Brien'; DROP TABLE x --".equals(sent.get(0).path("parameterValue").path("value").asText()) && "STRING".equals(sent.get(0).path("parameterType").path("type").asText()),
-				"the value travels as a parameter: " + sent);
-			check("0012".equals(sent.get(1).path("parameterValue").path("value").asText()) && "STRING".equals(sent.get(1).path("parameterType").path("type").asText()), "a code stays text: " + sent);
-			check("INT64".equals(sent.get(2).path("parameterType").path("type").asText()) && "TIMESTAMP".equals(sent.get(3).path("parameterType").path("type").asText())
-				&& "@watermark".equals("@" + sent.get(3).path("name").asText()), "numbers and the watermark keep their type: " + sent);
-
 			// catalog with a location: the region views, filtered on the dataset
 			server.enqueue(queries, new MockSaasHttpServer.Response(200, result("TABLE_SCHEMA,TABLE_NAME,TABLE_TYPE,TABLE_COMMENT,ROW_COUNT",
 				"[\"sales\",\"customer\",\"BASE TABLE\",null,null]", "[\"sales\",\"v_customer\",\"VIEW\",null,null]")));

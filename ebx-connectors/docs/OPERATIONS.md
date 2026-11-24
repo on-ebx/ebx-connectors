@@ -2,7 +2,7 @@
 
 For the person who installs, configures, upgrades and runs the `ebx-connectors` module on an ON EBX 6.3 server and
 did not write it. Everything below was read in the sources, scripts and existing guides of this repository and revised on
-2026-11-12 for release 1.4.0 (base commit `15ea90c`); the changes of 1.4.2 are marked "1.4.2" where they occur (preview word `cdc`, section 4 and 10; origin columns, section 4; upgrade snapshot, section 7.1; webhook and jars in `docs/UPGRADE-ROLLBACK.md`), and those of 1.5.0 "1.5.0" (start-up lines in the kernel log, section 7.2; the Cloudera connections and the timestamps are in `docs/UPGRADE-ROLLBACK.md` and `CLOUDERA-USER-GUIDE.html`). Where something could not be established by reading, it says "not established";
+2026-11-12 for release 1.4.0 (base commit `15ea90c`). Where something could not be established by reading, it says "not established";
 where it is described but was never run on an instance, it says "not rehearsed". Where the code and
 a guide disagree, the code is followed and the disagreement is stated in one line. "The owner's field notes" means the
 `CLAUDE.md` knowledge base of the module's owner; it is not shipped with the module.
@@ -24,7 +24,7 @@ for agents. Its configuration and its traces are stored in the dataspace and dat
 | EBX version it was run on | ON EBX 6.3: 6.3.0-gp on the owner's test instance (the offline suite compiles against that instance's `lib/`), after 6.3.0-dev and 6.3.0-rc2 to rc4; no other instance has been tried. `web.xml` is Jakarta EE 5.0 and the REST layer uses `jakarta.ws.rs`: it needs an EBX 6 build on Tomcat 10 or later. The module detects older builds only for the native MCP registration (it then serves `/ebx-connectors/rest/mcp` alone). |
 | Java level | Sources are compiled with `javac --release 8` (`build-test.sh`, `build-agent.sh`), so class files are major 52; the JDK that builds and the JVM that runs may be newer. The CI workflow asks for "Java 8+". Collibra's PATCH assumes `java.net.http` (JDK 11+) (REFERENCE.md §6.2.2). |
 | EBX jars | Compile time: `ebx.jar` (a standard ON EBX installation) or `ebx-lib.jar` (FastTrack; the same bytes), `ebx-addons.jar` (the Match and Merge public API, needed to compile `GoldenRecords`/`MameGoldenRecords`; the build stops if it is missing) and the servlet API, taken from `EBX_LIB_DIR` (default: `ebx-ps-fasttrack-server/lib` two folders above the module); Jackson and SLF4J come from `runtime-libs/`, the copies the war ships. Run time: ON EBX supplies its own API (`com.orchestranetworks.*`, `com.onwbp.*`, `jakarta.ws.rs.*`) and Tomcat the servlet API; **the war carries everything else**, Jackson and the SLF4J API included (section 1.1). |
-| Libraries owned by the module | `ebx-connectors/runtime-libs/*.jar` (JDBC drivers, Kafka, JSch, AMQP, ActiveMQ, Mongo, Cassandra, Couchbase, Azure Service Bus, codecs...), listed with licences in `THIRD-PARTY-NOTICES.md` and checksums in `SHA256SUMS`. The build packages them into `WEB-INF/lib` of the WAR, together with Jackson 2.18.12 (since 1.4.1; 2.14.2 before) and the SLF4J API (section 1.1). A connector type whose class cannot be loaded is not registered; REFERENCE.md §6.2.1 notes that only `kafka` and `sftp` are skipped quietly. GUIDE §18 still says to put some jars in Tomcat's shared `lib` (and quotes older versions: Kafka 3.6.1, JSch 0.2.16): **the build and `runtime-libs/README.md` win** (they package them; a second copy in the shared lib must not exist). |
+| Libraries owned by the module | `ebx-connectors/runtime-libs/*.jar` (JDBC drivers, Kafka, JSch, AMQP, ActiveMQ, Mongo, Cassandra, Couchbase, Azure Service Bus, codecs...), listed with licences in `THIRD-PARTY-NOTICES.md` and checksums in `SHA256SUMS`. The build packages them into `WEB-INF/lib` of the WAR, together with Jackson 2.14.2 and the SLF4J API (section 1.1). A connector type whose class cannot be loaded is not registered; REFERENCE.md §6.2.1 notes that only `kafka` and `sftp` are skipped quietly. GUIDE §18 still says to put some jars in Tomcat's shared `lib` (and quotes older versions: Kafka 3.6.1, JSch 0.2.16): **the build and `runtime-libs/README.md` win** (they package them; a second copy in the shared lib must not exist). |
 | Other modules | `ebx-data-catalog`: optional, detected at run time (`CatalogDetection`: dataset `DataCatalog`/`DataCatalog` of the catalog's own model, else `ABSENT`/`FOREIGN`); without it lineage events are simply not delivered to a local catalog. `ebx-addon-mame` (Match and Merge): only the golden-record helpers use it and keep the dependency in one class. `ebx-assistant` web application: needed only for the native MCP registration. Other modules depend on this one: `ebx-mdm-factory` embeds `on-ebx-agent.jar` built here (`ebx-connectors/build-agent.sh`) and calls the in-JVM bridge `com.on.ebx.connectors:type=InJvmMcp`. Since wave 11 the module also offers the sibling modules a versioned contract, `com.on.ebx.connectors:type=Contract` (`ebx-connectors.sibling` 1.1.0 since wave 12: ask a language-model connector one prompt or one tool-use turn of a conversation, declare, read, delete and run flows; 1.2.0 since wave 13: follow (`run.get`) and stop (`run.stop`) a run started with `async`; [CONTRACT.md](CONTRACT.md)); the Factory and the catalog do not call it yet. The agent library (`on-ebx-agent.jar`) ships `ContractLlmChat`, the client of its `llm.chat`. |
 | Connector types | 96 types: `ConnectorRegistry` registers them (`kafka` and `sftp` only when their library is present), and the generated operational-readiness catalogue (`docs/CONNECTOR-OPERATIONAL-READINESS.md`) lists the same 96. Two of them, `documents` and `redshift`, are known but closed by default (section 4, "Preview functions"). The seeded connector ids are another count: at least 61 (section 2.3). Which were run for real: section 9. |
 
@@ -43,16 +43,14 @@ With the three Jackson jars added by hand to `WEB-INF/lib`, a fresh install of t
 
 | Jar | Why | Pinned |
 |---|---|---|
-| `jackson-core-2.18.12.jar`, `jackson-databind-2.18.12.jar`, `jackson-annotations-2.18.12.jar` | the JSON layer of the whole module; Apache-2.0. **Since 1.4.1 (audit X3-08) Jackson 2.18.12**, no longer the 2.14.2 of the FastTrack `lib/` (11 advisories on 2.14.2): downloaded from Maven Central, SHA-256 in `PINNED-WAR-JARS.txt`. Jackson 2.15 and later reads with limits: section 3.1, "Jackson read limits" | `runtime-libs/PINNED-WAR-JARS.txt` (SHA-256) |
-| `jackson-datatype-jsr310-2.18.12.jar` | azure-core (it was already there) | same |
-| `jackson-dataformat-yaml-2.18.12.jar`, `snakeyaml-2.3.jar` | the OpenAPI import in YAML. New in 1.4.1: until then they were read from the server `lib/` if present, and a YAML factory of a `lib/` that holds another Jackson cannot be used by the module's Jackson | same |
-| `snappy-java.jar` (1.1.10.12), `proton-j-0.35.0.jar` | Kafka compression; Azure Service Bus (azure-core-amqp 2.12.1 declares proton-j 0.34.1: 0.35.0 closes an advisory). Pinned so that a build cannot ship the versions the advisories name | same |
+| `jackson-core-2.14.2.jar`, `jackson-databind-2.14.2.jar`, `jackson-annotations-2.14.2.jar` | the JSON layer of the whole module; Apache-2.0; byte for byte the Jackson 2.14.2 of the FastTrack `lib/` it ran on for months. A newer Jackson is a decision to take and test, not made here | `runtime-libs/PINNED-WAR-JARS.txt` (SHA-256) |
+| `jackson-datatype-jsr310-2.14.2.jar` | azure-core (it was already there) | same |
 | `slf4j-api-1.7.32.jar` | Kafka, ActiveMQ, RabbitMQ, MSAL4J and the Couchbase / Qpid transports log through SLF4J and do not start without its classes; MIT; **API only, no binding**: SLF4J 1.7 prints one notice (`Failed to load class "org.slf4j.impl.StaticLoggerBinder"`, `Defaulting to no-operation`) on the standard error at its first use and then logs nowhere. A server that wants these logs adds a 1.7 binding to its own `lib/` | same |
 
 If the server `lib/` also holds Jackson or SLF4J (every FastTrack workspace does), the war's copy is the one the module uses: Tomcat's web application
-loader reads `WEB-INF/lib` before the shared `lib/`. This has been **read**, not rehearsed on FastTrack's Tomcat with these jars. Since 1.4.1 `tools/install.sh` into a FastTrack
-workspace puts the jars of `runtime-libs/` into that workspace's `WEB-INF/lib` (section 2.2): the code compiled and tested on Jackson 2.18.12 runs on it, while the server `lib/` of the demonstration
-instance keeps its own Jackson 2.14.2 for the other modules. **To confirm after a start**: `GET /ebx-connectors/rest/v1/status`, `requestLimits.jackson.version` (the Jackson the module loaded).
+loader reads `WEB-INF/lib` before the shared `lib/`. This has been **read**, not rehearsed with these four jars on FastTrack's Tomcat. `tools/install.sh` into a FastTrack
+workspace keeps that workspace's own `WEB-INF/lib` as it is (section 2.2): the demonstration instance goes on using the Jackson of its server `lib/` until someone copies
+the new jars there.
 
 **The check that keeps it so.** `build-test.sh` (hence `tools/package.sh`) runs `tools/check_war_selfcontained.py` on the built war: `jdeps` lists, for every class of
 `WEB-INF/classes` and of every jar of `WEB-INF/lib`, each class it references; one found in none of the war, the JDK, Tomcat's `lib/` and a standard `ebx.jar` fails the build,
@@ -105,7 +103,7 @@ vendor account); runs three Python upgrade-safety checks; copies `src/main/webap
 jar has no line in `THIRD-PARTY-NOTICES.md`**; writes `<build dir>/ebx-connectors.war` (build dir: `target/baseline`,
 or `EBX_BUILD_DIR`); runs `tools/check_war_selfcontained.py` on it (section 1.1: every referenced class is found, the pinned jars are intact), then `tools/verify_release_readiness.py` (WAR readable, SHA-256 computed, expected entries).
 The root `build-test.sh` also builds the SPI jar and the extension sample. Duration of the suite: about 120 s on the
-build host (measured 2026-11-12: 263 lines containing `PASS`, none `FAIL` on 1.4.0; 1.4.1 adds tests, see its upgrade guide); the WAR is about 96 MB.
+build host (measured 2026-11-12: 263 lines containing `PASS`, none `FAIL`); the WAR is about 96 MB.
 
 **Version and package (audit C-08).** `tools/version.sh` derives the version from git; `build-test.sh` writes it, the
 commit and the build time to `com/on/ebx/connect/version.properties` in the classes and to the WAR's manifest
@@ -114,10 +112,7 @@ A class tree compiled by Eclipse has no such file: the module then reports `unkn
 commit only: a modified or untracked file is refused, there is no switch; `EBX_STANDARD_JAR` must be set, section 1.1; `--since <commit-or-tag>` for the release notes) runs the whole suite, then writes
 `ebx-connectors/dist/ebx-connectors-<version>.zip` holding the WAR, the third-party notices, this guide,
 `UPGRADE-ROLLBACK.md`, `licenses/` (licence and notice texts of the bundled jars), `RELEASE-NOTES.md` (git log since the previous tag), `tools/smoke.sh`, `tools/schema_diff.py`
-`DEPENDENCY-CHECK.txt` and `SHA256SUMS`; nothing is deployed; the zip's own checksum is written beside it.
-**The advisory gate (since 1.4.1, audit X3-08).** BEFORE the build, `package.sh` runs `tools/deps_check.sh --require-osv`: every jar of `runtime-libs/` (73 of 73; a jar whose Maven group or version cannot be read is itself a finding) is asked to OSV, and an
-advisory that `runtime-libs/DEPS-KNOWN.txt` does not accept, with its reason and date, refuses the package (`CONN-PACKAGE-3`). An OSV that cannot be reached refuses it too. The one way past is the named variable `CONN_PACKAGE_OSV_WAIVER="<who decided, why, date>"`:
-the check then runs offline (library families only) and the text is written in `RELEASE-NOTES.md` and `DEPENDENCY-CHECK.txt` of the package. There is no switch for an advisory OSV reports. The ordinary suite (`build-test.sh`) stays offline. `dist/` is git-ignored: a package is rebuilt from a
+and `SHA256SUMS`; nothing is deployed; the zip's own checksum is written beside it. `dist/` is git-ignored: a package is rebuilt from a
 commit, never committed. Verify a received package with `shasum -a 256 -c SHA256SUMS` inside its folder. The WAR's
 SHA-256 is also printed in `RELEASE-NOTES.md`. `runtime-libs/SHA256SUMS` remains the checksum list of the bundled
 libraries; `docs/UPGRADE-ROLLBACK.md` asks you to verify it before packaging, but no script of the repository does (the self-check of section 1.1 does verify, inside the built war, the five jars that a standard server lacks).
@@ -141,14 +136,12 @@ either. The second should run at the next push; the first needs the runner to be
    Tomcat whose `-Dcatalina.base` is `<workspace>/ebx-ps-fasttrack-server` runs (a class replaced under a running Tomcat
    gives `NoSuchMethodError`). Steps: (a) reads the version (`tools/version.sh version`) and the commit from the repository,
    because the copy has no `.git` and would be stamped `0.0.0-unknown`; (b) `rsync -a --delete` of `ebx-connectors/` into
-   `<workspace>/ebx-connectors/`, excluding `/target` (rebuilt next), `/dist`, `/.runtime-libs-replaced` and `/src/main/webapp/WEB-INF/lib` (neither copied nor deleted by rsync);
-   (b2) **since 1.4.1** `tools/sync_runtime_libs.py` puts the jars of `runtime-libs/` into `<workspace>/ebx-connectors/src/main/webapp/WEB-INF/lib`: a missing jar is ADDED, another version of the same library
-   (same file name without its version: `jackson-core-2.14.2.jar` becomes `jackson-core-2.18.12.jar`; `snappy-java.jar` with other bytes) is REPLACED after a copy to `<workspace>/ebx-connectors/.runtime-libs-replaced/<time>/`, and a jar of no known library
-   (such as `ebx-connectors-extension-sample.jar`, or a customer's driver) is LEFT untouched; the three lists are printed, `--dry-run` prints them without writing. A stale library of a family the module ships (a second netty line) is left too: read the `LEFT` list. The script also amends the project's Eclipse `.classpath` (which the rsync no longer overwrites): a `kind="lib"` entry for `jackson-core`, `-databind` and `-annotations` (the only jars the code needs to compile; `jsr310` and the YAML jars are reached at run time only) is put BEFORE the `/ebx-ps-fasttrack-server` project entry, because Eclipse resolves in order and that project exports the Jackson 2.14.2 of its `lib/`; entries of another version of those jars are removed, nothing else is touched, a second run changes nothing, the first change leaves `.classpath.bak-<date>`. With no `.classpath` in the workspace project nothing is created and the output says so. **Refresh the project in Eclipse (F5) after the installation.** If Eclipse is opened on a workspace whose `.classpath` was not amended, its builder recompiles `target/classes` against Jackson 2.14.2 and writes classes with "Unresolved compilation problem" (symptom: the module fails at start or on its first call with `java.lang.Error: Unresolved compilation problem` naming `StreamReadConstraints`): stop Tomcat, run `tools/install.sh` again, refresh (F5) and clean the project; (c) in the copy,
+   `<workspace>/ebx-connectors/`, excluding `/target` (rebuilt next), `/dist` and `/src/main/webapp/WEB-INF/lib` (the runtime
+   jars that are not in git: kafka, lz4, snappy, zstd...; they are neither copied nor deleted); (c) in the copy,
    `EBX_LIB_DIR=<workspace>/ebx-ps-fasttrack-server/lib EBX_BUILD_DIR=<copy>/target EBX_BUILD_VERSION=... EBX_BUILD_COMMIT=...
    ./build-test.sh` (full offline suite, about 90 s; the main classes land in `<copy>/target/classes`, the folder the Tomcat
    context mounts on `/WEB-INF/classes`); (d) checks that `target/classes/com/on/ebx/connect/version.properties` carries the
-   repository's version and commit, that there are classes, and that `WEB-INF/lib` holds every jar of `runtime-libs/` byte for byte; (e) prints
+   repository's version and commit, that there are classes, and that `WEB-INF/lib` lost no jar; (e) prints
    `installed ebx-connectors <version> (commit ...): N classes, M runtime jars ..., copy <path>`. It starts nothing. A failed
    build leaves the copy synchronised and `target/` incomplete: do not start Tomcat. `--dry-run` runs the Tomcat check and the
    version read, then prints the rsync command, the files whose content differs and the build command, and writes nothing.
@@ -179,11 +172,8 @@ either. The second should run at the next push; the first needs the runner to be
   recorded (`seed markers recorded for N existing item(s)` in the kernel log); one you deleted *before* that start, while
   the server ran, comes back once at it. To have the installer create an item again, delete its `SeedMarker` row.
   **`-Debx.connectors.seed=none` creates no connector, no mapping and no catalogue card at all** (default `all`): set
-  it on a production installation before the first start, so that it holds only what its owners made. Categories
-  and release notes are product content, not demonstration, and are still installed. The packaged templates are NOT: each
-  needs a seeded connection, so with `none` the table `ConnectorTemplate` stays empty and the installer logs one
-  `packaged profile product.<x> skipped: connector <X> is not installed` warning per template at each start (measured
-  2026-11-21 on a blank instance: 7 templates by default, 0 with `none`). A model that
+  it on a production installation before the first start, so that it holds only what its owners made. Categories,
+  packaged templates and release notes are product content, not demonstration, and are still installed. A model that
   does not have the table yet (not reloaded after the upgrade) behaves as before: an absent seeded connector is created at every
   start. `-Debx.connectors.seedMappings=never` turns off only the demonstration **mappings**.
 - If a dataset named `Connectors` exists on another module's model (an older FastTrack installation), startup stops and
@@ -334,7 +324,7 @@ refusal of credentials in clear); **the first run on a real instance is the real
    - ON EBX 6.3 on Tomcat 10 or later (Jakarta EE 5, `jakarta.ws.rs`). The classes are Java 8 (major 52): any JVM that runs the server; the Collibra
      PATCH call needs Java 11.
    - In the server `lib/` (Tomcat `common.loader`): `ebx.jar` (the EBX API; `ebx-lib.jar` on FastTrack) with its `jakarta.ws.rs`, and Tomcat's servlet API. That is all a standard
-     installation has (plus a database driver and `jakarta.mail`): Jackson 2.18.12 and the SLF4J API are in the war (section 1.1), no longer taken from the server.
+     installation has (plus a database driver and `jakarta.mail`): Jackson 2.14.2 and the SLF4J API are in the war (section 1.1), no longer taken from the server.
    - **Optional, at run time:** `ebx-addons.jar` and the add-ons it belongs to. Match and Merge (`com.orchestranetworks.addon.mame`) is reached only by
      `GoldenRecords` / `MameGoldenRecords`, which catch the missing classes: without it the `golden` and `mameState` transformations, `matching=afterApply`
      and `off`, and `publish=golden` answer with a refusal. DAMA (`com.orchestranetworks.addon.dama`) is reached only by `ReflectiveDamaAssets` and only
@@ -442,20 +432,6 @@ The right is checked first (no session: 401; a session with no Connectors right:
 | `ebx.connectors.mcp.maxJsonDepth` | `64` | Nesting depth of a message. | At each request |
 | `ebx.connectors.rest.maxBodyBytes` | `33554432` (32 MiB) | Largest body of the REST routes that take a document: webhook, `POST /config`, `/publish`, `/connectors/openapi`, `/templates/import`. | At each request |
 | `ebx.connectors.rest.maxJsonDepth` | `64` | Nesting depth of a JSON body on those routes. | At each request |
-| `ebx.connectors.json.maxStringLength` | unset: the largest of 20,000,000, `rest.maxBodyBytes`, `mcp.maxBodyBytes` and `ebx.connectors.http.maxResponseBytes` (134,217,728 with the defaults; unbounded when the HTTP ceiling is 0) | Longest JSON string, in characters, that any Jackson reader of the module accepts. See "Jackson read limits" below. | At start of the module |
-
-**Jackson read limits (lot 1.4.1, audit X3-08).** Jackson 2.15 and later refuses a JSON document nested deeper than 1000 levels, a number of more than 1000 characters, a name of more than 50,000 characters and a string of more than 20,000,000 characters (2.14 had no limit). What applies to this module:
-
-| Limit | Value | Choice |
-|---|---|---|
-| Depth of what a caller sends | 64 (`mcp.maxJsonDepth`, `rest.maxJsonDepth`) | checked before any parse, `400 CN_JSON_TOO_DEEP`; unchanged |
-| Depth of the answer of a called service (REST connector, language model, Kafka...) | 1000 (Jackson's) | kept; a deeper answer is not parsed into a tree (the raw text is kept; the caller sees a non-JSON answer), never a stack overflow |
-| Number length, name length | 1000, 50,000 (Jackson's) | kept; a body that passes the byte bound and holds a longer one is answered `400` with a JSON-RPC parse error `-32700` on the MCP entry |
-| String length | follows the byte bounds (134,217,728 by default), `ebx.connectors.json.maxStringLength` to set another | a document in base64 inside a JSON string (the `documents` operations) can exceed 20,000,000 characters on the REST routes (32 MiB) and in an answer (128 MiB); the byte bound of each entry stays the limit that governs |
-
-The string bound is set ONCE, at start, by the first statement of the registration listener, as the default of every Jackson reader created afterwards: the module's mapper, the agent's, the OpenAPI importer's (YAML included), the validators', the factory that counts depth, and the libraries
-of the war that use Jackson (Avro). Raising a body bound later without restarting the JVM does not raise it. `requestLimits.jackson` in `GET /v1/status` gives `version`, the four limits **the module's own reader carries**, `maxStringLengthSetting` (what the properties ask for)
-and `readersCarryTheSetting` (false: a reader was created before the bound was applied, or a body bound changed after the start). `JsonReadLimitsTest` (in the suite, twice: defaults and `-Debx.connectors.json.maxStringLength=1000`) prints the Jackson jar and version the tests loaded and lists every source that creates a reader; a new one fails the suite until it is covered.
 
 **Reading of the two lists `ebx.connectors.egress.privateExceptions` and `ebx.connectors.allowedHosts`** (audit X3-01). `file:` is required to read a file: `-D...privateExceptions=/etc/ebx/private.txt` (no prefix) is read as a plain list holding one entry that matches nothing, so no private target is allowed. The module does not guess: it says so. At each start the kernel log has one line per list that is set (`[connectors] ebx.connectors.egress.privateExceptions: N entries read from file … , M ignored`), a WARN when an entry looks like a path (starts with `/`, `~`, a drive letter, a backslash, or names an existing file: "the prefix file: is expected"), when entries can never match, or when the file is absent. `GET /v1/status` shows the same in `egress.privateExceptionsList` and `egress.allowListSource` (`source` = `unset`, `value` or `file`, `entries`, `ignored`, `looksLikePath`, `warning`).
 **Secret managers** (the Secrets table above, continued after the request bounds)
@@ -638,22 +614,20 @@ accepted (no field can be set); to be checked live.
 
 ### Preview functions (closed by default, decision of 2026-11-12; audit C3-03 to C3-06)
 
-Four functions that arrived after the October release stay in the code but are **closed** until the server administrator opens
-them (the fourth, `cdc`, since 1.4.2). One JVM property, `-Debx.connectors.preview=<words>`, a comma-separated list; the module reads it at each use, so a change
+Three functions that arrived after the October release stay in the code but are **closed** until the server administrator opens
+them. One JVM property, `-Debx.connectors.preview=<words>`, a comma-separated list; the module reads it at each use, so a change
 is taken at the next Tomcat start (it is a JVM option). It is not a setting stored in EBX: a designer cannot
 open anything from a screen.
 
 | Word | Opens | Closed means |
 |---|---|---|
 | `documents` | the connection type `documents`: reading PDF, DOCX and text, extraction, DAMA annotation, vision | no run of any operation of a `documents` connection, no seeded "Documents" connection |
-| `cdc` | Debezium change data capture through Kafka: the `cdc` operation of the `kafka` connector, as a feed (REST, MCP, screen, scheduled task, workflow step, in-JVM contract) and as a direct call (`connectors_call` previewing the next batch) | nothing of it runs: no `runCdc`, no feed on operation `cdc`, no direct preview, no read of the topic for CDC; the refusal comes before the broker is contacted. **Not concerned:** the ordinary Kafka operations `consume`, `peek`, `publish`, `catalog`, `profile`, `sample` and a `consume` feed (older than November): they stay open with every word closed |
-| `cdcMatching` | `matching=afterApply` and `matching=off` on a `cdc` feed (Match and Merge around a batch), and `publish=golden` on an outbound trigger. **It opens nothing without `cdc`**: matching works on capture batches and on the golden records of what they merged, so naming `cdcMatching` alone leaves it closed, and says so (below) | a `cdc` mapping that carries `matching=afterApply` or `matching=off` is refused when saved and when run; a trigger or setting with `publish=golden` is refused when it is registered (the model does not compile) and when it fires (the user's save is refused with the coded text, nothing is queued); a queued `publish=golden` row is not resolved |
+| `cdcMatching` | `matching=afterApply` and `matching=off` on a `cdc` feed (Match and Merge around a batch), and `publish=golden` on an outbound trigger | a `cdc` mapping that carries `matching=afterApply` or `matching=off` is refused when saved and when run; a queued `publish=golden` row is not resolved |
 | `redshift` | the connection type `redshift` | no run of any operation of a `redshift` connection |
 
 Absent, empty or misspelt means everything closed. The spelling is exact (`cdcMatching`, not `cdcmatching`); a word that is none of
-the four opens nothing and is logged once as a WARN (`names [...], which is not a preview function`). `cdcMatching` without `cdc` opens nothing: the start-up log says
-`names cdcMatching without cdc: cdcMatching opens nothing`, and `GET /ebx-connectors/rest/v1/status` shows `preview.cdcMatchingWithoutCdc: true`. The same block shows
-`preview.open`, `preview.closed`, `preview.unknownWords` and the property name; the start-up log has one line `preview functions open: ...`.
+the three opens nothing and is logged once as a WARN (`names [...], which is not a preview function`). `GET /ebx-connectors/rest/v1/status`
+shows `preview.open`, `preview.closed`, `preview.unknownWords` and the property name.
 
 What a user sees when a function is closed: the run, the call (`connectors_call`, `connectors_sync`, a scheduled task, a workflow
 task, a trigger send) ends with an error whose text starts with `[CN-PREVIEW-CLOSED]`, says in English then in French that the function is closed on
@@ -675,7 +649,7 @@ properties, with a `JDBC: ... is refused` error before any driver is loaded (the
 connection stored with such a URL, which could not have worked as designed, fails at its next use with that text.
 
 **To keep these functions on an instance that already uses them** (the test instance does), add before the first start of this version:
-`-Debx.connectors.preview=documents,cdc,cdcMatching,redshift` (only the words actually in use; `cdc` as soon as a capture feed runs, before 1.4.2 it was open), in `ebx.sh` AND in the Eclipse launcher
+`-Debx.connectors.preview=documents,cdcMatching,redshift` (only the words actually in use), in `ebx.sh` AND in the Eclipse launcher
 (`Start EBX Server.launch`), like `-Debx.connectors.egress.privateExceptions`. Check `GET /v1/status` → `preview.open` after the start.
 
 ## 5. What runs in the background
@@ -738,14 +712,7 @@ those nodes (`OriginValueAccessRule`) hide them in the screens, Data Services an
 `ConnectorRepository.outboundStates(session, ...)` / `ConflictResolver.page(session, ...)` leave out the rows of unreadable records.
 A value whose origin cannot be established (record deleted, dataset gone) is hidden; an administrator and the system user see all.
 A log line names dataspace, table and key but no dataset: every dataset of the dataspace holding that key must be readable.
-Since 1.4.2 the rule also covers `FieldProvenance.source` (where a value was read: document, page, quoted words, up to 2,000 characters) and `Conflict.comment` (the proposal's comment quotes that source, up to 500 characters;
-the steward's decision comment shares the column): a reader who cannot read the origin record no longer sees the words of a document there (audit C3-02, C2-03).
 `storeChanges` is off by default; values already stored are not removed (migration: `UPGRADE-ROLLBACK.md`).
-
-**What 1.4.2 closes with the preview words** (bilan 1.4.1, gap 1). Accepting a conflict whose field starts with `dama:` writes into DAMA: it is part of `documents` and answers `[CN-PREVIEW-CLOSED]` while that word is
-absent (the conflict stays open and acceptable once the word is added; rejecting it is not a DAMA write and is not refused). A trigger or setting with `publish=golden` is part of `cdcMatching` (which itself needs `cdc`): refused when
-registered and when it fires. The confidence envelope (`_minConfidence`, `_confidence`, `_sources` in a document a mapping reads) belongs to `documents`: while it is closed a document that carries those names is
-treated as it was before November (every rule writes, no proposal, no source kept); open, the three names are reserved for that function (CONTRACT.md, "Reserved names").
 
 Tables that grow with activity: `SyncLog` (one line per record call; 2,000-character message, 4,000-character
 `changes`), `FieldProvenance` (one row per field a connector wrote, key `dataspace, dataset, tablePath, recordKey,
@@ -785,11 +752,9 @@ Because retention is on by default, `ExecutionRun` and `SyncLog` purges mean a p
   field. `docs/UPGRADE-ROLLBACK.md` now says so. Before deploying a build, run
   `tools/schema_diff.py --git <installed> <new>` (or on the two extracted XSD): it exits 1 and lists every key change,
   removed field, removed table and type change.
-- `tools/upgrade_snapshot.py` takes a read-only snapshot through Data Services GET (credentials from `EBX_USER` and `EBX_PASSWORD`) and compares two snapshots. Since 1.4.2 the script
-  lives in the module (`ebx-connectors/tools/upgrade_snapshot.py`, shipped by `tools/install.sh` with the rest of the module; the file at the repository root only launches it) and covers **21 of the 27 tables**;
-  the 6 it leaves out are listed WITH their reason in the script (`EXCLUDED_TABLES`): `OutboundQueue` (the sender consumes its rows: count them by hand and let the queue drain before the upgrade) and the five
-  `Release*` tables (rewritten from `release-notes.xml` at every start). `src/test/python/verify_upgrade_snapshot.py` reads the model (`Connectors.xsd`) and FAILS when a table is neither captured nor excluded
-  with a reason, or when a primary key differs; it reads the script of the module it sits in, so a replay in a workspace never reads a copy left in `<workspace>/tools/`. It was not run on a real upgrade: not established.
+- `tools/upgrade_snapshot.py` (repository root) takes a read-only snapshot of 17 of the 27 tables (not `AccessRight`, `OutboundQueue`, `SeedMarker`, `Publication`, `Favorite`, `Release*`) through Data Services GET (credentials from
+  `EBX_USER` and `EBX_PASSWORD`) and compares two snapshots; `src/test/python/verify_upgrade_snapshot.py` tests it
+  offline. It was not run on a real upgrade: not established.
 - Libraries: replace the WAR as a unit with its `runtime-libs`. Do not mix.
 - Other modules: `ebx-mdm-factory` embeds `on-ebx-agent.jar` from this repository; upgrade both together.
 
@@ -808,15 +773,7 @@ After the start, check in the kernel log (`[connectors]` lines): `dataspace Conn
 `MCP server 'ebx-connectors' registered with the EBX MCP runtime (N tools)` or one of the "served by
 /ebx-connectors/rest/mcp" lines, `OpenLineage sink ...`, `marked N run(s) INTERRUPTED at startup`. Error lines:
 `installation failed`, `installation stopped: dataset Connectors uses the data model of another module`,
-`migration failed`, `stop of the background work incomplete`.
-**Up to 1.4.2 the installer's lines are NOT in the kernel log of a standard instance (corrected in 1.5.0)** (`dataspace Connectors created`, `seeded ...`, `seed markers recorded`,
-`-Debx.connectors.seed=none: ...`, `migration: ...`, `release notes seeded`, `packaged product profiles ready`, `perspective DataConnector installed`,
-`marked N run(s) INTERRUPTED`, and the errors `installation failed`, `installation stopped`, `dataset creation failed`, `migration failed`): they were
-written to the module's own category (`log.wbp.ebx-connectors.main`), which the standard `ebx.properties` sets to `FATAL, Console`, so a failed
-installation logged nothing (measured 2026-11-21 on a blank ON EBX 6.3.0-gp of the standard distribution with the 1.4.2 package: 27 `[connectors]`
-lines at the first start, 51 with the category opened; the 24 others were all INFO). On 1.4.2 and before, add
-`ebx.log4j.category.log.wbp= INFO, Console, ebxFile:kernel` to `ebx.properties` to see them, and check `installation.installerCompleted` in
-`GET /v1/status` in any case. Since 1.5.0 every start-up line goes to the kernel category (`LogCategoryTest` reads the sources). Then run `tools/smoke.sh` (section 2.4; `EXPECT_VERSION` set to the version you installed), and
+`migration failed`, `stop of the background work incomplete`. Then run `tools/smoke.sh` (section 2.4; `EXPECT_VERSION` set to the version you installed), and
 `POST /ebx-connectors/rest/mcp` `tools/list` as an
 administrator (23 tools: `ConnectorsTools` defines 23 and every guide and README now says 23),
 `GET /ebx-connectors/rest/v1/connectors`, and the "Connection catalog" screen. Compare row counts with the snapshot.
@@ -845,7 +802,7 @@ redacted (`***`) in everything the module keeps or returns.
 | `Too many asynchronous runs: 4 may run and 16 may wait ...` (HTTP 429) | The slots of section 3.1 are all taken; start again later or raise the two properties. |
 | `Mapping N (...) is already running (run R...)` (REST 409 on `async=true`, 422 on a synchronous start, MCP error, a failed scheduled task or workflow step) | A real run of that mapping is still going on this node (audit C-20). Nothing was read or written for the refused start. Wait, or stop the run named (`connectors_run_stop`); a scheduled task whose previous execution is still running fails with this message. |
 | `Checkpoint was advanced concurrently` | Two executions of one mapping on different nodes: the in-JVM lock of the line above does not cover them. |
-| `[CN-PREVIEW-CLOSED] ...` (run, call, scheduled task, workflow step, trigger send) | The function is a preview and closed: add the word it names (`documents`, `cdc`, `cdcMatching`, `redshift`; `cdcMatching` needs `cdc` too) to `-Debx.connectors.preview`, restart (section 4, "Preview functions"). |
+| `[CN-PREVIEW-CLOSED] ...` (run, call, scheduled task, workflow step, trigger send) | The function is a preview and closed: add the word it names (`documents`, `cdcMatching`, `redshift`) to `-Debx.connectors.preview`, restart (section 4, "Preview functions"). |
 | `CN_BODY_TOO_LARGE` (413), `CN_BATCH_TOO_LONG` (400), `CN_JSON_TOO_DEEP` (400); MCP error `-32600` | A request over a bound of section 3.1, "Request bounds"; the message names the property and the limit. |
 | 403 on `POST /rest/mcp` for an account that logs in | The account holds no Connectors right at all (READ is enough): section 4, "Who may call the module". |
 | `Google: serviceAccountFile is refused: ...` | The key file is outside `-Debx.connectors.secrets.dir`, or the property is unset: put the file there and name it relative to it, or use `serviceAccountJson`. |
@@ -875,15 +832,14 @@ redacted (`***`) in everything the module keeps or returns.
 
 ## 9. Known limits
 
-- **Embedded libraries (audit C2-15, lot L10, 2026-10-24).** `lz4-java-1.12.1.jar` (`at.yawk.lz4`: the `org.lz4` line stops at 1.8.1, a relocation POM with no jar; kafka-clients 3.9.2 itself declares `at.yawk.lz4` 1.10.1, and 1.10.x to 1.11.3 still carry advisories, OSV is clean from 1.11.4), netty 4.1.137.Final only (what `azure-core-http-netty` 1.16.6 declares; the 4.2-only `netty-codec-base`, `-compression`, `-marshalling`, `-protobuf` are gone, `reactor-netty` finds the compression codecs in the 4.1 `netty-codec`), tcnative 2.0.81.Final. Accepted advisories, in `runtime-libs/DEPS-KNOWN.txt`: `amqp-client` 5.35.0 (not looked at yet) and `h2` 2.1.212 (follows the server's H2). `couchbase-core-io` shades its own netty 4.1.108 under `com.couchbase.client.core.deps`: it does not meet the family above and OSV reports nothing on it. `jackson-datatype-jsr310-2.14.2.jar` is added because azure-core needs it to build a message and the server does not ship it; keep it at the same version as the other Jackson jars (2.18.12 since 1.4.1, checked against the .sha1 of Maven Central by the owner on 2026-11-12). **To update a jar:** download it and its `.sha1` / `.sha256` from `https://repo1.maven.org/maven2/` into an EMPTY folder, compare the digests, only then copy it here; replace the whole netty family at once; refresh `SHA256SUMS` and `MANIFEST.txt`, `THIRD-PARTY-NOTICES.md`; run `tools/deps_check.sh` (online: no unaccepted advisory) and `./build-test.sh` (its `RuntimeLibsLoadTest` loads the Azure Service Bus entry classes, one netty family and lz4 from `runtime-libs/` alone, offline); restart Tomcat.
+- **Embedded libraries (audit C2-15, lot L10, 2026-10-24).** `lz4-java-1.12.1.jar` (`at.yawk.lz4`: the `org.lz4` line stops at 1.8.1, a relocation POM with no jar; kafka-clients 3.9.2 itself declares `at.yawk.lz4` 1.10.1, and 1.10.x to 1.11.3 still carry advisories, OSV is clean from 1.11.4), netty 4.1.137.Final only (what `azure-core-http-netty` 1.16.6 declares; the 4.2-only `netty-codec-base`, `-compression`, `-marshalling`, `-protobuf` are gone, `reactor-netty` finds the compression codecs in the 4.1 `netty-codec`), tcnative 2.0.81.Final. Accepted advisories, in `runtime-libs/DEPS-KNOWN.txt`: `amqp-client` 5.35.0 (not looked at yet) and `h2` 2.1.212 (follows the server's H2). `couchbase-core-io` shades its own netty 4.1.108 under `com.couchbase.client.core.deps`: it does not meet the family above and OSV reports nothing on it. `jackson-datatype-jsr310-2.14.2.jar` is added because azure-core needs it to build a message and the server does not ship it; keep it at the exact Jackson version of the server `lib/` (2.14.2, read from `jackson-databind.jar`; Maven Central publishes no .sha256 for it, the .sha1 was checked). **To update a jar:** download it and its `.sha1` / `.sha256` from `https://repo1.maven.org/maven2/` into an EMPTY folder, compare the digests, only then copy it here; replace the whole netty family at once; refresh `SHA256SUMS` and `MANIFEST.txt`, `THIRD-PARTY-NOTICES.md`; run `tools/deps_check.sh` (online: no unaccepted advisory) and `./build-test.sh` (its `RuntimeLibsLoadTest` loads the Azure Service Bus entry classes, one netty family and lz4 from `runtime-libs/` alone, offline); restart Tomcat.
 
-- **Lot 1.4.1 (audit X3-08, 2026-11-12).** `jackson-*` 2.14.2 became 2.18.12, `snappy-java` 1.1.10.5 became 1.1.10.12, `proton-j` 0.34.1 became 0.35.0; `jackson-dataformat-yaml` 2.18.12 and `snakeyaml` 2.3 joined the war. Measured: `tools/deps_check.sh --require-osv` listed four unaccepted findings on 1.4.0 (jackson-core 3 advisories, jackson-databind 8 or more, snappy-java 3, proton-j 1) and none on 1.4.1 (73 jars asked; only the two accepted lines remain). OSV reports no advisory on the new versions at that date; that proves nothing about tomorrow, and the package gate asks again at every package.
 - **Open decisions on the bundled libraries (audit C3-11, state of 2026-11-12; no jar was changed, nothing was downloaded, the online check was not run).**
   1. *MySQL Connector/J 26.7.0* (`mysql-connector-j-26.7.0.jar`, also used by SingleStore): GPL-2.0 with the Oracle Universal FOSS Exception 1.0, or Oracle's commercial licence.
      `runtime-libs/THIRD-PARTY-NOTICES.md` itself says redistribution inside a non-GPL product "must be cleared before release", and nothing in the repository records that
      it was. **Open.** To decide: either obtain the opinion (or the commercial licence) and record it in the notices, or take the jar out of the war and have the customer supply
      the driver like Redshift (the `mysql` and `singlestore` types are then not registered until it is supplied; update the notices, `MANIFEST.txt` and `SHA256SUMS`).
-  2. *Seven jars never submitted to OSV. **Closed by lot 1.4.1**: `deps_check.py` now knows the groups and reads the Kafka version, and a jar it cannot query is a finding; none of the seven has an advisory (OSV, 2026-11-12). Text of 2026-11-12 morning follows.* `tools/deps_check.py` asks OSV only about a jar whose Maven group it knows and whose version it can read; it skips the others without a message:
+  2. *Seven jars never submitted to OSV.* `tools/deps_check.py` asks OSV only about a jar whose Maven group it knows and whose version it can read; it skips the others without a message:
      `bson-5.11.0`, `mongodb-driver-core-5.11.0`, `mongodb-driver-sync-5.11.0` (no group), `jna-5.13.0`, `jna-platform-5.17.0` (no group), `mysql-connector-j-26.7.0` (no group) and
      `kafka-clients.jar` (group known, version not read from its manifest; 3.9.2 per the notices). An advisory published on any of them, `kafka-clients` above all (it reads messages from a
      broker), cannot fail the dependency job. To decide: add the groups (`org.mongodb`, `net.java.dev.jna`, `com.mysql`), read the Kafka version, and make the check fail on a jar it cannot query.
@@ -1001,8 +957,8 @@ What 1.4.0 adds to run, and how far each piece has been proved. Detail: [CDC.md]
 
 | Function | State in 1.4.0 | Run on an instance? |
 |---|---|---|
-| Debezium capture into a table (`kafka` / `cdc`, deletes, flags, resume position) | **preview, word `cdc` (closed by default since 1.4.2; open in 1.4.0 and 1.4.1)** | 17 checks on the test instance, Kafka broker real, Debezium-format events published by the script; a real Debezium connector never |
-| Match and Merge around a batch (`matching=afterApply` / `off`), golden records out (`publish=golden`), no echo to the origin (`skipOrigin`) | preview, words `cdc` AND `cdcMatching` | never (scenario B8) |
+| Debezium capture into a table (`kafka` / `cdc`, deletes, flags, resume position) | **open** | 17 checks on the test instance, Kafka broker real, Debezium-format events published by the script; a real Debezium connector never |
+| Match and Merge around a batch (`matching=afterApply` / `off`), golden records out (`publish=golden`), no echo to the origin (`skipOrigin`) | preview, word `cdcMatching` | never (scenario B8) |
 | `documents` (PDF, DOCX, text, DAMA, `annotate`, vision) | preview, word `documents` | scenarios A1 to A3 (36 checks, real model); DAMA write-back and vision partly |
 | `redshift` | preview, word `redshift` | never |
 
@@ -1011,11 +967,10 @@ What 1.4.0 adds to run, and how far each piece has been proved. Detail: [CDC.md]
 strategy `VENDOR_CURSOR`, value = a JSON object `{"<topic>:<partition>": <last applied offset>}`), saved only after EBX applied the whole batch, so a failed
 batch is read again (at least once). The consumer never commits to the broker (group `<group.id>-cdc-no-commit`). **Restarting a feed from the beginning** = deleting
 that row. Two runs of one mapping are refused (section 8). A run-time input cannot change the mapping's settings (section 4). Watch `cdc.flows[]` in
-`GET /v1/status` (the flows are listed even while the function is closed; a closed flow does not run) (running now, saved position, age of the last applied batch) and the run message (`CDC: 9 event(s) -> 2 upsert(s), 2 delete(s)`); an old
+`GET /v1/status` (running now, saved position, age of the last applied batch) and the run message (`CDC: 9 event(s) -> 2 upsert(s), 2 delete(s)`); an old
 `savedAtAgeSeconds` on a flow that has events is the sign of a flow that cannot apply.
 
-**Known limits of capture, not fixed (audit C3-13 and C3-15, read in the code). They are limits of a function that is CLOSED by default since 1.4.2 (word `cdc`):
-they decide whether to open it, they are not corrected by this version. A real Debezium connector with a stop longer than the retention has never been tried.**
+**Known limits of capture, not fixed in 1.4.0 (audit C3-13, read in the code):**
 
 - *A retention gap is skipped without a word.* If the saved position is older than the first message the topic still holds, the read starts at that first
   message; the lost events (deletes included) are neither counted nor reported and the run is green. Keep the topic's retention longer than the longest stop of the flow;
@@ -1023,12 +978,9 @@ they decide whether to open it, they are not corrected by this version. A real D
 - *An unreadable message blocks the flow.* A message whose JSON is invalid, or a Debezium operation the module does not know, fails the batch before any write; the position does
   not move and the next run reads the same message again, until someone moves the position past it by editing the `SynchronizationCheckpoint` row (or removes the message
   from the topic). Nothing in `/v1/status` says it except the age of `savedAt`; the run history says why.
-- *The Kafka client of capture is created without the module's class loader* (C3-15): every other Kafka path of the connector sets it before creating a client, `executeCdc` and the
-  direct preview do not. Called from a scheduled task or a workflow step, the client resolves its classes with the loader of the calling thread, so the `kafka-clients` of the server `lib/`
-  (3.7.1) may answer instead of the module's (3.9.2). Not observed to fail; not measured.
 - *Not covered:* Avro or Protobuf values, Debezium transaction metadata, schema-change events, child tables (CDC.md, "Not covered").
 
-**Matching around a batch** (only with `cdc` AND `cdcMatching`, **never run on an instance**; audit C3-05). With `matching=afterApply` or `off` the module pauses the Match and Merge trigger of
+**Matching around a batch** (only with `cdcMatching`, **never run on an instance**; audit C3-05). With `matching=afterApply` or `off` the module pauses the Match and Merge trigger of
 the whole table (a persistent setting of the add-on, `pauseMatching`), writes the batch, resumes it, then matches the keys the batch wrote. Consequences to know: a record
 created or changed by someone else in that window is not matched by the trigger (paused) nor by the module; **if the JVM stops during the writes the table stays paused** and nothing
 resumes it at the next start (the module has no recovery for it): after any stop of the server during a capture run, check `get_matching_config` / the table settings of the

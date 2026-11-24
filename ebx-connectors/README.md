@@ -38,8 +38,8 @@ not in the war): [docs/OPERATIONS.md](docs/OPERATIONS.md) sections 1.1 and 2.6. 
 or in the module's `WEB-INF/lib`:
 
 - `ebx.jar` (standard ON EBX installation; `ebx-lib.jar` on FastTrack, the same jar) and `servlet-api.jar`: supplied by ON EBX and Tomcat, to compile against,
-- `jackson-core`, `jackson-databind`, `jackson-annotations` 2.18.12 (required) and `slf4j-api` 1.7.32: **carried by the war** (`runtime-libs/`), because a standard ON EBX `lib/` has none of them; a FastTrack `lib/` has them too and the war's copy wins (`tools/install.sh` puts them into a FastTrack workspace's `WEB-INF/lib`),
-- `jackson-dataformat-yaml` 2.18.12, `snakeyaml` 2.3 (OpenAPI specifications in YAML): carried by the war since 1.4.1,
+- `jackson-core`, `jackson-databind`, `jackson-annotations` 2.14.2 (required) and `slf4j-api` 1.7.32: **carried by the war** (`runtime-libs/`), because a standard ON EBX `lib/` has none of them; a FastTrack `lib/` has them too and the war's copy wins,
+- `jackson-dataformat-yaml`, `snakeyaml` (OpenAPI specifications in YAML, optional),
 - `kafka-clients` (Kafka connector, optional), `jsch` (SFTP connector, optional), JDBC drivers (optional).
 
 A connector type whose library is missing is simply not registered; the others keep working.

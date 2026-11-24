@@ -19,7 +19,7 @@
 <ul>
 <li>Core and databases: Salesforce · Apache Kafka · PostgreSQL · Greenplum · SingleStore · Firebird · IBM Db2 LUW · InterSystems IRIS · H2 · MySQL · SAP ASE · SAP HANA · Teradata · Vertica · Actian Avalanche / Vector · Actian Ingres · MonetDB</li>
 <li>Messaging, files and cloud data: RabbitMQ · Amazon SQS · Amazon SNS · Google Pub/Sub · SFTP · FTP / FTPS · Azure Queue Storage · Azure Table Storage · Google Sheets · Google Drive · Microsoft OneDrive</li>
-<li>Data platforms and repositories: Apache Cassandra · Azure Cosmos DB · MongoDB · Couchbase · Elasticsearch · CMIS · Hadoop WebHDFS / HttpFS · Apache Spark SQL · Cloudera Hive and Impala</li>
+<li>Data platforms and repositories: Apache Cassandra · Azure Cosmos DB · MongoDB · Couchbase · Elasticsearch · CMIS · Hadoop WebHDFS / HttpFS · Apache Spark SQL</li>
 <li>Document feed and CDC: Documents with AI extraction · Debezium CDC applied to EBX</li>
 <li>Document formats: Excel · Word DOCX extraction · Avro · Parquet deployment gate</li>
 <li>Business, catalog and reference data: GLEIF · Veeva Vault · Alation · Microsoft Purview · HCL Domino REST · MedPro evidence gate · ZoomInfo evidence gate</li>
@@ -149,7 +149,7 @@ mappings are created only when their table exists, with the rules whose fields e
 of the Connectors dataset warns when its dataset or table cannot be found, or when a rule or an input
 references a field the table does not have.</p>
 <p><strong>Libraries.</strong> The module only needs EBX and Jackson. Four connector types need an extra jar in the
-server's <code>lib</code>: Kafka (<code>kafka-clients</code>),
+server's <code>lib</code>: YAML OpenAPI import (<code>jackson-dataformat-yaml</code>, <code>snakeyaml</code>), Kafka (<code>kafka-clients</code>),
 SFTP (<code>jsch</code>), and the JDBC-based types (the database driver). Without the jar, the type is simply absent
 from the list. The reference guide, section 18, gives the Maven coordinates.</p>
 </blockquote>

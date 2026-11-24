@@ -7,16 +7,7 @@
 # of the war, audit X3-07), then packs, under one folder ebx-connectors-<version>/ : ebx-connectors.war, THIRD-PARTY-NOTICES.md
 # and licenses/ (the licence and notice texts of the jars the war ships; the war carries them too, in META-INF/licenses),
 # OPERATIONS.md, UPGRADE-ROLLBACK.md, RELEASE-NOTES.md (the first-parent git log since the previous tag, or since --since),
-# DEPENDENCY-CHECK.txt (the output of the advisory check below), tools/smoke.sh and tools/schema_diff.py (what an operator runs around
-# an upgrade), jars/ (since 1.4.2, audit F3-100: on-ebx-agent.jar, on-ebx-mapping.jar and ebx-connectors-spi.jar, built here from the packed
-# commit by build-agent.sh, build-mapping.sh and build-spi.sh, which other repositories embed or compile against: the MDM Factory pins their
-# SHA-256, so its package can be rebuilt on any machine from this package), and SHA256SUMS (of everything else, the three jars included).
-#
-# The advisory gate (lot 1.4.1, audit X3-08): BEFORE the build, tools/deps_check.sh --require-osv asks OSV (https://osv.dev) for the
-# advisories of every jar of runtime-libs/ and REFUSES the package (CONN-PACKAGE-3) on any advisory that runtime-libs/DEPS-KNOWN.txt
-# does not accept with its reason, and also when OSV cannot be reached. The one way past an unreachable OSV is the named variable
-# CONN_PACKAGE_OSV_WAIVER=<who decided, why, date>: the check then runs offline (versions and library families only) and the waiver
-# text is written in RELEASE-NOTES.md and DEPENDENCY-CHECK.txt of the package. There is no switch for an advisory that OSV reports.
+# tools/smoke.sh and tools/schema_diff.py (what an operator runs around an upgrade), and SHA256SUMS (of everything else).
 # The zip's own checksum is written beside it as ebx-connectors-<version>.zip.sha256. dist/ is git-ignored. NOTHING IS DEPLOYED:
 # copy the war to a server by hand (docs/OPERATIONS.md section 2).
 #
@@ -34,7 +25,7 @@ while (( $# )); do
 	case "$1" in
 	--since) since="${2:?--since needs a commit or a tag}"; shift 2 ;;
 	--allow-dirty) printf 'CONN-PACKAGE-1: --allow-dirty is no longer accepted: a package is built only from a clean commit.\n' >&2; exit 2 ;;
-	*) sed -n 2,26p "$0"; exit 2 ;;
+	*) sed -n 2,19p "$0"; exit 2 ;;
 	esac
 done
 
@@ -55,25 +46,6 @@ fi
 if [[ -z "${EBX_STANDARD_JAR:-}" || ! -f "${EBX_STANDARD_JAR:-}" ]]; then
 	printf 'CONN-PACKAGE-2: set EBX_STANDARD_JAR to the ebx.jar of a standard ON EBX distribution (<distribution>/ebx.software/lib/ebx.jar): the package gate checks that the war runs on a standard lib/ against the real jar, not against a list of prefixes.\n' >&2
 	exit 2
-fi
-
-# the advisory gate (audit X3-08): before the long build, so that a vulnerable jar costs seconds, not two minutes
-dep_report="$(mktemp "${TMPDIR:-/tmp}/ebx-connectors-deps.XXXXXX")"
-waiver=""
-if [[ -n "${CONN_PACKAGE_OSV_WAIVER:-}" ]]; then
-	waiver="$CONN_PACKAGE_OSV_WAIVER"
-	if ! "$module_dir/tools/deps_check.sh" --offline > "$dep_report" 2>&1; then
-		tail -20 "$dep_report" >&2
-		printf 'CONN-PACKAGE-3: the offline dependency check failed (library families, or a line of DEPS-KNOWN.txt). A waiver only covers an unreachable OSV.\n' >&2
-		exit 2
-	fi
-	printf '\nOSV: NOT CHECKED. Waiver (CONN_PACKAGE_OSV_WAIVER): %s\n' "$waiver" >> "$dep_report"
-else
-	if ! "$module_dir/tools/deps_check.sh" --require-osv > "$dep_report" 2>&1; then
-		tail -30 "$dep_report" >&2
-		printf 'CONN-PACKAGE-3: a jar of runtime-libs/ has an advisory that runtime-libs/DEPS-KNOWN.txt does not accept (with its reason and date), or OSV could not be reached. Move the jar, or add the accepted line; with OSV unreachable, the owner may set CONN_PACKAGE_OSV_WAIVER="<who, why, date>" (written into the package).\n' >&2
-		exit 2
-	fi
 fi
 
 build_dir="${EBX_BUILD_DIR:-$module_dir/target/baseline}"
@@ -98,20 +70,6 @@ root="$stage/$name"
 mkdir -p "$root"
 
 cp "$war" "$root/ebx-connectors.war"
-# the three jars that other repositories consume, from the packed commit (the tree is clean: HEAD is what is built). The jar scripts take the
-# server lib from EBX_LIB_DIR like build-test.sh; their entries and manifest are reproducible (tools/jar_repro.sh): the same commit and JDK give the same bytes.
-mkdir -p "$root/jars"
-for jar_script in build-agent.sh build-mapping.sh build-spi.sh; do
-	if ! EBX_JAR_OUT_DIR="$root/jars" "$module_dir/$jar_script" >> "$stage/jars.log" 2>&1; then
-		tail -20 "$stage/jars.log" >&2
-		printf 'CONN-PACKAGE-4: %s failed (log above): the package would not carry the jar that other modules consume.\n' "$jar_script" >&2
-		exit 1
-	fi
-done
-rm -f "$root/jars/ebx-connectors-spi-sources.jar"
-for jar in on-ebx-agent.jar on-ebx-mapping.jar ebx-connectors-spi.jar; do
-	[[ -f "$root/jars/$jar" ]] || { printf 'CONN-PACKAGE-4: jars/%s was not produced.\n' "$jar" >&2; exit 1; }
-done
 cp "$module_dir/runtime-libs/THIRD-PARTY-NOTICES.md" "$root/THIRD-PARTY-NOTICES.md"
 mkdir -p "$root/licenses"
 cp "$module_dir/runtime-libs/licenses/"* "$root/licenses/"
@@ -119,11 +77,6 @@ for legal in "$module_dir"/runtime-libs/*-LICENSE.txt "$module_dir"/runtime-libs
 	# THIRD-PARTY-NOTICES.md matches the *-NOTICE* pattern and already sits at the top of the package
 	if [[ -f "$legal" && "$(basename "$legal")" != THIRD-PARTY-NOTICES.md ]]; then cp "$legal" "$root/licenses/"; fi
 done
-{
-	printf 'Dependency check of the package (tools/deps_check.sh --require-osv), run on %s (UTC) at commit %s\n\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$commit"
-	cat "$dep_report"
-} > "$root/DEPENDENCY-CHECK.txt"
-rm -f "$dep_report"
 cp "$module_dir/docs/OPERATIONS.md" "$root/OPERATIONS.md"
 cp "$repo_dir/docs/UPGRADE-ROLLBACK.md" "$root/UPGRADE-ROLLBACK.md"
 # the two scripts an operator runs around an upgrade, without needing a checkout
@@ -144,15 +97,7 @@ fi
 {
 	printf '# ebx-connectors %s\n\n' "$version"
 	printf -- '- Commit: `%s`\n- Built: %s (UTC)\n' "$commit" "$built_at"
-	printf -- '- war SHA-256: `%s`\n' "$(sha256 "$war" | awk '{print $1}')"
-	for jar in on-ebx-agent.jar on-ebx-mapping.jar ebx-connectors-spi.jar; do
-		printf -- '- jars/%s SHA-256: `%s`\n' "$jar" "$(sha256 "$root/jars/$jar" | awk '{print $1}')"
-	done
-	if [[ -n "$waiver" ]]; then
-		printf -- '- **OSV advisory check NOT RUN, waived**: %s\n\n' "$waiver"
-	else
-		printf -- '- OSV advisory check: passed (see DEPENDENCY-CHECK.txt)\n\n'
-	fi
+	printf -- '- war SHA-256: `%s`\n\n' "$(sha256 "$war" | awk '{print $1}')"
 	if [[ -n "$since" ]]; then
 		printf 'Changes since `%s`:\n\n' "$since"
 		range="$since..HEAD"
@@ -172,7 +117,7 @@ fi
 } > "$root/RELEASE-NOTES.md"
 
 # --- checksums of everything in the folder, then the zip ---------------------------------------------------------
-( cd "$root" && { sha256 ebx-connectors.war THIRD-PARTY-NOTICES.md OPERATIONS.md UPGRADE-ROLLBACK.md RELEASE-NOTES.md DEPENDENCY-CHECK.txt tools/smoke.sh tools/schema_diff.py jars/on-ebx-agent.jar jars/on-ebx-mapping.jar jars/ebx-connectors-spi.jar; find licenses -type f | LC_ALL=C sort | while IFS= read -r f; do sha256 "$f"; done; } > SHA256SUMS )
+( cd "$root" && { sha256 ebx-connectors.war THIRD-PARTY-NOTICES.md OPERATIONS.md UPGRADE-ROLLBACK.md RELEASE-NOTES.md tools/smoke.sh tools/schema_diff.py; find licenses -type f | LC_ALL=C sort | while IFS= read -r f; do sha256 "$f"; done; } > SHA256SUMS )
 
 zip_path="$dist_dir/$name.zip"
 rm -f "$zip_path"

@@ -33,11 +33,10 @@ embed: `licenses/NOTICE-netty.txt`, `licenses/NOTICE-kafka.txt`,
 | `h2.jar` | H2 Database Engine 2.1.212 | MPL-2.0 or EPL-1.0 (dual); source: https://github.com/h2database/h2database | https://h2database.com/html/license.html |
 | `hawtbuf-1.11.jar` | FuseSource HawtBuf | Apache-2.0 | Apache-2.0.txt |
 | `jakarta.jms-api-2.0.3.jar` | Jakarta Messaging API | EPL-2.0 or GPL-2.0 with Classpath Exception; source: https://github.com/jakartaee/messaging | embedded |
-| `jackson-annotations-2.18.12.jar` | Jackson annotations 2.18.12 (FasterXML; the module's JSON layer; a standard ON EBX lib/ has none, ON EBX keeps a relocated private copy) | Apache-2.0 | embedded, Apache-2.0.txt |
-| `jackson-core-2.18.12.jar` | Jackson core 2.18.12 (FasterXML) | Apache-2.0 | embedded (LICENSE, NOTICE, FastDoubleParser and Schubfach licences), Apache-2.0.txt, NOTICE-jackson.txt |
-| `jackson-databind-2.18.12.jar` | Jackson databind 2.18.12 (FasterXML) | Apache-2.0 | embedded, Apache-2.0.txt |
-| `jackson-dataformat-yaml-2.18.12.jar` | Jackson YAML dataformat 2.18.12 (FasterXML; OpenAPI specifications in YAML) | Apache-2.0 | embedded, Apache-2.0.txt |
-| `jackson-datatype-jsr310-2.18.12.jar` | Jackson datatype JSR-310 (same version as the Jackson above; needed by azure-core) | Apache-2.0 | Apache-2.0.txt |
+| `jackson-annotations-2.14.2.jar` | Jackson annotations 2.14.2 (FasterXML; the module's JSON layer; a standard ON EBX lib/ has none, ON EBX keeps a relocated private copy) | Apache-2.0 | embedded, Apache-2.0.txt |
+| `jackson-core-2.14.2.jar` | Jackson core 2.14.2 (FasterXML) | Apache-2.0 | embedded, Apache-2.0.txt, NOTICE-jackson.txt |
+| `jackson-databind-2.14.2.jar` | Jackson databind 2.14.2 (FasterXML) | Apache-2.0 | embedded, Apache-2.0.txt |
+| `jackson-datatype-jsr310-2.14.2.jar` | Jackson datatype JSR-310 (same version as the Jackson above; needed by azure-core) | Apache-2.0 | Apache-2.0.txt |
 | `jna-5.13.0.jar` | Java Native Access | Apache-2.0 or LGPL-2.1 (dual, Apache-2.0 elected) | embedded |
 | `jna-platform-5.17.0.jar` | Java Native Access platform | Apache-2.0 or LGPL-2.1 (dual, Apache-2.0 elected) | embedded |
 | `jsch.jar` | JSch 2.28.7 (com.github.mwiede fork, maintained successor of JCraft JSch) | BSD-3-Clause | BSD-3-Clause-JSch.txt |
@@ -52,13 +51,12 @@ embed: `licenses/NOTICE-netty.txt`, `licenses/NOTICE-kafka.txt`,
 | `netty-*.jar` (all Netty 4.1.137.Final artifacts, including `netty-tcnative-*`) | The Netty Project | Apache-2.0 | Apache-2.0.txt, NOTICE-netty.txt; `netty-tcnative-boringssl-static-*` embedded (BoringSSL: OpenSSL / ISC licenses) |
 | `ojdbc8.jar` | Oracle JDBC driver 23.9.0.25.07 | Oracle Free Distribution, Hosting, and Use Terms and Conditions (redistribution allowed unmodified, with these terms) | embedded (`META-INF/license.txt`) |
 | `postgresql.jar` | PostgreSQL JDBC driver 42.7.13 | BSD-2-Clause | embedded |
-| `proton-j-0.35.0.jar` | Apache Qpid Proton-J 0.35.0 | Apache-2.0 | embedded |
+| `proton-j-0.34.1.jar` | Apache Qpid Proton-J | Apache-2.0 | embedded |
 | `qpid-proton-j-extensions-1.2.6.jar` | Qpid Proton-J extensions (Microsoft) | MIT | MIT-Microsoft.txt |
 | `reactive-streams-1.0.4.jar` | Reactive Streams | MIT-0 | MIT-0-reactive-streams.txt |
 | `reactor-core-3.7.19.jar` | Project Reactor core | Apache-2.0 | embedded |
 | `reactor-netty-core-1.2.18.jar` | Reactor Netty core | Apache-2.0 | embedded |
 | `reactor-netty-http-1.2.18.jar` | Reactor Netty HTTP | Apache-2.0 | embedded |
 | `slf4j-api-1.7.32.jar` | SLF4J API 1.7.32 (QOS.ch), API only, no binding: logging of the drivers (Kafka, ActiveMQ, AMQP, MSAL4J, Couchbase...) is a no-op unless the server supplies a binding | MIT | MIT-slf4j.txt |
-| `snakeyaml-2.3.jar` | SnakeYAML 2.3 (YAML parser of jackson-dataformat-yaml) | Apache-2.0 | Apache-2.0.txt |
-| `snappy-java.jar` | snappy-java 1.1.10.12 (Xerial) | Apache-2.0 | Apache-2.0.txt, NOTICE-snappy-java.txt |
+| `snappy-java.jar` | snappy-java (Xerial) | Apache-2.0 | Apache-2.0.txt, NOTICE-snappy-java.txt |
 | `zstd-jni.jar` | zstd-jni | BSD-2-Clause | BSD-2-Clause-zstd-jni.txt |

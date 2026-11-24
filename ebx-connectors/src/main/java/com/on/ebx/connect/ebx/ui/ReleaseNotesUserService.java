@@ -54,9 +54,8 @@ public final class ReleaseNotesUserService implements UserService<DatasetEntityS
 	private void writeReleaseNotes(final UserServicePaneWriter pWriter)
 	{
 		final List<Adaptation> releases = rows(this.dataset, ConnectorsPaths.RELEASE);
-		// newest first, on the date itself and the version number (ReleaseOrder says what the text of a date did to this page)
-		Collections.sort(releases, (a, b) -> ReleaseOrder.compare(releaseDate(a), text(a, ConnectorsPaths.Release.VERSION),
-			releaseDate(b), text(b, ConnectorsPaths.Release.VERSION)));
+		Collections.sort(releases, Comparator.comparing((Adaptation r) -> text(r, ConnectorsPaths.Release.RELEASE_DATE)).reversed()
+			.thenComparing(r -> text(r, ConnectorsPaths.Release.VERSION), Comparator.reverseOrder()));
 		pWriter.add("<link rel=\"stylesheet\" href=\"").add(pWriter.getURLForResource(ResourceType.STYLESHEET, "connect/release-notes.css")).add("?v=3\"/>");
 		pWriter.addJS_cr("function ftrnExportPdf(){var source=document.querySelector('.ftrn').cloneNode(true);"
 			+ "source.querySelectorAll('details').forEach(function(d){d.open=true;});"
@@ -111,8 +110,7 @@ public final class ReleaseNotesUserService implements UserService<DatasetEntityS
 		final String releaseTitle = version.startsWith("development-preview") ? message("releaseNotes.previewTitle") : text(pRelease, ConnectorsPaths.Release.TITLE);
 		pWriter.add("<article class=\"ftrn-release\"><div class=\"ftrn-title\"><div><span class=\"ftrn-version\">").add(escape(versionLabel))
 			.add("</span><span class=\"ftrn-status\">").add(escape(enumMessage("releaseNotes.status.", status))).add("</span><h2>")
-			.add(escape(releaseTitle)).add("</h2></div><time datetime=\"").add(escape(ReleaseOrder.isoDate(releaseDate(pRelease)))).add("\">")
-			.add(escape(ReleaseOrder.dateLabel(releaseDate(pRelease), this.locale)))
+			.add(escape(releaseTitle)).add("</h2></div><time>").add(escape(text(pRelease, ConnectorsPaths.Release.RELEASE_DATE)))
 			.add("</time></div><p class=\"ftrn-summary\">").add(escape(text(pRelease, ConnectorsPaths.Release.SUMMARY))).add("</p>");
 		if (!metrics.isEmpty())
 		{
@@ -192,12 +190,6 @@ public final class ReleaseNotesUserService implements UserService<DatasetEntityS
 		result.removeIf(row -> !pVersion.equals(text(row, pRelease)));
 		Collections.sort(result, Comparator.comparingInt(row -> number(row.get(pOrder))));
 		return result;
-	}
-
-	private static java.util.Date releaseDate(final Adaptation pRelease)
-	{
-		final Object value = pRelease.get(ConnectorsPaths.Release.RELEASE_DATE);
-		return value instanceof java.util.Date ? (java.util.Date) value : null;
 	}
 
 	private static List<Adaptation> rows(final Adaptation pDataset, final com.orchestranetworks.schema.Path pPath)

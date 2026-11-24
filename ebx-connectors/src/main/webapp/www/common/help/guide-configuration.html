@@ -606,7 +606,7 @@ un connecteur qui ne l'implémente pas ne peut simplement pas recevoir de public
 (<code>connectors_publish</code> répond une <code>ERROR</code> claire nommant le connecteur et son type).</p>
 <h3 id="34-creer-un-connecteur-depuis-une-specification-openapi">3.4 Créer un connecteur depuis une spécification OpenAPI</h3>
 <p>Le module lit une spécification <strong>OpenAPI 3</strong> (JSON, ou YAML grâce à <code>jackson-dataformat-yaml</code> et
-<code>snakeyaml</code>, que le WAR embarque depuis la 1.4.1 ; une spécification YAML de plus de 3 Mio est refusée) et en fait un connecteur de type <code>rest</code> :</p>
+<code>snakeyaml</code> dans le classpath de Tomcat) et en fait un connecteur de type <code>rest</code> :</p>
 <table>
 <thead>
 <tr>
@@ -2726,7 +2726,7 @@ sur une liste approuvée de procédures et traiter chaque appel comme une écrit
 <p>Le détail de chaque type (authentification, propriétés, format des réponses) est dans la description de
 son connecteur amorcé, et dans le README du module.</p>
 <h2 id="18-dependances-quel-jar-pour-quel-connecteur">18. Dépendances : quel jar pour quel connecteur</h2>
-<p>Le module lui-même n'a besoin que de l'API d'ON EBX (<code>ebx.jar</code>, fourni par ON EBX) et de Jackson 2.18.12 avec l'API SLF4J,
+<p>Le module lui-même n'a besoin que de l'API d'ON EBX (<code>ebx.jar</code>, fourni par ON EBX) et de Jackson 2.14.2 avec l'API SLF4J,
 que le WAR embarque dans son <code>WEB-INF/lib</code> (un <code>lib/</code> ON EBX standard n'a ni l'un ni l'autre). Toute autre bibliothèque est
 <strong>optionnelle</strong> : un type de connecteur dont la bibliothèque manque n'est simplement pas enregistré (le
 registre charge ces types sans bruit), les autres fonctionnent. Déposez les jars dans le <code>lib</code> partagé de
@@ -2745,8 +2745,8 @@ dans <code>ebx-connectors/WEB-INF/lib</code>, et ajoutez-les au <code>.classpath
 <tr>
 <td>Import OpenAPI en <strong>YAML</strong> (<code>rest</code> créé depuis une spécification YAML)</td>
 <td><code>jackson-dataformat-yaml</code>, <code>snakeyaml</code></td>
-<td><code>com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.18.12</code>, <code>org.yaml:snakeyaml:2.3</code></td>
-<td>embarquées par le WAR depuis la 1.4.1 (chargées par réflexion ; sans elles les spécifications JSON fonctionnent)</td>
+<td><code>com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.14.2</code>, <code>org.yaml:snakeyaml:1.33</code></td>
+<td>chargées par réflexion ; sans elles les spécifications JSON fonctionnent</td>
 </tr>
 <tr>
 <td><code>kafka</code></td>

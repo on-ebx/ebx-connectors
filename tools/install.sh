@@ -20,15 +20,8 @@
 # the build as EBX_BUILD_VERSION / EBX_BUILD_COMMIT (they end in version.properties and the WAR manifest, so
 # GET /ebx-connectors/rest/v1/status reports them).
 #
-# What is preserved in the copy: target/ is rebuilt by the build itself, dist/ is generated. src/main/webapp/WEB-INF/lib is
-# not copied by rsync (it holds jars that are not all in git) and is not deleted; since 1.4.1 (audit X3-08) the jars of
-# ebx-connectors/runtime-libs/ are put there by ebx-connectors/tools/sync_runtime_libs.py, so that the module runs on the
-# Jackson, snappy and proton it was compiled and tested with and not on an older copy left in the workspace: a jar missing
-# there is ADDED, another version of the same artifact is REPLACED, a jar of no known artifact (ebx-connectors-extension-sample.jar,
-# a customer's driver...) is LEFT untouched; the three lists are printed, and --dry-run shows them without writing. A jar that is
-# The workspace project's .classpath is NOT overwritten by the rsync (excluded) and is amended: Jackson lib entries before the server
-# project, so that Eclipse's builder compiles against Jackson 2.18 and not the server lib's 2.14.2; a copy .classpath.bak-<date> the first time.
-# A jar that is replaced is first copied to <workspace>/ebx-connectors/.runtime-libs-replaced/<time>/ (a rollback is a copy back).
+# What is preserved in the copy: target/ is rebuilt by the build itself, src/main/webapp/WEB-INF/lib holds runtime jars that
+# are not in git (kafka, lz4, snappy, zstd...) and is neither copied over nor deleted, dist/ is generated.
 # Never pipe this script into head: the pipe closes and the next echo kills it half way (field notes §15).
 set -euo pipefail
 
@@ -79,9 +72,6 @@ say "copy        $copy"
 rsync_args=(-a --delete
 	--exclude /target
 	--exclude /dist
-	--exclude /.runtime-libs-replaced
-	--exclude /.classpath
-	--exclude /.classpath.bak-*
 	--exclude /src/main/webapp/WEB-INF/lib
 	--exclude .DS_Store
 	--exclude __pycache__)
@@ -98,25 +88,19 @@ if [[ "$dry_run" == true ]]; then
 	else
 		say "   the copy does not exist yet: it would be created"
 	fi
-	say "1b. python3 ebx-connectors/tools/sync_runtime_libs.py --source runtime-libs --target \"$copy/src/main/webapp/WEB-INF/lib\"   (the jars below are what it would add, replace and leave)"
-	python3 -I "$module_src/tools/sync_runtime_libs.py" --source "$module_src/runtime-libs" --target "$copy/src/main/webapp/WEB-INF/lib" --classpath "$copy/.classpath" --dry-run | sed 's/^/   /'
 	say "2. cd \"$copy\" && EBX_LIB_DIR=\"$server_lib\" EBX_BUILD_DIR=\"$copy/target\" EBX_BUILD_VERSION=\"$version\" EBX_BUILD_COMMIT=\"$commit\" ./build-test.sh   (log: $log)"
 	say "   it rebuilds $copy/target (classes, test-classes, ebx-connectors.war) and runs the offline contract tests"
-	say "3. check $copy/target/classes/com/on/ebx/connect/version.properties = $version / $commit, and that WEB-INF/lib holds every jar of runtime-libs/ byte for byte (the jars it does not know are kept)"
+	say "3. check $copy/target/classes/com/on/ebx/connect/version.properties = $version / $commit, and that WEB-INF/lib kept its jars"
 	exit 0
 fi
 
 mkdir -p "$copy"
+jars_before="$(find "$copy/src/main/webapp/WEB-INF/lib" -maxdepth 1 -name '*.jar' 2>/dev/null | wc -l | tr -d ' ')"
 say "log         $log"
 {
 	echo "== rsync $(date)"
 	rsync "${rsync_args[@]}" "$module_src/" "$copy/"
 } >"$log" 2>&1 || { tail -20 "$log" >&2; fail "rsync failed, see $log"; }
-
-# the runtime jars of the module (Jackson, snappy, proton-j...) into the jars the Tomcat context mounts; unknown jars are never touched
-say "runtime jars of runtime-libs/ into $copy/src/main/webapp/WEB-INF/lib:"
-python3 -I "$module_src/tools/sync_runtime_libs.py" --source "$module_src/runtime-libs" --target "$copy/src/main/webapp/WEB-INF/lib" --classpath "$copy/.classpath" --backup "$copy/.runtime-libs-replaced/$(date +%Y%m%d-%H%M%S)" | tee -a "$log" \
-	|| fail "the runtime jars could not be put into WEB-INF/lib (see above); do not start Tomcat"
 
 say "building (about 90 s; the offline contract tests run as part of it)..."
 if ! ( cd "$copy" && echo "== build $(date)" && EBX_LIB_DIR="$server_lib" EBX_BUILD_DIR="$copy/target" \
@@ -135,11 +119,7 @@ got_commit="$(sed -n 's/^commit=//p' "$props")"
 classes="$(find "$copy/target/classes" -name '*.class' | wc -l | tr -d ' ')"
 [[ "$classes" -gt 0 ]] || fail "no class under $copy/target/classes"
 jars_after="$(find "$copy/src/main/webapp/WEB-INF/lib" -maxdepth 1 -name '*.jar' 2>/dev/null | wc -l | tr -d ' ')"
-for runtime_jar in "$module_src"/runtime-libs/*.jar; do
-	cmp -s "$runtime_jar" "$copy/src/main/webapp/WEB-INF/lib/$(basename "$runtime_jar")" \
-		|| fail "WEB-INF/lib does not hold $(basename "$runtime_jar") byte for byte after the installation"
-done
-[[ "$jars_after" -ge "$(find "$module_src/runtime-libs" -maxdepth 1 -name '*.jar' | wc -l | tr -d ' ')" ]] || fail "WEB-INF/lib holds fewer jars than runtime-libs/ ($jars_after)"
+[[ "$jars_after" -ge "$jars_before" ]] || fail "WEB-INF/lib lost jars ($jars_before before, $jars_after after)"
 
 say "installed ebx-connectors $version (commit ${commit:0:8}): $classes classes, $jars_after runtime jars in WEB-INF/lib, copy $copy"
 say "Start Tomcat (ebx.sh start); install and restart are two separate decisions."

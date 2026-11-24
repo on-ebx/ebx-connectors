@@ -398,7 +398,7 @@ un connecteur qui ne l'implémente pas ne peut simplement pas recevoir de public
 ### 3.4 Créer un connecteur depuis une spécification OpenAPI
 
 Le module lit une spécification **OpenAPI 3** (JSON, ou YAML grâce à `jackson-dataformat-yaml` et
-`snakeyaml`, que le WAR embarque depuis la 1.4.1 ; une spécification YAML de plus de 3 Mio est refusée) et en fait un connecteur de type `rest` :
+`snakeyaml` dans le classpath de Tomcat) et en fait un connecteur de type `rest` :
 
 | Dans la spécification | Dans le connecteur |
 |---|---|
@@ -1860,7 +1860,7 @@ son connecteur amorcé, et dans le README du module.
 
 ## 18. Dépendances : quel jar pour quel connecteur
 
-Le module lui-même n'a besoin que de l'API d'ON EBX (`ebx.jar`, fourni par ON EBX) et de Jackson 2.18.12 avec l'API SLF4J,
+Le module lui-même n'a besoin que de l'API d'ON EBX (`ebx.jar`, fourni par ON EBX) et de Jackson 2.14.2 avec l'API SLF4J,
 que le WAR embarque dans son `WEB-INF/lib` (un `lib/` ON EBX standard n'a ni l'un ni l'autre). Toute autre bibliothèque est
 **optionnelle** : un type de connecteur dont la bibliothèque manque n'est simplement pas enregistré (le
 registre charge ces types sans bruit), les autres fonctionnent. Déposez les jars dans le `lib` partagé de
@@ -1869,7 +1869,7 @@ dans `ebx-connectors/WEB-INF/lib`, et ajoutez-les au `.classpath` Eclipse du pro
 
 | Types de connecteurs | Bibliothèque | Coordonnées Maven (version testée) | Notes |
 |---|---|---|---|
-| Import OpenAPI en **YAML** (`rest` créé depuis une spécification YAML) | `jackson-dataformat-yaml`, `snakeyaml` | `com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.18.12`, `org.yaml:snakeyaml:2.3` | embarquées par le WAR depuis la 1.4.1 (chargées par réflexion ; sans elles les spécifications JSON fonctionnent) |
+| Import OpenAPI en **YAML** (`rest` créé depuis une spécification YAML) | `jackson-dataformat-yaml`, `snakeyaml` | `com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.14.2`, `org.yaml:snakeyaml:1.33` | chargées par réflexion ; sans elles les spécifications JSON fonctionnent |
 | `kafka` | `kafka-clients` (+ `slf4j-api`, embarqué par le WAR) | `org.apache.kafka:kafka-clients:3.6.1` | codecs de compression (`lz4-java`, `snappy-java`, `zstd-jni`) seulement si les topics les utilisent ; SASL/SSL par les propriétés du connecteur |
 | `sftp` | `jsch` | `com.github.mwiede:jsch:0.2.16` (ou `com.jcraft:jsch:0.1.55`) | mot de passe ou clé privée |
 | `redshift` | le pilote JDBC Amazon Redshift | `com.amazon.redshift:redshift-jdbc42:2.1.x` | copié à la main dans `WEB-INF/lib` ; la classe du pilote est chargée de là, jamais depuis une propriété du connecteur |

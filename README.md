@@ -27,7 +27,7 @@ the security model is the one an enterprise architect expects: secrets in a **va
 
 ## Highlights
 
-- **98 connector types** out of the box:
+- **96 connector types** out of the box:
   - *registers and data providers*: GLEIF, INSEE Sirene, INPI, VIES, Companies House, Handelsregister,
     OpenCorporates, D&B, Orbis, Creditsafe, OpenSanctions, openFDA;
   - *addresses*: Melissa, Loqate, BAN, Google Geocoding;
@@ -35,8 +35,7 @@ the security model is the one an enterprise architect expects: secrets in a **va
     SAP SuccessFactors, SAP Ariba, JD Edwards AIS, Oracle Fusion, Oracle NetSuite, HubSpot, ServiceNow,
     Workday, SharePoint Online;
   - *databases and data platforms*: PostgreSQL, MySQL, Oracle Database, SQL Server, Azure SQL, H2,
-    generic JDBC, Snowflake, Databricks, BigQuery, Cloudera Hive and Cloudera Impala (1.5.0, read-only,
-    played against Apache Hive only), Apache Spark SQL;
+    generic JDBC, Snowflake, Databricks, BigQuery;
   - *messaging*: Kafka, JMS, ActiveMQ, RabbitMQ, Azure Service Bus;
   - *files*: SFTP, S3, Azure Blob, Google Cloud Storage, and a manually uploaded CSV/JSON sample
     (declares a source's shape before a real connection exists);
@@ -77,13 +76,12 @@ the security model is the one an enterprise architect expects: secrets in a **va
   loopback and unresolvable hosts (exceptions in `-Debx.connectors.egress.privateExceptions`, `-Debx.connectors.egress.blockPrivate=false` switches it off),
   the refusal of secrets stored in clear (`-Debx.connectors.secrets.allowClear=true` accepts them again), the log retention purge, 90 days
   (`-Debx.connectors.log.retentionDays=0` turns it off). `GET /ebx-connectors/rest/v1/status` says which are on.
-- **Change data capture** (1.4.0, closed by default since 1.4.2 - word `cdc`): the `kafka` connector's `cdc` operation applies a topic of Debezium events (insert, update, delete) to an EBX table, saving
+- **Change data capture** (1.4.0): the `kafka` connector's `cdc` operation applies a topic of Debezium events (insert, update, delete) to an EBX table, saving
   its resume position only after EBX applied the batch ([`CDC.md`](ebx-connectors/docs/CDC.md)). Run on a live broker with Debezium-format events; a real Debezium
   connector has not been tried.
-- **Shipped closed (preview)**: the `documents` connector (PDF, Word and text read by an AI model, DAMA assets, images), Match and Merge around a
-  capture batch with golden records sent out (`cdcMatching`, which needs `cdc` too), Amazon Redshift, and, since 1.4.2, the Debezium capture itself (`cdc`). Each runs only when named in
-  `-Debx.connectors.preview=documents,cdc,cdcMatching,redshift`; until then it answers `[CN-PREVIEW-CLOSED]`. The capture's limits (a retention gap skipped without a word, an unreadable message that blocks the flow, a Kafka client
-  without the module's class loader) are limits of that closed function and are not corrected. See `ebx-connectors/docs/OPERATIONS.md` section 4 and the release notes.
+- **Shipped closed in 1.4.0 (preview)**: the `documents` connector (PDF, Word and text read by an AI model, DAMA assets, images), Match and Merge around a
+  capture batch with golden records sent out, and Amazon Redshift. Each runs only when named in `-Debx.connectors.preview=documents,cdcMatching,redshift`;
+  until then it answers `[CN-PREVIEW-CLOSED]`. See `ebx-connectors/docs/OPERATIONS.md` section 4 and the release notes.
 - **Extensible**: new connector types and secret resolvers from a jar (`ServiceLoader`), compiled
   against `ebx-connectors-spi.jar` (`ebx-connectors/build-spi.sh`).
 
@@ -98,7 +96,7 @@ carrying the glossary synonyms), Kafka on a local broker, the EBX connector agai
 itself, Slack, and the LLM connector with OpenAI and Ollama. The `mcp` connector type and its three
 seeded EBX connectors answer a connection test on the four EBX MCP servers.
 
-Most of the 98 connector types are covered by offline contract tests against recorded fixtures
+Most of the 96 connector types are covered by offline contract tests against recorded fixtures
 only, because no vendor account or live endpoint is used by the test suite (see below): Power BI,
 Collibra, Databricks, and the Gemini / Vertex AI, Azure OpenAI and Mistral providers, among others,
 have never been called for real. Treat a type as verified only once it is listed above.
@@ -106,9 +104,9 @@ have never been called for real. Treat a type as verified only once it is listed
 ## Requirements and build
 
 - ON EBX 6.x (developed on 6.3) on Tomcat 10. The ON EBX API (`ebx.jar` of a standard installation, `ebx-lib.jar` on FastTrack: the same jar) comes from your EBX
-  installation and is **not** part of this repository. A standard ON EBX `lib/` has neither Jackson nor SLF4J, so the war carries them (Jackson 2.18.12, SLF4J API 1.7.32),
+  installation and is **not** part of this repository. A standard ON EBX `lib/` has neither Jackson nor SLF4J, so the war carries them (Jackson 2.14.2, SLF4J API 1.7.32),
   together with the connector libraries (`kafka-clients`, `jsch`, the PostgreSQL, H2, Oracle, SQL Server and MySQL drivers, the messaging clients...):
-  `ebx-connectors/runtime-libs/` (73 jars, checksums and licences), packaged into the war and checked for self-sufficiency by the build
+  `ebx-connectors/runtime-libs/` (71 jars, checksums and licences), packaged into the war and checked for self-sufficiency by the build
   (`ebx-connectors/docs/OPERATIONS.md` section 1.1). The other JDBC drivers, Amazon Redshift's among them, are supplied by the
   customer (section 2.6 of the same guide).
 - Java 8 syntax, compiled with `javac --release 8`; no Maven is needed. See

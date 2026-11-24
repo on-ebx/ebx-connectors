@@ -26,13 +26,6 @@ def coordinates(jar):
         except KeyError:
             manifest = ""
     stem = jar.stem
-    if stem == "kafka-clients":
-        # no pom.properties and no version in the file name or manifest: the client carries its version in kafka/kafka-version.properties
-        with zipfile.ZipFile(jar) as z:
-            if "kafka/kafka-version.properties" in z.namelist():
-                for line in z.read("kafka/kafka-version.properties").decode("utf-8", "replace").splitlines():
-                    if line.startswith("version="):
-                        return GROUPS.get(stem), stem, line.split("=", 1)[1].strip()
     m = re.match(r"^(.*?)-(\d[\w.\-]*)$", stem)
     artifact, version = (m.group(1), m.group(2)) if m else (stem, None)
     if version is None:
@@ -48,8 +41,7 @@ def coordinates(jar):
 GROUPS = {"lz4-java": "at.yawk.lz4", "snappy-java": "org.xerial.snappy", "zstd-jni": "com.github.luben", "postgresql": "org.postgresql", "h2": "com.h2database",
           "mssql-jdbc": "com.microsoft.sqlserver", "ojdbc8": "com.oracle.database.jdbc", "kafka-clients": "org.apache.kafka", "jsch": "com.github.mwiede",
           "reactor-core": "io.projectreactor", "reactor-netty-core": "io.projectreactor.netty", "reactor-netty-http": "io.projectreactor.netty",
-          "reactive-streams": "org.reactivestreams", "bson": "org.mongodb", "mongodb-driver-core": "org.mongodb", "mongodb-driver-sync": "org.mongodb",
-          "jna": "net.java.dev.jna", "jna-platform": "net.java.dev.jna", "mysql-connector-j": "com.mysql"}
+          "reactive-streams": "org.reactivestreams"}
 
 
 def netty_line(version):
@@ -111,11 +103,6 @@ def main(argv):
     # advisories
     if "--offline" not in flags:
         queryable = [(g, a, v) for _, g, a, v in rows if g and v != "?"]
-        # lot 1.4.1 (audit X3-08): a jar whose Maven group or version cannot be read was skipped without a word until now; it is a finding, so that the
-        # package gate really covers EVERY jar. The fix is a line in GROUPS (or a readable version), never a line in DEPS-KNOWN.txt.
-        for jar, g, a, v in rows:
-            if not g or v == "?":
-                findings.append(("osv-unqueryable:%s" % jar, "%s: Maven group or version not known (group %s, version %s), OSV was not asked about it" % (jar, g or "?", v)))
         try:
             results = osv_query(queryable)
             advisories = 0

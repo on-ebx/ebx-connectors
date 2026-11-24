@@ -507,7 +507,6 @@ public final class ConnectorsInstaller
 	{
 		if (pDataset.getSchemaNode().getNode(ConnectorsPaths.RELEASE) == null) return;
 		final int[] created = new int[5];
-		final int[] statusUpdated = new int[1];
 		final ProcedureResult result = ProgrammaticService.createForSession(pSession, pDataset.getHome()).execute(new Procedure()
 		{
 			@Override
@@ -529,13 +528,6 @@ public final class ConnectorsInstaller
 						if (release.releaseDate != null && !release.releaseDate.isEmpty()) header.setValueFromXsString(release.releaseDate, ConnectorsPaths.Release.RELEASE_DATE);
 						header.setValue(release.status, ConnectorsPaths.Release.STATUS); header.setValue(release.title, ConnectorsPaths.Release.TITLE); header.setValue(release.summary, ConnectorsPaths.Release.SUMMARY);
 						pContext.doCreateOccurrence(header, releases); created[0]++;
-					}
-					else if (PackagedReleaseNotes.updatePackagedStatus(ownership, existing.getString(ConnectorsPaths.Release.STATUS), release.status))
-					{
-						// the one value of an installed packaged row that follows the notes: which release is the current one
-						final ValueContextForUpdate header = pContext.getContext(existing.getAdaptationName());
-						header.setValue(release.status, ConnectorsPaths.Release.STATUS);
-						pContext.doModifyContent(existing, header); statusUpdated[0]++;
 					}
 
 					for (final PackagedReleaseNotes.Item item : release.items)
@@ -584,11 +576,7 @@ public final class ConnectorsInstaller
 			}
 		});
 		if (result.hasFailed()) pLog.error("[connectors] release-note seed failed: " + result.getExceptionFullMessage(java.util.Locale.ENGLISH));
-		else
-		{
-			if (created[0] + created[1] + created[2] + created[3] + created[4] > 0) pLog.info("[connectors] release notes seeded: " + created[0] + " release(s), " + created[1] + " item(s), " + created[2] + " metric(s), " + created[3] + " pass status row(s), " + created[4] + " pass step(s)");
-			if (statusUpdated[0] > 0) pLog.info("[connectors] release notes: status of " + statusUpdated[0] + " installed release(s) brought to the packaged notes");
-		}
+		else if (created[0] + created[1] + created[2] + created[3] + created[4] > 0) pLog.info("[connectors] release notes seeded: " + created[0] + " release(s), " + created[1] + " item(s), " + created[2] + " metric(s), " + created[3] + " pass status row(s), " + created[4] + " pass step(s)");
 	}
 
 	private static boolean releaseChildExists(final AdaptationTable pTable, final Object[] pValues, final Path[] pPaths)
@@ -2139,14 +2127,6 @@ public final class ConnectorsInstaller
 					"Bounded Hadoop-compatible file access through a non-redirecting HTTPS WebHDFS/HttpFS gateway.", new String[0][]);
 				created[0] += add(pContext, pDataset, "SparkSQL", "Apache Spark SQL", "spark-sql", "jdbc:hive2://HOST:10000/default;ssl=true", "BASIC", null, null, todo, todo,
 					"Read-only bounded Spark SQL through an administrator-managed HiveServer2/Thrift JDBC endpoint.", new String[][] { { "driver", "org.apache.hive.jdbc.HiveDriver" }, { "max.rows", "1000" } });
-				created[0] += add(pContext, pDataset, "ClouderaHive", "Cloudera Hive", "cloudera-hive",
-					"jdbc:hive2://HOST/default;transportMode=http;httpPath=cliservice;ssl=true", "BASIC", null, null, todo, todo,
-					"Read-only bounded HiveQL, catalogue scan, profiling and sampling on the Hive tables of a Cloudera platform, with a user name and a password over TLS.",
-					new String[][] { { "driver", "org.apache.hive.jdbc.HiveDriver" }, { "max.rows", "1000" } });
-				created[0] += add(pContext, pDataset, "ClouderaImpala", "Cloudera Impala", "cloudera-impala",
-					"jdbc:impala://HOST:443/default;AuthMech=3;transportMode=http;httpPath=cliservice;SSL=1", "BASIC", null, null, todo, todo,
-					"Read-only bounded Impala SQL, catalogue scan and sampling on the Impala tables of a Cloudera platform, with a user name and a password over TLS.",
-					new String[][] { { "driver", "com.cloudera.impala.jdbc.Driver" }, { "max.rows", "1000" } });
 				created[0] += add(pContext, pDataset, "DominoREST", "HCL Domino REST API", "domino-rest", "https://HOST/api/v1", "BEARER", null, todo, null, null,
 					"Read-only Domino REST API Basis discovery and bounded DQL without proprietary runtime libraries.", new String[][] { { "scope", todo } });
 				created[0] += add(pContext, pDataset, "Firebird", "Firebird", "firebird", "jdbc:firebirdsql://HOST:3050/DATABASE", "BASIC", null, null, todo, todo,
@@ -2324,7 +2304,7 @@ public final class ConnectorsInstaller
 					new String[][] { { "tenant", todo }, { "clientId", todo }, { "refreshToken", todo } });
 				// ---- platforms
 				ConnectorsInstaller.connectorIfMissing(pContext, pDataset, "BigQuery", "Google BigQuery", "bigquery", "https://bigquery.googleapis.com", "NONE", null, null, null, null,
-					"BigQuery jobs.query with @named parameters. Service account key: property serviceAccountFile (a file of the folder named by -Debx.connectors.secrets.dir, written relative to it; any other path is refused) or serviceAccountJson. Properties project, dataset, location.",
+					"BigQuery jobs.query with @named parameters. Service account key: property serviceAccountFile (path on the EBX server) or serviceAccountJson. Properties project, dataset, location.",
 					new String[][] { { "project", todo }, { "dataset", todo }, { "serviceAccountFile", todo } });
 				ConnectorsInstaller.connectorIfMissing(pContext, pDataset, "JDBC", "JDBC database", "jdbc", "jdbc:postgresql://localhost:5432/mdm", "BASIC", null, null, todo, todo,
 					"Any database with a JDBC driver in ebx-ps-fasttrack-server/lib (PostgreSQL, H2, Oracle, SQL Server, MySQL, Azure Synapse, Redshift...). "
@@ -2394,7 +2374,7 @@ public final class ConnectorsInstaller
 				ConnectorsInstaller.connectorIfMissing(pContext, pDataset, "AzureBlob", "Azure Blob Storage", "azure-blob", "https://ACCOUNT.blob.core.windows.net", "API_KEY_HEADER", null, todo,
 					null, null, "Azure Blob container with a SAS token (apiKey) or a bearer token. Property container, root.", new String[][] { { "container", todo } });
 				ConnectorsInstaller.connectorIfMissing(pContext, pDataset, "GCS", "Google Cloud Storage", "gcs", "https://storage.googleapis.com", "NONE", null, null, null, null,
-					"GCS bucket. Service account key: property serviceAccountFile (a file of the folder named by -Debx.connectors.secrets.dir, written relative to it; any other path is refused) or serviceAccountJson. Property bucket, root.",
+					"GCS bucket. Service account key: property serviceAccountFile or serviceAccountJson. Property bucket, root.",
 					new String[][] { { "bucket", todo }, { "serviceAccountFile", todo } });
 				// ---- inbound webhook
 				if (ConnectorsInstaller.connectorIfMissing(pContext, pDataset, "Webhook", "Inbound webhook", "webhook", "", "NONE", null, null, null, null,

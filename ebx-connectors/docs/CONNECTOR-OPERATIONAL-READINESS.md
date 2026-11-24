@@ -6,7 +6,7 @@ A connector is `ACCEPTED` only after the existing EBX record completes the entir
 
 Required lifecycle: `catalog → configuration → connection → discovery → preview → mapping → dryRun → execution → readBack → monitoring → recovery → restore`.
 
-Catalog total: **98**. Status distribution: ACCEPTED: 1, CHARTERED: 9, CREDENTIAL_BLOCKED: 1, EBX_LIVE_PENDING: 21, FIXTURE_READY: 1, NOT_STARTED: 65.
+Catalog total: **96**. Status distribution: ACCEPTED: 1, CHARTERED: 9, CREDENTIAL_BLOCKED: 1, EBX_LIVE_PENDING: 21, FIXTURE_READY: 1, NOT_STARTED: 63.
 
 | Connector type | Operational status | Evidence | Next action |
 |---|---|---|---|
@@ -26,8 +26,6 @@ Catalog total: **98**. Status distribution: ACCEPTED: 1, CHARTERED: 9, CREDENTIA
 | bigquery | NOT_STARTED | — | Create an acceptance charter and disposable fixture. |
 | cassandra | EBX_LIVE_PENDING | acceptance-lab charters/cassandra.yaml; Apache Cassandra 4.1.8 fixture and live Data connector inspection on 2026-09-17 (placeholder endpoint/account, not connected, page.size=100, tls=true, no flows or outbound allow-list) | Configure the existing record with approved TLS contact points, protected service credentials, local-datacenter policy and an outbound host allow-list, then add governed reusable prepared-CQL flows before CASSANDRA-01..08; do not create acceptance-only records or disable TLS. |
 | chat-webhook | NOT_STARTED | — | Create an acceptance charter and disposable fixture. |
-| cloudera-hive | NOT_STARTED | — | Create an acceptance charter and disposable fixture. |
-| cloudera-impala | NOT_STARTED | — | Create an acceptance charter and disposable fixture. |
 | cmis | CHARTERED | acceptance-lab charters/cmis.yaml | Provision an approved repository fixture and execute the charter. |
 | collibra | NOT_STARTED | — | Create an acceptance charter and disposable fixture. |
 | companies-house | NOT_STARTED | — | Create an acceptance charter and disposable fixture. |

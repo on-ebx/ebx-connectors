@@ -107,8 +107,7 @@ text to check the evidence against, so every value read from an image is unverif
 - **Prompt injection through the image** (text written in a picture that addresses the model): the answer is still
   limited to the declared fields and the closed tag list, goes through the mapping rules, and is capped as above. The
   system prompt says to treat text in the image as data.
-- The bytes are never logged or kept. The synchronisation log keeps the record and the proposals, **not** the size of the image nor the token counts: the module reads the counts the provider answers
-  (`LlmConnector.Answer`) but does not write them anywhere (corrected in 1.4.2; read the consumption on the provider's side).
+- The bytes are never logged or kept; the synchronisation log keeps the asset, the size and the token counts.
 
 ## 7. Limits and cost
 
@@ -119,7 +118,7 @@ text to check the evidence against, so every value read from an image is unverif
 | Pages of a scanned PDF | `max.pages`, default 20, ceiling 100; within `max.bytes` (20 MB) |
 | Images per call | 1. A record with several assets gives one call each |
 | Time | a vision call takes seconds: the trigger stays non-blocking by default (background, after commit); `blocking=true` is discouraged on image fields |
-| Cost | one image is roughly 1,000–2,000 input tokens depending on its size and the provider; the module does not record the counts (read them on the provider's side) |
+| Cost | one image is roughly 1,000–2,000 input tokens depending on its size and the provider; the log keeps the counts |
 
 ## 8. Tests
 

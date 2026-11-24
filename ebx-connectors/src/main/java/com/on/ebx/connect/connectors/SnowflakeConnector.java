@@ -695,7 +695,7 @@ public final class SnowflakeConnector extends AbstractRestConnector implements T
 			if (pType.startsWith("timestamp") && text.matches("-?[0-9]+(\\.[0-9]+)?"))
 			{
 				final long seconds = new BigDecimal(text).longValue();
-				return Json.fromJava(com.on.ebx.connect.core.CatalogOperations.dateTime(java.time.LocalDateTime.ofEpochSecond(seconds, 0, java.time.ZoneOffset.UTC)));
+				return Json.fromJava(java.time.LocalDateTime.ofEpochSecond(seconds, 0, java.time.ZoneOffset.UTC).toString());
 			}
 			if ("variant".equals(pType) || "object".equals(pType) || "array".equals(pType))
 			{

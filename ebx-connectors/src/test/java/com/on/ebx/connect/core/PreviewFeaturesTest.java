@@ -33,9 +33,6 @@ public final class PreviewFeaturesTest
 			registryServesWhenOpen();
 			mappingsWithClosedMatching();
 			queuedGoldenRefusedWhenClosed();
-			cdcClosedByDefault();
-			publishGoldenRefusedWithoutCdcMatching();
-			damaConflictRefusedWhenDocumentsClosed();
 			statusBlock();
 			cdcRuntimeInputs();
 			seededDocumentsConnection();
@@ -68,17 +65,12 @@ public final class PreviewFeaturesTest
 			System.setProperty(PreviewFeatures.PROPERTY, " " + wanted.word() + " ");
 			for (final PreviewFeatures.Feature feature : PreviewFeatures.Feature.values())
 			{
-				// cdcMatching works on the batches of the CDC and on what they merge: alone it opens nothing (1.4.2)
-				final boolean expected = feature == wanted && wanted != PreviewFeatures.Feature.CDC_MATCHING;
-				check(PreviewFeatures.isOpen(feature) == expected, "word " + wanted.word() + " must open only itself, saw " + feature.word());
+				check(PreviewFeatures.isOpen(feature) == (feature == wanted), "word " + wanted.word() + " must open only itself, saw " + feature.word());
 			}
 		}
 		System.setProperty(PreviewFeatures.PROPERTY, "documents, redshift");
 		check(PreviewFeatures.isOpen(PreviewFeatures.Feature.DOCUMENTS) && PreviewFeatures.isOpen(PreviewFeatures.Feature.REDSHIFT)
-			&& !PreviewFeatures.isOpen(PreviewFeatures.Feature.CDC_MATCHING) && !PreviewFeatures.isOpen(PreviewFeatures.Feature.CDC), "a list opens exactly its words");
-		System.setProperty(PreviewFeatures.PROPERTY, "cdc,cdcMatching");
-		check(PreviewFeatures.isOpen(PreviewFeatures.Feature.CDC) && PreviewFeatures.isOpen(PreviewFeatures.Feature.CDC_MATCHING)
-			&& !PreviewFeatures.isOpen(PreviewFeatures.Feature.DOCUMENTS), "cdc and cdcMatching together open both, and only them");
+			&& !PreviewFeatures.isOpen(PreviewFeatures.Feature.CDC_MATCHING), "a list opens exactly its words");
 	}
 
 	private static void misspeltWordsOpenNothing()
@@ -221,16 +213,6 @@ public final class PreviewFeaturesTest
 		check(PreviewFeatures.publishGoldenRequested(" Golden ") && !PreviewFeatures.publishGoldenRequested("record") && !PreviewFeatures.publishGoldenRequested(null),
 			"which publish values ask for the golden record");
 		System.setProperty(PreviewFeatures.PROPERTY, "cdcMatching");
-		try
-		{
-			PreviewFeatures.requireMappingAllowed("cdc", other);
-			throw new AssertionError("cdcMatching alone must open nothing");
-		}
-		catch (final ConnectorException expected)
-		{
-			check(expected.getMessage().contains(PreviewFeatures.CODE), "coded: " + expected.getMessage());
-		}
-		System.setProperty(PreviewFeatures.PROPERTY, "cdc,cdcMatching");
 		PreviewFeatures.requireMappingAllowed("cdc", other); // opened: accepted
 	}
 
@@ -252,97 +234,14 @@ public final class PreviewFeaturesTest
 		}
 	}
 
-	/** Audit C3-13, C3-15 (1.4.2): the simple CDC is closed with its own word; the ordinary Kafka reads are not. */
-	private static void cdcClosedByDefault() throws Exception
-	{
-		System.clearProperty(PreviewFeatures.PROPERTY);
-		try
-		{
-			PreviewFeatures.requireOperation("kafka", "cdc");
-			throw new AssertionError("the cdc operation ran while closed");
-		}
-		catch (final ConnectorException expected)
-		{
-			check(expected.getMessage().startsWith("[" + PreviewFeatures.CODE + "] ") && expected.getMessage().contains("cdc") && expected.getMessage().contains("fermée sur ce serveur"),
-				"coded and bilingual: " + expected.getMessage());
-		}
-		// the frontier: consume, peek, publish and the catalog operations of Kafka are older than November and stay open with every word closed
-		for (final String operation : new String[] { "consume", "peek", "publish", "catalog", "profile", "sample" })
-		{
-			PreviewFeatures.requireOperation("kafka", operation);
-			check(PreviewFeatures.featureOfOperation("kafka", operation) == null, operation + " is not a preview operation");
-		}
-		PreviewFeatures.requireOperation("jdbc", "cdc"); // another type has no such operation: not this gate's business
-		// the second door of a CDC run, reached by the feed dispatcher whatever the surface (REST, MCP, screen, schedule, workflow, in-JVM contract)
-		for (final String closedWords : new String[] { "documents,redshift", "cdcMatching" })
-		{
-			System.setProperty(PreviewFeatures.PROPERTY, closedWords);
-			try
-			{
-				PreviewFeatures.requireOperation("kafka", "cdc");
-				throw new AssertionError("cdc opened by " + closedWords);
-			}
-			catch (final ConnectorException expected)
-			{
-				check(expected.getMessage().contains(PreviewFeatures.CODE), "still refused with " + closedWords);
-			}
-		}
-		System.setProperty(PreviewFeatures.PROPERTY, "cdc");
-		PreviewFeatures.requireOperation("kafka", "cdc");
-	}
-
-	/** Audit C3-05 (1.4.2): a trigger or a setting with publish=golden is refused when cdcMatching is closed, and when it is named without cdc. */
-	private static void publishGoldenRefusedWithoutCdcMatching() throws Exception
-	{
-		for (final String words : new String[] { "", "documents", "cdc", "cdcMatching" })
-		{
-			if (words.isEmpty()) System.clearProperty(PreviewFeatures.PROPERTY); else System.setProperty(PreviewFeatures.PROPERTY, words);
-			try
-			{
-				PreviewFeatures.requirePublishAllowed(" golden ");
-				throw new AssertionError("publish=golden accepted with '" + words + "'");
-			}
-			catch (final ConnectorException expected)
-			{
-				check(expected.getMessage().startsWith("[" + PreviewFeatures.CODE + "] ") && expected.getMessage().contains("cdcMatching"), "coded: " + expected.getMessage());
-			}
-			PreviewFeatures.requirePublishAllowed("record");
-			PreviewFeatures.requirePublishAllowed(null);
-		}
-		System.setProperty(PreviewFeatures.PROPERTY, "cdc,cdcMatching");
-		PreviewFeatures.requirePublishAllowed("golden");
-	}
-
-	/** Bilan 1.4.1 gap 1 (1.4.2): accepting a dama: proposal writes into DAMA, which the documents function owns. */
-	private static void damaConflictRefusedWhenDocumentsClosed()
-	{
-		System.clearProperty(PreviewFeatures.PROPERTY);
-		final String field = DamaProposals.PREFIX + "file/0b9d3c1e-1111-2222-3333-444455556666/metadata/TITLE";
-		final String refusal = ConflictResolver.assetRefusal(field);
-		check(refusal != null && refusal.startsWith("[" + PreviewFeatures.CODE + "] ") && refusal.contains("documents"), "closed: a dama: conflict is refused, coded: " + refusal);
-		check(ConflictResolver.assetRefusal("./name") == null, "an ordinary field is not this gate's business");
-		System.setProperty(PreviewFeatures.PROPERTY, "cdc,cdcMatching,redshift");
-		check(ConflictResolver.assetRefusal(field) != null, "other words do not open it");
-		System.setProperty(PreviewFeatures.PROPERTY, "documents");
-		check(ConflictResolver.assetRefusal(field) == null, "opened: the proposal can be accepted");
-	}
-
 	private static void statusBlock()
 	{
 		System.setProperty(PreviewFeatures.PROPERTY, "redshift,oops");
 		final ObjectNode status = PreviewFeatures.status();
 		check(PreviewFeatures.PROPERTY.equals(status.path("property").asText()), "status names the property");
 		check(status.path("open").size() == 1 && "redshift".equals(status.path("open").get(0).asText()), "open: " + status.path("open"));
-		check(status.path("closed").size() == 3 && status.path("closed").toString().contains("documents") && status.path("closed").toString().contains("cdcMatching")
-			&& status.path("closed").toString().contains("\"cdc\""), "closed: " + status.path("closed"));
-		check(!status.path("cdcMatchingWithoutCdc").asBoolean(true), "no warning when cdcMatching is not named");
-		System.setProperty(PreviewFeatures.PROPERTY, "cdcMatching");
-		final ObjectNode alone = PreviewFeatures.status();
-		check(alone.path("open").size() == 0 && alone.path("closed").toString().contains("cdcMatching") && alone.path("cdcMatchingWithoutCdc").asBoolean(false),
-			"cdcMatching without cdc opens nothing and the status says so: " + alone);
-		System.setProperty(PreviewFeatures.PROPERTY, "cdc,cdcMatching");
-		check(!PreviewFeatures.status().path("cdcMatchingWithoutCdc").asBoolean(true) && PreviewFeatures.status().path("open").size() == 2, "both words: both open");
-		System.setProperty(PreviewFeatures.PROPERTY, "redshift,oops");
+		check(status.path("closed").size() == 2 && status.path("closed").toString().contains("documents") && status.path("closed").toString().contains("cdcMatching"),
+			"closed: " + status.path("closed"));
 		check(status.path("unknownWords").size() == 1 && "oops".equals(status.path("unknownWords").get(0).asText()), "unknown: " + status.path("unknownWords"));
 	}
 

@@ -1,15 +1,9 @@
-# Jars that the war must carry byte for byte, because a standard ON EBX lib/ does not supply them (audit X3-07, 2026-11-12; moved to Jackson 2.18.12 by lot 1.4.1, audit X3-08, 2026-11-12).
+# Jars that the war must carry byte for byte, because a standard ON EBX lib/ does not supply them (audit X3-07, 2026-11-12).
 # tools/check_war_selfcontained.py compares the copy INSIDE the built war with this list; a different hash, or a missing jar, fails the build and the package.
 # Format: <sha256>  <file in WEB-INF/lib>
 # To move to another version: copy the new jars into this folder, update this file, SHA256SUMS, MANIFEST.txt and THIRD-PARTY-NOTICES.md together (README.md), and rebuild.
-# jackson-dataformat-yaml and snakeyaml are pinned because the OpenAPI YAML import reaches them by reflection: a YAML factory taken from a server lib/ that has another Jackson cannot be cast to the module's JsonFactory.
-# snappy-java, proton-j: pinned so that a build can never ship the versions the advisories of audit X3-08 name (1.1.10.5 and 0.34.1).
-367afb4be3efa8a1636200b5faefb67d7d0a1b730f64ec55a971229cb673bc23  jackson-core-2.18.12.jar
-02b62d64819bc1dbad7f1195c805f950ab3dceef1a479d0e9c55d99b7a04c255  jackson-databind-2.18.12.jar
-143b94dd8caa3d5eb4417672f7d00472cec33626cbcb0fd35f0616de0dbccabf  jackson-annotations-2.18.12.jar
-bfea00e5943be62b8d126fa679fb607f3ae2c0e0c6495477c866a715bb54a04e  jackson-datatype-jsr310-2.18.12.jar
-a9ac98af0e0a3e3f2e9491abb8b55a1b431415397ce4e5e215622755a4506871  jackson-dataformat-yaml-2.18.12.jar
-63a76fe66b652360bd4c2c107e6f0258daa7d4bb492008ba8c26fcd230ff9146  snakeyaml-2.3.jar
-1c03ce77b3f2e926c25a952612e372404d80bc88c6c8052bede964804fabd732  snappy-java.jar
-4d52a792cc36a8c3e99fe9b03e01f4b9d3f2f004d74bcf4f2ea7ad14387464c1  proton-j-0.35.0.jar
+b5d37a77c88277b97e3593c8740925216c06df8e4172bbde058528df04ad3e7a  jackson-core-2.14.2.jar
+501d3abce4d18dcc381058ec593c5b94477906bba6efbac14dae40a642f77424  jackson-databind-2.14.2.jar
+2c6869d505cf60dc066734b7d50339f975bd3adc635e26a78abb71acb4473c0d  jackson-annotations-2.14.2.jar
+75651b65733ed94e4e28e4ba0817218d93e71e8a7f06f6ab3662752974d2bcae  jackson-datatype-jsr310-2.14.2.jar
 3624f8474c1af46d75f98bc097d7864a323c81b3808aa43689a6e1c601c027be  slf4j-api-1.7.32.jar

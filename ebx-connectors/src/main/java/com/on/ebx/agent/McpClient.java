@@ -240,7 +240,7 @@ public final class McpClient
 			}
 			catch (final IOException ex)
 			{
-				throw McpClient.unreadable(this.url, ex);
+				throw new McpException("Unreadable answer from " + this.url + ": " + ex, ex);
 			}
 		}
 		HttpURLConnection connection = null;
@@ -297,11 +297,6 @@ public final class McpClient
 		}
 		catch (final IOException ex)
 		{
-			// the server answered but its answer could not be READ: that is not "unreachable" (audit F3-100)
-			if (ex instanceof com.fasterxml.jackson.core.JsonProcessingException)
-			{
-				throw McpClient.unreadable(this.url, ex);
-			}
 			throw new McpException("MCP server unreachable at " + this.url + ": " + ex, ex);
 		}
 		finally
@@ -311,25 +306,6 @@ public final class McpClient
 				connection.disconnect();
 			}
 		}
-	}
-
-	/**
-	 * The failure of reading an answer that arrived. A Jackson read bound (StreamConstraintsException, Jackson 2.15 and later: nesting 1000,
-	 * number 1000 characters, name 50,000, string 20,000,000 by default) is {@link McpException.Kind#RESPONSE_OVER_LIMIT}; anything else
-	 * that is not JSON is {@link McpException.Kind#UNREADABLE_ANSWER}. Found by the class name, so that a Jackson older than 2.15 still loads this class.
-	 */
-	static McpException unreadable(final String pUrl, final IOException pCause)
-	{
-		for (Class<?> type = pCause.getClass(); type != null; type = type.getSuperclass())
-		{
-			if ("com.fasterxml.jackson.core.exc.StreamConstraintsException".equals(type.getName()))
-			{
-				return new McpException(McpException.Kind.RESPONSE_OVER_LIMIT, "MCP answer from " + pUrl
-					+ " goes beyond a read bound of the JSON reader (the server answered, it is not unreachable): " + pCause.getMessage()
-					+ " - raise the bound in the reader's configuration or ask the tool for a smaller answer", pCause);
-			}
-		}
-		return new McpException(McpException.Kind.UNREADABLE_ANSWER, "Unreadable answer from " + pUrl + " (the server answered, it is not unreachable): " + pCause, pCause);
 	}
 
 	/** The answer to our request among the events of a stream: a server may send notifications and requests of its own first. */

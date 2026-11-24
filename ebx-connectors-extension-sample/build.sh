@@ -22,8 +22,8 @@ if [[ -z "$EBX_API_JAR" ]]; then
 fi
 # Jackson: the copies the module's war ships when this folder sits beside ebx-connectors/, else the server lib's
 RT="$HERE/../ebx-connectors/runtime-libs"
-if [[ -f "$RT/jackson-databind-2.18.12.jar" ]]; then
-	JACKSON="$RT/jackson-core-2.18.12.jar:$RT/jackson-databind-2.18.12.jar:$RT/jackson-annotations-2.18.12.jar"
+if [[ -f "$RT/jackson-databind-2.14.2.jar" ]]; then
+	JACKSON="$RT/jackson-core-2.14.2.jar:$RT/jackson-databind-2.14.2.jar:$RT/jackson-annotations-2.14.2.jar"
 else
 	JACKSON="$LB/jackson-core.jar:$LB/jackson-databind.jar:$LB/jackson-annotations.jar"
 fi

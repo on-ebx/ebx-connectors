@@ -465,11 +465,6 @@ public final class ConflictResolver
 		}
 		if (DamaProposals.isAssetPath(pConflict.getString(ConnectorsPaths.Conflict.FIELD_PATH)))
 		{
-			final String closed = ConflictResolver.assetRefusal(pConflict.getString(ConnectorsPaths.Conflict.FIELD_PATH));
-			if (closed != null)
-			{
-				return new Outcome(false, closed);
-			}
 			return this.acceptOnAsset(pSession, pConflict, found, pComment);
 		}
 		final Adaptation record = this.recordOf(pConflict);
@@ -610,20 +605,6 @@ public final class ConflictResolver
 		}
 		return this.close(pSession, pConflict, found, ConflictResolver.REJECTED, pComment);
 		}
-	}
-
-	/**
-	 * Why a conflict on this field cannot be accepted, or null: a {@code dama:} proposal writes into DAMA, which belongs to the {@code documents}
-	 * preview function (closed by default, audit C3-05 and bilan 1.4.1 gap 1). The conflict row stays open; opening the function makes it
-	 * acceptable again.
-	 */
-	static String assetRefusal(final String pFieldPath)
-	{
-		if (!DamaProposals.isAssetPath(pFieldPath))
-		{
-			return null;
-		}
-		return PreviewFeatures.isOpen(PreviewFeatures.Feature.DOCUMENTS) ? null : PreviewFeatures.closedMessage(PreviewFeatures.Feature.DOCUMENTS);
 	}
 
 	/**

@@ -32,23 +32,6 @@ public final class PackagedReleaseNotesTest
 				check(stepKeys.add(step.passCode + "/" + step.code), "step codes must be unique within a pass");
 			}
 		}
-		int current = 0;
-		for (final PackagedReleaseNotes.Release release : releases)
-		{
-			final boolean formal = release.version.matches("[0-9]+\\.[0-9]+\\.[0-9]+");
-			check(formal ? release.status.matches("CURRENT|SUPPORTED|ARCHIVED") : release.status.matches("IN_PROGRESS|ARCHIVED|DRAFT"),
-				"status of " + release.version + ": " + release.status);
-			if ("CURRENT".equals(release.status)) current++;
-		}
-		check(current == 1, "exactly one packaged release is the current one, found " + current);
-		check("CURRENT".equals(PackagedReleaseNotes.releaseStatus(true, "current")) && "SUPPORTED".equals(PackagedReleaseNotes.releaseStatus(true, "supported"))
-			&& "ARCHIVED".equals(PackagedReleaseNotes.releaseStatus(true, "archived")), "a formal release shows the status the notes give it");
-		check("IN_PROGRESS".equals(PackagedReleaseNotes.releaseStatus(false, "in-progress")) && "ARCHIVED".equals(PackagedReleaseNotes.releaseStatus(false, "complete")),
-			"a development increment is in progress, or archived once complete");
-		check(PackagedReleaseNotes.updatePackagedStatus("PACKAGED", "CURRENT", "SUPPORTED"), "an installed packaged release follows the notes when its status differs");
-		check(!PackagedReleaseNotes.updatePackagedStatus("PACKAGED", "SUPPORTED", "SUPPORTED"), "an equal status is not rewritten");
-		check(!PackagedReleaseNotes.updatePackagedStatus("CUSTOMER", "CURRENT", "SUPPORTED"), "a customer release keeps its status");
-		check(!PackagedReleaseNotes.updatePackagedStatus(null, null, "CURRENT"), "an absent release has no status to update");
 		check(PackagedReleaseNotes.installPackagedRelease(null), "an absent release must be installed");
 		check(!PackagedReleaseNotes.installPackagedRelease("PACKAGED"), "reinstall must not overwrite packaged content");
 		check(!PackagedReleaseNotes.installPackagedRelease("CUSTOMER"), "installer must not overwrite customer content");

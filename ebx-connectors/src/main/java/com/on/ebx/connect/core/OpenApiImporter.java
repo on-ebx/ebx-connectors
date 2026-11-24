@@ -73,7 +73,7 @@ public final class OpenApiImporter
 		}
 		catch (final ClassNotFoundException ex)
 		{
-			throw new ConnectorException("OpenAPI: YAML needs jackson-dataformat-yaml.jar and snakeyaml.jar (the war carries them in WEB-INF/lib; they are missing from this installation); send JSON instead");
+			throw new ConnectorException("OpenAPI: YAML needs jackson-dataformat-yaml.jar and snakeyaml.jar in the Tomcat lib directory; send JSON instead");
 		}
 		catch (final Exception ex)
 		{

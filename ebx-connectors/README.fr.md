@@ -28,11 +28,11 @@ Le nom du module, `ebx-connectors`, n'a ni espace ni caractère spécial : les c
 
 ## Dépendances
 
-Le WAR construit par `build-test.sh` embarque dans `WEB-INF/lib` les bibliothèques de `runtime-libs/` (Jackson 2.18.12, API SLF4J 1.7.32, Kafka, JSch, pilotes...) : un `lib/` ON EBX standard n'a ni Jackson ni SLF4J (détail : `docs/OPERATIONS.md` sections 1.1 et 2.6). Pour compiler depuis les sources, dans le classpath commun de Tomcat (`lib/`) ou dans `WEB-INF/lib` du module :
+Le WAR construit par `build-test.sh` embarque dans `WEB-INF/lib` les bibliothèques de `runtime-libs/` (Jackson 2.14.2, API SLF4J 1.7.32, Kafka, JSch, pilotes...) : un `lib/` ON EBX standard n'a ni Jackson ni SLF4J (détail : `docs/OPERATIONS.md` sections 1.1 et 2.6). Pour compiler depuis les sources, dans le classpath commun de Tomcat (`lib/`) ou dans `WEB-INF/lib` du module :
 
 - `ebx.jar` (installation ON EBX standard ; `ebx-lib.jar` sous FastTrack, même jar) et `servlet-api.jar` (fournis par ON EBX et Tomcat),
-- `jackson-core`, `jackson-databind`, `jackson-annotations` 2.18.12 (obligatoires ; embarqués par le WAR, la copie du WAR l'emporte sur celle d'un `lib/` FastTrack ; `tools/install.sh` les dépose dans le `WEB-INF/lib` d'un workspace FastTrack),
-- `jackson-dataformat-yaml` 2.18.12, `snakeyaml` 2.3 (import de spécifications OpenAPI en YAML) : embarqués par le WAR depuis la 1.4.1,
+- `jackson-core`, `jackson-databind`, `jackson-annotations` 2.14.2 (obligatoires ; embarqués par le WAR, la copie du WAR l'emporte sur celle d'un `lib/` FastTrack),
+- `jackson-dataformat-yaml`, `snakeyaml` (import de spécifications OpenAPI en YAML, optionnel),
 - `kafka-clients` (connecteur Kafka, optionnel), `jsch` (connecteur SFTP, optionnel), pilotes JDBC (optionnel).
 
 Aucune dépendance au module FastTrack ni au toolbox presales.

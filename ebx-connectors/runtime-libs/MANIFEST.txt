@@ -1,6 +1,5 @@
 # Jars replaced by audit lot L10 (C2-15), downloaded 2026-10-24 from https://repo1.maven.org/maven2/ ; each jar was checked against the .sha1 AND .sha256 published next to it before it entered this folder.
 # Format: groupId:artifactId:version | file | sha256 (the SHA256SUMS file lists every jar of the folder).
-# Lot 1.4.1 (audit X3-08, 2026-11-12): Jackson 2.14.2 -> 2.18.12 (11 OSV advisories), snappy-java 1.1.10.5 -> 1.1.10.12 (3), proton-j 0.34.1 -> 0.35.0 (1); jackson-dataformat-yaml 2.18.12 and snakeyaml 2.3 added (OpenAPI YAML import, until now read from a Tomcat lib/ that has Jackson 2.14). Jars downloaded from https://repo1.maven.org/maven2/ on 2026-11-12 by the owner, SHA-1 checked against Maven Central; the sha256 below are those the lot verified before copying. All Java 8 bytecode, Apache-2.0.
 # Dropped: lz4-java.jar (org.lz4:lz4-java 1.8.0), netty-codec-base / netty-codec-compression / netty-codec-marshalling / netty-codec-protobuf 4.2.17.Final (4.2-only artifacts; the 4.1 netty-codec holds the compression codecs), every netty 4.2.17 and 4.1.135 jar.
 io.netty:netty-buffer:4.1.137.Final | netty-buffer-4.1.137.Final.jar | f474b14c7734f15e0540394cb6f39d67777b7581a42919e4ac89d253d4efd929
 io.netty:netty-codec:4.1.137.Final | netty-codec-4.1.137.Final.jar | 9987b6a660b0a6b1f0d791485dae33180b3d1c63687c006fe6d3fd025e9e3798
@@ -22,14 +21,10 @@ io.netty:netty-resolver-dns-native-macos:4.1.137.Final | netty-resolver-dns-nati
 io.netty:netty-transport-native-epoll:4.1.137.Final | netty-transport-native-epoll-4.1.137.Final-linux-x86_64.jar | 185db6053e0e9573d36fa4eb6567b26139afaa4daa7bf5a068e661568304542b
 io.netty:netty-transport-native-kqueue:4.1.137.Final | netty-transport-native-kqueue-4.1.137.Final-osx-x86_64.jar | 29f96e4f350df9467e5cf49e83c0be27a094a6a1f6dfc1bf0e0be9af84333729
 at.yawk.lz4:lz4-java:1.12.1 | lz4-java-1.12.1.jar | c75bfbc6980e8b90ee76c75ec5b67058b6b9bfa1e19af6a3cf75dccde533e750
-com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.12 | jackson-datatype-jsr310-2.18.12.jar | bfea00e5943be62b8d126fa679fb607f3ae2c0e0c6495477c866a715bb54a04e   (same Jackson line as core and databind; azure-core needs it to build a message)
+com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.14.2 | jackson-datatype-jsr310-2.14.2.jar | 75651b65733ed94e4e28e4ba0817218d93e71e8a7f06f6ab3662752974d2bcae   (L10 addendum: exactly the Jackson 2.14.2 of the server lib; azure-core needs it to build a message)
 # Added by audit X3-07 (2026-11-12), so that the war runs on a standard ON EBX 6.3.0-gp lib/ (ebx.jar, database driver, jakarta.mail), which has neither Jackson nor SLF4J.
 # Copied byte for byte from the lib/ of the FastTrack server (EBX_LIB_DIR); sha256 pinned in PINNED-WAR-JARS.txt, which the build checks inside the built war.
-com.fasterxml.jackson.core:jackson-core:2.18.12 | jackson-core-2.18.12.jar | 367afb4be3efa8a1636200b5faefb67d7d0a1b730f64ec55a971229cb673bc23
-com.fasterxml.jackson.core:jackson-databind:2.18.12 | jackson-databind-2.18.12.jar | 02b62d64819bc1dbad7f1195c805f950ab3dceef1a479d0e9c55d99b7a04c255
-com.fasterxml.jackson.core:jackson-annotations:2.18.12 | jackson-annotations-2.18.12.jar | 143b94dd8caa3d5eb4417672f7d00472cec33626cbcb0fd35f0616de0dbccabf
+com.fasterxml.jackson.core:jackson-core:2.14.2 | jackson-core-2.14.2.jar | b5d37a77c88277b97e3593c8740925216c06df8e4172bbde058528df04ad3e7a
+com.fasterxml.jackson.core:jackson-databind:2.14.2 | jackson-databind-2.14.2.jar | 501d3abce4d18dcc381058ec593c5b94477906bba6efbac14dae40a642f77424
+com.fasterxml.jackson.core:jackson-annotations:2.14.2 | jackson-annotations-2.14.2.jar | 2c6869d505cf60dc066734b7d50339f975bd3adc635e26a78abb71acb4473c0d
 org.slf4j:slf4j-api:1.7.32 | slf4j-api-1.7.32.jar | 3624f8474c1af46d75f98bc097d7864a323c81b3808aa43689a6e1c601c027be   (MIT; API only, no binding: SLF4J 1.7 prints one "Failed to load class org.slf4j.impl.StaticLoggerBinder" notice to stderr and defaults to no-op logging)
-com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.18.12 | jackson-dataformat-yaml-2.18.12.jar | a9ac98af0e0a3e3f2e9491abb8b55a1b431415397ce4e5e215622755a4506871
-org.yaml:snakeyaml:2.3 | snakeyaml-2.3.jar | 63a76fe66b652360bd4c2c107e6f0258daa7d4bb492008ba8c26fcd230ff9146   (the version jackson-dataformat-yaml 2.18.12 declares)
-org.xerial.snappy:snappy-java:1.1.10.12 | snappy-java.jar | 1c03ce77b3f2e926c25a952612e372404d80bc88c6c8052bede964804fabd732   (the file keeps its unversioned name, like kafka-clients.jar; the version is in its manifest and pom.properties)
-org.apache.qpid:proton-j:0.35.0 | proton-j-0.35.0.jar | 4d52a792cc36a8c3e99fe9b03e01f4b9d3f2f004d74bcf4f2ea7ad14387464c1   (azure-core-amqp 2.12.1 declares 0.34.1; 0.35.0 is the fixed release)
