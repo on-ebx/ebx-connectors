@@ -677,9 +677,6 @@ export JAVA_TOOL_OPTIONS="-Debx.connectors.egress.blockPrivate=false -Debx.conne
 	com.on.ebx.connect.connectors.JdbcTimestampTextTest
 
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" \
-	com.on.ebx.connect.ebx.ui.ReleaseOrderTest
-
-"$java_bin" -cp "$test_classes:$main_classes:$classpath" \
 	com.on.ebx.connect.connectors.DominoRestConnectorTest
 
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" \

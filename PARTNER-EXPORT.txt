@@ -1,3 +1,3 @@
-Exported from EBX-Connectors commit c6d95687641c4f0fbfb4d2144a8b1f09c96a7fa7
-Merge fix/release-page-order-and-dates: the release-notes page lists the newest release first and writes its date as a date
+Exported from EBX-Connectors commit e1e9986313af93834fff075c1accf454fb1c0a88
+Merge release/1.5.0: Cloudera Hive and Impala connections, Spark SQL repaired on the Hive driver, timestamps with their seconds, the installer in the kernel log
 This repository is generated: every sync replaces its whole content. A change made here is lost at the next sync.

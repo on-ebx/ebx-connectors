@@ -507,7 +507,6 @@ public final class ConnectorsInstaller
 	{
 		if (pDataset.getSchemaNode().getNode(ConnectorsPaths.RELEASE) == null) return;
 		final int[] created = new int[5];
-		final int[] statusUpdated = new int[1];
 		final ProcedureResult result = ProgrammaticService.createForSession(pSession, pDataset.getHome()).execute(new Procedure()
 		{
 			@Override
@@ -529,13 +528,6 @@ public final class ConnectorsInstaller
 						if (release.releaseDate != null && !release.releaseDate.isEmpty()) header.setValueFromXsString(release.releaseDate, ConnectorsPaths.Release.RELEASE_DATE);
 						header.setValue(release.status, ConnectorsPaths.Release.STATUS); header.setValue(release.title, ConnectorsPaths.Release.TITLE); header.setValue(release.summary, ConnectorsPaths.Release.SUMMARY);
 						pContext.doCreateOccurrence(header, releases); created[0]++;
-					}
-					else if (PackagedReleaseNotes.updatePackagedStatus(ownership, existing.getString(ConnectorsPaths.Release.STATUS), release.status))
-					{
-						// the one value of an installed packaged row that follows the notes: which release is the current one
-						final ValueContextForUpdate header = pContext.getContext(existing.getAdaptationName());
-						header.setValue(release.status, ConnectorsPaths.Release.STATUS);
-						pContext.doModifyContent(existing, header); statusUpdated[0]++;
 					}
 
 					for (final PackagedReleaseNotes.Item item : release.items)
@@ -584,11 +576,7 @@ public final class ConnectorsInstaller
 			}
 		});
 		if (result.hasFailed()) pLog.error("[connectors] release-note seed failed: " + result.getExceptionFullMessage(java.util.Locale.ENGLISH));
-		else
-		{
-			if (created[0] + created[1] + created[2] + created[3] + created[4] > 0) pLog.info("[connectors] release notes seeded: " + created[0] + " release(s), " + created[1] + " item(s), " + created[2] + " metric(s), " + created[3] + " pass status row(s), " + created[4] + " pass step(s)");
-			if (statusUpdated[0] > 0) pLog.info("[connectors] release notes: status of " + statusUpdated[0] + " installed release(s) brought to the packaged notes");
-		}
+		else if (created[0] + created[1] + created[2] + created[3] + created[4] > 0) pLog.info("[connectors] release notes seeded: " + created[0] + " release(s), " + created[1] + " item(s), " + created[2] + " metric(s), " + created[3] + " pass status row(s), " + created[4] + " pass step(s)");
 	}
 
 	private static boolean releaseChildExists(final AdaptationTable pTable, final Object[] pValues, final Path[] pPaths)

@@ -16,14 +16,7 @@ A formal release exists only after the repository has an immutable Git tag. Add 
 - `version`: a semantic version such as `1.2.0`;
 - `sourceTag`: the exact corresponding tag, `v1.2.0`;
 - `releasedOn`: the release date in ISO format, such as `2026-09-09`;
-- a stable, unique `id` and a lifecycle `status`: `current` for ONE formal release (the latest), `supported` or
-  `archived` for the others; `in-progress` or `complete` for a development increment.
-
-The release-notes page shows that status: Current, Supported, Archived, In progress (a complete development
-increment is shown as Archived). Until 1.5.0 the attribute was not read: the page showed every formal release as
-Current. When a new release becomes the current one, change the previous one to `supported` in the manifest: at the next
-start the installer brings the status of the rows it owns to the manifest (`release notes: status of N installed
-release(s) brought to the packaged notes` in the kernel log); it rewrites nothing else of an installed row.
+- a stable, unique `id` and a lifecycle `status`.
 
 Do not infer releases from commit messages or deployment directories. The repository
 has annotated tags since `v1.0.0` (2026-10-06). The manifest's formal entries start at
