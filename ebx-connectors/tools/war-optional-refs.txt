@@ -1,0 +1,44 @@
+# References of the war's classes and jars that are found nowhere on a standard ON EBX server and are accepted because they are OPTIONAL (audit X3-07, 2026-11-12).
+# tools/check_war_selfcontained.py fails on every other reference found nowhere. Each line is
+#   <referencing jar, glob (the module's own classes are "classes")> | <missing class prefix>[, <prefix>...] | <why it is optional, and what is lost without it>
+# Without a reason the tool refuses the file. A line that matches nothing is reported as stale: remove it.
+# What the missing libraries mean for each connection, connection by connection, is in docs/OPERATIONS.md section 1.1.
+# The measure (jdeps on the war, ebx.jar 6.3.0-gp, Tomcat 10.1.25, JDK 25) was taken on 2026-11-12. The reasons below were read in the names of the referencing classes that jdeps
+# printed and in the drivers' documented behaviour; they were NOT run against each product (no server of those products was available).
+
+# --- the module's own classes ---------------------------------------------------------------------------------------------------------------------------
+classes | com.orchestranetworks.addon.mame. | Match and Merge add-on (ebx-addons.jar, an optional distribution). Only core/GoldenRecords and core/MameGoldenRecords name it; GoldenRecords catches the LinkageError and falls back to a no-op, so a server without the add-on loses the golden-record helpers only
+
+# --- logging and annotations ------------------------------------------------------------------------------------------------------------------------------
+slf4j-api-*.jar | org.slf4j.impl. | the SLF4J 1.7 binding (StaticLoggerBinder). None is shipped: SLF4J prints one notice on the standard error at first use and logs nowhere (no-op). A server that wants the drivers' logs adds a binding to its own lib/
+*.jar | org.apache.commons.logging., org.apache.log4j., org.apache.logging.log4j. | optional logging back ends of netty, the Cassandra and Couchbase transports and JSch: they try SLF4J first (shipped) and fall back to java.util.logging
+*.jar | org.jetbrains.annotations., org.jspecify.annotations., com.google.errorprone.annotations., com.google.j2objc.annotations., org.checkerframework., com.couchbase.client.core.deps.com.google.errorprone., com.couchbase.client.core.deps.com.google.j2objc. | annotations only: a class file may name an annotation type that is absent, the JVM ignores it
+*.jar | com.oracle.svm. | GraalVM native-image substitutions (netty, Cassandra, Couchbase, MongoDB): used only when built as a native image, never on a JVM
+*.jar | reactor.blockhound. | BlockHound test-time agent integration of netty and Reactor: loaded only when BlockHound is installed
+*.jar | org.osgi. | OSGi activators of H2, mssql-jdbc, PostgreSQL and snappy-java: loaded only inside an OSGi container
+
+# --- metrics and tracing integrations (all off unless the library is added) -----------------------------------------------------------------------------
+amqp-client-*.jar, mongodb-driver-core-*.jar, reactor-*.jar, mysql-connector-j-*.jar | io.micrometer., io.opentelemetry., com.codahale.metrics. | metrics and tracing hooks (Micrometer, OpenTelemetry, Dropwizard): the driver runs without them, nothing is measured
+reactor-netty-core-*.jar, reactor-netty-http-*.jar | io.netty.incubator., io.netty.handler.codec.haproxy. | HTTP/3, QUIC, io_uring and PROXY-protocol support of Reactor Netty: used only when explicitly configured; the Azure client uses HTTP/1.1 and HTTP/2 over the netty 4.1 jars shipped
+amqp-client-*.jar | io.netty.channel. | netty 4.2 channel API of the RabbitMQ client's optional netty transport: the client uses plain java.net sockets unless a netty event loop is configured, and the war ships netty 4.1
+
+# --- compression, TLS and native acceleration of netty-based transports (Cassandra, Couchbase, Azure) --------------------------------------------------
+netty-codec-*.jar, netty-codec-http-*.jar, netty-codec-http2-*.jar, cassandra-driver-core-*.jar, couchbase-core-io-*.jar | com.aayushatharva.brotli4j., com.jcraft.jzlib., com.ning.compress., lzma.sdk., com.google.protobuf., com.couchbase.client.core.deps.com.google.protobuf., org.jboss.marshalling. | optional codecs of netty (Brotli, zlib via JZlib, LZF, LZMA, protobuf, JBoss Marshalling): netty uses the JDK's zlib when they are absent; only a peer that insists on Brotli, LZF or LZMA is not served
+netty-handler-*.jar, cassandra-driver-core-*.jar, couchbase-core-io-*.jar | org.bouncycastle., org.conscrypt., org.eclipse.jetty.alpn., org.eclipse.jetty.npn., com.datastax.shaded.netty.internal.tcnative. | optional TLS providers of netty (BouncyCastle for self-signed certificates, Conscrypt, Jetty ALPN/NPN, the shaded tcnative of the Cassandra driver): TLS uses the JDK's JSSE, which does ALPN natively on Java 9+
+cassandra-driver-core-*.jar | jnr., org.HdrHistogram., com.google.common.util.concurrent.FutureFallback | optional native clock and POSIX access (JNR), latency histograms (HdrHistogram) and the pre-Guava-20 FutureFallback: the 3.11 driver detects each at start-up and falls back (JDK clock, no histograms, Guava's current API)
+couchbase-core-io-*.jar | android., org.apache.hadoop., org.objectweb.asm. | Android connectivity probe, Hadoop-compression codec of the shaded netty, and ASM used by a shaded JCTools queue variant: not used on a server JVM
+
+# --- JDBC drivers: features the connections of this module do not use --------------------------------------------------------------------------------
+h2.jar | javax.servlet., org.apache.lucene., org.locationtech.jts. | H2 web console (servlet), Lucene full-text index and JTS geometry functions: the H2 connector does plain SQL
+mssql-jdbc.jar | com.azure.security.keyvault., com.google.gson., org.antlr.v4., org.bouncycastle. | SQL Server features outside the module's use: Always Encrypted with Azure Key Vault and enclave attestation (Gson), the client-side FMTONLY parser (ANTLR) and PEM client certificates (BouncyCastle). Plain SQL logins and Azure AD / Entra connections work without them
+mysql-connector-j-*.jar | com.google.protobuf., com.mchange.v2.c3p0., com.oracle.bmc. | X DevAPI (protobuf), the c3p0 connection tester and Oracle Cloud (OCI) authentication: the classic protocol used by the MySQL and SingleStore connections does not need them
+ojdbc8.jar | com.oracle.common., javax.resource., javax.transaction., oracle.dms., oracle.i18n., oracle.security., oracle.simplefan., oracle.ucp., oracle.xdb., weblogic., org.objectweb.asm. | Oracle features outside plain thin connections: RAC fast-application-notification, Universal Connection Pool, JCA/JTA/WebLogic transactions, DMS monitoring, XMLType, JPS wallets, Coherence networking. oracle.i18n (orai18n.jar) adds national character sets beyond the JDK's: without it a database in an exotic character set can fail to convert text
+postgresql.jar | waffle. | Windows single sign-on (SSPI via Waffle): needed only for sspi authentication from a Windows host
+
+# --- messaging and file drivers ---------------------------------------------------------------------------------------------------------------------------
+kafka-clients.jar | io.grpc., org.jose4j. | the client telemetry exporter (gRPC, KIP-714) and SASL OAUTHBEARER with an OIDC provider (jose4j): needed only by a Kafka connection that uses SASL/OAUTHBEARER; PLAINTEXT, SSL and SASL PLAIN/SCRAM do not touch them
+activemq-client-*.jar | com.thoughtworks.xstream., javax.jmdns. | XML message transformation (XStream) and ZeroConf discovery (JmDNS) of ActiveMQ: not used by a tcp:// or ssl:// connection
+avro-*.jar | org.apache.commons.compress. | the bzip2 and xz codecs of Avro container files: an Avro file compressed with bzip2 or xz is refused with a codec error; null, deflate and snappy (snappy-java is shipped) work. The module reads through DataFileStream, which does not touch the library on the normal path (the Avro document tests run without it)
+jsch.jar | org.bouncycastle., org.newsclub. | optional extra SSH key-exchange algorithms (BouncyCastle) and the ssh-agent Unix socket (junixsocket): SFTP with passwords and the JDK-supported key types works without them
+mongodb-driver-core-*.jar, mongodb-driver-sync-*.jar | com.amazonaws., software.amazon.awssdk., com.mongodb.crypt., com.mongodb.internal.crypt., jnr.unixsocket., org.bson.codecs.kotlin, org.bson.codecs.kotlinx, org.bson.codecs.record | MONGODB-AWS authentication (AWS SDK), client-side field-level encryption (mongodb-crypt), Unix-domain-socket connections (JNR), and Kotlin / Java-record codec providers: not used by a connection with user/password or X.509 authentication
+msal4j-persistence-extension-*.jar | com.nimbusds. | the on-disk token cache of the MSAL4J persistence extension (needs nimbus-jose-jwt): the Azure connections keep tokens in memory

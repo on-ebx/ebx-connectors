@@ -1,0 +1,6 @@
+EBX Connectors
+Copyright 2026 ON EBX
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+Third-party libraries shipped in ebx-connectors/runtime-libs/ keep their own licences;
+see ebx-connectors/runtime-libs/ and the THIRD-PARTY-NOTICES.md packaged with each release.

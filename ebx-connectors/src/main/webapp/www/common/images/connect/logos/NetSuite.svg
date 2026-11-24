@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 120" role="img" aria-labelledby="title">
+  <title id="title">Oracle NetSuite</title>
+  <rect width="240" height="120" rx="12" fill="#f7f8fa"/>
+  <path d="M30 25h54l24 24v46H54L30 71zm18 18v21l14 14h28V57L76 43z" fill="#1f6f8b"/>
+  <text x="122" y="70" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#243746">NetSuite</text>
+</svg>

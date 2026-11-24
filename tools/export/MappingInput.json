@@ -1,0 +1,1141 @@
+[
+ {
+  "label": "lei",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/84%7Clei",
+  "content": {
+   "mapping": {
+    "content": "84",
+    "label": "GLEIF record -> company legal information [GLEIF - Legal Entity Identifier (GLEIF) / lei — read: LEI record by LEI Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/84"
+   },
+   "name": {
+    "content": "lei"
+   },
+   "expression": {
+    "content": "${./Identification/LegalEntityIdentifier}"
+   }
+  }
+ },
+ {
+  "label": "registrationAuthority",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/85%7CregistrationAuthority",
+  "content": {
+   "mapping": {
+    "content": "85",
+    "label": "GLEIF search by SIREN -> LEI [GLEIF - Legal Entity Identifier (GLEIF) / searchByRegistration — search: LEI record by national registration id (e.g. SIREN + RA000189) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/85"
+   },
+   "name": {
+    "content": "registrationAuthority"
+   },
+   "expression": {
+    "content": "RA000189"
+   }
+  }
+ },
+ {
+  "label": "registrationId",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/85%7CregistrationId",
+  "content": {
+   "mapping": {
+    "content": "85",
+    "label": "GLEIF search by SIREN -> LEI [GLEIF - Legal Entity Identifier (GLEIF) / searchByRegistration — search: LEI record by national registration id (e.g. SIREN + RA000189) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/85"
+   },
+   "name": {
+    "content": "registrationId"
+   },
+   "expression": {
+    "content": "${./LegalInformation/registrationNumber}"
+   }
+  }
+ },
+ {
+  "label": "siren",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/86%7Csiren",
+  "content": {
+   "mapping": {
+    "content": "86",
+    "label": "Sirene legal unit -> company [INSEE Sirene 3.11 (Sirene) / siren — read: Legal unit by SIREN (uniteLegale) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/86"
+   },
+   "name": {
+    "content": "siren"
+   },
+   "expression": {
+    "content": "${./LegalInformation/registrationNumber}"
+   }
+  }
+ },
+ {
+  "label": "siren",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/87%7Csiren",
+  "content": {
+   "mapping": {
+    "content": "87",
+    "label": "Sirene head office -> company address [INSEE Sirene 3.11 (Sirene) / headOffice — read: Head office establishment of a SIREN (siren + nicSiegeUniteLegale) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/87"
+   },
+   "name": {
+    "content": "siren"
+   },
+   "expression": {
+    "content": "${./LegalInformation/registrationNumber}"
+   }
+  }
+ },
+ {
+  "label": "address",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/88%7Caddress",
+  "content": {
+   "mapping": {
+    "content": "88",
+    "label": "Google Geocoding -> company coordinates [Google Geocoding (GoogleGeocoding) / geocode — read: Coordinates and normalised components of a postal address Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/88"
+   },
+   "name": {
+    "content": "address"
+   },
+   "expression": {
+    "content": "${./Address/Number} ${./Address/Street}, ${./Address/Zipcode} ${./Address/City}, ${./Address/Country}"
+   }
+  }
+ },
+ {
+  "label": "externalIdField",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/89%7CexternalIdField",
+  "content": {
+   "mapping": {
+    "content": "89",
+    "label": "Salesforce Account -> company [Salesforce CRM (Salesforce) / getByExternalId — read: sObject by external id field Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/89"
+   },
+   "name": {
+    "content": "externalIdField"
+   },
+   "expression": {
+    "content": "LEI__c"
+   }
+  }
+ },
+ {
+  "label": "sobject",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/89%7Csobject",
+  "content": {
+   "mapping": {
+    "content": "89",
+    "label": "Salesforce Account -> company [Salesforce CRM (Salesforce) / getByExternalId — read: sObject by external id field Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/89"
+   },
+   "name": {
+    "content": "sobject"
+   },
+   "expression": {
+    "content": "Account"
+   }
+  }
+ },
+ {
+  "label": "value",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/89%7Cvalue",
+  "content": {
+   "mapping": {
+    "content": "89",
+    "label": "Salesforce Account -> company [Salesforce CRM (Salesforce) / getByExternalId — read: sObject by external id field Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/89"
+   },
+   "name": {
+    "content": "value"
+   },
+   "expression": {
+    "content": "${./Identification/LegalEntityIdentifier}"
+   }
+  }
+ },
+ {
+  "label": "externalIdField",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/90%7CexternalIdField",
+  "content": {
+   "mapping": {
+    "content": "90",
+    "label": "Company -> Salesforce Account [Salesforce CRM (Salesforce) / upsert — write: Upsert an sObject by external id from the outbound document Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/90"
+   },
+   "name": {
+    "content": "externalIdField"
+   },
+   "expression": {
+    "content": "LEI__c"
+   }
+  }
+ },
+ {
+  "label": "sobject",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/90%7Csobject",
+  "content": {
+   "mapping": {
+    "content": "90",
+    "label": "Company -> Salesforce Account [Salesforce CRM (Salesforce) / upsert — write: Upsert an sObject by external id from the outbound document Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/90"
+   },
+   "name": {
+    "content": "sobject"
+   },
+   "expression": {
+    "content": "Account"
+   }
+  }
+ },
+ {
+  "label": "value",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/90%7Cvalue",
+  "content": {
+   "mapping": {
+    "content": "90",
+    "label": "Company -> Salesforce Account [Salesforce CRM (Salesforce) / upsert — write: Upsert an sObject by external id from the outbound document Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/90"
+   },
+   "name": {
+    "content": "value"
+   },
+   "expression": {
+    "content": "${./Identification/LegalEntityIdentifier}"
+   }
+  }
+ },
+ {
+  "label": "key",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/91%7Ckey",
+  "content": {
+   "mapping": {
+    "content": "91",
+    "label": "Company (with addresses and contacts) -> Kafka [Apache Kafka (Kafka) / publish — write: Publish the outbound document as a JSON message Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/91"
+   },
+   "name": {
+    "content": "key"
+   },
+   "expression": {
+    "content": "${./Identification/LegalEntityIdentifier}"
+   }
+  }
+ },
+ {
+  "label": "table",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/91%7Ctable",
+  "content": {
+   "mapping": {
+    "content": "91",
+    "label": "Company (with addresses and contacts) -> Kafka [Apache Kafka (Kafka) / publish — write: Publish the outbound document as a JSON message Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/91"
+   },
+   "name": {
+    "content": "table"
+   },
+   "expression": {
+    "content": "Companies"
+   }
+  }
+ },
+ {
+  "label": "topic",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/94%7Ctopic",
+  "content": {
+   "mapping": {
+    "content": "94",
+    "label": "Kafka -> companies (with addresses and contacts) [Apache Kafka (Kafka) / consume — search: Poll messages of a topic (committed after the poll) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/94"
+   },
+   "name": {
+    "content": "topic"
+   },
+   "expression": {
+    "content": "ebx.companies.in"
+   }
+  }
+ },
+ {
+  "label": "sql",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/97%7Csql",
+  "content": {
+   "mapping": {
+    "content": "97",
+    "label": "Snowflake CUSTOMERS -> companies [Snowflake (Snowflake) / query — search: Run a SELECT (input sql, optional bindings b1..bn) and return its rows Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/97"
+   },
+   "name": {
+    "content": "sql"
+   },
+   "expression": {
+    "content": "SELECT LEI, NAME, LEGAL_NAME, COUNTRY, CITY, WEBSITE, NACE, STATUS FROM CUSTOMERS WHERE LEI IS NOT NULL"
+   }
+  }
+ },
+ {
+  "label": "keyColumn",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/98%7CkeyColumn",
+  "content": {
+   "mapping": {
+    "content": "98",
+    "label": "Company (with addresses) -> Snowflake COMPANIES [Snowflake (Snowflake) / merge — write: MERGE the outbound document into a table on keyColumn(s) Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/98"
+   },
+   "name": {
+    "content": "keyColumn"
+   },
+   "expression": {
+    "content": "LEI"
+   }
+  }
+ },
+ {
+  "label": "table",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/98%7Ctable",
+  "content": {
+   "mapping": {
+    "content": "98",
+    "label": "Company (with addresses) -> Snowflake COMPANIES [Snowflake (Snowflake) / merge — write: MERGE the outbound document into a table on keyColumn(s) Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/98"
+   },
+   "name": {
+    "content": "table"
+   },
+   "expression": {
+    "content": "COMPANIES"
+   }
+  }
+ },
+ {
+  "label": "sql",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/100%7Csql",
+  "content": {
+   "mapping": {
+    "content": "100",
+    "label": "Databricks customers -> companies [Databricks SQL (Databricks) / query — search: Run a SELECT (input sql with :b1..:bn markers, inputs b1..bn) and return its rows Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/100"
+   },
+   "name": {
+    "content": "sql"
+   },
+   "expression": {
+    "content": "SELECT lei, name, legal_name, country, city, website, nace, status FROM customers WHERE lei IS NOT NULL"
+   }
+  }
+ },
+ {
+  "label": "keyColumn",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/101%7CkeyColumn",
+  "content": {
+   "mapping": {
+    "content": "101",
+    "label": "Company (with addresses) -> Databricks companies [Databricks SQL (Databricks) / merge — write: MERGE the outbound document into a Delta table on keyColumn(s) Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/101"
+   },
+   "name": {
+    "content": "keyColumn"
+   },
+   "expression": {
+    "content": "lei"
+   }
+  }
+ },
+ {
+  "label": "table",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/101%7Ctable",
+  "content": {
+   "mapping": {
+    "content": "101",
+    "label": "Company (with addresses) -> Databricks companies [Databricks SQL (Databricks) / merge — write: MERGE the outbound document into a Delta table on keyColumn(s) Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/101"
+   },
+   "name": {
+    "content": "table"
+   },
+   "expression": {
+    "content": "companies"
+   }
+  }
+ },
+ {
+  "label": "$expand",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/103%7C$expand",
+  "content": {
+   "mapping": {
+    "content": "103",
+    "label": "SAP business partners (organisations) -> companies [SAP S/4HANA Business Partner (OData) (SAP) / query — search: Entities of a set ($filter, $select, $expand, $orderby, $top as inputs) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/103"
+   },
+   "name": {
+    "content": "$expand"
+   },
+   "expression": {
+    "content": "to_BusinessPartnerAddress"
+   }
+  }
+ },
+ {
+  "label": "$filter",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/103%7C$filter",
+  "content": {
+   "mapping": {
+    "content": "103",
+    "label": "SAP business partners (organisations) -> companies [SAP S/4HANA Business Partner (OData) (SAP) / query — search: Entities of a set ($filter, $select, $expand, $orderby, $top as inputs) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/103"
+   },
+   "name": {
+    "content": "$filter"
+   },
+   "expression": {
+    "content": "BusinessPartnerCategory eq '2'"
+   }
+  }
+ },
+ {
+  "label": "$top",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/103%7C$top",
+  "content": {
+   "mapping": {
+    "content": "103",
+    "label": "SAP business partners (organisations) -> companies [SAP S/4HANA Business Partner (OData) (SAP) / query — search: Entities of a set ($filter, $select, $expand, $orderby, $top as inputs) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/103"
+   },
+   "name": {
+    "content": "$top"
+   },
+   "expression": {
+    "content": "50"
+   }
+  }
+ },
+ {
+  "label": "entitySet",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/103%7CentitySet",
+  "content": {
+   "mapping": {
+    "content": "103",
+    "label": "SAP business partners (organisations) -> companies [SAP S/4HANA Business Partner (OData) (SAP) / query — search: Entities of a set ($filter, $select, $expand, $orderby, $top as inputs) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/103"
+   },
+   "name": {
+    "content": "entitySet"
+   },
+   "expression": {
+    "content": "A_BusinessPartner"
+   }
+  }
+ },
+ {
+  "label": "entitySet",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/105%7CentitySet",
+  "content": {
+   "mapping": {
+    "content": "105",
+    "label": "Company (with addresses) -> SAP business partner (deep insert) [SAP S/4HANA Business Partner (OData) (SAP) / create — write: POST the outbound document (deep insert when it carries collections) Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/105"
+   },
+   "name": {
+    "content": "entitySet"
+   },
+   "expression": {
+    "content": "A_BusinessPartner"
+   }
+  }
+ },
+ {
+  "label": "columns",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/107%7Ccolumns",
+  "content": {
+   "mapping": {
+    "content": "107",
+    "label": "JDE address book (customers) -> companies [JD Edwards EnterpriseOne (AIS) (JDEdwards) / query — search: Data service BROWSE on a table or view (inputs table, columns, filter, max) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/107"
+   },
+   "name": {
+    "content": "columns"
+   },
+   "expression": {
+    "content": "AN8|ALPH|AT1|TAX|TXCT|MCU"
+   }
+  }
+ },
+ {
+  "label": "filter",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/107%7Cfilter",
+  "content": {
+   "mapping": {
+    "content": "107",
+    "label": "JDE address book (customers) -> companies [JD Edwards EnterpriseOne (AIS) (JDEdwards) / query — search: Data service BROWSE on a table or view (inputs table, columns, filter, max) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/107"
+   },
+   "name": {
+    "content": "filter"
+   },
+   "expression": {
+    "content": "AT1 EQUAL C"
+   }
+  }
+ },
+ {
+  "label": "table",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/107%7Ctable",
+  "content": {
+   "mapping": {
+    "content": "107",
+    "label": "JDE address book (customers) -> companies [JD Edwards EnterpriseOne (AIS) (JDEdwards) / query — search: Data service BROWSE on a table or view (inputs table, columns, filter, max) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/107"
+   },
+   "name": {
+    "content": "table"
+   },
+   "expression": {
+    "content": "F0101"
+   }
+  }
+ },
+ {
+  "label": "name",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/108%7Cname",
+  "content": {
+   "mapping": {
+    "content": "108",
+    "label": "Company (with addresses) -> JDE orchestration EBX_UpsertAddressBook [JD Edwards EnterpriseOne (AIS) (JDEdwards) / orchestration — write: Run an orchestration with the outbound document as input Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/108"
+   },
+   "name": {
+    "content": "name"
+   },
+   "expression": {
+    "content": "EBX_UpsertAddressBook"
+   }
+  }
+ },
+ {
+  "label": "city",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/110%7Ccity",
+  "content": {
+   "mapping": {
+    "content": "110",
+    "label": "D&B enrichment (registration number or name -> DUNS + company data) [Dun & Bradstreet Direct+ (DnB) / enrich — read: Best match then data blocks, in one call Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/110"
+   },
+   "name": {
+    "content": "city"
+   },
+   "expression": {
+    "content": "${./Address/City}"
+   }
+  }
+ },
+ {
+  "label": "country",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/110%7Ccountry",
+  "content": {
+   "mapping": {
+    "content": "110",
+    "label": "D&B enrichment (registration number or name -> DUNS + company data) [Dun & Bradstreet Direct+ (DnB) / enrich — read: Best match then data blocks, in one call Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/110"
+   },
+   "name": {
+    "content": "country"
+   },
+   "expression": {
+    "content": "${./Address/Country}"
+   }
+  }
+ },
+ {
+  "label": "name",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/110%7Cname",
+  "content": {
+   "mapping": {
+    "content": "110",
+    "label": "D&B enrichment (registration number or name -> DUNS + company data) [Dun & Bradstreet Direct+ (DnB) / enrich — read: Best match then data blocks, in one call Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/110"
+   },
+   "name": {
+    "content": "name"
+   },
+   "expression": {
+    "content": "${./Identification/Name}"
+   }
+  }
+ },
+ {
+  "label": "registrationNumber",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/110%7CregistrationNumber",
+  "content": {
+   "mapping": {
+    "content": "110",
+    "label": "D&B enrichment (registration number or name -> DUNS + company data) [Dun & Bradstreet Direct+ (DnB) / enrich — read: Best match then data blocks, in one call Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/110"
+   },
+   "name": {
+    "content": "registrationNumber"
+   },
+   "expression": {
+    "content": "${./LegalInformation/registrationNumber}"
+   }
+  }
+ },
+ {
+  "label": "vat",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/113%7Cvat",
+  "content": {
+   "mapping": {
+    "content": "113",
+    "label": "VIES VAT check (EU VAT number -> validity, name, address) [VIES (EU VAT check) (VIES) / check — read: Validate an EU VAT number (input vat, or countryCode + vatNumber) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/113"
+   },
+   "name": {
+    "content": "vat"
+   },
+   "expression": {
+    "content": "${./LegalInformation/registrationNumber|vatfr}"
+   }
+  }
+ },
+ {
+  "label": "address",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/115%7Caddress",
+  "content": {
+   "mapping": {
+    "content": "115",
+    "label": "BAN geocoding (French address -> normalised address + coordinates) [Base Adresse Nationale (FR) (BAN) / geocode — read: Best match of a French postal address Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/115"
+   },
+   "name": {
+    "content": "address"
+   },
+   "expression": {
+    "content": "${./Address/Street} ${./Address/Zipcode} ${./Address/City}"
+   }
+  }
+ },
+ {
+  "label": "postcode",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/115%7Cpostcode",
+  "content": {
+   "mapping": {
+    "content": "115",
+    "label": "BAN geocoding (French address -> normalised address + coordinates) [Base Adresse Nationale (FR) (BAN) / geocode — read: Best match of a French postal address Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/115"
+   },
+   "name": {
+    "content": "postcode"
+   },
+   "expression": {
+    "content": "${./Address/Zipcode}"
+   }
+  }
+ },
+ {
+  "label": "country",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/116%7Ccountry",
+  "content": {
+   "mapping": {
+    "content": "116",
+    "label": "Sanctions screening (hit -> blacklist reason and date) [OpenSanctions (OFAC, UN, EU, PEP) (OpenSanctions) / screen — read: Screen a name against sanctions and PEP lists (name, registrationNumber, country, schema) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/116"
+   },
+   "name": {
+    "content": "country"
+   },
+   "expression": {
+    "content": "${./Address/Country}"
+   }
+  }
+ },
+ {
+  "label": "name",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/116%7Cname",
+  "content": {
+   "mapping": {
+    "content": "116",
+    "label": "Sanctions screening (hit -> blacklist reason and date) [OpenSanctions (OFAC, UN, EU, PEP) (OpenSanctions) / screen — read: Screen a name against sanctions and PEP lists (name, registrationNumber, country, schema) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/116"
+   },
+   "name": {
+    "content": "name"
+   },
+   "expression": {
+    "content": "${./Identification/Name}"
+   }
+  }
+ },
+ {
+  "label": "registrationNumber",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/116%7CregistrationNumber",
+  "content": {
+   "mapping": {
+    "content": "116",
+    "label": "Sanctions screening (hit -> blacklist reason and date) [OpenSanctions (OFAC, UN, EU, PEP) (OpenSanctions) / screen — read: Screen a name against sanctions and PEP lists (name, registrationNumber, country, schema) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/116"
+   },
+   "name": {
+    "content": "registrationNumber"
+   },
+   "expression": {
+    "content": "${./LegalInformation/registrationNumber}"
+   }
+  }
+ },
+ {
+  "label": "schema",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/116%7Cschema",
+  "content": {
+   "mapping": {
+    "content": "116",
+    "label": "Sanctions screening (hit -> blacklist reason and date) [OpenSanctions (OFAC, UN, EU, PEP) (OpenSanctions) / screen — read: Screen a name against sanctions and PEP lists (name, registrationNumber, country, schema) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/116"
+   },
+   "name": {
+    "content": "schema"
+   },
+   "expression": {
+    "content": "Company"
+   }
+  }
+ },
+ {
+  "label": "address",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/118%7Caddress",
+  "content": {
+   "mapping": {
+    "content": "118",
+    "label": "Melissa address normalisation (record address -> verified address + coordinates) [Melissa Data (Melissa) / address — read: Global address verification (address, locality, postalCode, country) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/118"
+   },
+   "name": {
+    "content": "address"
+   },
+   "expression": {
+    "content": "${./Address/Street}"
+   }
+  }
+ },
+ {
+  "label": "country",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/118%7Ccountry",
+  "content": {
+   "mapping": {
+    "content": "118",
+    "label": "Melissa address normalisation (record address -> verified address + coordinates) [Melissa Data (Melissa) / address — read: Global address verification (address, locality, postalCode, country) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/118"
+   },
+   "name": {
+    "content": "country"
+   },
+   "expression": {
+    "content": "${./Address/Country}"
+   }
+  }
+ },
+ {
+  "label": "locality",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/118%7Clocality",
+  "content": {
+   "mapping": {
+    "content": "118",
+    "label": "Melissa address normalisation (record address -> verified address + coordinates) [Melissa Data (Melissa) / address — read: Global address verification (address, locality, postalCode, country) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/118"
+   },
+   "name": {
+    "content": "locality"
+   },
+   "expression": {
+    "content": "${./Address/City}"
+   }
+  }
+ },
+ {
+  "label": "postalCode",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/118%7CpostalCode",
+  "content": {
+   "mapping": {
+    "content": "118",
+    "label": "Melissa address normalisation (record address -> verified address + coordinates) [Melissa Data (Melissa) / address — read: Global address verification (address, locality, postalCode, country) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/118"
+   },
+   "name": {
+    "content": "postalCode"
+   },
+   "expression": {
+    "content": "${./Address/Zipcode}"
+   }
+  }
+ },
+ {
+  "label": "address",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/119%7Caddress",
+  "content": {
+   "mapping": {
+    "content": "119",
+    "label": "Loqate address verification (record address -> verified address + coordinates) [Loqate (Loqate) / verify — read: Cleanse and verify one address (address, locality, postalCode, country) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/119"
+   },
+   "name": {
+    "content": "address"
+   },
+   "expression": {
+    "content": "${./Address/Street}"
+   }
+  }
+ },
+ {
+  "label": "country",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/119%7Ccountry",
+  "content": {
+   "mapping": {
+    "content": "119",
+    "label": "Loqate address verification (record address -> verified address + coordinates) [Loqate (Loqate) / verify — read: Cleanse and verify one address (address, locality, postalCode, country) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/119"
+   },
+   "name": {
+    "content": "country"
+   },
+   "expression": {
+    "content": "${./Address/Country}"
+   }
+  }
+ },
+ {
+  "label": "locality",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/119%7Clocality",
+  "content": {
+   "mapping": {
+    "content": "119",
+    "label": "Loqate address verification (record address -> verified address + coordinates) [Loqate (Loqate) / verify — read: Cleanse and verify one address (address, locality, postalCode, country) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/119"
+   },
+   "name": {
+    "content": "locality"
+   },
+   "expression": {
+    "content": "${./Address/City}"
+   }
+  }
+ },
+ {
+  "label": "postalCode",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/119%7CpostalCode",
+  "content": {
+   "mapping": {
+    "content": "119",
+    "label": "Loqate address verification (record address -> verified address + coordinates) [Loqate (Loqate) / verify — read: Cleanse and verify one address (address, locality, postalCode, country) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/119"
+   },
+   "name": {
+    "content": "postalCode"
+   },
+   "expression": {
+    "content": "${./Address/Zipcode}"
+   }
+  }
+ },
+ {
+  "label": "rowCounts",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/121%7CrowCounts",
+  "content": {
+   "mapping": {
+    "content": "121",
+    "label": "Catalog scan: DEMO_H2 [Data catalog demo warehouse (H2) (CatalogDemoH2) / catalog — search: Schema inventory as a document: tables and views with their columns (inputs source = catalog source id echoed on every item, schemas = comma-separated list (default: property schema, else all), types = TABLE,VIEW, rowCounts = true to COUNT(*) every table) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/121"
+   },
+   "name": {
+    "content": "rowCounts"
+   },
+   "expression": {
+    "content": "true"
+   }
+  }
+ },
+ {
+  "label": "schemas",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/121%7Cschemas",
+  "content": {
+   "mapping": {
+    "content": "121",
+    "label": "Catalog scan: DEMO_H2 [Data catalog demo warehouse (H2) (CatalogDemoH2) / catalog — search: Schema inventory as a document: tables and views with their columns (inputs source = catalog source id echoed on every item, schemas = comma-separated list (default: property schema, else all), types = TABLE,VIEW, rowCounts = true to COUNT(*) every table) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/121"
+   },
+   "name": {
+    "content": "schemas"
+   },
+   "expression": {
+    "content": "SALES,FINANCE,HR"
+   }
+  }
+ },
+ {
+  "label": "source",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/121%7Csource",
+  "content": {
+   "mapping": {
+    "content": "121",
+    "label": "Catalog scan: DEMO_H2 [Data catalog demo warehouse (H2) (CatalogDemoH2) / catalog — search: Schema inventory as a document: tables and views with their columns (inputs source = catalog source id echoed on every item, schemas = comma-separated list (default: property schema, else all), types = TABLE,VIEW, rowCounts = true to COUNT(*) every table) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/121"
+   },
+   "name": {
+    "content": "source"
+   },
+   "expression": {
+    "content": "DEMO_H2"
+   }
+  }
+ },
+ {
+  "label": "types",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/121%7Ctypes",
+  "content": {
+   "mapping": {
+    "content": "121",
+    "label": "Catalog scan: DEMO_H2 [Data catalog demo warehouse (H2) (CatalogDemoH2) / catalog — search: Schema inventory as a document: tables and views with their columns (inputs source = catalog source id echoed on every item, schemas = comma-separated list (default: property schema, else all), types = TABLE,VIEW, rowCounts = true to COUNT(*) every table) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/121"
+   },
+   "name": {
+    "content": "types"
+   },
+   "expression": {
+    "content": "TABLE,VIEW"
+   }
+  }
+ },
+ {
+  "label": "schemas",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/123%7Cschemas",
+  "content": {
+   "mapping": {
+    "content": "123",
+    "label": "Catalog profile: DEMO_H2 [Data catalog demo warehouse (H2) (CatalogDemoH2) / profile — search: Column statistics of one or every table: rows, nulls, distinct, min, max, mean, lengths (inputs source = catalog source id, tables = qualified names comma-separated or * for the whole inventory, schemas as for catalog, where = optional SQL filter) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/123"
+   },
+   "name": {
+    "content": "schemas"
+   },
+   "expression": {
+    "content": "SALES,FINANCE,HR"
+   }
+  }
+ },
+ {
+  "label": "source",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/123%7Csource",
+  "content": {
+   "mapping": {
+    "content": "123",
+    "label": "Catalog profile: DEMO_H2 [Data catalog demo warehouse (H2) (CatalogDemoH2) / profile — search: Column statistics of one or every table: rows, nulls, distinct, min, max, mean, lengths (inputs source = catalog source id, tables = qualified names comma-separated or * for the whole inventory, schemas as for catalog, where = optional SQL filter) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/123"
+   },
+   "name": {
+    "content": "source"
+   },
+   "expression": {
+    "content": "DEMO_H2"
+   }
+  }
+ },
+ {
+  "label": "tables",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/123%7Ctables",
+  "content": {
+   "mapping": {
+    "content": "123",
+    "label": "Catalog profile: DEMO_H2 [Data catalog demo warehouse (H2) (CatalogDemoH2) / profile — search: Column statistics of one or every table: rows, nulls, distinct, min, max, mean, lengths (inputs source = catalog source id, tables = qualified names comma-separated or * for the whole inventory, schemas as for catalog, where = optional SQL filter) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/123"
+   },
+   "name": {
+    "content": "tables"
+   },
+   "expression": {
+    "content": "*"
+   }
+  }
+ },
+ {
+  "label": "q",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/127%7Cq",
+  "content": {
+   "mapping": {
+    "content": "127",
+    "label": "Nominatim geocoding (record address -> coordinates) [OpenStreetMap Nominatim (sample extension jar) (Nominatim) / geocode — read: Best match of a free-text address (q, optional countrycodes) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/127"
+   },
+   "name": {
+    "content": "q"
+   },
+   "expression": {
+    "content": "${./Address/Street} ${./Address/Zipcode} ${./Address/City}"
+   }
+  }
+ },
+ {
+  "label": "key",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/131%7Ckey",
+  "content": {
+   "mapping": {
+    "content": "131",
+    "label": "Company -> Kafka / CRM partner (transformations demo) [Apache Kafka (Kafka) / publish — write: Publish the outbound document as a JSON message Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/131"
+   },
+   "name": {
+    "content": "key"
+   },
+   "expression": {
+    "content": "${./Identification/Id}"
+   }
+  }
+ },
+ {
+  "label": "table",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/131%7Ctable",
+  "content": {
+   "mapping": {
+    "content": "131",
+    "label": "Company -> Kafka / CRM partner (transformations demo) [Apache Kafka (Kafka) / publish — write: Publish the outbound document as a JSON message Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/131"
+   },
+   "name": {
+    "content": "table"
+   },
+   "expression": {
+    "content": "Companies"
+   }
+  }
+ },
+ {
+  "label": "topic",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/131%7Ctopic",
+  "content": {
+   "mapping": {
+    "content": "131",
+    "label": "Company -> Kafka / CRM partner (transformations demo) [Apache Kafka (Kafka) / publish — write: Publish the outbound document as a JSON message Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/131"
+   },
+   "name": {
+    "content": "topic"
+   },
+   "expression": {
+    "content": "crm.partner.upsert"
+   }
+  }
+ },
+ {
+  "label": "text",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/136%7Ctext",
+  "content": {
+   "mapping": {
+    "content": "136",
+    "label": "Catalog alert: ChatWebhook [Slack / Teams notifications (ChatWebhook) / notify — write: Post a message (text, optional title) Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/136"
+   },
+   "name": {
+    "content": "text"
+   },
+   "expression": {
+    "content": "${./message}"
+   }
+  }
+ },
+ {
+  "label": "title",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/136%7Ctitle",
+  "content": {
+   "mapping": {
+    "content": "136",
+    "label": "Catalog alert: ChatWebhook [Slack / Teams notifications (ChatWebhook) / notify — write: Post a message (text, optional title) Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/136"
+   },
+   "name": {
+    "content": "title"
+   },
+   "expression": {
+    "content": "${./title}"
+   }
+  }
+ },
+ {
+  "label": "name",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/138%7Cname",
+  "content": {
+   "mapping": {
+    "content": "138",
+    "label": "Wikidata search by name -> wikidataId [Wikidata (generic REST) (Wikidata) / search — read: GET /w/api.php Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/138"
+   },
+   "name": {
+    "content": "name"
+   },
+   "expression": {
+    "content": "${./Identification/Name|regex('^(.*?)(?:[,\\s]+(?:Inc\\.?|Corp\\.?|Corporation|Ltd\\.?|Limited|LLC|L\\.?P\\.?|plc|SAS|SASU|SA|SARL|EURL|GmbH|AG|B\\.?V\\.?|N\\.?V\\.?|S\\.?p\\.?A\\.?|S\\.?r\\.?l\\.?|Oy|AB|A/S))?\\s*$',1)}"
+   }
+  }
+ },
+ {
+  "label": "id",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/139%7Cid",
+  "content": {
+   "mapping": {
+    "content": "139",
+    "label": "Wikidata claims -> company (website, LEI, ISIN, parent) [Wikidata (generic REST) (Wikidata) / claims — read: GET /w/api.php Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/139"
+   },
+   "name": {
+    "content": "id"
+   },
+   "expression": {
+    "content": "${./Governance/wikidataId}"
+   }
+  }
+ },
+ {
+  "label": "minimal",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/140%7Cminimal",
+  "content": {
+   "mapping": {
+    "content": "140",
+    "label": "Recherche d'entreprises (data.gouv) -> company [Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises) / search — search: Recherche textuelle Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/140"
+   },
+   "name": {
+    "content": "minimal"
+   },
+   "expression": {
+    "content": "false"
+   }
+  }
+ },
+ {
+  "label": "per_page",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/140%7Cper_page",
+  "content": {
+   "mapping": {
+    "content": "140",
+    "label": "Recherche d'entreprises (data.gouv) -> company [Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises) / search — search: Recherche textuelle Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/140"
+   },
+   "name": {
+    "content": "per_page"
+   },
+   "expression": {
+    "content": "1"
+   }
+  }
+ },
+ {
+  "label": "q",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/MappingInput/140%7Cq",
+  "content": {
+   "mapping": {
+    "content": "140",
+    "label": "Recherche d'entreprises (data.gouv) -> company [Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises) / search — search: Recherche textuelle Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/140"
+   },
+   "name": {
+    "content": "q"
+   },
+   "expression": {
+    "content": "${./LegalInformation/registrationNumber|default(${./Identification/Name|regex('^(.*?)(?:[,\\s]+(?:Inc\\.?|Corp\\.?|Ltd\\.?|LLC|SAS|SASU|SA|SARL|EURL|GmbH|AG|B\\.?V\\.?|N\\.?V\\.?|S\\.?p\\.?A\\.?))?\\s*$',1)})}"
+   }
+  }
+ }
+]

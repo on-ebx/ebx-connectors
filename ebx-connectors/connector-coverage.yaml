@@ -1,0 +1,1605 @@
+{
+  "schemaVersion": 1,
+  "baselineDate": "2026-09-16",
+  "description": "Live connector coverage inventory. JSON syntax is used because JSON is valid YAML 1.2 and is parsed with the existing Jackson runtime.",
+  "catalog": [
+    {
+      "id": "CAT-001",
+      "connectorType": "gleif",
+      "implementation": "com.on.ebx.connect.connectors.GleifConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-002",
+      "connectorType": "sirene",
+      "implementation": "com.on.ebx.connect.connectors.SireneConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-003",
+      "connectorType": "google-geocoding",
+      "implementation": "com.on.ebx.connect.connectors.GoogleGeocodingConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-004",
+      "connectorType": "rest",
+      "implementation": "com.on.ebx.connect.connectors.GenericRestConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-005",
+      "connectorType": "salesforce",
+      "implementation": "com.on.ebx.connect.connectors.SalesforceConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-006",
+      "connectorType": "snowflake",
+      "implementation": "com.on.ebx.connect.connectors.SnowflakeConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-007",
+      "connectorType": "databricks",
+      "implementation": "com.on.ebx.connect.connectors.DatabricksConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-008",
+      "connectorType": "powerbi",
+      "implementation": "com.on.ebx.connect.connectors.PowerBiConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-009",
+      "connectorType": "collibra",
+      "implementation": "com.on.ebx.connect.connectors.CollibraConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-010",
+      "connectorType": "sap-odata",
+      "implementation": "com.on.ebx.connect.connectors.SapODataConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-011",
+      "connectorType": "jde-ais",
+      "implementation": "com.on.ebx.connect.connectors.JdeAisConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-012",
+      "connectorType": "dnb",
+      "implementation": "com.on.ebx.connect.connectors.DnbConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-013",
+      "connectorType": "azure-blob",
+      "implementation": "com.on.ebx.connect.connectors.AzureBlobConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-014",
+      "connectorType": "ban",
+      "implementation": "com.on.ebx.connect.connectors.BanConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-015",
+      "connectorType": "bigquery",
+      "implementation": "com.on.ebx.connect.connectors.BigQueryConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-016",
+      "connectorType": "companies-house",
+      "implementation": "com.on.ebx.connect.connectors.CompaniesHouseConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-017",
+      "connectorType": "creditsafe",
+      "implementation": "com.on.ebx.connect.connectors.CreditsafeConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-018",
+      "connectorType": "dynamics365",
+      "implementation": "com.on.ebx.connect.connectors.Dynamics365Connector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-019",
+      "connectorType": "dynamics-business-central",
+      "implementation": "com.on.ebx.connect.connectors.DynamicsBusinessCentralConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-020",
+      "connectorType": "gcs",
+      "implementation": "com.on.ebx.connect.connectors.GcsConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-021",
+      "connectorType": "hubspot",
+      "implementation": "com.on.ebx.connect.connectors.HubSpotConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-022",
+      "connectorType": "jdbc",
+      "implementation": "com.on.ebx.connect.connectors.JdbcConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-023",
+      "connectorType": "postgresql",
+      "implementation": "com.on.ebx.connect.connectors.PostgreSqlConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-024",
+      "connectorType": "rabbitmq",
+      "implementation": "com.on.ebx.connect.connectors.RabbitMqConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-025",
+      "connectorType": "h2",
+      "implementation": "com.on.ebx.connect.connectors.H2Connector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-026",
+      "connectorType": "sql-server",
+      "implementation": "com.on.ebx.connect.connectors.SqlServerConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-027",
+      "connectorType": "azure-sql",
+      "implementation": "com.on.ebx.connect.connectors.AzureSqlDatabaseConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-028",
+      "connectorType": "azure-service-bus",
+      "implementation": "com.on.ebx.connect.connectors.AzureServiceBusConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-029",
+      "connectorType": "oracle-database",
+      "implementation": "com.on.ebx.connect.connectors.OracleDatabaseConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-030",
+      "connectorType": "loqate",
+      "implementation": "com.on.ebx.connect.connectors.LoqateConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-031",
+      "connectorType": "melissa",
+      "implementation": "com.on.ebx.connect.connectors.MelissaConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-032",
+      "connectorType": "mysql",
+      "implementation": "com.on.ebx.connect.connectors.MySqlConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-033",
+      "connectorType": "handelsregister",
+      "implementation": "com.on.ebx.connect.connectors.OffeneRegisterConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-034",
+      "connectorType": "opencorporates",
+      "implementation": "com.on.ebx.connect.connectors.OpenCorporatesConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-035",
+      "connectorType": "opensanctions",
+      "implementation": "com.on.ebx.connect.connectors.OpenSanctionsConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-036",
+      "connectorType": "oracle-fusion",
+      "implementation": "com.on.ebx.connect.connectors.OracleFusionConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-037",
+      "connectorType": "netsuite",
+      "implementation": "com.on.ebx.connect.connectors.NetSuiteConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-038",
+      "connectorType": "sap-successfactors",
+      "implementation": "com.on.ebx.connect.connectors.SuccessFactorsConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-039",
+      "connectorType": "sap-ariba",
+      "implementation": "com.on.ebx.connect.connectors.SapAribaConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-040",
+      "connectorType": "orbis",
+      "implementation": "com.on.ebx.connect.connectors.OrbisConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-041",
+      "connectorType": "s3",
+      "implementation": "com.on.ebx.connect.connectors.S3Connector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-042",
+      "connectorType": "servicenow",
+      "implementation": "com.on.ebx.connect.connectors.ServiceNowConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-043",
+      "connectorType": "sharepoint",
+      "implementation": "com.on.ebx.connect.connectors.SharePointConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-044",
+      "connectorType": "vies",
+      "implementation": "com.on.ebx.connect.connectors.ViesConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-045",
+      "connectorType": "webhook",
+      "implementation": "com.on.ebx.connect.connectors.WebhookConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-046",
+      "connectorType": "workday",
+      "implementation": "com.on.ebx.connect.connectors.WorkdayConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-047",
+      "connectorType": "llm",
+      "implementation": "com.on.ebx.connect.connectors.LlmConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-048",
+      "connectorType": "soap",
+      "implementation": "com.on.ebx.connect.connectors.SoapConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-049",
+      "connectorType": "graphql",
+      "implementation": "com.on.ebx.connect.connectors.GraphqlConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-050",
+      "connectorType": "ebx",
+      "implementation": "com.on.ebx.connect.connectors.EbxConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-051",
+      "connectorType": "openlineage",
+      "implementation": "com.on.ebx.connect.core.OpenLineageEmitter",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-052",
+      "connectorType": "chat-webhook",
+      "implementation": "com.on.ebx.connect.connectors.ChatWebhookConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-053",
+      "connectorType": "slack",
+      "implementation": "com.on.ebx.connect.connectors.SlackConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-054",
+      "connectorType": "jms",
+      "implementation": "com.on.ebx.connect.connectors.JmsConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-055",
+      "connectorType": "activemq",
+      "implementation": "com.on.ebx.connect.connectors.ActiveMqConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-056",
+      "connectorType": "inpi",
+      "implementation": "com.on.ebx.connect.connectors.InpiConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-057",
+      "connectorType": "openfda",
+      "implementation": "com.on.ebx.connect.connectors.OpenFdaConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-058",
+      "connectorType": "kafka",
+      "implementation": "com.on.ebx.connect.connectors.KafkaConnector",
+      "registrationMode": "OPTIONAL_BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-059",
+      "connectorType": "sftp",
+      "implementation": "com.on.ebx.connect.connectors.SftpConnector",
+      "registrationMode": "OPTIONAL_BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-060",
+      "connectorType": "greenplum",
+      "implementation": "com.on.ebx.connect.connectors.GreenplumConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-061",
+      "connectorType": "singlestore",
+      "implementation": "com.on.ebx.connect.connectors.SingleStoreConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-062",
+      "connectorType": "firebird",
+      "implementation": "com.on.ebx.connect.connectors.FirebirdConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-063",
+      "connectorType": "db2-luw",
+      "implementation": "com.on.ebx.connect.connectors.Db2LuwConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-064",
+      "connectorType": "iris",
+      "implementation": "com.on.ebx.connect.connectors.IrisConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-065",
+      "connectorType": "sap-ase",
+      "implementation": "com.on.ebx.connect.connectors.SapAseConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-066",
+      "connectorType": "sap-hana",
+      "implementation": "com.on.ebx.connect.connectors.SapHanaConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-067",
+      "connectorType": "teradata",
+      "implementation": "com.on.ebx.connect.connectors.TeradataConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-068",
+      "connectorType": "vertica",
+      "implementation": "com.on.ebx.connect.connectors.VerticaConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-REDSHIFT",
+      "connectorType": "redshift",
+      "implementation": "com.on.ebx.connect.connectors.RedshiftConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-069",
+      "connectorType": "actian-vector",
+      "implementation": "com.on.ebx.connect.connectors.ActianVectorConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-070",
+      "connectorType": "actian-ingres",
+      "implementation": "com.on.ebx.connect.connectors.ActianIngresConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-071",
+      "connectorType": "monetdb",
+      "implementation": "com.on.ebx.connect.connectors.MonetDbConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-072",
+      "connectorType": "amazon-sqs",
+      "implementation": "com.on.ebx.connect.connectors.SqsConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-073",
+      "connectorType": "amazon-sns",
+      "implementation": "com.on.ebx.connect.connectors.SnsConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-074",
+      "connectorType": "google-pubsub",
+      "implementation": "com.on.ebx.connect.connectors.GooglePubSubConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-075",
+      "connectorType": "ftp",
+      "implementation": "com.on.ebx.connect.connectors.FtpConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-076",
+      "connectorType": "azure-queue-storage",
+      "implementation": "com.on.ebx.connect.connectors.AzureQueueStorageConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-077",
+      "connectorType": "azure-table",
+      "implementation": "com.on.ebx.connect.connectors.AzureTableStorageConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-078",
+      "connectorType": "google-sheets",
+      "implementation": "com.on.ebx.connect.connectors.GoogleSheetsConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-079",
+      "connectorType": "elasticsearch",
+      "implementation": "com.on.ebx.connect.connectors.ElasticsearchConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-080",
+      "connectorType": "cassandra",
+      "implementation": "com.on.ebx.connect.connectors.CassandraConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-081",
+      "connectorType": "mongodb",
+      "implementation": "com.on.ebx.connect.connectors.MongoDbConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-082",
+      "connectorType": "couchbase",
+      "implementation": "com.on.ebx.connect.connectors.CouchbaseConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-083",
+      "connectorType": "azure-cosmos-db",
+      "implementation": "com.on.ebx.connect.connectors.AzureCosmosDbConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-084",
+      "connectorType": "cmis",
+      "implementation": "com.on.ebx.connect.connectors.CmisConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-085",
+      "connectorType": "veeva-vault",
+      "implementation": "com.on.ebx.connect.connectors.VeevaVaultConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-086",
+      "connectorType": "alation",
+      "implementation": "com.on.ebx.connect.connectors.AlationConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-087",
+      "connectorType": "microsoft-purview",
+      "implementation": "com.on.ebx.connect.connectors.MicrosoftPurviewConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-088",
+      "connectorType": "hadoop-webhdfs",
+      "implementation": "com.on.ebx.connect.connectors.HadoopWebHdfsConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-089",
+      "connectorType": "spark-sql",
+      "implementation": "com.on.ebx.connect.connectors.SparkSqlConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-090",
+      "connectorType": "domino-rest",
+      "implementation": "com.on.ebx.connect.connectors.DominoRestConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-091",
+      "connectorType": "mcp",
+      "implementation": "com.on.ebx.connect.connectors.McpConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-GOOGLE-DRIVE",
+      "connectorType": "google-drive",
+      "implementation": "com.on.ebx.connect.connectors.GoogleDriveConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-ONEDRIVE",
+      "connectorType": "onedrive",
+      "implementation": "com.on.ebx.connect.connectors.OneDriveConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-SAMPLE-FILE",
+      "connectorType": "sample-file",
+      "implementation": "com.on.ebx.connect.connectors.SampleFileConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "REVIEW"
+    },
+    {
+      "id": "CAT-DOCUMENTS",
+      "connectorType": "documents",
+      "implementation": "com.on.ebx.connect.connectors.DocumentConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-CLOUDERA-HIVE",
+      "connectorType": "cloudera-hive",
+      "implementation": "com.on.ebx.connect.connectors.ClouderaHiveConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    },
+    {
+      "id": "CAT-CLOUDERA-IMPALA",
+      "connectorType": "cloudera-impala",
+      "implementation": "com.on.ebx.connect.connectors.ClouderaImpalaConnector",
+      "registrationMode": "BUILT_IN",
+      "workflowStatus": "IN_PROGRESS"
+    }
+  ],
+  "externalTargets": [
+    {
+      "id": "BASE-PKG-001",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "PACKAGED",
+      "sourceName": "Salesforce",
+      "strategy": "DEDICATED",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "salesforce"
+    },
+    {
+      "id": "BASE-PKG-002",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "PACKAGED",
+      "sourceName": "Veeva Vault CRM",
+      "strategy": "DEDICATED",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "veeva-vault",
+      "notes": "Read-only object metadata and bounded VQL implemented with deterministic fixtures; writes, bulk jobs and licensed live acceptance remain."
+    },
+    {
+      "id": "BASE-PKG-003",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "PACKAGED",
+      "sourceName": "D&B Data Blocks",
+      "strategy": "DEDICATED",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "dnb"
+    },
+    {
+      "id": "BASE-PKG-004",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "PACKAGED",
+      "sourceName": "MedPro",
+      "strategy": "REST_TEMPLATE",
+      "workflowStatus": "BLOCKED",
+      "coverageStatus": "PLANNED",
+      "notes": "Requires licensed customer API reference, sandbox, authentication, HCP/HCO schemas, pagination, rate limits, permitted-use terms and redacted fixtures; no endpoint is inferred."
+    },
+    {
+      "id": "BASE-PKG-005",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "PACKAGED",
+      "sourceName": "ZoomInfo",
+      "strategy": "DEDICATED_OR_TEMPLATE",
+      "workflowStatus": "BLOCKED",
+      "coverageStatus": "PLANNED",
+      "notes": "Requires entitled product/API version, sandbox, authentication renewal, company/contact schemas, credit behavior, pagination, rate limits, provenance and retention terms."
+    },
+    {
+      "id": "BASE-PKG-006",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "PACKAGED",
+      "sourceName": "Moody's",
+      "strategy": "VERIFY_EXISTING",
+      "workflowStatus": "READY",
+      "coverageStatus": "UNVERIFIED",
+      "coveredBy": "orbis",
+      "notes": "Existing corporate-data coverage is limited to the implemented Orbis contract; broader product coverage is unverified."
+    },
+    {
+      "id": "BASE-PKG-007",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "PACKAGED",
+      "sourceName": "Alation",
+      "strategy": "DEDICATED",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "alation",
+      "notes": "Bounded Search API and relational catalog discovery implemented with TOKEN auth fixtures; logical metadata writes, lineage ingestion and live acceptance remain."
+    },
+    {
+      "id": "BASE-PKG-008",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "PACKAGED",
+      "sourceName": "Collibra",
+      "strategy": "DEDICATED",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "collibra"
+    },
+    {
+      "id": "BASE-PKG-009",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "PACKAGED",
+      "sourceName": "Microsoft Purview",
+      "strategy": "DEDICATED",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "microsoft-purview",
+      "notes": "Stable Data Map search, continuation, Atlas entity/type reads and Entra auth implemented with fixtures; mutations, Unified Catalog preview and live acceptance remain."
+    },
+    {
+      "id": "BASE-INF-001",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "INFRASTRUCTURE",
+      "sourceName": "Amazon SQS",
+      "strategy": "DEDICATED",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "amazon-sqs",
+      "notes": "Signed bounded send/receive/peek, explicit delete acknowledgement, visibility and offline fixtures implemented. Live AWS acceptance remains."
+    },
+    {
+      "id": "BASE-INF-002",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "INFRASTRUCTURE",
+      "sourceName": "Azure Service Bus",
+      "strategy": "DEDICATED",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "azure-service-bus"
+    },
+    {
+      "id": "BASE-INF-003",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "INFRASTRUCTURE",
+      "sourceName": "Google Cloud Pub/Sub",
+      "strategy": "DEDICATED",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "google-pubsub",
+      "notes": "Bounded publish/pull/explicit ack and discovery fixtures implemented. Workload identity parity and live Google acceptance remain."
+    },
+    {
+      "id": "BASE-INF-004",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "INFRASTRUCTURE",
+      "sourceName": "Amazon SNS",
+      "strategy": "DEDICATED",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "amazon-sns",
+      "notes": "Signed bounded publish and topic discovery fixtures implemented; subscription administration excluded. Live AWS acceptance remains."
+    },
+    {
+      "id": "BASE-INF-005",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "INFRASTRUCTURE",
+      "sourceName": "Amazon S3",
+      "strategy": "DEDICATED",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "s3"
+    },
+    {
+      "id": "BASE-INF-006",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "INFRASTRUCTURE",
+      "sourceName": "Azure Queue Storage",
+      "strategy": "DEDICATED",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "azure-queue-storage",
+      "notes": "Bounded send/peek/receive, explicit pop-receipt delete, discovery and endpoint fixtures implemented. Live Azure acceptance remains."
+    },
+    {
+      "id": "BASE-INF-007",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "INFRASTRUCTURE",
+      "sourceName": "Azure Blob Storage",
+      "strategy": "DEDICATED",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "azure-blob"
+    },
+    {
+      "id": "BASE-INF-008",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "INFRASTRUCTURE",
+      "sourceName": "Google Cloud Storage",
+      "strategy": "DEDICATED",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "gcs"
+    },
+    {
+      "id": "BASE-INF-009",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "INFRASTRUCTURE",
+      "sourceName": "FTP",
+      "canonicalName": "FTP / FTPS",
+      "strategy": "DEDICATED",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "ftp",
+      "notes": "Secure FTPS defaults, explicit cleartext opt-in, bounded passive transfers and offline fixtures implemented. Server compatibility/live acceptance remain."
+    },
+    {
+      "id": "BASE-001",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "CORE",
+      "sourceName": "MDM REST integration",
+      "strategy": "DEDICATED_OR_TEMPLATE",
+      "workflowStatus": "BACKLOG",
+      "coverageStatus": "PLANNED"
+    },
+    {
+      "id": "BASE-002",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "CORE",
+      "sourceName": "Salesforce",
+      "strategy": "DEDICATED",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "salesforce"
+    },
+    {
+      "id": "BASE-003",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "CORE",
+      "sourceName": "SAP",
+      "strategy": "SCOPED_EXISTING",
+      "workflowStatus": "READY",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "sap-odata",
+      "notes": "SAP OData is not blanket coverage of every SAP interface."
+    },
+    {
+      "id": "BASE-004",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "CORE",
+      "sourceName": "Hadoop",
+      "strategy": "DEDICATED_PROFILE_FAMILY",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "hadoop-webhdfs",
+      "notes": "Bounded HTTPS WebHDFS/HttpFS gateway operations and offline contracts implemented; native redirects, Kerberos and live acceptance remain."
+    },
+    {
+      "id": "BASE-005",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "CORE",
+      "sourceName": "Spark",
+      "strategy": "DEDICATED",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "spark-sql",
+      "notes": "Read-only bounded Spark SQL JDBC/JNDI profile implemented; deployment-approved Hive JDBC closure and live acceptance remain."
+    },
+    {
+      "id": "BASE-006",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "CORE",
+      "sourceName": "Change Data Capture",
+      "strategy": "SHARED_CAPABILITY",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "DebeziumKafkaCdcAdapter",
+      "notes": "Stable source identity and positions, immutable payloads, canonical schema fingerprints, bounded no-commit Kafka polling, replay rejection and apply-before-checkpoint confirmation are implemented; live CDC acceptance remains."
+    },
+    {
+      "id": "BASE-007",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "CLOUD",
+      "sourceName": "Actian Avalanche",
+      "strategy": "JDBC_PROFILE",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "actian-vector",
+      "notes": "Canonical Actian JDBC profile, bounds, offline contract and guide implemented. Live Avalanche acceptance remains."
+    },
+    {
+      "id": "BASE-008",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "CLOUD",
+      "sourceName": "Amazon",
+      "strategy": "PROVIDER_GROUP",
+      "workflowStatus": "DONE",
+      "coverageStatus": "N_A",
+      "notes": "Provider heading; concrete services are tracked separately."
+    },
+    {
+      "id": "BASE-009",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "CLOUD",
+      "sourceName": "Amazon S3 Delivery Repository",
+      "strategy": "DEDICATED",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "s3"
+    },
+    {
+      "id": "BASE-010",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "CLOUD",
+      "sourceName": "Amazon Secret Manager",
+      "canonicalName": "AWS Secrets Manager",
+      "strategy": "SECRET_RESOLVER",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "SecretResolvers",
+      "notes": "Signed GetSecretValue with static/temporary credentials, bounded shared profiles, ECS task credentials, and IMDSv2-only instance credentials; live AWS acceptance remains."
+    },
+    {
+      "id": "BASE-011",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "CLOUD",
+      "sourceName": "Databricks",
+      "strategy": "DEDICATED",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "databricks"
+    },
+    {
+      "id": "BASE-012",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "CLOUD",
+      "sourceName": "Google BigQuery",
+      "strategy": "DEDICATED",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "bigquery"
+    },
+    {
+      "id": "BASE-013",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "CLOUD",
+      "sourceName": "Google Cloud Platform",
+      "strategy": "PROVIDER_GROUP",
+      "workflowStatus": "DONE",
+      "coverageStatus": "N_A",
+      "notes": "Provider heading; concrete services are tracked separately."
+    },
+    {
+      "id": "BASE-014",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "CLOUD",
+      "sourceName": "Google Cloud Secret Manager",
+      "canonicalName": "Google Secret Manager",
+      "strategy": "SECRET_RESOLVER",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "SecretResolvers",
+      "notes": "Native versioned access; service-account, metadata and bounded local-file workload identity; RFC 8693 STS and optional impersonation; CRC32C, endpoint controls, bounds, redirect refusal and offline fixtures pass. Live Google acceptance remains before DONE."
+    },
+    {
+      "id": "BASE-015",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "CLOUD",
+      "sourceName": "Google Cloud Storage Delivery Repository",
+      "strategy": "DEDICATED",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "gcs"
+    },
+    {
+      "id": "BASE-016",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "CLOUD",
+      "sourceName": "Google Sheets",
+      "strategy": "DEDICATED",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "google-sheets",
+      "notes": "Metadata, bounded ranges, RAW append/update and explicit formula opt-in fixtures implemented. Workload identity parity and live acceptance remain."
+    },
+    {
+      "id": "BASE-017",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "CLOUD",
+      "sourceName": "HashiCorp Vault",
+      "strategy": "SECRET_RESOLVER",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "SecretResolvers"
+    },
+    {
+      "id": "BASE-018",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "CLOUD",
+      "sourceName": "Microsoft Azure",
+      "strategy": "PROVIDER_GROUP",
+      "workflowStatus": "DONE",
+      "coverageStatus": "N_A",
+      "notes": "Provider heading; concrete services are tracked separately."
+    },
+    {
+      "id": "BASE-019",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "CLOUD",
+      "sourceName": "Microsoft Azure Blob Storage Delivery Repository",
+      "strategy": "DEDICATED",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "azure-blob"
+    },
+    {
+      "id": "BASE-020",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "CLOUD",
+      "sourceName": "Microsoft Azure Cosmos DB",
+      "strategy": "DEDICATED",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "azure-cosmos-db",
+      "notes": "Bounded NoSQL REST discovery, point/item operations, parameterized query continuation, bearer/resource-token auth and partition-key fixtures implemented; Shared Key, change feed and live Azure acceptance remain excluded."
+    },
+    {
+      "id": "BASE-021",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "CLOUD",
+      "sourceName": "Microsoft Azure Key Vault",
+      "strategy": "SECRET_RESOLVER",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "SecretResolvers"
+    },
+    {
+      "id": "BASE-022",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "CLOUD",
+      "sourceName": "Microsoft Azure Table Storage",
+      "strategy": "DEDICATED",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "azure-table",
+      "notes": "Bounded keyed entity operations, opaque continuation and same-partition batch fixtures implemented. Shared Key and live Azure acceptance remain."
+    },
+    {
+      "id": "BASE-023",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "CLOUD",
+      "sourceName": "Snowflake",
+      "strategy": "DEDICATED",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "snowflake"
+    },
+    {
+      "id": "BASE-024",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "Actian VectorWise",
+      "canonicalName": "Actian Avalanche / Vector",
+      "strategy": "JDBC_PROFILE",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "actian-vector",
+      "notes": "Actian driver profile and offline contract implemented; live Vector acceptance remains."
+    },
+    {
+      "id": "BASE-025",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "Cassandra",
+      "strategy": "DEDICATED",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "cassandra",
+      "notes": "Pinned driver, bounded prepared CQL, discovery and paging fixtures implemented. Native type binding and live cluster acceptance remain; CDC is excluded."
+    },
+    {
+      "id": "BASE-026",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "DBase",
+      "strategy": "JDBC_PROFILE",
+      "workflowStatus": "BLOCKED",
+      "coverageStatus": "PLANNED",
+      "notes": "No current authoritative Type-4 Java 8 JDBC contract."
+    },
+    {
+      "id": "BASE-027",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "Firebird",
+      "strategy": "JDBC_PROFILE",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "firebird",
+      "notes": "Dedicated Jaybird profile, bounds, offline contract and guide implemented. Driver deployment and live TLS/metadata/write acceptance remain."
+    },
+    {
+      "id": "BASE-028",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "Greenplum",
+      "strategy": "JDBC_PROFILE",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "greenplum",
+      "notes": "Dedicated PostgreSQL-family profile, descriptor, offline contract and guide implemented. Live metadata, TLS and controlled write/upsert acceptance remain."
+    },
+    {
+      "id": "BASE-029",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "H2",
+      "strategy": "DEDICATED",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "h2"
+    },
+    {
+      "id": "BASE-030",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "HyperFile SQL",
+      "strategy": "JDBC_PROFILE",
+      "workflowStatus": "BLOCKED",
+      "coverageStatus": "PLANNED",
+      "notes": "No authoritative standalone Type-4 Java 8 JDBC driver contract."
+    },
+    {
+      "id": "BASE-031",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "IBM DB2",
+      "canonicalName": "IBM Db2 LUW",
+      "strategy": "JDBC_PROFILE",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "db2-luw",
+      "notes": "Db2 LUW network profile, bounds, offline contract and guide implemented. Vendor driver deployment and live LUW acceptance remain; z/OS and IBM i are excluded."
+    },
+    {
+      "id": "BASE-032",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "Lotus Notes",
+      "canonicalName": "HCL Domino / Lotus Notes",
+      "strategy": "OPTIONAL_EXTENSION",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "domino-rest",
+      "notes": "Read-only Domino REST API Basis view/folder discovery and bounded DQL implemented without Notes.jar; writes, proprietary runtime access and live acceptance remain excluded."
+    },
+    {
+      "id": "BASE-033",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "Netezza",
+      "strategy": "JDBC_PROFILE",
+      "workflowStatus": "BLOCKED",
+      "coverageStatus": "PLANNED",
+      "notes": "Requires an explicit vendor-supported Java 8 driver/server matrix."
+    },
+    {
+      "id": "BASE-034",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "Informix",
+      "strategy": "JDBC_PROFILE",
+      "workflowStatus": "BLOCKED",
+      "coverageStatus": "PLANNED",
+      "notes": "Pin and supply a vendor-supported Java 8 driver release."
+    },
+    {
+      "id": "BASE-035",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "Ingres",
+      "canonicalName": "Actian Ingres",
+      "strategy": "JDBC_PROFILE",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "actian-ingres",
+      "notes": "Distinct Ingres profile, bounds, offline contract and guide implemented. Vendor driver deployment and live acceptance remain."
+    },
+    {
+      "id": "BASE-036",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "InterSystems Cache",
+      "canonicalName": "InterSystems IRIS / Caché",
+      "strategy": "JDBC_PROFILE",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "iris",
+      "notes": "Canonical IRIS profile with documented Caché URL compatibility, bounds, offline contract and guide implemented. Vendor driver deployment and live acceptance remain."
+    },
+    {
+      "id": "BASE-037",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "MemSQL",
+      "canonicalName": "SingleStore / MemSQL",
+      "strategy": "JDBC_PROFILE",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "singlestore",
+      "notes": "Dedicated MySQL Connector/J compatibility profile with catalog-aware metadata, secure defaults, offline contract and guide implemented. Live distributed-table write/upsert acceptance remains."
+    },
+    {
+      "id": "BASE-038",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "Microsoft Access",
+      "strategy": "JDBC_PROFILE",
+      "workflowStatus": "BLOCKED",
+      "coverageStatus": "PLANNED",
+      "notes": "Maintained UCanAccess requires Java 11+; legacy Java 8 line is unmaintained."
+    },
+    {
+      "id": "BASE-039",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "Microsoft SQL Server",
+      "strategy": "DEDICATED",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "sql-server"
+    },
+    {
+      "id": "BASE-040",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "MonetDB",
+      "strategy": "JDBC_PROFILE",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "monetdb",
+      "notes": "Current Java 8 driver profile, TLS URL, bounds, blocked COPY ON CLIENT boundary, offline contract and guide implemented. License review/packaging and live acceptance remain."
+    },
+    {
+      "id": "BASE-041",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "MySQL",
+      "strategy": "DEDICATED",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "mysql"
+    },
+    {
+      "id": "BASE-042",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "Oracle",
+      "strategy": "DEDICATED",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "oracle-database"
+    },
+    {
+      "id": "BASE-043",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "Paradox",
+      "strategy": "JDBC_PROFILE",
+      "workflowStatus": "BLOCKED",
+      "coverageStatus": "PLANNED",
+      "notes": "No maintained authoritative Type-4 Java 8 JDBC driver."
+    },
+    {
+      "id": "BASE-044",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "PostgreSQL",
+      "strategy": "DEDICATED",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "postgresql"
+    },
+    {
+      "id": "BASE-045",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "Progress OpenEdge",
+      "strategy": "JDBC_PROFILE",
+      "workflowStatus": "BLOCKED",
+      "coverageStatus": "PLANNED",
+      "notes": "Supply and bytecode-test the chosen proprietary driver for Java 8."
+    },
+    {
+      "id": "BASE-046",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "SAP ASE",
+      "strategy": "JDBC_PROFILE",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "sap-ase",
+      "notes": "Dedicated jConnect profile, bounds, offline contract and guide implemented. Vendor driver deployment and live acceptance remain."
+    },
+    {
+      "id": "BASE-047",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "SAP Hana",
+      "canonicalName": "SAP HANA",
+      "strategy": "JDBC_PROFILE",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "sap-hana",
+      "notes": "Dedicated ngdbc profile, bounds, offline contract and guide implemented. Driver deployment and live HANA acceptance remain."
+    },
+    {
+      "id": "BASE-048",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "SAP IQ",
+      "strategy": "JDBC_PROFILE",
+      "workflowStatus": "BLOCKED",
+      "coverageStatus": "PLANNED",
+      "notes": "Choose and supply one exact supported driver family before coding."
+    },
+    {
+      "id": "BASE-049",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "SAP SQL Anywhere",
+      "strategy": "JDBC_PROFILE",
+      "workflowStatus": "BLOCKED",
+      "coverageStatus": "PLANNED",
+      "notes": "Confirm and supply an exact Java 8 vendor driver contract."
+    },
+    {
+      "id": "BASE-050",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "SQreamDB",
+      "strategy": "JDBC_PROFILE",
+      "workflowStatus": "BLOCKED",
+      "coverageStatus": "PLANNED",
+      "notes": "Current driver requires Java 17; older Java 8 line lacks a support commitment."
+    },
+    {
+      "id": "BASE-051",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "Teradata",
+      "strategy": "JDBC_PROFILE",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "teradata",
+      "notes": "Dedicated Teradata JDBC profile, query bounds, offline contract and guide implemented. Vendor driver deployment and live Vantage acceptance remain."
+    },
+    {
+      "id": "BASE-052",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "DATABASE",
+      "sourceName": "Vertica",
+      "strategy": "JDBC_PROFILE",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "vertica",
+      "notes": "Dedicated Vertica JDBC profile, bounds, offline contract and guide implemented. Vendor driver deployment and live bulk/upsert acceptance remain."
+    },
+    {
+      "id": "BASE-053",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "UTILITY",
+      "sourceName": "Stored Procedure",
+      "strategy": "SHARED_JDBC_CAPABILITY",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "jdbc",
+      "notes": "The jdbc procedure operation provides a bounded typed IN/OUT callable contract, strict syntax, transactions, redacted errors and offline fixtures. Vendor portability acceptance remains."
+    },
+    {
+      "id": "BASE-054",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "UTILITY",
+      "sourceName": "Privacy Protect",
+      "strategy": "SHARED_CAPABILITY",
+      "workflowStatus": "DONE",
+      "coverageStatus": "N_A",
+      "coveredBy": "SensitiveDataMasker"
+    },
+    {
+      "id": "BASE-055",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "UTILITY",
+      "sourceName": "Sampling",
+      "strategy": "SHARED_CAPABILITY",
+      "workflowStatus": "DONE",
+      "coverageStatus": "N_A",
+      "coveredBy": "ConnectorInspectionAdapters"
+    },
+    {
+      "id": "BASE-056",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "FILE",
+      "sourceName": "Avro",
+      "strategy": "DOCUMENT_CODEC",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "sftp",
+      "notes": "The shared Java 8 Avro OCF provider enables file connectors including SFTP; flat scalar schema contract and bounded offline fixtures implemented; live interoperability remains."
+    },
+    {
+      "id": "BASE-057",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "FILE",
+      "sourceName": "CMIS",
+      "strategy": "DEDICATED",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "cmis",
+      "notes": "CMIS 1.1 Browser Binding discovery, bounded content and controlled write fixture implemented; live repository acceptance remains."
+    },
+    {
+      "id": "BASE-058",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "FILE",
+      "sourceName": "Microsoft Excel",
+      "strategy": "DOCUMENT_CODEC",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "sftp",
+      "notes": "The shared bounded OOXML provider enables file connectors including SFTP; first-sheet scalar rows and hostile-package fixtures implemented; legacy XLS and complex workbook features excluded."
+    },
+    {
+      "id": "BASE-059",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "FILE",
+      "sourceName": "Parquet",
+      "strategy": "DOCUMENT_CODEC",
+      "workflowStatus": "BLOCKED",
+      "coverageStatus": "PLANNED",
+      "notes": "Explicit runtime gate retained pending approved Java 8 Parquet/Hadoop dependency closure, schema contract and target use case."
+    },
+    {
+      "id": "BASE-060",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "MESSAGING",
+      "sourceName": "AMQP",
+      "strategy": "VERIFY_EXISTING",
+      "workflowStatus": "READY",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "rabbitmq",
+      "notes": "RabbitMQ coverage does not imply every AMQP broker/version."
+    },
+    {
+      "id": "BASE-061",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "MESSAGING",
+      "sourceName": "JMS",
+      "strategy": "DEDICATED",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "jms"
+    },
+    {
+      "id": "BASE-062",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "MESSAGING",
+      "sourceName": "Kafka",
+      "strategy": "DEDICATED",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "kafka"
+    },
+    {
+      "id": "BASE-063",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "MESSAGING",
+      "sourceName": "Microsoft Azure Service Bus",
+      "strategy": "DEDICATED",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "azure-service-bus"
+    },
+    {
+      "id": "BASE-064",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "NOSQL",
+      "sourceName": "Couchbase",
+      "strategy": "DEDICATED",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "couchbase",
+      "notes": "Bounded bucket/collection discovery and single-document KV fixtures implemented. SDK packaging and live acceptance remain; SQL++ and DCP are excluded."
+    },
+    {
+      "id": "BASE-065",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "NOSQL",
+      "sourceName": "Elasticsearch",
+      "strategy": "DEDICATED",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "elasticsearch",
+      "notes": "Bounded discovery/mapping/get/search_after/bulk fixtures and guide implemented. Live cluster acceptance remains."
+    },
+    {
+      "id": "BASE-066",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "NOSQL",
+      "sourceName": "MongoDB",
+      "strategy": "DEDICATED",
+      "workflowStatus": "IN_PROGRESS",
+      "coverageStatus": "PARTIAL",
+      "coveredBy": "mongodb",
+      "notes": "Pinned Java 8 sync driver, bounded discovery/CRUD and keyset paging fixtures implemented. Live cluster acceptance remains; change streams are excluded."
+    },
+    {
+      "id": "BASE-067",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "SAAS",
+      "sourceName": "Social post search API",
+      "strategy": "OPTIONAL_REST_TEMPLATE",
+      "workflowStatus": "BLOCKED",
+      "coverageStatus": "PLANNED",
+      "notes": "Blocked on product priority, API tier, terms, and acceptance credentials."
+    },
+    {
+      "id": "BASE-068",
+      "source": "CAPABILITY_BASELINE",
+      "sourceSection": "WEB",
+      "sourceName": "HTTP REST",
+      "strategy": "GENERIC_AND_TEMPLATES",
+      "workflowStatus": "REVIEW",
+      "coverageStatus": "COVERED",
+      "coveredBy": "rest"
+    }
+  ]
+}

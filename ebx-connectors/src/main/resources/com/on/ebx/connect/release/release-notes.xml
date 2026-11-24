@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<releaseNotes schemaVersion="1">
+  <!-- Entries tagged kind="development" are development increments, not releases. Releases 1.4.0, 1.4.1, 1.4.2 and 1.5.0 (last entries) are formal: their tags are placed by the owner; check releasedOn against the tag date (v1.4.0, v1.4.1 and v1.4.2 were all tagged on 2026-11-12). The 1.5.0 entry was written on 2026-11-23 BEFORE its tag, as docs/RELEASES.md asks: if v1.5.0 is placed on another day, change releasedOn first, and the known issue "rehearsal-150" says what was rehearsed with the package built before the tag. The tags v1.0.0 to v1.3.1 have no entry here. -->
+  <release id="development-preview-2026-09-09-pass10" kind="development" status="in-progress">
+    <title>Using EBX Connectors</title>
+    <summary>Connect approved sources, choose and map the data you need, test safely, and run governed data flows from EBX.</summary>
+    <metric code="catalog-offerings" label="Catalog offerings" value="54"/>
+    <metric code="connector-types" label="Connector types" value="57"/>
+    <metric code="operations" label="Declared operations" value="234"/>
+    <metric code="historical-checklist" label="Passes 1–8 checklist" value="70/73"/>
+    <metric code="complete-passes" label="Complete passes" value="6/10"/>
+    <pass code="pass-1" label="Pass 1 — Catalog and custom connector form" status="complete" progress="100">
+      <remainingGates>All 15 checklist items and live acceptance are complete.</remainingGates>
+      <step code="p1-catalog" status="complete">Searchable custom Connector Catalog.</step>
+      <step code="p1-category-model" status="complete">Category reference table and Connector foreign key.</step>
+      <step code="p1-category-seeds" status="complete">Seeded connector categories.</step>
+      <step code="p1-logos" status="complete">Connector logos in table and catalog views.</step>
+      <step code="p1-custom-form" status="complete">EBX-style custom connector form.</step>
+      <step code="p1-card-navigation" status="complete">Catalog cards open connector records.</step>
+      <step code="p1-contextual-close" status="complete">Catalog-origin and native-table-origin Close preserve context and session.</step>
+      <step code="p1-native-navigation" status="complete">Standard table origins retain native EBX behavior.</step>
+      <step code="p1-filter-composition" status="complete">Catalog and EBX selection filters compose.</step>
+      <step code="p1-record-visibility" status="complete">Catalog preserves EBX record visibility.</step>
+      <step code="p1-readiness-states" status="complete">Inactive, unavailable, and misconfigured states are distinct.</step>
+      <step code="p1-fallbacks" status="complete">Fallback category and logo behavior.</step>
+      <step code="p1-onebx-artwork" status="complete">Official ON EBX artwork.</step>
+      <step code="p1-svg-normalization" status="complete">Salesforce, Amazon S3, and Azure Blob SVG dimensions normalized.</step>
+      <step code="p1-browser-regression" status="complete">Catalog, form, save, close, navigation, and safe /ebx-ui return accepted.</step>
+    </pass>
+    <pass code="pass-2" label="Pass 2 — Upgrade safety, permissions, localization, and documentation" status="in-progress" progress="80">
+      <remainingGates>An isolated previous-schema upgrade and fresh installation remain.</remainingGates>
+      <step code="p2-additive-seeding" status="complete">Repeatable additive category and connector seeding.</step>
+      <step code="p2-previous-schema-upgrade" status="pending">Verify previous-schema upgrade without data loss.</step>
+      <step code="p2-fresh-install" status="pending">Verify a fresh repository installation.</step>
+      <step code="p2-english-coverage" status="complete">English bundle and schema-label coverage.</step>
+      <step code="p2-french-coverage" status="complete">French bundle and schema-label coverage.</step>
+      <step code="p2-localized-ui" status="complete">Required visible strings localized.</step>
+      <step code="p2-bilingual-guides" status="complete">English and French safe-upgrade guides.</step>
+      <step code="p2-ui-evidence" status="complete">Catalog and form screenshots captured.</step>
+      <step code="p2-rollback-guidance" status="complete">Rollback and compatibility documented.</step>
+      <step code="p2-upgrade-verifier" status="complete">Offline ownership, additive seeding, customer-value, and localization verifier.</step>
+    </pass>
+    <pass code="pass-3" label="Pass 3 — Reproducible build and contract tests" status="complete" progress="100">
+      <remainingGates>All 8 checklist items are complete.</remainingGates>
+      <step code="p3-one-command-build" status="complete">One-command module, SPI, and extension build.</step>
+      <step code="p3-contract-entrypoint" status="complete">Dependency-free contract-test entry point.</step>
+      <step code="p3-mock-http" status="complete">Mock HTTP server.</step>
+      <step code="p3-consistency-checks" status="complete">Installer, category, module, localization, and ownership checks.</step>
+      <step code="p3-war" status="complete">Reproducible offline WAR.</step>
+      <step code="p3-runtime-libraries" status="complete">Owned libraries packaged; container APIs excluded.</step>
+      <step code="p3-ci" status="complete">Protected self-hosted CI.</step>
+      <step code="p3-registry-contracts" status="complete">All registry-visible types covered.</step>
+    </pass>
+    <pass code="pass-4" label="Pass 4 — Connector descriptors and typed configuration SPI" status="complete" progress="100">
+      <remainingGates>All 9 checklist items are complete.</remainingGates>
+      <step code="p4-descriptor" status="complete">Backward-compatible ConnectorDescriptor.</step>
+      <step code="p4-capability-metadata" status="complete">Complete connector capability metadata.</step>
+      <step code="p4-incremental-strategies" status="complete">Incremental-strategy compatibility.</step>
+      <step code="p4-operation-direction" status="complete">Read/search and write classification.</step>
+      <step code="p4-property-types" status="complete">All planned typed properties.</step>
+      <step code="p4-property-metadata" status="complete">Required, advanced, and conditional metadata.</step>
+      <step code="p4-descriptor-rendering" status="complete">Descriptor-driven configuration rendering.</step>
+      <step code="p4-compatibility-fallbacks" status="complete">Descriptor metadata with compatibility fallbacks.</step>
+      <step code="p4-availability-states" status="complete">Installed, unavailable, inactive, and misconfigured states.</step>
+    </pass>
+    <pass code="pass-5" label="Pass 5 — Connection testing, discovery, preview, and draft mapping" status="complete" progress="100">
+      <remainingGates>All 8 checklist items are complete.</remainingGates>
+      <step code="p5-validation" status="complete">Descriptor-backed configuration validation.</step>
+      <step code="p5-connection-test" status="complete">Connection-test SPI and action.</step>
+      <step code="p5-discovery" status="complete">Bounded object discovery.</step>
+      <step code="p5-description" status="complete">Object description with legacy adaptation.</step>
+      <step code="p5-preview" status="complete">Limited read-only preview.</step>
+      <step code="p5-draft-mapping" status="complete">Draft-mapping contracts and suggestions.</step>
+      <step code="p5-form-actions" status="complete">EBX validation, test, and discovery actions.</step>
+      <step code="p5-safety-controls" status="complete">Permission, payload, time, row, masking, and cache controls.</step>
+    </pass>
+    <pass code="pass-6" label="Pass 6 — Shared protocol foundations" status="in-progress" progress="80">
+      <remainingGates>Four of five items are complete; Excel awaits an approved provider and optional Parquet is use-case gated.</remainingGates>
+      <step code="p6-rest-openapi" status="complete">REST and OpenAPI foundation.</step>
+      <step code="p6-odata" status="complete">OData v2/v4 foundation.</step>
+      <step code="p6-jdbc" status="complete">JDBC foundation.</step>
+      <step code="p6-soap" status="complete">SOAP and WSDL foundation.</step>
+      <step code="p6-document-codecs" status="in-progress">CSV, JSON, NDJSON, and XML complete; Excel provider pending; Parquet use-case gated.</step>
+    </pass>
+    <pass code="pass-7" label="Pass 7 — Templates and recoverable synchronization" status="complete" progress="100">
+      <remainingGates>All 11 checklist items are complete.</remainingGates>
+      <step code="p7-template-lifecycle" status="complete">Versioned template import and export.</step>
+      <step code="p7-customer-copies" status="complete">Customer copies preserved.</step>
+      <step code="p7-product-profiles" status="complete">Seven packaged product profiles.</step>
+      <step code="p7-mapping-policy" status="complete">Mapping synchronization policy.</step>
+      <step code="p7-load-modes" status="complete">FULL and INCREMENTAL modes.</step>
+      <step code="p7-checkpoint-separation" status="complete">Separate checkpoint state.</step>
+      <step code="p7-checkpoint-strategies" status="complete">Six checkpoint strategies.</step>
+      <step code="p7-paired-directions" status="complete">Independent inbound/outbound mappings.</step>
+      <step code="p7-safe-overrides" status="complete">Bounded audited overrides.</step>
+      <step code="p7-recoverable-execution" status="complete">Durable resumable execution.</step>
+      <step code="p7-replay" status="complete">Idempotency, dead letters, retry, replay, deletion, and checkpoint ordering.</step>
+    </pass>
+    <pass code="pass-8" label="Pass 8 — Governance, health, metrics, and operations" status="in-progress" progress="95">
+      <remainingGates>All 7 implementation items are complete, but the authoritative plan keeps this open for unified UI and administrator acceptance.</remainingGates>
+      <step code="p8-health" status="complete">Connector health and success/failure state.</step>
+      <step code="p8-movement-metrics" status="complete">Movement, request, retry, and throttling metrics.</step>
+      <step code="p8-runtime-metrics" status="complete">Latency, checkpoint age, and drift.</step>
+      <step code="p8-dashboards" status="complete">Operational views and dashboards.</step>
+      <step code="p8-alerts" status="complete">Repeated-failure alerts.</step>
+      <step code="p8-governance" status="complete">Precedence, ownership, approval, effective dates, and publication.</step>
+      <step code="p8-impact-audit" status="complete">Impact and configuration/secret-reference audit.</step>
+    </pass>
+    <pass code="pass-9" label="Pass 9 — PostgreSQL reference connector experience" status="in-progress" progress="80">
+      <remainingGates>Authenticated selector, route, governed-run, and operations-history acceptance remain.</remainingGates>
+      <step code="p9-postgresql-runtime" status="complete">Dedicated implementation and packaged driver.</step>
+      <step code="p9-connection-experience" status="complete">Connection experience is live accepted.</step>
+      <step code="p9-discovery-preview" status="complete">Discovery and bounded preview are live accepted.</step>
+      <step code="p9-target-selectors" status="in-progress">Dependent target selectors and migration implemented; live acceptance remains.</step>
+      <step code="p9-run-route" status="in-progress">B-route translation implemented and tested; live acceptance remains.</step>
+      <step code="p9-source-selector" status="in-progress">Source selector and generated SELECT implemented and tested; live acceptance remains.</step>
+      <step code="p9-governed-run" status="pending">Governed run and operations-history evidence.</step>
+    </pass>
+    <pass code="pass-10" label="Pass 10 — In-application release notes" status="complete" progress="100">
+      <remainingGates>All dataset-scope, history, ownership, localization, build, deployment, and live acceptance gates are complete.</remainingGates>
+      <step code="p10-release-model" status="complete">Additive release record model.</step>
+      <step code="p10-packaged-ownership" status="complete">Non-overwriting packaged ownership.</step>
+      <step code="p10-dataset-service" status="complete">Dataset-only read-only service.</step>
+      <step code="p10-release-page" status="complete">Release history and readiness page.</step>
+      <step code="p10-activation-contract" status="complete">Dataset/table activation contracts and live acceptance.</step>
+      <step code="p10-localization-build" status="complete">Localization, tests, build, WAR, and deployment.</step>
+    </pass>
+    <!-- Stable substep ids preserve the literal current PLAN checklist. -->
+    <section category="new">
+      <item id="feature-catalog">Find an available connector and open its setup page from the Connector catalog.</item>
+      <item id="feature-product-connectors">Save the endpoint and the credentials or key required for your approved external source.</item>
+      <item id="feature-mapping">Choose source data and map only the fields that your EBX table needs.</item>
+      <item id="feature-inspection">Validate a connection and inspect a bounded sample before you use live business data.</item>
+      <item id="feature-governed-runtime">Run approved data flows and review their outcome in the operational views provided by your configuration.</item>
+    </section>
+    <section category="improved">
+      <item id="improvement-connection-ux">Connection checks now provide clearer feedback and return you to the connector workspace.</item>
+      <item id="improvement-postgresql">For PostgreSQL, select a table or view to start a bounded read-only query, then adjust it if needed.</item>
+      <item id="improvement-upgrade-safety">Packaged setup is additive so that existing customer configuration is not replaced by an update.</item>
+    </section>
+    <section category="known-issue">
+      <item id="known-development-only">This is a development preview, not a formally tagged product release.</item>
+      <item id="known-pass-2">Your administrator should validate a fresh installation and an upgrade in isolated repositories before production use.</item>
+      <item id="known-pass-6">Excel connectivity needs an approved provider. Parquet support is available only when the deployment has an approved use case.</item>
+      <item id="known-pass-8">Operational views depend on the governance and monitoring configuration available in your EBX environment.</item>
+      <item id="known-pass-9">PostgreSQL use should be validated with the credentials, permissions, and target tables approved for your environment.</item>
+    </section>
+  </release>
+  <release id="development-preview-2026-09-12-catalog-and-data-fixes" kind="development" status="complete">
+    <title>Catalog navigation, sign-in safety, and connector data quality</title>
+    <summary>Fixes an error opening connectors from the catalog, a data-flow action that could unexpectedly sign you out, and cleans up connector categories and the EBX connector's logo.</summary>
+    <section category="fixed">
+      <item id="fixed-catalog-view-error">Opening a connector from the Connector catalog no longer shows "The view [ConnectorView] was not found."</item>
+      <item id="fixed-catalog-perspective">Opening a connector, or returning to the catalog, now stays in the perspective you opened it from instead of switching to the full administration data browser.</item>
+      <item id="fixed-flow-edit-signout">Editing a data flow from a connector's Data flows tab no longer risks signing you out when you close it.</item>
+      <item id="fixed-flow-design-signout">Opening a data flow's visual designer ("Design/test") no longer risks signing you out when you close it either.</item>
+      <item id="fixed-connector-categories">Connector catalog categories now reflect what each connector actually does: OpenStreetMap Nominatim, Wikidata, and the countries reference connector are grouped under Location &amp; reference data; the French business-registry search under Corporate registries; EU customs number validation under Risk &amp; compliance.</item>
+      <item id="fixed-ebx-logo">The "EBX (another instance)" connector now shows the real ON EBX logo instead of a placeholder image.</item>
+      <item id="fixed-jde-oracle-fusion-logos">The JD Edwards and Oracle Fusion connectors each show their own distinct logo instead of both showing an unrelated Oracle wordmark.</item>
+      <item id="fixed-branding-path-overflow">A connector's resource path no longer overflows past the "Catalog branding" panel on its record form.</item>
+    </section>
+    <section category="improved">
+      <item id="improved-catalog-logos">A couple of catalog logos (Wikidata, the Slack/Microsoft Teams webhook) were touched up for clarity.</item>
+    </section>
+    <section category="known-issue">
+      <item id="known-flow-edit-close">Closing a data flow opened from a connector's own record can occasionally leave the panel loading; refreshing the page resolves it.</item>
+    </section>
+  </release>
+  <release id="development-preview-2026-09-13-openlineage-and-ebx-catalog" kind="development" status="complete">
+    <title>Lineage of every data flow, and the EBX instance in the data catalog</title>
+    <summary>Outbound runs now describe themselves to an OpenLineage sink (the ON EBX data catalog, Marquez, DataHub), and the EBX connector inventories, profiles and traces an EBX instance for the catalog like a database.</summary>
+    <section category="new">
+      <item id="new-openlineage-sink">New connector type "openlineage": declare one (base URL = the sink's endpoint, its authentication) and every outbound run is described there as an OpenLineage RunEvent — the EBX table as input, the connector's object as output, one column-lineage entry per rule, the counts of the run. Inbound runs on request (emit.inbound), chat webhooks, LLM and sink connectors never described.</item>
+      <item id="new-ebx-catalog-operations">The EBX connector gains the data-catalog operations catalog, profile, sample and lineage: tables and columns from the Data Services metamodels, exact row counts, statistics and samples from the first records, the foreign keys of the models as column lineage. An EBX instance — this one through its own Data Services — is scanned by the catalog like any source.</item>
+      <item id="new-lineage-per-run">Every run (REST, workflow, scheduler, user service) buffers its results per mapping and sends one event per mapping when it ends; a single call or a table trigger sends its own event.</item>
+    </section>
+    <section category="improved">
+      <item id="improved-credential-guide">The connector's Connection tab now says which credentials to enter for the chosen authentication: offered modes as cards, a required / optional / derived / not used state and a contextual label on each credential field, what to enter, where to get it and what is sent, and a warning when a pasted secret is longer than the field accepts.</item>
+      <item id="improved-run-ids">The OpenLineage run id is derived from the Connectors run id and the mapping, so a replay updates the same run.</item>
+    </section>
+    <section category="known-issue">
+      <item id="known-openlineage-sink-cache">A newly created sink connector is seen by running synchronisations within thirty seconds; editing it re-reads it at once.</item>
+    </section>
+  </release>
+  <release id="development-preview-2026-09-13-declared-lineage" kind="development" status="in-progress">
+    <title>Data flows in the catalog as soon as they are declared</title>
+    <summary>A mapping no longer has to run before the data catalog shows where the data goes: it is described when it is created or changed, and retired when it is deactivated or deleted.</summary>
+    <section category="new">
+      <item id="new-declared-lineage">Every mapping is described to the OpenLineage sinks as soon as it is declared, as an OpenLineage job event carrying the same datasets and column lineage as a run: the triggers of the mapping, input and rule tables send it once the changes stop, a deactivated, deleted or renamed mapping retires its job, and every mapping is swept once at startup. The data catalog shows these flows as declared, then as observed after their first run. Sink property emit.declared (default true).</item>
+      <item id="new-lineage-declare-api">POST /ebx-connectors/rest/v1/lineage/declare and the MCP tool connectors_lineage_declare send the declared lineage of every mapping, or of one, on request — after adding a sink or changing a connector's base URL.</item>
+    </section>
+    <section category="improved">
+      <item id="improved-broker-dataset-name">On a message broker (Kafka, RabbitMQ, JMS, ActiveMQ, Azure Service Bus) the lineage names the topic or queue — the mapping's input, else the connector's default topic — instead of the table label of the document, and a base URL without a scheme (host:port, bootstrap servers) gives a proper namespace.</item>
+    </section>
+    <section category="known-issue">
+      <item id="known-connector-change-not-watched">Changing a connector's base URL does not re-describe its mappings: run lineage/declare afterwards.</item>
+    </section>
+  </release>
+  <release id="development-preview-2026-09-15-slack" kind="development" status="in-progress">
+    <title>A dedicated Slack connector</title>
+    <summary>Slack is reached through its Web API with the bot token of a Slack app, stored encrypted, instead of a webhook URL that carries its own secret.</summary>
+    <section category="new">
+      <item id="new-slack-connector">New connector type "slack" and a seeded connector Slack: post (channel by id or #name, title, thread, Block Kit blocks), update (edit a posted message), dm (a member found by email), channels (search), and notify, identical to post, so a flow written for the Slack / Teams webhook moves over by changing its connector.</item>
+      <item id="new-workitem-chat-notifications">Workflow tasks in Slack: set the workflow trigger ChatWorkItemTrigger on a workflow model and every new work item is posted with a link that opens it in the user's EBX inbox; the message turns into "Accepted by …" or "Rejected by …" when the work item ends. The decision stays in EBX, in the user's own session. Channels per role and the public EBX address are properties of the Slack connector.</item>
+      <item id="new-slack-refusals">Slack refusals are errors even though Slack answers them with HTTP 200: a missing scope, an app not invited to the channel or an unknown member fails the run with the reason and what to fix, instead of counting as sent.</item>
+    </section>
+    <section category="improved">
+      <item id="improved-slack-lineage">Slack connectors are left out of the lineage by default, like the chat webhook (exclude.types).</item>
+    </section>
+    <section category="fixed">
+      <item id="fixed-chat-webhook-connect">Connect no longer marks a valid Slack incoming webhook as failed: it is checked with an empty message that Slack refuses without posting. A Teams or Power Automate webhook, which cannot be checked without posting, stays not connected instead of failed, like any connector that offers no connection check.</item>
+    </section>
+  </release>
+  <release id="development-preview-2026-09-16-connector-enrichment" kind="development" status="in-progress">
+    <title>Expanded connector catalog and governed metadata discovery</title>
+    <summary>The catalog now declares 92 connector types, adds governed shared-drive and SQL Server metadata discovery, and verifies packaging, catalog seeds, guides, artwork, and masking in the baseline build.</summary>
+    <metric code="connector-types" label="Connector types" value="92"/>
+    <metric code="operations" label="Declared operations" value="503"/>
+    <metric code="connector-guides" label="Connector-specific guides" value="46"/>
+    <section category="new">
+      <item id="new-enriched-catalog">The connector catalog has expanded to 92 registered types with additive installer records and packaged implementations.</item>
+      <item id="new-drive-metadata">Google Drive and Microsoft OneDrive can inventory explicitly scoped file metadata and source governance labels without downloading file bodies.</item>
+      <item id="new-sqlserver-metadata">Microsoft SQL Server catalog scans can retain bounded source extended properties and optional usage counters with explicit retrieval status.</item>
+      <item id="new-masked-catalog-preview">Administrators can request an on-demand catalog preview; only explicitly public, untagged scalar columns are shown and all other values remain masked.</item>
+    </section>
+    <section category="improved">
+      <item id="improved-release-readiness">The baseline now checks the release-readiness verifier, connector guide index, WAR classes, additive catalog seeds, and documented connector artwork.</item>
+      <item id="improved-connection-catalog">The Connector catalog is now the Connection catalog, since each card is a configured connection, and its search row offers a New connection button that opens the standard creation form.</item>
+      <item id="improved-parallel-builds">Developers and agents can isolate build output with EBX_BUILD_DIR so concurrent verification runs do not delete each other's classes.</item>
+    </section>
+    <section category="security">
+      <item id="security-metadata-fail-closed">Shared-drive pagination, metadata-only operation allowlists, SQL metadata bounds, and preview reauthorization fail closed when scope or authorization changes.</item>
+    </section>
+    <section category="known-issue">
+      <item id="known-live-acceptance">Provider-specific connectors remain under review until they pass live acceptance with approved tenant credentials, permissions, drivers, and representative non-production data.</item>
+      <item id="known-guide-coverage">The original guides index all 46 connector-specific guides; connector types without an individual guide remain visible in the main user guide and generated capability report.</item>
+    </section>
+  </release>
+  <release id="development-preview-2026-11-02-documents-dama-vision" kind="development" status="in-progress">
+    <title>Documents, DAMA assets and images read by an AI model</title>
+    <summary>The documents connector fills record fields from PDF, Word and text documents, from documents stored in the EBX Digital Asset Manager, and, when you allow it, from images and scanned PDFs. Uncertain values wait for a data steward.</summary>
+    <section category="new">
+      <item id="new-documents-connector">New connector type "documents": the attributes you list are read from a document by your language-model connector, each with a confidence and the words of the document that state it. Values below the confidence threshold are proposed in the conflict manager instead of being written.</item>
+      <item id="new-documents-dama">Documents stored in the EBX Digital Asset Manager (DAMA) can be read from the record that holds them, with your own permissions, so a workflow step or a table trigger can fill the record's fields from its document.</item>
+      <item id="new-documents-annotate">The annotate operation writes the extracted values back to the DAMA asset as metadata and adds tags chosen only from the tags DAMA already has; it never creates a tag.</item>
+      <item id="new-documents-vision">Images (png, jpeg, gif, webp) and PDFs without a text layer can be sent to a model that accepts images, once you set vision=true on both the documents and the language-model connectors. Values read from an image are capped below the threshold, so a data steward confirms them by default.</item>
+    </section>
+    <section category="security">
+      <item id="security-documents-vision-opt-in">Images and scans are never sent to a model unless both connectors allow it: they can contain personal data such as faces, signatures or identity numbers, and they leave EBX for the model provider.</item>
+    </section>
+    <section category="known-issue">
+      <item id="known-documents-dama-live">Writing metadata and tags back to DAMA has been tested without a live DAMA instance only; validate it on a test asset first, since added metadata and tags are not removed by the connector.</item>
+      <item id="known-documents-vision-providers">Reading images has been confirmed with an OpenAI model; other providers and scanned PDFs still need a check on your environment. Azure and Ollama models take images but not PDFs.</item>
+    </section>
+  </release>
+  <release id="release-1.4.0" kind="formal" version="1.4.0" sourceTag="v1.4.0" releasedOn="2026-11-12" status="supported">
+    <title>ebx-connectors 1.4.0: change data capture, a safer entry, and three functions shipped closed</title>
+    <summary>Part 1, open: Debezium change data capture into EBX tables, deeper BigQuery, SAP OData and Workday connectors, bounded request bodies, a stricter MCP entry, and a status route that shows the outbound queue and the capture flows. Part 2, shipped as a preview and CLOSED until the server administrator opens it with -Debx.connectors.preview: documents and images read by an AI model, Match and Merge around a capture batch with golden records out, and Amazon Redshift. Read the upgrade guide (docs/UPGRADE-ROLLBACK.md, from 1.3.1 to 1.4.0) before the first start.</summary>
+    <metric code="connector-types" label="Connector types" value="96"/>
+    <metric code="mcp-tools" label="MCP tools" value="23"/>
+    <section category="new">
+      <item id="open-cdc">Debezium change data capture: operation "cdc" of a kafka connection applies a topic of Debezium events to an EBX table (insert and update as upserts, delete as delete, flag or ignore). The resume position is saved only after EBX applied the whole batch, so a failed batch is read again (at least once, replay is harmless). You see it in the run message ("CDC: 9 event(s) -> 2 upsert(s), 2 delete(s)") and in /v1/status, block cdc. To use it: docs/CDC.md. Exercised on a live Kafka broker with Debezium-format events; a real Debezium connector has not been tried yet.</item>
+      <item id="open-connector-depth">BigQuery follows page tokens, polls running jobs and gains catalog, profile and sample; SAP OData fetches a fresh CSRF token and retries a rejected write once; Workday pages its REST collections and refreshes its token after a 401. Tested against recorded answers only: none of the three has been run against a real tenant. Run a read on your tenant before relying on them.</item>
+      <item id="open-actions-submenu">The module's services (conflict manager, synchronise, delete mapping, OpenAPI import) appear in one submenu of the Actions menu instead of side by side. Nothing to do.</item>
+      <item id="open-status-blocks">GET /ebx-connectors/rest/v1/status now shows the outbound queue (waiting, retrying, set aside, age of the oldest waiting row) and each capture flow (running now, resume position, time of the last applied batch), plus preview, requestLimits and the reading of the two egress lists. Use it as the health route of a monitoring probe; the last failure of a capture flow is not in it (read it with connectors_run_get).</item>
+    </section>
+    <section category="improved">
+      <item id="open-egress-lists-report">The two lists ebx.connectors.egress.privateExceptions and ebx.connectors.allowedHosts now say what they read: one line in the kernel log at each start (entries read, entries ignored) and a WARN when the value looks like a file path without the "file:" prefix, which used to be read silently as one entry that matches nothing. If you see that WARN, add "file:" in front of the path. The same figures are in /v1/status, block egress.</item>
+      <item id="open-model-fields">Two optional fields were added to the data model: FieldProvenance.source (where a value was read, filled by document feeds) and OutboundQueue.publish (golden, filled by a trigger that asks for golden records). Existing rows get an empty value; nothing is lost. Restart Tomcat after replacing the war so that the model is reloaded.</item>
+      <item id="open-standalone-war">The war now carries Jackson 2.14.2 and the SLF4J API in WEB-INF/lib, so it can start on a standard ON EBX lib/ (ebx.jar, a database driver, jakarta.mail); before, it was dead at start there (NoClassDefFoundError on com/fasterxml/jackson/databind/JsonNode) and only worked where a FastTrack lib/ supplied them. The offline suite now fails if any class the war references is found nowhere, and the libraries that stay absent on purpose (optional features of the drivers) are listed connection by connection in the operator guide, section 1.1. tools/install.sh into a FastTrack workspace keeps that workspace's own WEB-INF/lib, so the demonstration instance keeps the Jackson of its server lib/.</item>
+    </section>
+    <section category="security">
+      <item id="open-body-bounds">Request bodies are bounded. POST /rest/mcp: 4 MiB, 20 messages per batch, nesting depth 64; the REST routes that take a document (webhook, /config, /publish, /connectors/openapi, /templates/import): 32 MiB, depth 64. A call over a bound is refused before it is parsed with 413 CN_BODY_TOO_LARGE, 400 CN_BATCH_TOO_LONG or 400 CN_JSON_TOO_DEEP and the text names the JVM property to raise (ebx.connectors.mcp.maxBodyBytes, .maxBatch, .maxJsonDepth, ebx.connectors.rest.maxBodyBytes, .maxJsonDepth). Raise one only if a legitimate caller needs it; every caller with a Connectors right can then make the server buffer that much.</item>
+      <item id="open-mcp-403">An authenticated session that holds no Connectors right now gets HTTP 403 on POST /rest/mcp before its body is read (before: the call was answered and the tools were hidden or refused one by one). An MCP client configured with such an account shows a refusal at connection: give the account the READ right in the Access rights table, or stop using it.</item>
+      <item id="open-service-account-file">The Google property serviceAccountFile can only name a file inside the directory of -Debx.connectors.secrets.dir (a relative name is resolved there); with no such directory it is refused. A Google connection that pointed at a key file elsewhere on the server fails at its next use with "serviceAccountFile is refused". Move the key file into the secrets directory, or use serviceAccountJson or a secret reference.</item>
+      <item id="open-cdc-inputs">On a capture feed, a run-time input (connectors_sync inputs, a scheduled task, a workflow task) can no longer replace what the mapping configures (delete mode, flag field, topic, matching): only maxEvents and maxBytes are accepted, and only downwards. The others are dropped and named in the run message and in a WARN. An operator who used to switch "flag" to "delete" for one run must now change the mapping.</item>
+    </section>
+    <section category="fixed">
+      <item id="open-ci-workflow">The GitHub workflow that runs the offline contracts and the dependency check was an invalid file since 2026-10-24, so neither had run on GitHub; it is readable again.</item>
+    </section>
+    <section category="new">
+      <item id="preview-open-how">PREVIEW, CLOSED BY DEFAULT. Three functions are in the war but refuse to run until the server administrator names them in the JVM property -Debx.connectors.preview, a comma-separated list of documents, cdcMatching and redshift (exact spelling; a misspelt word opens nothing and is logged once). Closed means a run, a call, a scheduled task or a trigger send ends with an error that starts with [CN-PREVIEW-CLOSED] and names the word to add; the connection rows stay listed and editable. /v1/status, block preview, shows what is open. An instance that already uses one of them must add the word BEFORE its first start on 1.4.0.</item>
+      <item id="preview-documents">Preview (word: documents): connection type "documents" reads PDF, Word and text documents (uploaded, or from a folder under ebx.connectors.documents.roots) and fills record fields through your language-model connector, each value with a confidence and the words of the document that state it; values under the threshold are proposed in the conflict manager. The seeded "Documents" connection is created only when the function is open, and with no language model: choose it yourself in the property llm.connector. Exercised on the test instance with a real model (36 checks).</item>
+      <item id="preview-dama">Preview (word: documents): documents kept in the Digital Asset Manager are read from the record that holds them with the caller's own permissions, and the annotate operation writes extracted values back as DAMA metadata and tags chosen from DAMA's own vocabulary. Written back without a live DAMA instance in the tests: try it on a test asset first, the connector cannot remove what it added.</item>
+      <item id="preview-vision">Preview (word: documents): images and PDFs without a text layer can be sent to a model that accepts images, only when vision=true is set on both the documents and the language-model connections. Values read from an image are capped at 0.7 confidence so a steward confirms them. Confirmed with an OpenAI model only.</item>
+      <item id="preview-cdc-matching">Preview (word: cdcMatching): on a capture feed, matching=afterApply pauses Match and Merge during the batch, matches the records it created or updated and saves the resume position only when that matching ended; matching=off pauses it and matches nothing; publish=golden on an outbound trigger sends a merged record's golden record. While closed, a capture mapping that carries matching=afterApply or off is refused when saved and when run, and a queued golden send stays in the outbound queue. Not run on an instance yet (RC scenario B8).</item>
+      <item id="preview-redshift">Preview (word: redshift): connection type "redshift" on the shared JDBC engine (catalog, profile, sample, query, watermark feeds). The Amazon driver is not in the war: supply redshift-jdbc42 yourself. The cluster-identifier URL form and the options plugin_name and CredentialsProvider are refused. Never run against a real cluster.</item>
+    </section>
+    <section category="known-issue">
+      <item id="known-pdf-reader">The PDF reader of the documents function is the module's own code and has not been hardened against hostile files: a crafted PDF of under 20 kilobytes can exhaust the memory of the whole server JVM (audit C3-01, reproduced offline). This is why the function ships closed. Do not open "documents" where a user you do not trust can run a documents flow or upload to one.</item>
+      <item id="known-not-rehearsed">Nothing in this release has been installed on an instance other than the owner's test instance, and no upgrade from 1.3.1 and no rollback has been rehearsed on a copy of a repository. docs/UPGRADE-ROLLBACK.md says which steps are read from the code and which were measured.</item>
+      <item id="known-no-llm-log">Nothing records what is sent to a language model; the documents function sends the document text (and, with vision on, the image) to the model you chose.</item>
+    </section>
+    <section category="upgrade">
+      <item id="upgrade-from-1-3-1">From 1.3.1: replace the war with its libraries as a unit, restart Tomcat (the model gains two optional fields, no key changes: tools/schema_diff.py reports 2 additive changes and no data-affecting change), add -Debx.connectors.preview=... first if you use documents, matching around capture, or Redshift, then run tools/smoke.sh and read /v1/status (preview, requestLimits, egress, outboundQueue, cdc). New JVM properties and their defaults: -Debx.connectors.preview (everything closed), ebx.connectors.mcp.maxBodyBytes / maxBatch / maxJsonDepth, ebx.connectors.rest.maxBodyBytes / maxJsonDepth.</item>
+    </section>
+  </release>
+  <release id="release-1.4.1" kind="formal" version="1.4.1" sourceTag="v1.4.1" releasedOn="2026-11-12" status="supported">
+    <title>ebx-connectors 1.4.1: libraries updated for published security advisories</title>
+    <summary>The war now carries Jackson 2.18.12 (11 advisories closed on 2.14.2), snappy-java 1.1.10.12 (3) and proton-j 0.35.0 (1), with no change to the functions of 1.4.0. Jackson 2.15 and later reads with limits, so the module's read limits are now written down and shown in the status route. The installation script now puts these libraries into the FastTrack workspace, and the package refuses a library that has an unaccepted advisory. Read the upgrade guide (docs/UPGRADE-ROLLBACK.md, from 1.4.0 to 1.4.1).</summary>
+    <section category="security">
+      <item id="dep-jackson">Jackson 2.14.2 became 2.18.12 (jackson-core, jackson-databind, jackson-annotations, jackson-datatype-jsr310): 11 published advisories (OSV, read on 2026-11-12), among them parsing of deeply nested documents and of very large numbers, are closed. snappy-java 1.1.10.5 became 1.1.10.12 (3 advisories, used by Kafka compression) and proton-j 0.34.1 became 0.35.0 (1 advisory, used by the Azure Service Bus client). OSV reports no advisory against the new versions at the date of the package. Two advisories stay accepted on purpose, as before: the RabbitMQ client (amqp-client 5.35.0) and the H2 driver (2.1.212); runtime-libs/DEPS-KNOWN.txt gives the reason of each.</item>
+      <item id="dep-package-gate">tools/package.sh now asks OSV about every library of the war (73 of 73; seven were never asked before because their Maven group or version could not be read) and refuses the package on an advisory that DEPS-KNOWN.txt does not accept, with its reason, or when OSV cannot be reached. The only way past an unreachable OSV is the named variable CONN_PACKAGE_OSV_WAIVER, whose text is written into the package (RELEASE-NOTES.md and DEPENDENCY-CHECK.txt). The ordinary offline test suite is unchanged: it never uses the network.</item>
+    </section>
+    <section category="improved">
+      <item id="dep-read-limits">Jackson 2.15 and later refuses a JSON document nested deeper than 1000 levels, a number of more than 1000 characters, a name of more than 50,000 characters and a string of more than 20,000,000 characters. The module keeps the first three as they are and sets the last one on purpose: a document sent in base64 inside a JSON string can be larger than 20 million characters on the REST routes (32 MiB by default), and the answers of called services are read up to 128 MiB, so the string limit now follows those byte limits (the larger of them: 134,217,728 characters by default) and the byte limits stay the ones that govern. -Debx.connectors.json.maxStringLength=N sets it explicitly. What the module's reader really carries, and the Jackson version, are in GET /ebx-connectors/rest/v1/status, requestLimits.jackson. The depth the module accepts from a caller stays 64 and is refused before any parsing (400 CN_JSON_TOO_DEEP); a number, a name or a string refused by Jackson inside a body that passed the byte limit is answered as a parse error (400, JSON-RPC -32700), never as a server error. The answer of a called service nested deeper than 1000 levels is not parsed into a tree (the raw text is kept), as an unparsable answer already was.</item>
+      <item id="dep-install-libs">tools/install.sh (installation into a FastTrack workspace) now puts the libraries of runtime-libs/ into the workspace's WEB-INF/lib: it adds a missing one, replaces another version of the same library, leaves every jar it does not know (such as ebx-connectors-extension-sample.jar), and prints the three lists; --dry-run shows them without writing. Before, it kept that folder as it was, so the demonstration instance would have run the new code on the old Jackson.</item>
+    </section>
+    <section category="fixed">
+      <item id="dep-openapi-yaml">The OpenAPI import in YAML no longer depends on a Jackson YAML library in the Tomcat lib/ folder: the war carries jackson-dataformat-yaml 2.18.12 and SnakeYAML 2.3. A YAML factory taken from a server lib/ that holds Jackson 2.14 could not be used by the module's Jackson 2.18 (two class loaders). A YAML specification larger than 3 MiB is now refused with a clear message (SnakeYAML's own limit); JSON has no such limit.</item>
+    </section>
+    <section category="known-issue">
+      <item id="dep-not-rehearsed">The new libraries were tested offline only (the suite, a Service Bus message built and encoded by the Azure client, a snappy round trip, a Jackson read-limit test with the module's real entries). This package has not been installed on a running instance, and no Kafka, Azure Service Bus or REST call has been made with it. Run tools/smoke.sh and one read per connection type you use after the upgrade.</item>
+      <item id="dep-behaviour">Jackson 2.15 and later reads some documents differently from 2.14: see docs/UPGRADE-ROLLBACK.md, section from 1.4.0 to 1.4.1, for what was looked at and what was not.</item>
+    </section>
+    <section category="upgrade">
+      <item id="upgrade-from-1-4-0">From 1.4.0: replace the war with its libraries as a unit and restart Tomcat; the data model is unchanged (no schema change, no new field). On a FastTrack workspace, install with tools/install.sh (its output lists the libraries it replaced). Check GET /ebx-connectors/rest/v1/status: version 1.4.1, requestLimits.jackson.version 2.18.12 and readersCarryTheSetting true. New JVM property: ebx.connectors.json.maxStringLength (optional). Rolling back to 1.4.0 is the previous war with its previous libraries.</item>
+    </section>
+  </release>
+  <release id="release-1.4.2" kind="formal" version="1.4.2" sourceTag="v1.4.2" releasedOn="2026-11-12" status="supported">
+    <title>ebx-connectors 1.4.2: change data capture closed by default, three surfaces closed with their preview words, wider upgrade snapshot, reproducible jars</title>
+    <summary>The Debezium capture joins the preview functions: nothing of it runs until the server administrator adds the word cdc to -Debx.connectors.preview, as for documents, cdcMatching and redshift. Three surfaces that escaped the preview guard are closed (DAMA write-back from the conflict screen, publish=golden, the confidence envelope), the columns that quote a document are under the permission rule, the upgrade snapshot covers 21 of the 27 tables, and the three jars that other repositories consume are built from the packaged commit, with the same bytes each time.</summary>
+    <section category="security">
+      <item id="cdc-closed">CHANGE DATA CAPTURE IS NOW A PREVIEW FUNCTION, CLOSED BY DEFAULT (word: cdc). In 1.4.0 and 1.4.1 the Kafka cdc operation was open; its two known limits (a retention gap skipped without a word, an unreadable message that blocks the flow; a Kafka client created without the module's class loader) are not corrected. Without the word, no capture feed runs (REST, MCP, screen, scheduled task, workflow step, in-JVM contract) and the direct preview of the next batch (connectors_call) is refused, all with a message starting [CN-PREVIEW-CLOSED], before the broker is contacted. The ordinary Kafka operations consume, peek and publish, and a consume feed, are not part of it and stay open. cdcMatching opens nothing without cdc; naming it alone is reported in GET /v1/status (preview.cdcMatchingWithoutCdc) and in the start-up log. To keep a capture feed running: add cdc (and cdcMatching if it uses matching) to the property and restart.</item>
+      <item id="preview-dama-conflict">Accepting a conflict on a dama: field writes into DAMA: it now answers [CN-PREVIEW-CLOSED] while documents is closed (the conflict stays open; rejecting it is not refused).</item>
+      <item id="preview-publish-golden">A trigger or setting with publish=golden is refused when it is registered (the model does not compile) and when it fires, unless cdc and cdcMatching are both named.</item>
+      <item id="preview-envelope">The confidence envelope (_minConfidence, _confidence, _sources in a document read by a mapping) belongs to documents: while that word is absent a document that carries those names is treated as before November. Once documents is open the three names are reserved (docs/CONTRACT.md).</item>
+      <item id="origin-columns">FieldProvenance.source and Conflict.comment, which quote the words of a document, are under the rule that hides the values of an origin record from a reader who cannot read that record. Rows written before stay as they are.</item>
+    </section>
+    <section category="improved">
+      <item id="upgrade-snapshot">tools/upgrade_snapshot.py covers 21 of the 27 tables (AccessRight, Publication, Favorite and SeedMarker added); the 6 left out are listed with their reason in the script, and the offline test reads the model and fails when a table is neither captured nor excluded. The script now ships with the module (ebx-connectors/tools/), so the installed copy is the one the tests replay in a workspace; the file at the repository root only launches it.</item>
+      <item id="package-jars">tools/package.sh builds on-ebx-agent.jar, on-ebx-mapping.jar and ebx-connectors-spi.jar from the packaged commit, puts them in jars/ and lists their SHA-256 in SHA256SUMS and RELEASE-NOTES.md. Two builds of the same commit and JDK give the same bytes (the version in the manifest is the date of the commit, entries are sorted and stamped with it).</item>
+      <item id="mcp-client-errors">The MCP client of on-ebx-agent.jar tells a server that answered something over a read bound of the JSON reader (McpException.Kind RESPONSE_OVER_LIMIT), or something that is not JSON (UNREADABLE_ANSWER), from a server that is unreachable (UNREACHABLE); before, all three read "MCP server unreachable".</item>
+      <item id="bigquery-bound">A mapping's ${...} in the sql input of a BigQuery query is a bound parameter (@name), never text in the statement; a feed watermark keeps its type.</item>
+    </section>
+    <section category="fixed">
+      <item id="mapping-jar-build">on-ebx-mapping.jar could not be built from 1.4.0 (the mapping engine had started to use the capture matching and the confidence envelope, outside its closure): the closure now lists CdcMatching, PreviewFeatures and the new ConfidenceEnvelope (split out of DocumentExtraction so that the document readers stay out of the jar).</item>
+      <item id="webhook-docs">The reference, its HTML copy and the help pages no longer describe the shared-secret and signature modes of the webhook (removed in 1.4.0); POST /webhook checks the session and the RUN right before it looks at the feed. The seeded BigQuery and GCS connections say where the key file must be (a file of -Debx.connectors.secrets.dir). DOCUMENTS-VISION.md no longer promises a token log the module does not write.</item>
+    </section>
+    <section category="known-issue">
+      <item id="cdc-limits">A real Debezium connector with a stop longer than the topic's retention has never been tried; the three limits above are those of a closed function. The last failure of a capture flow is still not in GET /v1/status (read it in ExecutionRun or the kernel log).</item>
+      <item id="not-rehearsed-142">This package was built and tested offline. It has not been installed on an instance, and the upgrade from 1.4.1 has not been rehearsed (docs/UPGRADE-ROLLBACK.md).</item>
+    </section>
+    <section category="upgrade">
+      <item id="upgrade-from-1-4-1">From 1.4.1: replace the war and restart Tomcat; the data model is unchanged. BEFORE the restart, if a capture feed (kafka / cdc) runs on this instance, add cdc to -Debx.connectors.preview (in ebx.sh and in the Eclipse launcher); without it the feed's next run answers [CN-PREVIEW-CLOSED] and the checkpoint does not move. Check GET /v1/status: version 1.4.2, preview.open. The Factory takes the three jars of jars/ (their SHA-256 are in SHA256SUMS).</item>
+    </section>
+  </release>
+  <release id="release-1.5.0" kind="formal" version="1.5.0" sourceTag="v1.5.0" releasedOn="2026-11-23" status="current">
+    <title>ebx-connectors 1.5.0: Cloudera Hive and Impala connections, Spark SQL repaired on the Hive driver, timestamps with their seconds, the installer in the kernel log</title>
+    <summary>Two read-only connection types read the Hive and Impala tables of a Cloudera platform with a user name and a password over TLS. They and the Apache Spark SQL connection share one HiveServer2 base, played against a real Apache Hive 4.0.1: the Hive driver refuses the read-only mode and the rollback the JDBC engine required, so Spark SQL could not return a query before. A timestamp read through JDBC keeps its seconds, which ON EBX requires. The installer's start-up lines reach the kernel log of a standard instance. No data model change.</summary>
+    <section category="new">
+      <item id="cloudera-hive">CLOUDERA HIVE (type cloudera-hive): read-only query, catalogue scan, profiling and sampling on Hive tables, through HiveServer2 over TLS with a user name and a password (a Hive virtual warehouse of Cloudera Data Warehouse, a HiveServer2 behind Knox or reached directly). URL jdbc:hive2://…, with the Apache Hive driver or Cloudera's (com.cloudera.hive.jdbc.HS2Driver). No driver is packaged.</item>
+      <item id="cloudera-impala">CLOUDERA IMPALA (type cloudera-impala): read-only query, catalogue scan and sampling on Impala tables, with Cloudera's Impala driver (jdbc:impala://…) or the Apache Hive driver on Impala's HiveServer2 port (jdbc:hive2://…). No profiling: the shared profiler asks for several COUNT(DISTINCT) in one statement.</item>
+      <item id="cloudera-cards">Two catalogue cards, "Cloudera Hive" and "Cloudera Impala", are created at the first start (not with -Debx.connectors.seed=none; a card you delete stays deleted). Guide: docs/CLOUDERA-USER-GUIDE.html, linked from the user guide.</item>
+      <item id="live-hive-check">tools/live-hive/run.sh plays every operation of the three HiveServer2 connections against an Apache Hive started in Docker (HiveServer2LiveCheck). It is not part of the offline suite: it needs Docker and the Hive JDBC jar, which the module does not ship.</item>
+    </section>
+    <section category="fixed">
+      <item id="spark-sql-hive-driver">APACHE SPARK SQL COULD NOT READ THROUGH THE HIVE DRIVER. The Apache Hive JDBC driver throws on setReadOnly(true), commit() and rollback(); the JDBC engine required the first for a preview, a discovery and a description, and called the last after every query. Only catalog, profile, sample and the connection test could answer. The three HiveServer2 connections now ask for the read-only mode without requiring it and tolerate the missing rollback (measured on Apache Hive 4.0.1: the generic engine fails on 16 steps, the three connections pass 71 of 71).</item>
+      <item id="timestamp-seconds">A TIMESTAMP READ THROUGH JDBC KEEPS ITS SECONDS. 2026-11-20 10:15:00 came out as 2026-11-20T10:15 and midnight as 2026-01-01T00:00, a text ON EBX refuses as a dateTime: a row whose timestamp falls on a whole minute lost that field. The same for a TIMESTAMP WITH TIME ZONE (2026-11-20T10:15+01:00) and for the timestamps of the Snowflake connector. Rows, streamed rows and the minimum and maximum of the profiler are covered; a fraction of a second is kept.</item>
+      <item id="installer-kernel-log">THE INSTALLER'S START-UP LINES GO TO THE KERNEL LOG. Up to 1.4.2 they went to the module's own log category, which a standard ebx.properties sets to FATAL: "dataspace Connectors created", "seeded …", "-Debx.connectors.seed=none: …" and the errors "installation failed", "dataset creation failed", "installation stopped" appeared nowhere, so a failed installation logged nothing (measured on a blank standard ON EBX 6.3.0-gp: 27 [connectors] lines with 1.4.2, 51 with this change).</item>
+    </section>
+    <section category="security">
+      <item id="script-statement">A SELECT THAT RUNS A SCRIPT ON THE CLUSTER IS REFUSED on the three HiveServer2 connections (TRANSFORM, MAP or REDUCE … USING '…'). These engines have no read-only connection mode: the read-only promise rests on the statement. On a default Apache Hive 4.0.1, SELECT TRANSFORM(name) USING '/bin/cat' did run through the Spark SQL connection of 1.4.2 (which could not return its result, see above).</item>
+      <item id="jdbc-guard-cloudera">The JDBC guard knows Cloudera's two drivers and the impala URL scheme: one driver per scheme, any other class refused as before. A URL option that names a trust store or key store file of the server stays refused (the JVM's trust store is the one used).</item>
+    </section>
+    <section category="improved">
+      <item id="plain-column-names">HiveServer2 names the columns of a SELECT * table.column, a name a mapping cannot address: the table prefix is dropped from the rows, the streamed rows, the preview and the described fields of the three HiveServer2 connections. A join that returns twice the same column name keeps its qualified names: give those columns aliases.</item>
+      <item id="kerberos-reported">A URL that asks for Kerberos (principal=, AuthMech=1, a Krb… option) is reported when the connection is validated, on the three HiveServer2 connections: Kerberos is not handled.</item>
+    </section>
+    <section category="known-issue">
+      <item id="cloudera-not-proven">Played against Apache Hive 4.0.1 with the Apache driver only. NOT proven: Impala itself (only the connection's code, on Hive), Cloudera's own Hive and Impala drivers, a Knox gateway, a Cloudera Data Warehouse virtual warehouse, the HTTP transport, TLS, a real user name and password, Kerberos, a Spark Thrift Server, large tables, timeouts, and the catalogue and mapping flows inside ON EBX (the operations were called directly).</item>
+      <item id="generic-jdbc-on-hive">The generic jdbc connection type pointed at a HiveServer2 still fails on every query (use the dedicated types), and its execute operation runs the statement and then reports "JDBC execute failed", because the driver has no commit.</item>
+      <item id="timestamp-not-measured">The refusal of a dateTime without seconds was measured on the catalogue scans in September and the JDBC output on H2 and Hive; the two were not replayed together on a mapping of a running ON EBX. Whether ON EBX accepts a dateTime text that carries an offset is not established. The Snowflake path was not run (no account).</item>
+      <item id="seed-none-templates">With -Debx.connectors.seed=none the table of packaged templates is empty (the templates need connections that are not seeded), and the installer says so in seven warnings at each start.</item>
+      <item id="rehearsal-150">Rehearsed before the tag, on a blank ON EBX 6.3.0-gp of the standard distribution, with the package built from the commit that precedes this text (stamped 1.4.2-10-ga3a464f; the commit after it changes this entry and the upgrade guide only): a new installation, the upgrade from 1.4.2, the return to 1.4.2 and the upgrade again, each start in 16 to 25 seconds with no ERROR line, every value kept. NOT rehearsed: a FastTrack workspace (tools/install.sh), a repository that holds mappings, runs or provenance, a real Cloudera connection inside ON EBX, and the package built from the tag itself (docs/UPGRADE-ROLLBACK.md).</item>
+    </section>
+    <section category="upgrade">
+      <item id="upgrade-from-1-4-2">From 1.4.2: replace the war and restart Tomcat; the data model is unchanged and no JVM option is new. After the start: two more connection cards (Cloudera Hive, Cloudera Impala); the installer's lines in the kernel log (an alert on [connectors] ERROR lines can now fire for an installation that fails); a dateTime field fed from a JDBC timestamp on a whole minute, empty until now, is filled at the next run of its flow. A stored watermark without seconds still compares. The classes of on-ebx-agent.jar and on-ebx-mapping.jar are unchanged: the Factory may keep the jars of 1.4.2. Check GET /v1/status: version 1.5.0.</item>
+    </section>
+  </release>
+</releaseNotes>

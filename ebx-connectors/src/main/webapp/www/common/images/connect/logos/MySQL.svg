@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title">
+  <title>MySQL Database</title>
+  <rect width="256" height="256" rx="42" fill="#f3f8fb"/>
+  <ellipse cx="111" cy="74" rx="65" ry="25" fill="#00758f"/>
+  <path d="M46 74v91c0 14 29 25 65 25s65-11 65-25V74c-12 15-39 23-65 23S58 89 46 74zm0 43c14 14 39 21 65 21 25 0 50-7 65-21v25c-15 13-40 20-65 20-26 0-51-7-65-20z" fill="#00758f"/>
+  <path d="M151 109c33-23 65-15 77 8-19-7-37-3-48 7 24-2 39 8 43 27-18-10-36-8-48 1-7 6-12 16-15 30-12-27-14-50-9-73z" fill="#f29111"/>
+  <circle cx="196" cy="114" r="3.5" fill="#fff"/>
+</svg>

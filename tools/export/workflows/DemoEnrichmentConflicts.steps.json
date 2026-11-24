@@ -1,0 +1,10 @@
+{
+ "1": {"fr-FR": ["Enrichir la société (sources par confiance décroissante)", "Exécute les mappings ${mappings} sur la société ${companyId} : Recherche d'entreprises (confiance 85) écrit les valeurs, Wikidata (confiance 40) ne peut que proposer, ses désaccords deviennent des conflits."],
+       "en-US": ["Enrich the company (sources by decreasing trust)", "Runs the mappings ${mappings} on company ${companyId}: Recherche d'entreprises (trust 85) writes the values, Wikidata (trust 40) can only propose, its disagreements become conflicts."]},
+ "2": {"fr-FR": ["Des conflits à arbitrer ?", "Vrai si l'enrichissement a consigné au moins un conflit (politique TRUSTED)."],
+       "en-US": ["Conflicts to arbitrate?", "True when the enrichment logged at least one conflict (TRUSTED policy)."]},
+ "3": {"fr-FR": ["Arbitrer les conflits", "Pour chaque champ en conflit, garder la valeur en place (source la plus fiable) ou prendre celle proposée par la source moins fiable."],
+       "en-US": ["Arbitrate the conflicts", "For each conflicting field, keep the current value (most trusted source) or take the value proposed by the less trusted one."]},
+ "4": {"fr-FR": ["Contrôler la société enrichie", "Fiche de la société après enrichissement. Les tables Provenance et Conflits du dataset Connectors gardent la trace de chaque valeur."],
+       "en-US": ["Review the enriched company", "Company record after enrichment. The Provenance and Conflict tables of the Connectors dataset keep track of every value."]}
+}

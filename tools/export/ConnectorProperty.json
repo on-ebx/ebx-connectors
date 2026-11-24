@@ -1,0 +1,3096 @@
+[
+ {
+  "label": "acknowledgement",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/ActiveMQ%7Cacknowledgement",
+  "content": {
+   "connector": {
+    "content": "ActiveMQ",
+    "label": "Apache ActiveMQ (ActiveMQ)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ActiveMQ"
+   },
+   "key": {
+    "content": "acknowledgement"
+   },
+   "value": {
+    "content": "CLIENT"
+   }
+  }
+ },
+ {
+  "label": "connection.factory",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/ActiveMQ%7Cconnection.factory",
+  "content": {
+   "connector": {
+    "content": "ActiveMQ",
+    "label": "Apache ActiveMQ (ActiveMQ)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ActiveMQ"
+   },
+   "key": {
+    "content": "connection.factory"
+   },
+   "value": {
+    "content": "ConnectionFactory"
+   }
+  }
+ },
+ {
+  "label": "destination",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/ActiveMQ%7Cdestination",
+  "content": {
+   "connector": {
+    "content": "ActiveMQ",
+    "label": "Apache ActiveMQ (ActiveMQ)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ActiveMQ"
+   },
+   "key": {
+    "content": "destination"
+   },
+   "value": {
+    "content": "dynamicQueues/ebx.connectors"
+   }
+  }
+ },
+ {
+  "label": "destination.type",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/ActiveMQ%7Cdestination.type",
+  "content": {
+   "connector": {
+    "content": "ActiveMQ",
+    "label": "Apache ActiveMQ (ActiveMQ)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ActiveMQ"
+   },
+   "key": {
+    "content": "destination.type"
+   },
+   "value": {
+    "content": "QUEUE"
+   }
+  }
+ },
+ {
+  "label": "initial.context.factory",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/ActiveMQ%7Cinitial.context.factory",
+  "content": {
+   "connector": {
+    "content": "ActiveMQ",
+    "label": "Apache ActiveMQ (ActiveMQ)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ActiveMQ"
+   },
+   "key": {
+    "content": "initial.context.factory"
+   },
+   "value": {
+    "content": "org.apache.activemq.jndi.ActiveMQInitialContextFactory"
+   }
+  }
+ },
+ {
+  "label": "max.messages",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/ActiveMQ%7Cmax.messages",
+  "content": {
+   "connector": {
+    "content": "ActiveMQ",
+    "label": "Apache ActiveMQ (ActiveMQ)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ActiveMQ"
+   },
+   "key": {
+    "content": "max.messages"
+   },
+   "value": {
+    "content": "100"
+   }
+  }
+ },
+ {
+  "label": "receive.timeout.ms",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/ActiveMQ%7Creceive.timeout.ms",
+  "content": {
+   "connector": {
+    "content": "ActiveMQ",
+    "label": "Apache ActiveMQ (ActiveMQ)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ActiveMQ"
+   },
+   "key": {
+    "content": "receive.timeout.ms"
+   },
+   "value": {
+    "content": "3000"
+   }
+  }
+ },
+ {
+  "label": "redelivery.delay.ms",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/ActiveMQ%7Credelivery.delay.ms",
+  "content": {
+   "connector": {
+    "content": "ActiveMQ",
+    "label": "Apache ActiveMQ (ActiveMQ)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ActiveMQ"
+   },
+   "key": {
+    "content": "redelivery.delay.ms"
+   },
+   "value": {
+    "content": "1000"
+   }
+  }
+ },
+ {
+  "label": "redelivery.max",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/ActiveMQ%7Credelivery.max",
+  "content": {
+   "connector": {
+    "content": "ActiveMQ",
+    "label": "Apache ActiveMQ (ActiveMQ)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ActiveMQ"
+   },
+   "key": {
+    "content": "redelivery.max"
+   },
+   "value": {
+    "content": "6"
+   }
+  }
+ },
+ {
+  "label": "container",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/AzureBlob%7Ccontainer",
+  "content": {
+   "connector": {
+    "content": "AzureBlob",
+    "label": "Azure Blob Storage (AzureBlob)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureBlob"
+   },
+   "key": {
+    "content": "container"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "batch.size",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/AzureSQL%7Cbatch.size",
+  "content": {
+   "connector": {
+    "content": "AzureSQL",
+    "label": "Azure SQL Database (AzureSQL)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureSQL"
+   },
+   "key": {
+    "content": "batch.size"
+   },
+   "value": {
+    "content": "100"
+   }
+  }
+ },
+ {
+  "label": "driver",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/AzureSQL%7Cdriver",
+  "content": {
+   "connector": {
+    "content": "AzureSQL",
+    "label": "Azure SQL Database (AzureSQL)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureSQL"
+   },
+   "key": {
+    "content": "driver"
+   },
+   "value": {
+    "content": "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+   }
+  }
+ },
+ {
+  "label": "fetch.size",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/AzureSQL%7Cfetch.size",
+  "content": {
+   "connector": {
+    "content": "AzureSQL",
+    "label": "Azure SQL Database (AzureSQL)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureSQL"
+   },
+   "key": {
+    "content": "fetch.size"
+   },
+   "value": {
+    "content": "100"
+   }
+  }
+ },
+ {
+  "label": "jdbc.encrypt",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/AzureSQL%7Cjdbc.encrypt",
+  "content": {
+   "connector": {
+    "content": "AzureSQL",
+    "label": "Azure SQL Database (AzureSQL)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureSQL"
+   },
+   "key": {
+    "content": "jdbc.encrypt"
+   },
+   "value": {
+    "content": "true"
+   }
+  }
+ },
+ {
+  "label": "jdbc.hostNameInCertificate",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/AzureSQL%7Cjdbc.hostNameInCertificate",
+  "content": {
+   "connector": {
+    "content": "AzureSQL",
+    "label": "Azure SQL Database (AzureSQL)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureSQL"
+   },
+   "key": {
+    "content": "jdbc.hostNameInCertificate"
+   },
+   "value": {
+    "content": "*.database.windows.net"
+   }
+  }
+ },
+ {
+  "label": "jdbc.trustServerCertificate",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/AzureSQL%7Cjdbc.trustServerCertificate",
+  "content": {
+   "connector": {
+    "content": "AzureSQL",
+    "label": "Azure SQL Database (AzureSQL)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureSQL"
+   },
+   "key": {
+    "content": "jdbc.trustServerCertificate"
+   },
+   "value": {
+    "content": "false"
+   }
+  }
+ },
+ {
+  "label": "max.rows",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/AzureSQL%7Cmax.rows",
+  "content": {
+   "connector": {
+    "content": "AzureSQL",
+    "label": "Azure SQL Database (AzureSQL)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureSQL"
+   },
+   "key": {
+    "content": "max.rows"
+   },
+   "value": {
+    "content": "1000"
+   }
+  }
+ },
+ {
+  "label": "schema",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/AzureSQL%7Cschema",
+  "content": {
+   "connector": {
+    "content": "AzureSQL",
+    "label": "Azure SQL Database (AzureSQL)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureSQL"
+   },
+   "key": {
+    "content": "schema"
+   },
+   "value": {
+    "content": "dbo"
+   }
+  }
+ },
+ {
+  "label": "auth.mode",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/AzureServiceBus%7Cauth.mode",
+  "content": {
+   "connector": {
+    "content": "AzureServiceBus",
+    "label": "Microsoft Azure Service Bus (AzureServiceBus)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureServiceBus"
+   },
+   "key": {
+    "content": "auth.mode"
+   },
+   "value": {
+    "content": "CONNECTION_STRING"
+   }
+  }
+ },
+ {
+  "label": "entity",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/AzureServiceBus%7Centity",
+  "content": {
+   "connector": {
+    "content": "AzureServiceBus",
+    "label": "Microsoft Azure Service Bus (AzureServiceBus)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureServiceBus"
+   },
+   "key": {
+    "content": "entity"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "max.messages",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/AzureServiceBus%7Cmax.messages",
+  "content": {
+   "connector": {
+    "content": "AzureServiceBus",
+    "label": "Microsoft Azure Service Bus (AzureServiceBus)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureServiceBus"
+   },
+   "key": {
+    "content": "max.messages"
+   },
+   "value": {
+    "content": "100"
+   }
+  }
+ },
+ {
+  "label": "receive.mode",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/AzureServiceBus%7Creceive.mode",
+  "content": {
+   "connector": {
+    "content": "AzureServiceBus",
+    "label": "Microsoft Azure Service Bus (AzureServiceBus)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureServiceBus"
+   },
+   "key": {
+    "content": "receive.mode"
+   },
+   "value": {
+    "content": "PEEK_LOCK"
+   }
+  }
+ },
+ {
+  "label": "wait.ms",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/AzureServiceBus%7Cwait.ms",
+  "content": {
+   "connector": {
+    "content": "AzureServiceBus",
+    "label": "Microsoft Azure Service Bus (AzureServiceBus)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureServiceBus"
+   },
+   "key": {
+    "content": "wait.ms"
+   },
+   "value": {
+    "content": "5000"
+   }
+  }
+ },
+ {
+  "label": "score.min",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/BAN%7Cscore.min",
+  "content": {
+   "connector": {
+    "content": "BAN",
+    "label": "Base Adresse Nationale (FR) (BAN)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BAN"
+   },
+   "key": {
+    "content": "score.min"
+   },
+   "value": {
+    "content": "0.5"
+   }
+  }
+ },
+ {
+  "label": "dataset",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/BigQuery%7Cdataset",
+  "content": {
+   "connector": {
+    "content": "BigQuery",
+    "label": "Google BigQuery (BigQuery)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BigQuery"
+   },
+   "key": {
+    "content": "dataset"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "project",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/BigQuery%7Cproject",
+  "content": {
+   "connector": {
+    "content": "BigQuery",
+    "label": "Google BigQuery (BigQuery)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BigQuery"
+   },
+   "key": {
+    "content": "project"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "serviceAccountFile",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/BigQuery%7CserviceAccountFile",
+  "content": {
+   "connector": {
+    "content": "BigQuery",
+    "label": "Google BigQuery (BigQuery)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BigQuery"
+   },
+   "key": {
+    "content": "serviceAccountFile"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "apiVersion",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/BusinessCentral%7CapiVersion",
+  "content": {
+   "connector": {
+    "content": "BusinessCentral",
+    "label": "Microsoft Dynamics 365 Business Central (BusinessCentral)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BusinessCentral"
+   },
+   "key": {
+    "content": "apiVersion"
+   },
+   "value": {
+    "content": "v2.0"
+   }
+  }
+ },
+ {
+  "label": "companyId",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/BusinessCentral%7CcompanyId",
+  "content": {
+   "connector": {
+    "content": "BusinessCentral",
+    "label": "Microsoft Dynamics 365 Business Central (BusinessCentral)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BusinessCentral"
+   },
+   "key": {
+    "content": "companyId"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "environment",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/BusinessCentral%7Cenvironment",
+  "content": {
+   "connector": {
+    "content": "BusinessCentral",
+    "label": "Microsoft Dynamics 365 Business Central (BusinessCentral)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BusinessCentral"
+   },
+   "key": {
+    "content": "environment"
+   },
+   "value": {
+    "content": "Production"
+   }
+  }
+ },
+ {
+  "label": "max.rows",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/BusinessCentral%7Cmax.rows",
+  "content": {
+   "connector": {
+    "content": "BusinessCentral",
+    "label": "Microsoft Dynamics 365 Business Central (BusinessCentral)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BusinessCentral"
+   },
+   "key": {
+    "content": "max.rows"
+   },
+   "value": {
+    "content": "200"
+   }
+  }
+ },
+ {
+  "label": "tenantId",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/BusinessCentral%7CtenantId",
+  "content": {
+   "connector": {
+    "content": "BusinessCentral",
+    "label": "Microsoft Dynamics 365 Business Central (BusinessCentral)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BusinessCentral"
+   },
+   "key": {
+    "content": "tenantId"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "format",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/ChatWebhook%7Cformat",
+  "content": {
+   "connector": {
+    "content": "ChatWebhook",
+    "label": "Slack / Teams notifications (ChatWebhook)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ChatWebhook"
+   },
+   "key": {
+    "content": "format"
+   },
+   "value": {
+    "content": "auto"
+   }
+  }
+ },
+ {
+  "label": "language",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Claude%7Clanguage",
+  "content": {
+   "connector": {
+    "content": "Claude",
+    "label": "Claude (Anthropic) - AI enrichment (Claude)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Claude"
+   },
+   "key": {
+    "content": "language"
+   },
+   "value": {
+    "content": "the language of the text"
+   }
+  }
+ },
+ {
+  "label": "maxTokens",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Claude%7CmaxTokens",
+  "content": {
+   "connector": {
+    "content": "Claude",
+    "label": "Claude (Anthropic) - AI enrichment (Claude)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Claude"
+   },
+   "key": {
+    "content": "maxTokens"
+   },
+   "value": {
+    "content": "1024"
+   }
+  }
+ },
+ {
+  "label": "model",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Claude%7Cmodel",
+  "content": {
+   "connector": {
+    "content": "Claude",
+    "label": "Claude (Anthropic) - AI enrichment (Claude)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Claude"
+   },
+   "key": {
+    "content": "model"
+   },
+   "value": {
+    "content": "claude-sonnet-5"
+   }
+  }
+ },
+ {
+  "label": "temperature",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Claude%7Ctemperature",
+  "content": {
+   "connector": {
+    "content": "Claude",
+    "label": "Claude (Anthropic) - AI enrichment (Claude)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Claude"
+   },
+   "key": {
+    "content": "temperature"
+   },
+   "value": {
+    "content": "0"
+   }
+  }
+ },
+ {
+  "label": "op.country.description",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Countries%7Cop.country.description",
+  "content": {
+   "connector": {
+    "content": "Countries",
+    "label": "Countries (GraphQL reference data) (Countries)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Countries"
+   },
+   "key": {
+    "content": "op.country.description"
+   },
+   "value": {
+    "content": "Country by ISO-2 code"
+   }
+  }
+ },
+ {
+  "label": "op.country.fields",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Countries%7Cop.country.fields",
+  "content": {
+   "connector": {
+    "content": "Countries",
+    "label": "Countries (GraphQL reference data) (Countries)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Countries"
+   },
+   "key": {
+    "content": "op.country.fields"
+   },
+   "value": {
+    "content": "code=string;name=string;native=string;capital=string;currency=string;emoji=string;phone=string;continent.name=string;languages[0].name=string"
+   }
+  }
+ },
+ {
+  "label": "op.country.query",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Countries%7Cop.country.query",
+  "content": {
+   "connector": {
+    "content": "Countries",
+    "label": "Countries (GraphQL reference data) (Countries)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Countries"
+   },
+   "key": {
+    "content": "op.country.query"
+   },
+   "value": {
+    "content": "query($code: ID!) { country(code: $code) { code name native capital currency emoji phone continent { name } languages { name } } }"
+   }
+  }
+ },
+ {
+  "label": "op.country.result",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Countries%7Cop.country.result",
+  "content": {
+   "connector": {
+    "content": "Countries",
+    "label": "Countries (GraphQL reference data) (Countries)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Countries"
+   },
+   "key": {
+    "content": "op.country.result"
+   },
+   "value": {
+    "content": "country"
+   }
+  }
+ },
+ {
+  "label": "countries",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Creditsafe%7Ccountries",
+  "content": {
+   "connector": {
+    "content": "Creditsafe",
+    "label": "Creditsafe Connect (Creditsafe)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Creditsafe"
+   },
+   "key": {
+    "content": "countries"
+   },
+   "value": {
+    "content": "FR"
+   }
+  }
+ },
+ {
+  "label": "catalog",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Databricks%7Ccatalog",
+  "content": {
+   "connector": {
+    "content": "Databricks",
+    "label": "Databricks SQL (Databricks)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Databricks"
+   },
+   "key": {
+    "content": "catalog"
+   },
+   "value": {
+    "content": "main"
+   }
+  }
+ },
+ {
+  "label": "max.rows",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Databricks%7Cmax.rows",
+  "content": {
+   "connector": {
+    "content": "Databricks",
+    "label": "Databricks SQL (Databricks)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Databricks"
+   },
+   "key": {
+    "content": "max.rows"
+   },
+   "value": {
+    "content": "1000"
+   }
+  }
+ },
+ {
+  "label": "schema",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Databricks%7Cschema",
+  "content": {
+   "connector": {
+    "content": "Databricks",
+    "label": "Databricks SQL (Databricks)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Databricks"
+   },
+   "key": {
+    "content": "schema"
+   },
+   "value": {
+    "content": "mdm"
+   }
+  }
+ },
+ {
+  "label": "warehouse_id",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Databricks%7Cwarehouse_id",
+  "content": {
+   "connector": {
+    "content": "Databricks",
+    "label": "Databricks SQL (Databricks)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Databricks"
+   },
+   "key": {
+    "content": "warehouse_id"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "blockIDs",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/DnB%7CblockIDs",
+  "content": {
+   "connector": {
+    "content": "DnB",
+    "label": "Dun & Bradstreet Direct+ (DnB)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/DnB"
+   },
+   "key": {
+    "content": "blockIDs"
+   },
+   "value": {
+    "content": "companyinfo_L2_v1,hierarchyconnections_L1_v1"
+   }
+  }
+ },
+ {
+  "label": "confidence.min",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/DnB%7Cconfidence.min",
+  "content": {
+   "connector": {
+    "content": "DnB",
+    "label": "Dun & Bradstreet Direct+ (DnB)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/DnB"
+   },
+   "key": {
+    "content": "confidence.min"
+   },
+   "value": {
+    "content": "7"
+   }
+  }
+ },
+ {
+  "label": "country",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/DnB%7Ccountry",
+  "content": {
+   "connector": {
+    "content": "DnB",
+    "label": "Dun & Bradstreet Direct+ (DnB)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/DnB"
+   },
+   "key": {
+    "content": "country"
+   },
+   "value": {
+    "content": "FR"
+   }
+  }
+ },
+ {
+  "label": "notifications.path",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/DnB%7Cnotifications.path",
+  "content": {
+   "connector": {
+    "content": "DnB",
+    "label": "Dun & Bradstreet Direct+ (DnB)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/DnB"
+   },
+   "key": {
+    "content": "notifications.path"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "registration.path",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/DnB%7Cregistration.path",
+  "content": {
+   "connector": {
+    "content": "DnB",
+    "label": "Dun & Bradstreet Direct+ (DnB)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/DnB"
+   },
+   "key": {
+    "content": "registration.path"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "registration.reference",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/DnB%7Cregistration.reference",
+  "content": {
+   "connector": {
+    "content": "DnB",
+    "label": "Dun & Bradstreet Direct+ (DnB)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/DnB"
+   },
+   "key": {
+    "content": "registration.reference"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "apiVersion",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Dynamics365%7CapiVersion",
+  "content": {
+   "connector": {
+    "content": "Dynamics365",
+    "label": "Microsoft Dynamics 365 (Dynamics365)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Dynamics365"
+   },
+   "key": {
+    "content": "apiVersion"
+   },
+   "value": {
+    "content": "v9.2"
+   }
+  }
+ },
+ {
+  "label": "clientId",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Dynamics365%7CclientId",
+  "content": {
+   "connector": {
+    "content": "Dynamics365",
+    "label": "Microsoft Dynamics 365 (Dynamics365)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Dynamics365"
+   },
+   "key": {
+    "content": "clientId"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "tenantId",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Dynamics365%7CtenantId",
+  "content": {
+   "connector": {
+    "content": "Dynamics365",
+    "label": "Microsoft Dynamics 365 (Dynamics365)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Dynamics365"
+   },
+   "key": {
+    "content": "tenantId"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "dataspacePrefix",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/EBX%7CdataspacePrefix",
+  "content": {
+   "connector": {
+    "content": "EBX",
+    "label": "EBX (another instance) (EBX)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/EBX"
+   },
+   "key": {
+    "content": "dataspacePrefix"
+   },
+   "value": {
+    "content": "B"
+   }
+  }
+ },
+ {
+  "label": "op.validate.action",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/EORI%7Cop.validate.action",
+  "content": {
+   "connector": {
+    "content": "EORI",
+    "label": "EORI validation (EU customs, SOAP) (EORI)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/EORI"
+   },
+   "key": {
+    "content": "op.validate.action"
+   },
+   "value": {
+    "content": null
+   }
+  }
+ },
+ {
+  "label": "op.validate.body",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/EORI%7Cop.validate.body",
+  "content": {
+   "connector": {
+    "content": "EORI",
+    "label": "EORI validation (EU customs, SOAP) (EORI)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/EORI"
+   },
+   "key": {
+    "content": "op.validate.body"
+   },
+   "value": {
+    "content": "<ev:validateEORI xmlns:ev=\"http://eori.ws.eos.dds.s/\"><ev:eori>{eori}</ev:eori></ev:validateEORI>"
+   }
+  }
+ },
+ {
+  "label": "op.validate.description",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/EORI%7Cop.validate.description",
+  "content": {
+   "connector": {
+    "content": "EORI",
+    "label": "EORI validation (EU customs, SOAP) (EORI)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/EORI"
+   },
+   "key": {
+    "content": "op.validate.description"
+   },
+   "value": {
+    "content": "Validate an EORI number"
+   }
+  }
+ },
+ {
+  "label": "op.validate.fields",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/EORI%7Cop.validate.fields",
+  "content": {
+   "connector": {
+    "content": "EORI",
+    "label": "EORI validation (EU customs, SOAP) (EORI)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/EORI"
+   },
+   "key": {
+    "content": "op.validate.fields"
+   },
+   "value": {
+    "content": "eori=string;status=number;statusDescr=string;name=string;street=string;postalCode=string;city=string;country=string"
+   }
+  }
+ },
+ {
+  "label": "op.validate.result",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/EORI%7Cop.validate.result",
+  "content": {
+   "connector": {
+    "content": "EORI",
+    "label": "EORI validation (EU customs, SOAP) (EORI)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/EORI"
+   },
+   "key": {
+    "content": "op.validate.result"
+   },
+   "value": {
+    "content": "result"
+   }
+  }
+ },
+ {
+  "label": "soap.version",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/EORI%7Csoap.version",
+  "content": {
+   "connector": {
+    "content": "EORI",
+    "label": "EORI validation (EU customs, SOAP) (EORI)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/EORI"
+   },
+   "key": {
+    "content": "soap.version"
+   },
+   "value": {
+    "content": "1.1"
+   }
+  }
+ },
+ {
+  "label": "bucket",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/GCS%7Cbucket",
+  "content": {
+   "connector": {
+    "content": "GCS",
+    "label": "Google Cloud Storage (GCS)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GCS"
+   },
+   "key": {
+    "content": "bucket"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "serviceAccountFile",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/GCS%7CserviceAccountFile",
+  "content": {
+   "connector": {
+    "content": "GCS",
+    "label": "Google Cloud Storage (GCS)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GCS"
+   },
+   "key": {
+    "content": "serviceAccountFile"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "batch.size",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/H2%7Cbatch.size",
+  "content": {
+   "connector": {
+    "content": "H2",
+    "label": "H2 Database (H2)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/H2"
+   },
+   "key": {
+    "content": "batch.size"
+   },
+   "value": {
+    "content": "100"
+   }
+  }
+ },
+ {
+  "label": "driver",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/H2%7Cdriver",
+  "content": {
+   "connector": {
+    "content": "H2",
+    "label": "H2 Database (H2)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/H2"
+   },
+   "key": {
+    "content": "driver"
+   },
+   "value": {
+    "content": "org.h2.Driver"
+   }
+  }
+ },
+ {
+  "label": "fetch.size",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/H2%7Cfetch.size",
+  "content": {
+   "connector": {
+    "content": "H2",
+    "label": "H2 Database (H2)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/H2"
+   },
+   "key": {
+    "content": "fetch.size"
+   },
+   "value": {
+    "content": "100"
+   }
+  }
+ },
+ {
+  "label": "max.rows",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/H2%7Cmax.rows",
+  "content": {
+   "connector": {
+    "content": "H2",
+    "label": "H2 Database (H2)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/H2"
+   },
+   "key": {
+    "content": "max.rows"
+   },
+   "value": {
+    "content": "1000"
+   }
+  }
+ },
+ {
+  "label": "schema",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/H2%7Cschema",
+  "content": {
+   "connector": {
+    "content": "H2",
+    "label": "H2 Database (H2)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/H2"
+   },
+   "key": {
+    "content": "schema"
+   },
+   "value": {
+    "content": "PUBLIC"
+   }
+  }
+ },
+ {
+  "label": "token.ttl",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/INPI%7Ctoken.ttl",
+  "content": {
+   "connector": {
+    "content": "INPI",
+    "label": "INPI - Registre National des Entreprises (INPI)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/INPI"
+   },
+   "key": {
+    "content": "token.ttl"
+   },
+   "value": {
+    "content": "3000"
+   }
+  }
+ },
+ {
+  "label": "max.rows",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/JDBC%7Cmax.rows",
+  "content": {
+   "connector": {
+    "content": "JDBC",
+    "label": "JDBC database (JDBC)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JDBC"
+   },
+   "key": {
+    "content": "max.rows"
+   },
+   "value": {
+    "content": "1000"
+   }
+  }
+ },
+ {
+  "label": "ais.version",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/JDEdwards%7Cais.version",
+  "content": {
+   "connector": {
+    "content": "JDEdwards",
+    "label": "JD Edwards EnterpriseOne (AIS) (JDEdwards)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JDEdwards"
+   },
+   "key": {
+    "content": "ais.version"
+   },
+   "value": {
+    "content": "v2"
+   }
+  }
+ },
+ {
+  "label": "environment",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/JDEdwards%7Cenvironment",
+  "content": {
+   "connector": {
+    "content": "JDEdwards",
+    "label": "JD Edwards EnterpriseOne (AIS) (JDEdwards)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JDEdwards"
+   },
+   "key": {
+    "content": "environment"
+   },
+   "value": {
+    "content": "JDV920"
+   }
+  }
+ },
+ {
+  "label": "max.rows",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/JDEdwards%7Cmax.rows",
+  "content": {
+   "connector": {
+    "content": "JDEdwards",
+    "label": "JD Edwards EnterpriseOne (AIS) (JDEdwards)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JDEdwards"
+   },
+   "key": {
+    "content": "max.rows"
+   },
+   "value": {
+    "content": "500"
+   }
+  }
+ },
+ {
+  "label": "acknowledgement",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/JMS%7Cacknowledgement",
+  "content": {
+   "connector": {
+    "content": "JMS",
+    "label": "JMS messaging (JMS)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JMS"
+   },
+   "key": {
+    "content": "acknowledgement"
+   },
+   "value": {
+    "content": "CLIENT"
+   }
+  }
+ },
+ {
+  "label": "connection.factory",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/JMS%7Cconnection.factory",
+  "content": {
+   "connector": {
+    "content": "JMS",
+    "label": "JMS messaging (JMS)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JMS"
+   },
+   "key": {
+    "content": "connection.factory"
+   },
+   "value": {
+    "content": "ConnectionFactory"
+   }
+  }
+ },
+ {
+  "label": "destination",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/JMS%7Cdestination",
+  "content": {
+   "connector": {
+    "content": "JMS",
+    "label": "JMS messaging (JMS)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JMS"
+   },
+   "key": {
+    "content": "destination"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "destination.type",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/JMS%7Cdestination.type",
+  "content": {
+   "connector": {
+    "content": "JMS",
+    "label": "JMS messaging (JMS)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JMS"
+   },
+   "key": {
+    "content": "destination.type"
+   },
+   "value": {
+    "content": "QUEUE"
+   }
+  }
+ },
+ {
+  "label": "initial.context.factory",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/JMS%7Cinitial.context.factory",
+  "content": {
+   "connector": {
+    "content": "JMS",
+    "label": "JMS messaging (JMS)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JMS"
+   },
+   "key": {
+    "content": "initial.context.factory"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "max.messages",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/JMS%7Cmax.messages",
+  "content": {
+   "connector": {
+    "content": "JMS",
+    "label": "JMS messaging (JMS)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JMS"
+   },
+   "key": {
+    "content": "max.messages"
+   },
+   "value": {
+    "content": "100"
+   }
+  }
+ },
+ {
+  "label": "receive.timeout.ms",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/JMS%7Creceive.timeout.ms",
+  "content": {
+   "connector": {
+    "content": "JMS",
+    "label": "JMS messaging (JMS)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JMS"
+   },
+   "key": {
+    "content": "receive.timeout.ms"
+   },
+   "value": {
+    "content": "3000"
+   }
+  }
+ },
+ {
+  "label": "redelivery.delay.ms",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/JMS%7Credelivery.delay.ms",
+  "content": {
+   "connector": {
+    "content": "JMS",
+    "label": "JMS messaging (JMS)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JMS"
+   },
+   "key": {
+    "content": "redelivery.delay.ms"
+   },
+   "value": {
+    "content": "1000"
+   }
+  }
+ },
+ {
+  "label": "redelivery.max",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/JMS%7Credelivery.max",
+  "content": {
+   "connector": {
+    "content": "JMS",
+    "label": "JMS messaging (JMS)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JMS"
+   },
+   "key": {
+    "content": "redelivery.max"
+   },
+   "value": {
+    "content": "6"
+   }
+  }
+ },
+ {
+  "label": "envelope",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Kafka%7Cenvelope",
+  "content": {
+   "connector": {
+    "content": "Kafka",
+    "label": "Apache Kafka (Kafka)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Kafka"
+   },
+   "key": {
+    "content": "envelope"
+   },
+   "value": {
+    "content": "false"
+   }
+  }
+ },
+ {
+  "label": "group.id",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Kafka%7Cgroup.id",
+  "content": {
+   "connector": {
+    "content": "Kafka",
+    "label": "Apache Kafka (Kafka)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Kafka"
+   },
+   "key": {
+    "content": "group.id"
+   },
+   "value": {
+    "content": "ebx-connectors"
+   }
+  }
+ },
+ {
+  "label": "key.field",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Kafka%7Ckey.field",
+  "content": {
+   "connector": {
+    "content": "Kafka",
+    "label": "Apache Kafka (Kafka)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Kafka"
+   },
+   "key": {
+    "content": "key.field"
+   },
+   "value": {
+    "content": "lei"
+   }
+  }
+ },
+ {
+  "label": "topic",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Kafka%7Ctopic",
+  "content": {
+   "connector": {
+    "content": "Kafka",
+    "label": "Apache Kafka (Kafka)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Kafka"
+   },
+   "key": {
+    "content": "topic"
+   },
+   "value": {
+    "content": "ebx.companies"
+   }
+  }
+ },
+ {
+  "label": "geocode",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Loqate%7Cgeocode",
+  "content": {
+   "connector": {
+    "content": "Loqate",
+    "label": "Loqate (Loqate)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Loqate"
+   },
+   "key": {
+    "content": "geocode"
+   },
+   "value": {
+    "content": "true"
+   }
+  }
+ },
+ {
+  "label": "verification.min",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Loqate%7Cverification.min",
+  "content": {
+   "connector": {
+    "content": "Loqate",
+    "label": "Loqate (Loqate)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Loqate"
+   },
+   "key": {
+    "content": "verification.min"
+   },
+   "value": {
+    "content": "V"
+   }
+  }
+ },
+ {
+  "label": "country",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Melissa%7Ccountry",
+  "content": {
+   "connector": {
+    "content": "Melissa",
+    "label": "Melissa Data (Melissa)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Melissa"
+   },
+   "key": {
+    "content": "country"
+   },
+   "value": {
+    "content": "FR"
+   }
+  }
+ },
+ {
+  "label": "verified.only",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Melissa%7Cverified.only",
+  "content": {
+   "connector": {
+    "content": "Melissa",
+    "label": "Melissa Data (Melissa)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Melissa"
+   },
+   "key": {
+    "content": "verified.only"
+   },
+   "value": {
+    "content": "true"
+   }
+  }
+ },
+ {
+  "label": "batch.size",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/MySQL%7Cbatch.size",
+  "content": {
+   "connector": {
+    "content": "MySQL",
+    "label": "MySQL Database (MySQL)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/MySQL"
+   },
+   "key": {
+    "content": "batch.size"
+   },
+   "value": {
+    "content": "100"
+   }
+  }
+ },
+ {
+  "label": "driver",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/MySQL%7Cdriver",
+  "content": {
+   "connector": {
+    "content": "MySQL",
+    "label": "MySQL Database (MySQL)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/MySQL"
+   },
+   "key": {
+    "content": "driver"
+   },
+   "value": {
+    "content": "com.mysql.cj.jdbc.Driver"
+   }
+  }
+ },
+ {
+  "label": "fetch.size",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/MySQL%7Cfetch.size",
+  "content": {
+   "connector": {
+    "content": "MySQL",
+    "label": "MySQL Database (MySQL)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/MySQL"
+   },
+   "key": {
+    "content": "fetch.size"
+   },
+   "value": {
+    "content": "100"
+   }
+  }
+ },
+ {
+  "label": "jdbc.allowPublicKeyRetrieval",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/MySQL%7Cjdbc.allowPublicKeyRetrieval",
+  "content": {
+   "connector": {
+    "content": "MySQL",
+    "label": "MySQL Database (MySQL)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/MySQL"
+   },
+   "key": {
+    "content": "jdbc.allowPublicKeyRetrieval"
+   },
+   "value": {
+    "content": "false"
+   }
+  }
+ },
+ {
+  "label": "jdbc.serverTimezone",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/MySQL%7Cjdbc.serverTimezone",
+  "content": {
+   "connector": {
+    "content": "MySQL",
+    "label": "MySQL Database (MySQL)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/MySQL"
+   },
+   "key": {
+    "content": "jdbc.serverTimezone"
+   },
+   "value": {
+    "content": "UTC"
+   }
+  }
+ },
+ {
+  "label": "jdbc.sslMode",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/MySQL%7Cjdbc.sslMode",
+  "content": {
+   "connector": {
+    "content": "MySQL",
+    "label": "MySQL Database (MySQL)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/MySQL"
+   },
+   "key": {
+    "content": "jdbc.sslMode"
+   },
+   "value": {
+    "content": "VERIFY_IDENTITY"
+   }
+  }
+ },
+ {
+  "label": "jdbc.useServerPrepStmts",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/MySQL%7Cjdbc.useServerPrepStmts",
+  "content": {
+   "connector": {
+    "content": "MySQL",
+    "label": "MySQL Database (MySQL)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/MySQL"
+   },
+   "key": {
+    "content": "jdbc.useServerPrepStmts"
+   },
+   "value": {
+    "content": "true"
+   }
+  }
+ },
+ {
+  "label": "max.rows",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/MySQL%7Cmax.rows",
+  "content": {
+   "connector": {
+    "content": "MySQL",
+    "label": "MySQL Database (MySQL)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/MySQL"
+   },
+   "key": {
+    "content": "max.rows"
+   },
+   "value": {
+    "content": "1000"
+   }
+  }
+ },
+ {
+  "label": "account",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/NetSuite%7Caccount",
+  "content": {
+   "connector": {
+    "content": "NetSuite",
+    "label": "Oracle NetSuite (NetSuite)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/NetSuite"
+   },
+   "key": {
+    "content": "account"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "max.rows",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/NetSuite%7Cmax.rows",
+  "content": {
+   "connector": {
+    "content": "NetSuite",
+    "label": "Oracle NetSuite (NetSuite)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/NetSuite"
+   },
+   "key": {
+    "content": "max.rows"
+   },
+   "value": {
+    "content": "200"
+   }
+  }
+ },
+ {
+  "label": "countrycodes",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Nominatim%7Ccountrycodes",
+  "content": {
+   "connector": {
+    "content": "Nominatim",
+    "label": "OpenStreetMap Nominatim (sample extension jar) (Nominatim)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Nominatim"
+   },
+   "key": {
+    "content": "countrycodes"
+   },
+   "value": {
+    "content": "fr"
+   }
+  }
+ },
+ {
+  "label": "user.agent",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Nominatim%7Cuser.agent",
+  "content": {
+   "connector": {
+    "content": "Nominatim",
+    "label": "OpenStreetMap Nominatim (sample extension jar) (Nominatim)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Nominatim"
+   },
+   "key": {
+    "content": "user.agent"
+   },
+   "value": {
+    "content": "ebx-connectors-sample/1.0 (EBX POC)"
+   }
+  }
+ },
+ {
+  "label": "dataset",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/OpenSanctions%7Cdataset",
+  "content": {
+   "connector": {
+    "content": "OpenSanctions",
+    "label": "OpenSanctions (OFAC, UN, EU, PEP) (OpenSanctions)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OpenSanctions"
+   },
+   "key": {
+    "content": "dataset"
+   },
+   "value": {
+    "content": "default"
+   }
+  }
+ },
+ {
+  "label": "threshold",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/OpenSanctions%7Cthreshold",
+  "content": {
+   "connector": {
+    "content": "OpenSanctions",
+    "label": "OpenSanctions (OFAC, UN, EU, PEP) (OpenSanctions)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OpenSanctions"
+   },
+   "key": {
+    "content": "threshold"
+   },
+   "value": {
+    "content": "0.7"
+   }
+  }
+ },
+ {
+  "label": "batch.size",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/OracleDatabase%7Cbatch.size",
+  "content": {
+   "connector": {
+    "content": "OracleDatabase",
+    "label": "Oracle Database (OracleDatabase)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OracleDatabase"
+   },
+   "key": {
+    "content": "batch.size"
+   },
+   "value": {
+    "content": "100"
+   }
+  }
+ },
+ {
+  "label": "driver",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/OracleDatabase%7Cdriver",
+  "content": {
+   "connector": {
+    "content": "OracleDatabase",
+    "label": "Oracle Database (OracleDatabase)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OracleDatabase"
+   },
+   "key": {
+    "content": "driver"
+   },
+   "value": {
+    "content": "oracle.jdbc.OracleDriver"
+   }
+  }
+ },
+ {
+  "label": "fetch.size",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/OracleDatabase%7Cfetch.size",
+  "content": {
+   "connector": {
+    "content": "OracleDatabase",
+    "label": "Oracle Database (OracleDatabase)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OracleDatabase"
+   },
+   "key": {
+    "content": "fetch.size"
+   },
+   "value": {
+    "content": "100"
+   }
+  }
+ },
+ {
+  "label": "max.rows",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/OracleDatabase%7Cmax.rows",
+  "content": {
+   "connector": {
+    "content": "OracleDatabase",
+    "label": "Oracle Database (OracleDatabase)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OracleDatabase"
+   },
+   "key": {
+    "content": "max.rows"
+   },
+   "value": {
+    "content": "1000"
+   }
+  }
+ },
+ {
+  "label": "schema",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/OracleDatabase%7Cschema",
+  "content": {
+   "connector": {
+    "content": "OracleDatabase",
+    "label": "Oracle Database (OracleDatabase)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OracleDatabase"
+   },
+   "key": {
+    "content": "schema"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "apiVersion",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/OracleFusion%7CapiVersion",
+  "content": {
+   "connector": {
+    "content": "OracleFusion",
+    "label": "Oracle Fusion Cloud (OracleFusion)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OracleFusion"
+   },
+   "key": {
+    "content": "apiVersion"
+   },
+   "value": {
+    "content": "11.13.18.05"
+   }
+  }
+ },
+ {
+  "label": "family",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/OracleFusion%7Cfamily",
+  "content": {
+   "connector": {
+    "content": "OracleFusion",
+    "label": "Oracle Fusion Cloud (OracleFusion)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OracleFusion"
+   },
+   "key": {
+    "content": "family"
+   },
+   "value": {
+    "content": "fscmRestApi"
+   }
+  }
+ },
+ {
+  "label": "select",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Orbis%7Cselect",
+  "content": {
+   "connector": {
+    "content": "Orbis",
+    "label": "Moody's Orbis (Orbis)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Orbis"
+   },
+   "key": {
+    "content": "select"
+   },
+   "value": {
+    "content": "NAME,ADDRESS_LINE1,POSTCODE,CITY,COUNTRY_ISO_CODE,NATIONAL_ID,VAT_NUMBER,LEI,EMPL,OPRE,STATUS"
+   }
+  }
+ },
+ {
+  "label": "batch.size",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/PostgreSQL%7Cbatch.size",
+  "content": {
+   "connector": {
+    "content": "PostgreSQL",
+    "label": "PostgreSQL (PostgreSQL)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/PostgreSQL"
+   },
+   "key": {
+    "content": "batch.size"
+   },
+   "value": {
+    "content": "100"
+   }
+  }
+ },
+ {
+  "label": "driver",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/PostgreSQL%7Cdriver",
+  "content": {
+   "connector": {
+    "content": "PostgreSQL",
+    "label": "PostgreSQL (PostgreSQL)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/PostgreSQL"
+   },
+   "key": {
+    "content": "driver"
+   },
+   "value": {
+    "content": "org.postgresql.Driver"
+   }
+  }
+ },
+ {
+  "label": "fetch.size",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/PostgreSQL%7Cfetch.size",
+  "content": {
+   "connector": {
+    "content": "PostgreSQL",
+    "label": "PostgreSQL (PostgreSQL)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/PostgreSQL"
+   },
+   "key": {
+    "content": "fetch.size"
+   },
+   "value": {
+    "content": "100"
+   }
+  }
+ },
+ {
+  "label": "max.rows",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/PostgreSQL%7Cmax.rows",
+  "content": {
+   "connector": {
+    "content": "PostgreSQL",
+    "label": "PostgreSQL (PostgreSQL)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/PostgreSQL"
+   },
+   "key": {
+    "content": "max.rows"
+   },
+   "value": {
+    "content": "1000"
+   }
+  }
+ },
+ {
+  "label": "schema",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/PostgreSQL%7Cschema",
+  "content": {
+   "connector": {
+    "content": "PostgreSQL",
+    "label": "PostgreSQL (PostgreSQL)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/PostgreSQL"
+   },
+   "key": {
+    "content": "schema"
+   },
+   "value": {
+    "content": "public"
+   }
+  }
+ },
+ {
+  "label": "exchange",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/RabbitMQ%7Cexchange",
+  "content": {
+   "connector": {
+    "content": "RabbitMQ",
+    "label": "RabbitMQ (RabbitMQ)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RabbitMQ"
+   },
+   "key": {
+    "content": "exchange"
+   },
+   "value": {
+    "content": null
+   }
+  }
+ },
+ {
+  "label": "max.messages",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/RabbitMQ%7Cmax.messages",
+  "content": {
+   "connector": {
+    "content": "RabbitMQ",
+    "label": "RabbitMQ (RabbitMQ)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RabbitMQ"
+   },
+   "key": {
+    "content": "max.messages"
+   },
+   "value": {
+    "content": "100"
+   }
+  }
+ },
+ {
+  "label": "prefetch",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/RabbitMQ%7Cprefetch",
+  "content": {
+   "connector": {
+    "content": "RabbitMQ",
+    "label": "RabbitMQ (RabbitMQ)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RabbitMQ"
+   },
+   "key": {
+    "content": "prefetch"
+   },
+   "value": {
+    "content": "100"
+   }
+  }
+ },
+ {
+  "label": "queue",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/RabbitMQ%7Cqueue",
+  "content": {
+   "connector": {
+    "content": "RabbitMQ",
+    "label": "RabbitMQ (RabbitMQ)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RabbitMQ"
+   },
+   "key": {
+    "content": "queue"
+   },
+   "value": {
+    "content": "ebx.master-data"
+   }
+  }
+ },
+ {
+  "label": "routing.key",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/RabbitMQ%7Crouting.key",
+  "content": {
+   "connector": {
+    "content": "RabbitMQ",
+    "label": "RabbitMQ (RabbitMQ)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RabbitMQ"
+   },
+   "key": {
+    "content": "routing.key"
+   },
+   "value": {
+    "content": "ebx.master-data"
+   }
+  }
+ },
+ {
+  "label": "op.near_point.description",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/RechercheEntreprises%7Cop.near_point.description",
+  "content": {
+   "connector": {
+    "content": "RechercheEntreprises",
+    "label": "Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises"
+   },
+   "key": {
+    "content": "op.near_point.description"
+   },
+   "value": {
+    "content": "Recherche géographique"
+   }
+  }
+ },
+ {
+  "label": "op.near_point.fields",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/RechercheEntreprises%7Cop.near_point.fields",
+  "content": {
+   "connector": {
+    "content": "RechercheEntreprises",
+    "label": "Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises"
+   },
+   "key": {
+    "content": "op.near_point.fields"
+   },
+   "value": {
+    "content": "results[0].siren=string;results[0].nom_complet=string;results[0].nom_raison_sociale=string;results[0].sigle=string;results[0].nombre_etablissements=number;results[0].nombre_etablissements_ouverts=number;results[0].siege.activite_principale=string;results[0].siege.activite_principale_naf25=string;results[0].siege.activite_principale_registre_metier=string;results[0].siege.annee_tranche_effectif_salarie=string;results[0].siege.adresse=string;results[0].siege.caractere_employeur=string;results[0].siege.cedex=string;results[0].siege.code_pays_etranger=string;results[0].siege.code_postal=string;results[0].siege.commune=string;results[0].siege.complement_adresse=string;results[0].siege.coordonnees=string;results[0].siege.date_creation=date;results[0].siege.date_debut_activite=date;results[0].siege.date_fermeture=date;results[0].siege.date_mise_a_jour=datetime;results[0].siege.date_mise_a_jour_insee=datetime;results[0].siege.departement=string;results[0].siege.distribution_speciale=string;results[0].siege.epci=string;results[0].siege.est_siege=boolean;results[0].siege.etat_administratif=string;results[0].siege.geo_adresse=string;results[0].siege.geo_id=string;results[0].siege.indice_repetition=string;results[0].siege.latitude=string;results[0].siege.libelle_cedex=string;results[0].siege.libelle_commune=string;results[0].siege.libelle_commune_etranger=string;results[0].siege.libelle_pays_etranger=string;results[0].siege.libelle_voie=string;results[0].siege.liste_enseignes[0]=string;results[0].siege.liste_finess[0]=string;results[0].siege.liste_id_bio[0]=string;results[0].siege.liste_idcc[0]=string;results[0].siege.liste_id_organisme_formation[0]=string;results[0].siege.liste_rge[0]=string;results[0].siege.liste_uai[0]=string;results[0].siege.longitude=string;results[0].siege.nom_commercial=string;results[0].siege.numero_voie=string;results[0].siege.dernier_numero_voie=string"
+   }
+  }
+ },
+ {
+  "label": "op.near_point.fields.2",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/RechercheEntreprises%7Cop.near_point.fields.2",
+  "content": {
+   "connector": {
+    "content": "RechercheEntreprises",
+    "label": "Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises"
+   },
+   "key": {
+    "content": "op.near_point.fields.2"
+   },
+   "value": {
+    "content": "results[0].siege.region=string;results[0].siege.siret=string;results[0].siege.statut_diffusion_etablissement=string;results[0].siege.tranche_effectif_salarie=string;results[0].siege.type_voie=string;results[0].activite_principale=string;results[0].activite_principale_naf25=string;results[0].categorie_entreprise=string;results[0].caractere_employeur=string;results[0].annee_categorie_entreprise=string;results[0].date_creation=date;results[0].date_fermeture=date;results[0].date_mise_a_jour=datetime;results[0].date_mise_a_jour_insee=datetime;results[0].date_mise_a_jour_rne=datetime;results[0].dirigeants[0]=string;results[0].etat_administratif=string;results[0].nature_juridique=string;results[0].section_activite_principale=string;results[0].tranche_effectif_salarie=string;results[0].annee_tranche_effectif_salarie=string;results[0].statut_diffusion=string;results[0].matching_etablissements[0].activite_principale=string;results[0].matching_etablissements[0].activite_principale_naf25=string;results[0].matching_etablissements[0].ancien_siege=boolean;results[0].matching_etablissements[0].annee_tranche_effectif_salarie=string;results[0].matching_etablissements[0].adresse=string;results[0].matching_etablissements[0].caractere_employeur=string;results[0].matching_etablissements[0].code_postal=string;results[0].matching_etablissements[0].commune=string;results[0].matching_etablissements[0].date_creation=date;results[0].matching_etablissements[0].date_debut_activite=date;results[0].matching_etablissements[0].date_fermeture=date;results[0].matching_etablissements[0].epci=string;results[0].matching_etablissements[0].est_siege=boolean;results[0].matching_etablissements[0].etat_administratif=string;results[0].matching_etablissements[0].geo_id=string;results[0].matching_etablissements[0].latitude=string;results[0].matching_etablissements[0].libelle_commune=string"
+   }
+  }
+ },
+ {
+  "label": "op.near_point.fields.3",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/RechercheEntreprises%7Cop.near_point.fields.3",
+  "content": {
+   "connector": {
+    "content": "RechercheEntreprises",
+    "label": "Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises"
+   },
+   "key": {
+    "content": "op.near_point.fields.3"
+   },
+   "value": {
+    "content": "results[0].matching_etablissements[0].liste_enseignes[0]=string;results[0].matching_etablissements[0].liste_finess[0]=string;results[0].matching_etablissements[0].liste_id_bio[0]=string;results[0].matching_etablissements[0].liste_idcc[0]=string;results[0].matching_etablissements[0].liste_id_organisme_formation[0]=string;results[0].matching_etablissements[0].liste_rge[0]=string;results[0].matching_etablissements[0].liste_uai[0]=string;results[0].matching_etablissements[0].longitude=string;results[0].matching_etablissements[0].nom_commercial=string;results[0].matching_etablissements[0].region=string;results[0].matching_etablissements[0].siret=string;results[0].matching_etablissements[0].statut_diffusion_etablissement=string;results[0].matching_etablissements[0].tranche_effectif_salarie=string;results[0].finances=object;results[0].complements.collectivite_territoriale.code=string;results[0].complements.collectivite_territoriale.code_insee=string;results[0].complements.collectivite_territoriale.elus[0]=string;results[0].complements.collectivite_territoriale.niveau=string;results[0].complements.convention_collective_renseignee=boolean;results[0].complements.liste_idcc[0]=string;results[0].complements.liste_finess_juridique[0]=string;results[0].complements.numero_rnf=string;results[0].complements.egapro_renseignee=boolean;results[0].complements.est_achats_responsables=boolean;results[0].complements.est_alim_confiance=boolean;results[0].complements.est_association=boolean;results[0].complements.est_avocat=boolean;results[0].complements.est_bio=boolean;results[0].complements.est_entrepreneur_individuel=boolean;results[0].complements.est_entrepreneur_spectacle=boolean;results[0].complements.est_ess=boolean;results[0].complements.est_finess=boolean;results[0].complements.est_organisme_formation=boolean;results[0].complements.est_qualiopi=boolean"
+   }
+  }
+ },
+ {
+  "label": "op.near_point.fields.4",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/RechercheEntreprises%7Cop.near_point.fields.4",
+  "content": {
+   "connector": {
+    "content": "RechercheEntreprises",
+    "label": "Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises"
+   },
+   "key": {
+    "content": "op.near_point.fields.4"
+   },
+   "value": {
+    "content": "results[0].complements.liste_id_organisme_formation[0]=string;results[0].complements.est_rge=boolean;results[0].complements.est_service_public=boolean;results[0].complements.est_administration=boolean;results[0].complements.est_l100_3=boolean;results[0].complements.est_siae=boolean;results[0].complements.est_societe_mission=boolean;results[0].complements.est_uai=boolean;results[0].complements.est_patrimoine_vivant=boolean;results[0].complements.bilan_ges_renseigne=boolean;results[0].complements.identifiant_association=string;results[0].complements.statut_entrepreneur_spectacle=string;results[0].complements.type_siae=string;results[0].tva[0]=string;total_results=number;page=number;per_page=number;total_pages=number"
+   }
+  }
+ },
+ {
+  "label": "op.near_point.method",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/RechercheEntreprises%7Cop.near_point.method",
+  "content": {
+   "connector": {
+    "content": "RechercheEntreprises",
+    "label": "Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises"
+   },
+   "key": {
+    "content": "op.near_point.method"
+   },
+   "value": {
+    "content": "GET"
+   }
+  }
+ },
+ {
+  "label": "op.near_point.path",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/RechercheEntreprises%7Cop.near_point.path",
+  "content": {
+   "connector": {
+    "content": "RechercheEntreprises",
+    "label": "Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises"
+   },
+   "key": {
+    "content": "op.near_point.path"
+   },
+   "value": {
+    "content": "/near_point"
+   }
+  }
+ },
+ {
+  "label": "op.near_point.query",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/RechercheEntreprises%7Cop.near_point.query",
+  "content": {
+   "connector": {
+    "content": "RechercheEntreprises",
+    "label": "Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises"
+   },
+   "key": {
+    "content": "op.near_point.query"
+   },
+   "value": {
+    "content": "lat={lat}&long={long}&radius={radius}&activite_principale={activite_principale}&section_activite_principale={section_activite_principale}&limite_matching_etablissements={limite_matching_etablissements}&minimal={minimal}&include={include}&page={page}&per_page={per_page}&page_etablissements={page_etablissements}&sort_by_size={sort_by_size}"
+   }
+  }
+ },
+ {
+  "label": "op.near_point.required",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/RechercheEntreprises%7Cop.near_point.required",
+  "content": {
+   "connector": {
+    "content": "RechercheEntreprises",
+    "label": "Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises"
+   },
+   "key": {
+    "content": "op.near_point.required"
+   },
+   "value": {
+    "content": "lat,long"
+   }
+  }
+ },
+ {
+  "label": "op.search.description",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/RechercheEntreprises%7Cop.search.description",
+  "content": {
+   "connector": {
+    "content": "RechercheEntreprises",
+    "label": "Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises"
+   },
+   "key": {
+    "content": "op.search.description"
+   },
+   "value": {
+    "content": "Recherche textuelle"
+   }
+  }
+ },
+ {
+  "label": "op.search.fields",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/RechercheEntreprises%7Cop.search.fields",
+  "content": {
+   "connector": {
+    "content": "RechercheEntreprises",
+    "label": "Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises"
+   },
+   "key": {
+    "content": "op.search.fields"
+   },
+   "value": {
+    "content": "results[0].siren=string;results[0].nom_complet=string;results[0].nom_raison_sociale=string;results[0].sigle=string;results[0].nombre_etablissements=number;results[0].nombre_etablissements_ouverts=number;results[0].siege.activite_principale=string;results[0].siege.activite_principale_naf25=string;results[0].siege.activite_principale_registre_metier=string;results[0].siege.annee_tranche_effectif_salarie=string;results[0].siege.adresse=string;results[0].siege.caractere_employeur=string;results[0].siege.cedex=string;results[0].siege.code_pays_etranger=string;results[0].siege.code_postal=string;results[0].siege.commune=string;results[0].siege.complement_adresse=string;results[0].siege.coordonnees=string;results[0].siege.date_creation=date;results[0].siege.date_debut_activite=date;results[0].siege.date_fermeture=date;results[0].siege.date_mise_a_jour=datetime;results[0].siege.date_mise_a_jour_insee=datetime;results[0].siege.departement=string;results[0].siege.distribution_speciale=string;results[0].siege.epci=string;results[0].siege.est_siege=boolean;results[0].siege.etat_administratif=string;results[0].siege.geo_adresse=string;results[0].siege.geo_id=string;results[0].siege.indice_repetition=string;results[0].siege.latitude=string;results[0].siege.libelle_cedex=string;results[0].siege.libelle_commune=string;results[0].siege.libelle_commune_etranger=string;results[0].siege.libelle_pays_etranger=string;results[0].siege.libelle_voie=string;results[0].siege.liste_enseignes[0]=string;results[0].siege.liste_finess[0]=string;results[0].siege.liste_id_bio[0]=string;results[0].siege.liste_idcc[0]=string;results[0].siege.liste_id_organisme_formation[0]=string;results[0].siege.liste_rge[0]=string;results[0].siege.liste_uai[0]=string;results[0].siege.longitude=string;results[0].siege.nom_commercial=string;results[0].siege.numero_voie=string;results[0].siege.dernier_numero_voie=string"
+   }
+  }
+ },
+ {
+  "label": "op.search.fields.2",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/RechercheEntreprises%7Cop.search.fields.2",
+  "content": {
+   "connector": {
+    "content": "RechercheEntreprises",
+    "label": "Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises"
+   },
+   "key": {
+    "content": "op.search.fields.2"
+   },
+   "value": {
+    "content": "results[0].siege.region=string;results[0].siege.siret=string;results[0].siege.statut_diffusion_etablissement=string;results[0].siege.tranche_effectif_salarie=string;results[0].siege.type_voie=string;results[0].activite_principale=string;results[0].activite_principale_naf25=string;results[0].categorie_entreprise=string;results[0].caractere_employeur=string;results[0].annee_categorie_entreprise=string;results[0].date_creation=date;results[0].date_fermeture=date;results[0].date_mise_a_jour=datetime;results[0].date_mise_a_jour_insee=datetime;results[0].date_mise_a_jour_rne=datetime;results[0].dirigeants[0]=string;results[0].etat_administratif=string;results[0].nature_juridique=string;results[0].section_activite_principale=string;results[0].tranche_effectif_salarie=string;results[0].annee_tranche_effectif_salarie=string;results[0].statut_diffusion=string;results[0].matching_etablissements[0].activite_principale=string;results[0].matching_etablissements[0].activite_principale_naf25=string;results[0].matching_etablissements[0].ancien_siege=boolean;results[0].matching_etablissements[0].annee_tranche_effectif_salarie=string;results[0].matching_etablissements[0].adresse=string;results[0].matching_etablissements[0].caractere_employeur=string;results[0].matching_etablissements[0].code_postal=string;results[0].matching_etablissements[0].commune=string;results[0].matching_etablissements[0].date_creation=date;results[0].matching_etablissements[0].date_debut_activite=date;results[0].matching_etablissements[0].date_fermeture=date;results[0].matching_etablissements[0].epci=string;results[0].matching_etablissements[0].est_siege=boolean;results[0].matching_etablissements[0].etat_administratif=string;results[0].matching_etablissements[0].geo_id=string;results[0].matching_etablissements[0].latitude=string;results[0].matching_etablissements[0].libelle_commune=string"
+   }
+  }
+ },
+ {
+  "label": "op.search.fields.3",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/RechercheEntreprises%7Cop.search.fields.3",
+  "content": {
+   "connector": {
+    "content": "RechercheEntreprises",
+    "label": "Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises"
+   },
+   "key": {
+    "content": "op.search.fields.3"
+   },
+   "value": {
+    "content": "results[0].matching_etablissements[0].liste_enseignes[0]=string;results[0].matching_etablissements[0].liste_finess[0]=string;results[0].matching_etablissements[0].liste_id_bio[0]=string;results[0].matching_etablissements[0].liste_idcc[0]=string;results[0].matching_etablissements[0].liste_id_organisme_formation[0]=string;results[0].matching_etablissements[0].liste_rge[0]=string;results[0].matching_etablissements[0].liste_uai[0]=string;results[0].matching_etablissements[0].longitude=string;results[0].matching_etablissements[0].nom_commercial=string;results[0].matching_etablissements[0].region=string;results[0].matching_etablissements[0].siret=string;results[0].matching_etablissements[0].statut_diffusion_etablissement=string;results[0].matching_etablissements[0].tranche_effectif_salarie=string;results[0].finances=object;results[0].complements.collectivite_territoriale.code=string;results[0].complements.collectivite_territoriale.code_insee=string;results[0].complements.collectivite_territoriale.elus[0]=string;results[0].complements.collectivite_territoriale.niveau=string;results[0].complements.convention_collective_renseignee=boolean;results[0].complements.liste_idcc[0]=string;results[0].complements.liste_finess_juridique[0]=string;results[0].complements.numero_rnf=string;results[0].complements.egapro_renseignee=boolean;results[0].complements.est_achats_responsables=boolean;results[0].complements.est_alim_confiance=boolean;results[0].complements.est_association=boolean;results[0].complements.est_avocat=boolean;results[0].complements.est_bio=boolean;results[0].complements.est_entrepreneur_individuel=boolean;results[0].complements.est_entrepreneur_spectacle=boolean;results[0].complements.est_ess=boolean;results[0].complements.est_finess=boolean;results[0].complements.est_organisme_formation=boolean;results[0].complements.est_qualiopi=boolean"
+   }
+  }
+ },
+ {
+  "label": "op.search.fields.4",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/RechercheEntreprises%7Cop.search.fields.4",
+  "content": {
+   "connector": {
+    "content": "RechercheEntreprises",
+    "label": "Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises"
+   },
+   "key": {
+    "content": "op.search.fields.4"
+   },
+   "value": {
+    "content": "results[0].complements.liste_id_organisme_formation[0]=string;results[0].complements.est_rge=boolean;results[0].complements.est_service_public=boolean;results[0].complements.est_administration=boolean;results[0].complements.est_l100_3=boolean;results[0].complements.est_siae=boolean;results[0].complements.est_societe_mission=boolean;results[0].complements.est_uai=boolean;results[0].complements.est_patrimoine_vivant=boolean;results[0].complements.bilan_ges_renseigne=boolean;results[0].complements.identifiant_association=string;results[0].complements.statut_entrepreneur_spectacle=string;results[0].complements.type_siae=string;results[0].tva[0]=string;total_results=number;page=number;per_page=number;total_pages=number"
+   }
+  }
+ },
+ {
+  "label": "op.search.method",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/RechercheEntreprises%7Cop.search.method",
+  "content": {
+   "connector": {
+    "content": "RechercheEntreprises",
+    "label": "Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises"
+   },
+   "key": {
+    "content": "op.search.method"
+   },
+   "value": {
+    "content": "GET"
+   }
+  }
+ },
+ {
+  "label": "op.search.path",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/RechercheEntreprises%7Cop.search.path",
+  "content": {
+   "connector": {
+    "content": "RechercheEntreprises",
+    "label": "Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises"
+   },
+   "key": {
+    "content": "op.search.path"
+   },
+   "value": {
+    "content": "/search"
+   }
+  }
+ },
+ {
+  "label": "op.search.query",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/RechercheEntreprises%7Cop.search.query",
+  "content": {
+   "connector": {
+    "content": "RechercheEntreprises",
+    "label": "Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises"
+   },
+   "key": {
+    "content": "op.search.query"
+   },
+   "value": {
+    "content": "q={q}&activite_principale={activite_principale}&categorie_entreprise={categorie_entreprise}&code_collectivite_territoriale={code_collectivite_territoriale}&convention_collective_renseignee={convention_collective_renseignee}&code_postal={code_postal}&code_commune={code_commune}&departement={departement}&region={region}&epci={epci}&egapro_renseignee={egapro_renseignee}&est_achats_responsables={est_achats_responsables}&est_alim_confiance={est_alim_confiance}&est_association={est_association}&est_bio={est_bio}&est_collectivite_territoriale={est_collectivite_territoriale}&est_entrepreneur_individuel={est_entrepreneur_individuel}&est_entrepreneur_spectacle={est_entrepreneur_spectacle}&est_ess={est_ess}&est_finess={est_finess}&est_organisme_formation={est_organisme_formation}&est_patrimoine_vivant={est_patrimoine_vivant}&est_qualiopi={est_qualiopi}&est_rge={est_rge}&est_siae={est_siae}&est_administration={est_administration}&est_societe_mission={est_societe_mission}&est_uai={est_uai}&etat_administratif={etat_administratif}&id_convention_collective={id_convention_collective}&id_finess={id_finess}&id_rge={id_rge}&id_uai={id_uai}&nature_juridique={nature_juridique}&section_activite_principale={section_activite_principale}&tranche_effectif_salarie={tranche_effectif_salarie}&nom_personne={nom_personne}&prenoms_personne={prenoms_personne}&date_naissance_personne_min={date_naissance_personne_min}&date_naissance_personne_max={date_naissance_personne_max}&type_personne={type_personne}&ca_min={ca_min}&ca_max={ca_max}&resultat_net_min={resultat_net_min}&resultat_net_max={resultat_net_max}&limite_matching_etablissements={limite_matching_etablissements}&minimal={minimal}&include={include}&page={page}&per_page={per_page}&page_etablissements={page_etablissements}&sort_by_size={sort_by_size}"
+   }
+  }
+ },
+ {
+  "label": "op.search.required",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/RechercheEntreprises%7Cop.search.required",
+  "content": {
+   "connector": {
+    "content": "RechercheEntreprises",
+    "label": "Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises"
+   },
+   "key": {
+    "content": "op.search.required"
+   },
+   "value": {
+    "content": "-"
+   }
+  }
+ },
+ {
+  "label": "bucket",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/S3%7Cbucket",
+  "content": {
+   "connector": {
+    "content": "S3",
+    "label": "Amazon S3 (S3)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/S3"
+   },
+   "key": {
+    "content": "bucket"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "region",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/S3%7Cregion",
+  "content": {
+   "connector": {
+    "content": "S3",
+    "label": "Amazon S3 (S3)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/S3"
+   },
+   "key": {
+    "content": "region"
+   },
+   "value": {
+    "content": "eu-west-3"
+   }
+  }
+ },
+ {
+  "label": "entitySet",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/SAP%7CentitySet",
+  "content": {
+   "connector": {
+    "content": "SAP",
+    "label": "SAP S/4HANA Business Partner (OData) (SAP)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SAP"
+   },
+   "key": {
+    "content": "entitySet"
+   },
+   "value": {
+    "content": "A_BusinessPartner"
+   }
+  }
+ },
+ {
+  "label": "max.rows",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/SAP%7Cmax.rows",
+  "content": {
+   "connector": {
+    "content": "SAP",
+    "label": "SAP S/4HANA Business Partner (OData) (SAP)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SAP"
+   },
+   "key": {
+    "content": "max.rows"
+   },
+   "value": {
+    "content": "200"
+   }
+  }
+ },
+ {
+  "label": "odata.version",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/SAP%7Codata.version",
+  "content": {
+   "connector": {
+    "content": "SAP",
+    "label": "SAP S/4HANA Business Partner (OData) (SAP)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SAP"
+   },
+   "key": {
+    "content": "odata.version"
+   },
+   "value": {
+    "content": "2"
+   }
+  }
+ },
+ {
+  "label": "max.rows",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/SAPAriba%7Cmax.rows",
+  "content": {
+   "connector": {
+    "content": "SAPAriba",
+    "label": "SAP Ariba (SAPAriba)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SAPAriba"
+   },
+   "key": {
+    "content": "max.rows"
+   },
+   "value": {
+    "content": "200"
+   }
+  }
+ },
+ {
+  "label": "realm",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/SAPAriba%7Crealm",
+  "content": {
+   "connector": {
+    "content": "SAPAriba",
+    "label": "SAP Ariba (SAPAriba)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SAPAriba"
+   },
+   "key": {
+    "content": "realm"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "root",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/SFTP%7Croot",
+  "content": {
+   "connector": {
+    "content": "SFTP",
+    "label": "SFTP server (SFTP)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SFTP"
+   },
+   "key": {
+    "content": "root"
+   },
+   "value": {
+    "content": "/"
+   }
+  }
+ },
+ {
+  "label": "separator",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/SFTP%7Cseparator",
+  "content": {
+   "connector": {
+    "content": "SFTP",
+    "label": "SFTP server (SFTP)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SFTP"
+   },
+   "key": {
+    "content": "separator"
+   },
+   "value": {
+    "content": ";"
+   }
+  }
+ },
+ {
+  "label": "batch.size",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/SQLServer%7Cbatch.size",
+  "content": {
+   "connector": {
+    "content": "SQLServer",
+    "label": "Microsoft SQL Server (SQLServer)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SQLServer"
+   },
+   "key": {
+    "content": "batch.size"
+   },
+   "value": {
+    "content": "100"
+   }
+  }
+ },
+ {
+  "label": "driver",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/SQLServer%7Cdriver",
+  "content": {
+   "connector": {
+    "content": "SQLServer",
+    "label": "Microsoft SQL Server (SQLServer)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SQLServer"
+   },
+   "key": {
+    "content": "driver"
+   },
+   "value": {
+    "content": "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+   }
+  }
+ },
+ {
+  "label": "fetch.size",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/SQLServer%7Cfetch.size",
+  "content": {
+   "connector": {
+    "content": "SQLServer",
+    "label": "Microsoft SQL Server (SQLServer)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SQLServer"
+   },
+   "key": {
+    "content": "fetch.size"
+   },
+   "value": {
+    "content": "100"
+   }
+  }
+ },
+ {
+  "label": "jdbc.encrypt",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/SQLServer%7Cjdbc.encrypt",
+  "content": {
+   "connector": {
+    "content": "SQLServer",
+    "label": "Microsoft SQL Server (SQLServer)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SQLServer"
+   },
+   "key": {
+    "content": "jdbc.encrypt"
+   },
+   "value": {
+    "content": "true"
+   }
+  }
+ },
+ {
+  "label": "jdbc.trustServerCertificate",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/SQLServer%7Cjdbc.trustServerCertificate",
+  "content": {
+   "connector": {
+    "content": "SQLServer",
+    "label": "Microsoft SQL Server (SQLServer)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SQLServer"
+   },
+   "key": {
+    "content": "jdbc.trustServerCertificate"
+   },
+   "value": {
+    "content": "false"
+   }
+  }
+ },
+ {
+  "label": "max.rows",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/SQLServer%7Cmax.rows",
+  "content": {
+   "connector": {
+    "content": "SQLServer",
+    "label": "Microsoft SQL Server (SQLServer)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SQLServer"
+   },
+   "key": {
+    "content": "max.rows"
+   },
+   "value": {
+    "content": "1000"
+   }
+  }
+ },
+ {
+  "label": "schema",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/SQLServer%7Cschema",
+  "content": {
+   "connector": {
+    "content": "SQLServer",
+    "label": "Microsoft SQL Server (SQLServer)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SQLServer"
+   },
+   "key": {
+    "content": "schema"
+   },
+   "value": {
+    "content": "dbo"
+   }
+  }
+ },
+ {
+  "label": "apiVersion",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Salesforce%7CapiVersion",
+  "content": {
+   "connector": {
+    "content": "Salesforce",
+    "label": "Salesforce CRM (Salesforce)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Salesforce"
+   },
+   "key": {
+    "content": "apiVersion"
+   },
+   "value": {
+    "content": "v60.0"
+   }
+  }
+ },
+ {
+  "label": "clientId",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Salesforce%7CclientId",
+  "content": {
+   "connector": {
+    "content": "Salesforce",
+    "label": "Salesforce CRM (Salesforce)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Salesforce"
+   },
+   "key": {
+    "content": "clientId"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "oauth.flow",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Salesforce%7Coauth.flow",
+  "content": {
+   "connector": {
+    "content": "Salesforce",
+    "label": "Salesforce CRM (Salesforce)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Salesforce"
+   },
+   "key": {
+    "content": "oauth.flow"
+   },
+   "value": {
+    "content": "client_credentials"
+   }
+  }
+ },
+ {
+  "label": "display.values",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/ServiceNow%7Cdisplay.values",
+  "content": {
+   "connector": {
+    "content": "ServiceNow",
+    "label": "ServiceNow (ServiceNow)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ServiceNow"
+   },
+   "key": {
+    "content": "display.values"
+   },
+   "value": {
+    "content": "false"
+   }
+  }
+ },
+ {
+  "label": "max.content.bytes",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/SharePoint%7Cmax.content.bytes",
+  "content": {
+   "connector": {
+    "content": "SharePoint",
+    "label": "Microsoft SharePoint Online (SharePoint)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SharePoint"
+   },
+   "key": {
+    "content": "max.content.bytes"
+   },
+   "value": {
+    "content": "10485760"
+   }
+  }
+ },
+ {
+  "label": "max.pages",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/SharePoint%7Cmax.pages",
+  "content": {
+   "connector": {
+    "content": "SharePoint",
+    "label": "Microsoft SharePoint Online (SharePoint)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SharePoint"
+   },
+   "key": {
+    "content": "max.pages"
+   },
+   "value": {
+    "content": "20"
+   }
+  }
+ },
+ {
+  "label": "max.rows",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/SharePoint%7Cmax.rows",
+  "content": {
+   "connector": {
+    "content": "SharePoint",
+    "label": "Microsoft SharePoint Online (SharePoint)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SharePoint"
+   },
+   "key": {
+    "content": "max.rows"
+   },
+   "value": {
+    "content": "200"
+   }
+  }
+ },
+ {
+  "label": "tenantId",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/SharePoint%7CtenantId",
+  "content": {
+   "connector": {
+    "content": "SharePoint",
+    "label": "Microsoft SharePoint Online (SharePoint)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SharePoint"
+   },
+   "key": {
+    "content": "tenantId"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "database",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Snowflake%7Cdatabase",
+  "content": {
+   "connector": {
+    "content": "Snowflake",
+    "label": "Snowflake (Snowflake)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Snowflake"
+   },
+   "key": {
+    "content": "database"
+   },
+   "value": {
+    "content": "MDM"
+   }
+  }
+ },
+ {
+  "label": "max.rows",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Snowflake%7Cmax.rows",
+  "content": {
+   "connector": {
+    "content": "Snowflake",
+    "label": "Snowflake (Snowflake)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Snowflake"
+   },
+   "key": {
+    "content": "max.rows"
+   },
+   "value": {
+    "content": "1000"
+   }
+  }
+ },
+ {
+  "label": "schema",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Snowflake%7Cschema",
+  "content": {
+   "connector": {
+    "content": "Snowflake",
+    "label": "Snowflake (Snowflake)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Snowflake"
+   },
+   "key": {
+    "content": "schema"
+   },
+   "value": {
+    "content": "PUBLIC"
+   }
+  }
+ },
+ {
+  "label": "tokenType",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Snowflake%7CtokenType",
+  "content": {
+   "connector": {
+    "content": "Snowflake",
+    "label": "Snowflake (Snowflake)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Snowflake"
+   },
+   "key": {
+    "content": "tokenType"
+   },
+   "value": {
+    "content": "PAT"
+   }
+  }
+ },
+ {
+  "label": "warehouse",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Snowflake%7Cwarehouse",
+  "content": {
+   "connector": {
+    "content": "Snowflake",
+    "label": "Snowflake (Snowflake)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Snowflake"
+   },
+   "key": {
+    "content": "warehouse"
+   },
+   "value": {
+    "content": "COMPUTE_WH"
+   }
+  }
+ },
+ {
+  "label": "companyId",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/SuccessFactors%7CcompanyId",
+  "content": {
+   "connector": {
+    "content": "SuccessFactors",
+    "label": "SAP SuccessFactors (SuccessFactors)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SuccessFactors"
+   },
+   "key": {
+    "content": "companyId"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "max.rows",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/SuccessFactors%7Cmax.rows",
+  "content": {
+   "connector": {
+    "content": "SuccessFactors",
+    "label": "SAP SuccessFactors (SuccessFactors)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SuccessFactors"
+   },
+   "key": {
+    "content": "max.rows"
+   },
+   "value": {
+    "content": "200"
+   }
+  }
+ },
+ {
+  "label": "sample",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Webhook%7Csample",
+  "content": {
+   "connector": {
+    "content": "Webhook",
+    "label": "Inbound webhook (Webhook)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Webhook"
+   },
+   "key": {
+    "content": "sample"
+   },
+   "value": {
+    "content": "{\"items\":[{\"siren\":\"440676559\",\"name\":\"ACME SAS\",\"city\":\"Paris\",\"postcode\":\"75008\",\"country\":\"FR\",\"website\":\"https://acme.example\"}]}"
+   }
+  }
+ },
+ {
+  "label": "op.claims.method",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Wikidata%7Cop.claims.method",
+  "content": {
+   "connector": {
+    "content": "Wikidata",
+    "label": "Wikidata (generic REST) (Wikidata)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Wikidata"
+   },
+   "key": {
+    "content": "op.claims.method"
+   },
+   "value": {
+    "content": "GET"
+   }
+  }
+ },
+ {
+  "label": "op.claims.path",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Wikidata%7Cop.claims.path",
+  "content": {
+   "connector": {
+    "content": "Wikidata",
+    "label": "Wikidata (generic REST) (Wikidata)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Wikidata"
+   },
+   "key": {
+    "content": "op.claims.path"
+   },
+   "value": {
+    "content": "/w/api.php"
+   }
+  }
+ },
+ {
+  "label": "op.claims.query",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Wikidata%7Cop.claims.query",
+  "content": {
+   "connector": {
+    "content": "Wikidata",
+    "label": "Wikidata (generic REST) (Wikidata)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Wikidata"
+   },
+   "key": {
+    "content": "op.claims.query"
+   },
+   "value": {
+    "content": "action=wbgetclaims&entity={id}&format=json"
+   }
+  }
+ },
+ {
+  "label": "op.search.method",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Wikidata%7Cop.search.method",
+  "content": {
+   "connector": {
+    "content": "Wikidata",
+    "label": "Wikidata (generic REST) (Wikidata)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Wikidata"
+   },
+   "key": {
+    "content": "op.search.method"
+   },
+   "value": {
+    "content": "GET"
+   }
+  }
+ },
+ {
+  "label": "op.search.path",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Wikidata%7Cop.search.path",
+  "content": {
+   "connector": {
+    "content": "Wikidata",
+    "label": "Wikidata (generic REST) (Wikidata)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Wikidata"
+   },
+   "key": {
+    "content": "op.search.path"
+   },
+   "value": {
+    "content": "/w/api.php"
+   }
+  }
+ },
+ {
+  "label": "op.search.query",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Wikidata%7Cop.search.query",
+  "content": {
+   "connector": {
+    "content": "Wikidata",
+    "label": "Wikidata (generic REST) (Wikidata)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Wikidata"
+   },
+   "key": {
+    "content": "op.search.query"
+   },
+   "value": {
+    "content": "action=wbsearchentities&search={name}&language=fr&format=json&limit=1&type=item"
+   }
+  }
+ },
+ {
+  "label": "clientId",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Workday%7CclientId",
+  "content": {
+   "connector": {
+    "content": "Workday",
+    "label": "Workday (Workday)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Workday"
+   },
+   "key": {
+    "content": "clientId"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "refreshToken",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Workday%7CrefreshToken",
+  "content": {
+   "connector": {
+    "content": "Workday",
+    "label": "Workday (Workday)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Workday"
+   },
+   "key": {
+    "content": "refreshToken"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ },
+ {
+  "label": "tenant",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorProperty/Workday%7Ctenant",
+  "content": {
+   "connector": {
+    "content": "Workday",
+    "label": "Workday (Workday)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Workday"
+   },
+   "key": {
+    "content": "tenant"
+   },
+   "value": {
+    "content": "TO_BE_SET"
+   }
+  }
+ }
+]

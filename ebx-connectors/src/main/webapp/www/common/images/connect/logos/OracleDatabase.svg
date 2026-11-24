@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="120" viewBox="0 0 240 120" role="img" aria-label="Oracle Database">
+  <rect width="240" height="120" rx="12" fill="#fff"/>
+  <path fill="#c74634" d="M55 24h130c25 0 45 20 45 36s-20 36-45 36H55C30 96 10 76 10 60s20-36 45-36zm4 15c-17 0-30 9-30 21s13 21 30 21h122c17 0 30-9 30-21s-13-21-30-21H59z"/>
+  <text x="120" y="67" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#c74634">ORACLE</text>
+</svg>

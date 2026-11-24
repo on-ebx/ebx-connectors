@@ -1,0 +1,3 @@
+com.on.ebx.connect.codecs.XlsxDocumentCodecProvider
+com.on.ebx.connect.codecs.AvroDocumentCodecProvider
+com.on.ebx.connect.codecs.DocxDocumentCodecProvider

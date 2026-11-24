@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160" role="img" aria-label="Oracle Fusion Cloud">
+  <rect width="160" height="160" rx="24" fill="#c74634"/>
+  <path fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" d="M40 60c0-11 9-20 20-20h40c11 0 20 9 20 20s-9 20-20 20H60c-11 0-20 9-20 20"/>
+  <text x="80" y="132" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-weight="700" font-size="21" fill="#fff">Fusion</text>
+</svg>

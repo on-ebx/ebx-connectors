@@ -1,0 +1,231 @@
+{
+  "key": "DataConnector",
+  "labelEn": "Data connector",
+  "labelFr": "Data connector",
+  "activated": true,
+  "items": [
+    {
+      "type": "section",
+      "labelEn": "Workflow",
+      "labelFr": "Workflow",
+      "children": [
+        {
+          "type": "action",
+          "labelEn": "To-do list",
+          "labelFr": "Liste de tâches",
+          "serviceKey": "ebx-root-1.0@workflow",
+          "parameters": [
+            {
+              "name": "service",
+              "value": "@workflow"
+            },
+            {
+              "name": "workflowView",
+              "value": "inbox"
+            }
+          ],
+          "iconUrl": "/ebx-connectors/www/common/images/connect/perspective/inbox.svg"
+        },
+        {
+          "type": "action",
+          "labelEn": "Launch a workflow",
+          "labelFr": "Lancer un workflow",
+          "serviceKey": "ebx-root-1.0@workflow",
+          "parameters": [
+            {
+              "name": "service",
+              "value": "@workflow"
+            },
+            {
+              "name": "workflowView",
+              "value": "launcher"
+            }
+          ],
+          "iconUrl": "/ebx-connectors/www/common/images/connect/perspective/workflowlaunch.svg"
+        },
+        {
+          "type": "action",
+          "labelEn": "Ongoing workflows",
+          "labelFr": "Workflows en cours",
+          "serviceKey": "ebx-root-1.0@workflow",
+          "parameters": [
+            {
+              "name": "service",
+              "value": "@workflow"
+            },
+            {
+              "name": "workflowView",
+              "value": "monitoringWorkItems"
+            }
+          ],
+          "iconUrl": "/ebx-connectors/www/common/images/connect/perspective/workflows.svg"
+        },
+        {
+          "type": "action",
+          "labelEn": "Completed workflows",
+          "labelFr": "Workflows terminés",
+          "serviceKey": "ebx-root-1.0@workflow",
+          "parameters": [
+            {
+              "name": "service",
+              "value": "@workflow"
+            },
+            {
+              "name": "workflowView",
+              "value": "completedWorkflows"
+            }
+          ],
+          "iconUrl": "/ebx-connectors/www/common/images/connect/perspective/workflowdone.svg"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "labelEn": "Connectivity Management",
+      "labelFr": "Gestion de la connectivité",
+      "children": [
+        {
+          "type": "action",
+          "labelEn": "Connection catalog",
+          "labelFr": "Catalogue des connexions",
+          "default": true,
+          "serviceKey": "ebx-connectors@/WEB-INF/ebx/schemas/Connectors.xsd@ConnectorCatalog",
+          "parameters": [
+            {
+              "name": "service",
+              "value": "ConnectorCatalog"
+            },
+            {
+              "name": "branch",
+              "value": "Connectors"
+            },
+            {
+              "name": "instance",
+              "value": "Connectors"
+            },
+            {
+              "name": "xpath",
+              "value": "/root/Connector"
+            }
+          ],
+          "iconUrl": "/ebx-connectors/www/common/images/connect/perspective/connectorcatalog.svg"
+        },
+        {
+          "type": "action",
+          "dataspace": "Connectors",
+          "dataset": "Connectors",
+          "xpath": "/root/Mapping",
+          "iconUrl": "/ebx-connectors/www/common/images/connect/perspective/mapping.svg"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "labelEn": "Conflicts",
+      "labelFr": "Conflits",
+      "children": [
+        {
+          "type": "action",
+          "dataspace": "Connectors",
+          "dataset": "Connectors",
+          "xpath": "/root/Conflict",
+          "iconUrl": "/ebx-connectors/www/common/images/connect/perspective/conflict.svg"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "labelEn": "Runs and monitoring",
+      "labelFr": "Exécutions et supervision",
+      "children": [
+        {
+          "type": "action",
+          "labelEn": "Connection operations",
+          "labelFr": "Opérations des connexions",
+          "serviceKey": "ebx-connectors@/WEB-INF/ebx/schemas/Connectors.xsd@ConnectorOperations",
+          "parameters": [
+            {
+              "name": "service",
+              "value": "ConnectorOperations"
+            },
+            {
+              "name": "branch",
+              "value": "Connectors"
+            },
+            {
+              "name": "instance",
+              "value": "Connectors"
+            },
+            {
+              "name": "xpath",
+              "value": "/root/SyncLog"
+            }
+          ],
+          "iconUrl": "/ebx-connectors/www/common/images/connect/perspective/operations.svg"
+        },
+        {
+          "type": "action",
+          "dataspace": "Connectors",
+          "dataset": "Connectors",
+          "xpath": "/root/ExecutionRun",
+          "hasTopSeparator": true,
+          "iconUrl": "/ebx-connectors/www/common/images/connect/perspective/executionrun.svg"
+        },
+        {
+          "type": "action",
+          "dataspace": "Connectors",
+          "dataset": "Connectors",
+          "xpath": "/root/SyncLog",
+          "iconUrl": "/ebx-connectors/www/common/images/connect/perspective/synclog.svg"
+        },
+        {
+          "type": "action",
+          "dataspace": "Connectors",
+          "dataset": "Connectors",
+          "xpath": "/root/OutboundState",
+          "iconUrl": "/ebx-connectors/www/common/images/connect/perspective/outbound.svg"
+        },
+        {
+          "type": "action",
+          "dataspace": "Connectors",
+          "dataset": "Connectors",
+          "xpath": "/root/SynchronizationCheckpoint",
+          "iconUrl": "/ebx-connectors/www/common/images/connect/perspective/checkpoint.svg"
+        },
+        {
+          "type": "action",
+          "dataspace": "Connectors",
+          "dataset": "Connectors",
+          "xpath": "/root/ConnectorOperationalMetrics",
+          "iconUrl": "/ebx-connectors/www/common/images/connect/perspective/metrics.svg"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "labelEn": "Administration",
+      "labelFr": "Administration",
+      "children": [
+        {
+          "type": "action",
+          "dataspace": "Connectors",
+          "dataset": "Connectors",
+          "xpath": "/root/AccessRight",
+          "iconUrl": "/ebx-connectors/www/common/images/connect/perspective/accessright.svg"
+        },
+        {
+          "type": "action",
+          "labelEn": "About",
+          "labelFr": "\u00c0 propos",
+          "serviceKey": "ebx-connectors@/WEB-INF/ebx/schemas/Connectors.xsd@About",
+          "parameters": [
+            { "name": "service", "value": "About" },
+            { "name": "branch", "value": "Connectors" },
+            { "name": "instance", "value": "Connectors" }
+          ],
+          "iconCss": "fa-info-circle"
+        }
+      ]
+    }
+  ]
+}

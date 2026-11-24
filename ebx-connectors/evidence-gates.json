@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Evidence and deployment gates for capability items that cannot be implemented safely from the repository alone.",
+  "defaultDecision": "BLOCKED",
+  "rules": {
+    "allEvidenceRequired": true,
+    "noInferredEndpoints": true,
+    "noInferredDriverCoordinates": true,
+    "noProductionSecretsInEvidence": true,
+    "approvalDoesNotRegisterAConnector": true
+  },
+  "groups": [
+    {
+      "id": "legacy-proprietary-jdbc",
+      "title": "Legacy and proprietary JDBC drivers",
+      "ownerRoles": ["connector-maintainer", "database-owner", "security-reviewer", "license-reviewer"],
+      "sharedEvidence": [
+        "An authoritative support matrix naming the database/server release, exact JDBC driver release, Java 8 support, and driver class",
+        "A legally obtained driver archive plus license and redistribution/deployment decision",
+        "SHA-256 inventory and Java class-file bytecode scan for every supplied archive",
+        "A TLS and authentication profile that does not place secrets in the JDBC URL",
+        "A disposable acceptance endpoint with least-privilege read and separately approved write identities",
+        "Redacted fixtures covering metadata discovery, bounded reads, prepared writes where in scope, cancellation, timeout, and vendor error handling"
+      ],
+      "promotionCriteria": [
+        "All shared evidence is attached and approved",
+        "The exact driver loads and connects on the EBX Java 8 runtime",
+        "Bounded catalog, read, timeout, and cancellation tests pass",
+        "Any write operation is separately authorized and proves transaction rollback and affected-row bounds",
+        "License, vulnerability, and deployment reviews record an explicit accept decision"
+      ],
+      "items": [
+        {"coverageId": "BASE-026", "capability": "DBase", "specificEvidence": ["Decision whether the requirement is JDBC database access or bounded DBF-file ingestion; these are different contracts"]},
+        {"coverageId": "BASE-030", "capability": "HyperFile SQL", "specificEvidence": ["Authoritative standalone Type-4 Java 8 contract; a bridge or desktop-only driver is not sufficient"]},
+        {"coverageId": "BASE-033", "capability": "Netezza", "specificEvidence": ["Vendor-supported driver/server/Java 8 compatibility statement for the selected deployment"]},
+        {"coverageId": "BASE-034", "capability": "Informix", "specificEvidence": ["Pinned vendor-supported Java 8 driver release and its deployment documentation"]},
+        {"coverageId": "BASE-038", "capability": "Microsoft Access", "specificEvidence": ["Maintained Java 8 driver support decision and a threat model for local or shared database files"]},
+        {"coverageId": "BASE-043", "capability": "Paradox", "specificEvidence": ["Maintained authoritative Type-4 Java 8 driver contract"]},
+        {"coverageId": "BASE-045", "capability": "Progress OpenEdge", "specificEvidence": ["Chosen proprietary driver archive, Java 8 bytecode result, and matching server support statement"]},
+        {"coverageId": "BASE-048", "capability": "SAP IQ", "specificEvidence": ["One exact supported driver family selected, with its URL, driver-class, TLS, and server-version contract"]},
+        {"coverageId": "BASE-049", "capability": "SAP SQL Anywhere", "specificEvidence": ["Exact Java 8 vendor driver release, class, URL contract, and matching server support statement"]},
+        {"coverageId": "BASE-050", "capability": "SQreamDB", "specificEvidence": ["Vendor support and security commitment for a Java 8-compatible driver, or an approved runtime-upgrade decision"]}
+      ],
+      "rejectionConditions": [
+        "Only a download URL, marketing page, community forum, or unpinned latest driver is supplied",
+        "The archive requires a Java runtime newer than the deployed EBX runtime",
+        "The license decision, checksums, TLS behavior, or acceptance endpoint is missing"
+      ]
+    },
+    {
+      "id": "parquet-dependency-closure",
+      "title": "Parquet dependency and schema closure",
+      "ownerRoles": ["connector-maintainer", "platform-owner", "security-reviewer", "data-contract-owner"],
+      "sharedEvidence": [
+        "A target use case stating read, write, or both; file origin; expected volume; and supported storage transport",
+        "An approved Java 8-compatible dependency lock including all transitive artifacts, licenses, checksums, bytecode levels, and vulnerability disposition",
+        "A schema contract for nested values, nullability, decimals, timestamps, dates, binary values, logical types, and schema evolution",
+        "Limits for compressed bytes, expanded bytes, rows, row groups, columns, nesting depth, and per-value size",
+        "Representative valid, malformed, adversarial, and platform-produced redacted fixtures"
+      ],
+      "promotionCriteria": [
+        "The complete dependency closure passes license, bytecode, and vulnerability review",
+        "The codec rejects oversized or malformed inputs before unbounded allocation",
+        "Round-trip and compatibility tests pass for every approved logical type",
+        "The provider remains absent unless the complete approved runtime closure is installed"
+      ],
+      "items": [
+        {"coverageId": "BASE-059", "capability": "Parquet", "specificEvidence": ["Named target producer and consumer versions plus golden files generated by those platforms"]}
+      ],
+      "rejectionConditions": [
+        "Only top-level library coordinates are supplied without a transitive lock",
+        "The intended schema semantics or bounded-input policy is unspecified",
+        "Fixtures are synthetic only and do not include files from the target platform"
+      ]
+    },
+    {
+      "id": "licensed-rest-and-social-search",
+      "title": "Licensed REST integrations and social search",
+      "ownerRoles": ["connector-maintainer", "product-owner", "service-owner", "security-reviewer", "legal-reviewer"],
+      "sharedEvidence": [
+        "An entitled, versioned API specification or licensed customer reference",
+        "A sandbox tenant and acceptance credentials stored through the approved secret mechanism",
+        "Authentication, token renewal, scopes, pagination, rate-limit, retry, and error-envelope contracts",
+        "Redacted request and response fixtures for success, empty result, pagination, throttling, authorization failure, and server failure",
+        "Permitted-use, provenance, retention, deletion, and redistribution decisions",
+        "An operation allowlist with explicit record, page, payload, timeout, and retry bounds"
+      ],
+      "promotionCriteria": [
+        "The licensed contract and terms are reviewed for the exact entitled product tier",
+        "Sandbox tests prove authentication renewal, bounds, throttling, error redaction, and audit evidence",
+        "A governed generic REST template is preferred unless stable product semantics require a dedicated type",
+        "No production connector type is registered until live acceptance is signed off"
+      ],
+      "items": [
+        {"coverageId": "BASE-PKG-004", "capability": "Licensed healthcare reference-data integration", "specificEvidence": ["HCP/HCO entity schemas, identifiers, permitted attributes, matching semantics, and permitted-use decision"]},
+        {"coverageId": "BASE-PKG-005", "capability": "Licensed organization and contact intelligence", "specificEvidence": ["Entitled company/contact schemas, match semantics, credit consumption, provenance, and retention behavior"]},
+        {"coverageId": "BASE-067", "capability": "Social post search API", "specificEvidence": ["Approved product priority, selected API tier, query and result contract, content-retention rules, deletion handling, and acceptance credentials"]}
+      ],
+      "rejectionConditions": [
+        "Endpoints, fields, pagination, or limits would need to be guessed",
+        "Only public marketing material or an interactive UI is available",
+        "Terms do not permit the intended storage, enrichment, redistribution, or retention behavior",
+        "Acceptance requires production credentials or unredacted personal data"
+      ]
+    }
+  ]
+}

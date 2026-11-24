@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">SingleStore database connector</title>
+  <desc id="desc">Neutral ON EBX connector tile, not an official vendor logo.</desc>
+  <rect width="256" height="256" rx="42" fill="#f5f1fb"/>
+  <g fill="none" stroke-linecap="round" stroke-width="18">
+    <path d="M72 73c21-25 91-28 112 1" stroke="#6d3db5"/>
+    <path d="M72 111c21-25 91-28 112 1" stroke="#8356c7"/>
+    <path d="M72 149c21-25 91-28 112 1" stroke="#9b71d5"/>
+  </g>
+  <circle cx="69" cy="73" r="9" fill="#38205e"/><circle cx="187" cy="74" r="9" fill="#38205e"/>
+  <circle cx="69" cy="111" r="9" fill="#38205e"/><circle cx="187" cy="112" r="9" fill="#38205e"/>
+  <circle cx="69" cy="149" r="9" fill="#38205e"/><circle cx="187" cy="150" r="9" fill="#38205e"/>
+  <text x="128" y="216" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#38205e">SINGLESTORE</text>
+</svg>

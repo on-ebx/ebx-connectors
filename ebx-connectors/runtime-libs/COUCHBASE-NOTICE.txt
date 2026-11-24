@@ -1,0 +1,5 @@
+# Couchbase SDK bundled notices
+
+The Couchbase Java SDK and Couchbase JVM Core IO are distributed under the Apache License 2.0.
+
+Core IO contains a shaded Jackson JSON processor. Jackson is developed by Tatu Saloranta and contributors and is licensed under the Apache License 2.0. The upstream Core IO `META-INF/NOTICE` is retained inside `couchbase-core-io-2.6.2.jar`.

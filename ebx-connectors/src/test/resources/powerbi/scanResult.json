@@ -1,0 +1,132 @@
+{
+  "workspaces": [
+    {
+      "id": "11111111-1111-1111-1111-111111111111",
+      "name": "Finance",
+      "type": "Workspace",
+      "state": "Active",
+      "isOnDedicatedCapacity": true,
+      "reports": [
+        {
+          "id": "aaaaaaaa-0001-0000-0000-000000000001",
+          "reportType": "PowerBIReport",
+          "name": "Revenue dashboard",
+          "datasetId": "dddddddd-0001-0000-0000-000000000001",
+          "createdBy": "finance-bi@corp.example",
+          "modifiedBy": "finance-bi@corp.example",
+          "description": "Monthly net revenue by product line"
+        }
+      ],
+      "dashboards": [
+        {
+          "id": "bbbbbbbb-0001-0000-0000-000000000001",
+          "displayName": "Exec overview",
+          "isReadOnly": false,
+          "tiles": [
+            { "id": "t1", "title": "Net revenue YTD", "reportId": "aaaaaaaa-0001-0000-0000-000000000001", "datasetId": "dddddddd-0001-0000-0000-000000000001" },
+            { "id": "t2", "title": "Customers", "datasetId": "dddddddd-0001-0000-0000-000000000001" }
+          ]
+        }
+      ],
+      "datasets": [
+        {
+          "id": "dddddddd-0001-0000-0000-000000000001",
+          "name": "Finance model",
+          "configuredBy": "finance-bi@corp.example",
+          "contentProviderType": "PbixInImportMode",
+          "description": "Semantic model of the revenue reporting",
+          "expressions": [
+            { "name": "SnowflakeServer", "expression": "\"xy12345.snowflakecomputing.com\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]" }
+          ],
+          "upstreamDataflows": [ { "targetDataflowId": "ffffffff-0001-0000-0000-000000000001", "groupId": "11111111-1111-1111-1111-111111111111" } ],
+          "datasourceUsages": [ { "datasourceInstanceId": "ds-snowflake" }, { "datasourceInstanceId": "ds-sqlserver" } ],
+          "tables": [
+            {
+              "name": "Orders",
+              "description": "Sales orders",
+              "source": [ { "expression": "let\n    Source = Snowflake.Databases(SnowflakeServer, \"COMPUTE_WH\"),\n    ANALYTICS_Database = Source{[Name=\"ANALYTICS\", Kind=\"Database\"]}[Data],\n    SALES_Schema = ANALYTICS_Database{[Name=\"SALES\", Kind=\"Schema\"]}[Data],\n    ORDERS_Table = SALES_Schema{[Name=\"ORDERS\", Kind=\"Table\"]}[Data],\n    #\"Renamed Columns\" = Table.RenameColumns(ORDERS_Table, {{\"ORDER_ID\", \"Order id\"}, {\"ORDER_DATE\", \"Order date\"}, {\"GROSS_PRICE\", \"Gross price\"}, {\"DISCOUNT\", \"Discount\"}}),\n    #\"Changed Type\" = Table.TransformColumnTypes(#\"Renamed Columns\", {{\"Order date\", type date}})\nin\n    #\"Changed Type\"" } ],
+              "columns": [
+                { "name": "Order id", "dataType": "Int64", "isHidden": false, "columnType": "Data" },
+                { "name": "Order date", "dataType": "DateTime", "isHidden": false, "columnType": "Data" },
+                { "name": "Gross price", "dataType": "Decimal", "isHidden": false, "columnType": "Data" },
+                { "name": "Discount", "dataType": "Decimal", "isHidden": false, "columnType": "Data" },
+                { "name": "Net revenue", "dataType": "Decimal", "isHidden": false, "columnType": "Calculated", "expression": "Orders[Gross price] - Orders[Discount]" },
+                { "name": "Internal key", "dataType": "String", "isHidden": true, "columnType": "Data" }
+              ],
+              "measures": [
+                { "name": "Total revenue", "expression": "SUM(Orders[Net revenue])", "description": "Net revenue, all orders" },
+                { "name": "Total discount", "expression": "SUM ( Orders[Discount] )" },
+                { "name": "Discount rate", "expression": "// share of the discount\nDIVIDE([Total discount], [Total revenue] + [Total discount])" }
+              ]
+            },
+            {
+              "name": "Customer",
+              "source": [ { "expression": "let\n    Source = Sql.Database(\"sqlsrv.corp.example\", \"CRM\"),\n    dbo_Customer = Source{[Schema=\"dbo\",Item=\"Customer\"]}[Data],\n    #\"Filtered Rows\" = Table.SelectRows(dbo_Customer, each [Active] = true),\n    #\"Removed Columns\" = Table.RemoveColumns(#\"Filtered Rows\", {\"Active\"})\nin\n    #\"Removed Columns\"" } ],
+              "columns": [
+                { "name": "Id", "dataType": "Int64", "columnType": "Data" },
+                { "name": "Name", "dataType": "String", "columnType": "Data" },
+                { "name": "Country", "dataType": "String", "columnType": "Data" }
+              ],
+              "measures": []
+            },
+            {
+              "name": "Date",
+              "source": [ { "expression": "let\n    Source = List.Dates(#date(2020, 1, 1), 3653, #duration(1, 0, 0, 0)),\n    #\"Converted to Table\" = Table.FromList(Source, Splitter.SplitByNothing(), {\"Date\"})\nin\n    #\"Converted to Table\"" } ],
+              "columns": [ { "name": "Date", "dataType": "DateTime", "columnType": "Data" } ],
+              "measures": []
+            }
+          ]
+        }
+      ],
+      "dataflows": [
+        {
+          "objectId": "ffffffff-0001-0000-0000-000000000001",
+          "name": "Sales staging",
+          "description": "Customers staged from the CRM",
+          "configuredBy": "finance-bi@corp.example",
+          "datasourceUsages": [ { "datasourceInstanceId": "ds-sqlserver" } ],
+          "definition": {
+            "name": "Sales staging",
+            "entities": [
+              {
+                "name": "Customers",
+                "attributes": [
+                  { "name": "Id", "dataType": "int64" },
+                  { "name": "Name", "dataType": "string" },
+                  { "name": "Country", "dataType": "string" }
+                ]
+              }
+            ],
+            "pbi:mashup": {
+              "document": "section Section1;\r\nshared Customers = let\r\n  Source = Sql.Database(\"sqlsrv.corp.example\", \"CRM\"),\r\n  dbo_Customer = Source{[Schema=\"dbo\",Item=\"Customer\"]}[Data]\r\nin\r\n  dbo_Customer;\r\n"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "22222222-2222-2222-2222-222222222222",
+      "name": "Marketing",
+      "type": "Workspace",
+      "state": "Active",
+      "reports": [ { "id": "aaaaaaaa-0002-0000-0000-000000000001", "name": "Campaign results", "datasetId": "dddddddd-0002-0000-0000-000000000001" } ],
+      "datasets": [ { "id": "dddddddd-0002-0000-0000-000000000001", "name": "Campaigns", "tables": [] } ],
+      "dashboards": [],
+      "dataflows": []
+    },
+    {
+      "id": "33333333-3333-3333-3333-333333333333",
+      "name": "PersonalWorkspace someone",
+      "type": "PersonalGroup",
+      "state": "Active",
+      "reports": [ { "id": "aaaaaaaa-0003-0000-0000-000000000001", "name": "My scratch report" } ],
+      "datasets": [],
+      "dashboards": [],
+      "dataflows": []
+    }
+  ],
+  "datasourceInstances": [
+    { "datasourceType": "Extension", "connectionDetails": { "path": "xy12345.snowflakecomputing.com;COMPUTE_WH", "kind": "Snowflake" }, "datasourceId": "ds-snowflake" },
+    { "datasourceType": "Sql", "connectionDetails": { "server": "sqlsrv.corp.example", "database": "CRM" }, "datasourceId": "ds-sqlserver" }
+  ]
+}

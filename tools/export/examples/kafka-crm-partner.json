@@ -1,0 +1,470 @@
+{
+ "mapping": {
+  "connector": "Kafka",
+  "operation": "publish",
+  "direction": "OUTBOUND",
+  "label": "Company -> Kafka / CRM partner (transformations demo)",
+  "description": "Publishes a company as a CRM 'partner' message on topic crm.partner.upsert: a nested JSON that differs from the EBX model, built with one transformation per rule (prefix, upper, capitalize, map, digits, vatfr, regex, number/round, boolean, isodate, constant...).",
+  "dataset": "Companies",
+  "tablePath": "/root/Companies",
+  "active": true,
+  "deleteMissing": false,
+  "createIfMissing": true,
+  "maxAttempts": 5,
+  "retryDelayMinutes": 30
+ },
+ "inputs": [
+  {
+   "name": "key",
+   "expression": "${./Identification/Id}"
+  },
+  {
+   "name": "table",
+   "expression": "Companies"
+  },
+  {
+   "name": "topic",
+   "expression": "crm.partner.upsert"
+  }
+ ],
+ "rules": [
+  {
+   "position": 10,
+   "sourcePath": "./Identification/Id",
+   "targetPath": "partnerCode",
+   "transformation": "prefix(EBX-)",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 20,
+   "sourcePath": "./Identification/Name",
+   "targetPath": "displayName",
+   "transformation": "trim|upper",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 30,
+   "sourcePath": "./LegalInformation/legalName",
+   "targetPath": "legal.name",
+   "transformation": "capitalize|left(60)",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 40,
+   "sourcePath": "./LegalInformation/legalForm",
+   "targetPath": "legal.form",
+   "transformation": "map(K65D=SA;5710=SAS;5499=SARL;*=OTHER)",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 50,
+   "sourcePath": "./LegalInformation/registrationNumber",
+   "targetPath": "legal.siren",
+   "transformation": "digits",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 60,
+   "sourcePath": "./LegalInformation/registrationNumber",
+   "targetPath": "legal.vatNumber",
+   "transformation": "digits|vatfr",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 70,
+   "sourcePath": "./LegalInformation/incorporationDate",
+   "targetPath": "legal.incorporationYear",
+   "transformation": "left(4)|number",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 80,
+   "sourcePath": "./Identification/LegalEntityIdentifier",
+   "targetPath": "identifiers.lei",
+   "transformation": "trim",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 90,
+   "sourcePath": "./LegalInformation/isin",
+   "targetPath": "identifiers.isin",
+   "transformation": "nullifempty",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 100,
+   "sourcePath": "./Address/Street",
+   "targetPath": "location.addressLine",
+   "transformation": "regex('^(.*?) \\d{5}',1)|capitalize",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 110,
+   "sourcePath": "./Address/Zipcode",
+   "targetPath": "location.postalCode",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 120,
+   "sourcePath": "./Address/City",
+   "targetPath": "location.city",
+   "transformation": "upper",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 130,
+   "sourcePath": "./Address/Country",
+   "targetPath": "location.country.code",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 140,
+   "sourcePath": "./Address/Country",
+   "targetPath": "location.country.name",
+   "transformation": "map(FR=France;DE=Germany;US=United States;GB=United Kingdom;*=Unknown)",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 150,
+   "sourcePath": "./Address/latitude",
+   "targetPath": "location.geo.lat",
+   "transformation": "number|round(4)",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 160,
+   "sourcePath": "./Address/longitude",
+   "targetPath": "location.geo.lon",
+   "transformation": "number|round(4)",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 170,
+   "sourcePath": "./AdditionalInformation/naceCode",
+   "targetPath": "activity.naceCode",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 180,
+   "sourcePath": "./AdditionalInformation/naceCode",
+   "targetPath": "activity.naceDivision",
+   "transformation": "left(2)|map(20=Chemicals;62=IT services;78=Employment activities;*=Other)",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 190,
+   "sourcePath": "./Lifecycle/status",
+   "targetPath": "status",
+   "transformation": "map(ACTIVE=active;INACTIVE=inactive;*=unknown)",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 200,
+   "sourcePath": "./LegalInformation/listed",
+   "targetPath": "flags.listed",
+   "transformation": "boolean",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 210,
+   "sourcePath": "./AdditionalInformation/blackListed",
+   "targetPath": "flags.blacklisted",
+   "transformation": "boolean",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 220,
+   "sourcePath": "./Contact/website",
+   "targetPath": "contact.domain",
+   "transformation": "regex('^(?:https?://)?([^/]+)',1)|lower",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 230,
+   "targetPath": "meta.source",
+   "transformation": "constant(ON EBX)",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 240,
+   "targetPath": "meta.schemaVersion",
+   "transformation": "constant(1.0)",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 250,
+   "sourcePath": "./Governance/gleifLastUpdate",
+   "targetPath": "meta.gleifUpdatedOn",
+   "transformation": "isodate",
+   "policy": "ALWAYS",
+   "active": true
+  },
+  {
+   "position": 260,
+   "sourcePath": "./Governance/wikidataId",
+   "targetPath": "meta.wikidataUrl",
+   "transformation": "prefix(https://www.wikidata.org/wiki/)",
+   "policy": "ALWAYS",
+   "active": true
+  }
+ ],
+ "children": [
+  {
+   "mapping": {
+    "connector": "Kafka",
+    "operation": "publish",
+    "direction": "OUTBOUND",
+    "label": "Company -> Kafka / CRM partner / identifiers",
+    "description": "Sub-object: one element per identifier of the company (Wikidata ids filtered out); the type code is translated through a lookup in the IdentifierType reference table.",
+    "dataset": "Companies",
+    "tablePath": "/root/CompanyIdentifier",
+    "active": true,
+    "collectionPath": "identifiers",
+    "parentLinkField": "./company",
+    "childFilter": "./type!='WIKIDATA'",
+    "deleteMissing": false,
+    "createIfMissing": true,
+    "maxAttempts": 5,
+    "retryDelayMinutes": 30
+   },
+   "inputs": [],
+   "rules": [
+    {
+     "position": 10,
+     "sourcePath": "./type",
+     "targetPath": "scheme",
+     "transformation": "lookup(/root/ReferenceData/IdentifierType,./Code,./Label)",
+     "policy": "ALWAYS",
+     "active": true
+    },
+    {
+     "position": 20,
+     "sourcePath": "./type",
+     "targetPath": "schemeCode",
+     "policy": "ALWAYS",
+     "active": true
+    },
+    {
+     "position": 30,
+     "sourcePath": "./value",
+     "targetPath": "value",
+     "transformation": "trim",
+     "policy": "ALWAYS",
+     "active": true
+    },
+    {
+     "position": 40,
+     "sourcePath": "./issuingAuthority",
+     "targetPath": "issuer",
+     "transformation": "nullifempty",
+     "policy": "ALWAYS",
+     "active": true
+    },
+    {
+     "position": 50,
+     "sourcePath": "./isPrimary",
+     "targetPath": "primary",
+     "transformation": "default(false)|boolean",
+     "policy": "ALWAYS",
+     "active": true
+    },
+    {
+     "position": 60,
+     "sourcePath": "./source",
+     "targetPath": "provenance",
+     "transformation": "lower",
+     "policy": "ALWAYS",
+     "active": true
+    }
+   ],
+   "children": []
+  },
+  {
+   "mapping": {
+    "connector": "Kafka",
+    "operation": "publish",
+    "direction": "OUTBOUND",
+    "label": "Company -> Kafka / CRM partner / sites",
+    "description": "Sub-object: the addresses of the company as 'sites' (a name the CRM chose), the usage label read from the AddressType reference table, a flag derived from the type.",
+    "dataset": "Companies",
+    "tablePath": "/root/CompanyAddress",
+    "active": true,
+    "collectionPath": "sites",
+    "parentLinkField": "./company",
+    "deleteMissing": false,
+    "createIfMissing": true,
+    "maxAttempts": 5,
+    "retryDelayMinutes": 30
+   },
+   "inputs": [],
+   "rules": [
+    {
+     "position": 10,
+     "sourcePath": "./type",
+     "targetPath": "usage",
+     "transformation": "lookup(/root/ReferenceData/AddressType,./Code,./Label)",
+     "policy": "ALWAYS",
+     "active": true
+    },
+    {
+     "position": 20,
+     "sourcePath": "./type",
+     "targetPath": "isRegisteredOffice",
+     "transformation": "map(LEGAL=true;*=false)|boolean",
+     "policy": "ALWAYS",
+     "active": true
+    },
+    {
+     "position": 30,
+     "sourcePath": "./Number",
+     "targetPath": "streetNumber",
+     "transformation": "nullifempty",
+     "policy": "ALWAYS",
+     "active": true
+    },
+    {
+     "position": 40,
+     "sourcePath": "./Street",
+     "targetPath": "street",
+     "transformation": "capitalize",
+     "policy": "ALWAYS",
+     "active": true
+    },
+    {
+     "position": 50,
+     "sourcePath": "./Zipcode",
+     "targetPath": "postalCode",
+     "policy": "ALWAYS",
+     "active": true
+    },
+    {
+     "position": 60,
+     "sourcePath": "./City",
+     "targetPath": "city",
+     "transformation": "upper",
+     "policy": "ALWAYS",
+     "active": true
+    },
+    {
+     "position": 70,
+     "sourcePath": "./Country",
+     "targetPath": "countryCode",
+     "policy": "ALWAYS",
+     "active": true
+    }
+   ],
+   "children": []
+  },
+  {
+   "mapping": {
+    "connector": "Kafka",
+    "operation": "publish",
+    "direction": "OUTBOUND",
+    "label": "Company -> Kafka / CRM partner / people",
+    "description": "Sub-object: the active contacts only (childFilter), names normalised, phone in E.164, role label from the ContactRole reference table.",
+    "dataset": "Companies",
+    "tablePath": "/root/Contact",
+    "active": true,
+    "collectionPath": "people",
+    "parentLinkField": "./company",
+    "childFilter": "./active=true",
+    "deleteMissing": false,
+    "createIfMissing": true,
+    "maxAttempts": 5,
+    "retryDelayMinutes": 30
+   },
+   "inputs": [],
+   "rules": [
+    {
+     "position": 10,
+     "sourcePath": "./civility",
+     "targetPath": "salutation",
+     "policy": "ALWAYS",
+     "active": true
+    },
+    {
+     "position": 20,
+     "sourcePath": "./firstName",
+     "targetPath": "givenName",
+     "transformation": "capitalize",
+     "policy": "ALWAYS",
+     "active": true
+    },
+    {
+     "position": 30,
+     "sourcePath": "./lastName",
+     "targetPath": "familyName",
+     "transformation": "upper",
+     "policy": "ALWAYS",
+     "active": true
+    },
+    {
+     "position": 40,
+     "sourcePath": "./jobTitle",
+     "targetPath": "title",
+     "transformation": "trim",
+     "policy": "ALWAYS",
+     "active": true
+    },
+    {
+     "position": 50,
+     "sourcePath": "./role",
+     "targetPath": "role",
+     "transformation": "lookup(/root/ReferenceData/ContactRole,./Code,./Label)",
+     "policy": "ALWAYS",
+     "active": true
+    },
+    {
+     "position": 60,
+     "sourcePath": "./email",
+     "targetPath": "email",
+     "transformation": "lower",
+     "policy": "ALWAYS",
+     "active": true
+    },
+    {
+     "position": 70,
+     "sourcePath": "./phone",
+     "targetPath": "phone",
+     "transformation": "digits|regex('^(?:0|33)(.*)$',1)|prefix(+33)",
+     "policy": "ALWAYS",
+     "active": true,
+     "comment": "French numbers only: strips the national 0 or the 33 prefix, then E.164 +33"
+    },
+    {
+     "position": 80,
+     "sourcePath": "./isPrimary",
+     "targetPath": "primary",
+     "transformation": "default(false)|boolean",
+     "policy": "ALWAYS",
+     "active": true
+    }
+   ],
+   "children": []
+  }
+ ]
+}

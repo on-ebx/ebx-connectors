@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/main/resources" excluding="**/*.java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/ebx-connectors-spi.jar" sourcepath="/ebx-connectors/dist/ebx-connectors-spi-sources.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ebx-ps-fasttrack-server"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

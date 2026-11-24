@@ -1,0 +1,16 @@
+# Findings of tools/deps_check.sh that are accepted for now, one per line: <key> | <why, until when>.
+# A line whose finding has gone is reported as STALE: remove it.
+osv:com.rabbitmq:amqp-client:5.35.0 | GHSA-7822-rcf6-97fx, GHSA-cqgh-8p3p-mx4m on OSV 2026-10-24: not changed by lot L10 (decision of the product owner, 2026-10-24); read the fixed version in the advisory and move the RabbitMQ client in a later lot
+osv:com.h2database:h2:2.1.212 | GHSA-22wj-vf5f-wrvj on OSV 2026-10-24: kept on purpose, the H2 connector driver follows the H2 of the repository server (2.1.212); decide with the repository upgrade
+#
+# OPEN POINTS of 2026-11-12 (audit C3-11). They are not findings accepted above: nothing is decided, and no jar was changed for them. Full text: docs/OPERATIONS.md section 9.
+#  1. LICENCE - mysql-connector-j-26.7.0.jar (also used by SingleStore): GPL-2.0 with the Oracle Universal FOSS Exception 1.0, or Oracle commercial licence.
+#     THIRD-PARTY-NOTICES.md says redistribution in a non-GPL product "must be cleared before release"; no clearance is recorded.
+#     To decide: record an opinion or a commercial licence, OR remove the jar from the war and have the customer supply the driver (like Redshift).
+#  2. CLOSED by lot 1.4.1 (2026-11-12): deps_check.py now knows the Maven groups and reads the Kafka version, and a jar it cannot query is a finding; the 7 jars have no advisory on OSV. Former text:
+#     NEVER SUBMITTED TO OSV (tools/deps_check.py skipped a jar whose Maven group or version it cannot read, without a message), 7 jars:
+#     bson-5.11.0, mongodb-driver-core-5.11.0, mongodb-driver-sync-5.11.0, jna-5.13.0, jna-platform-5.17.0, mysql-connector-j-26.7.0 (no Maven group known),
+#     kafka-clients.jar (version not read from the manifest; 3.9.2 per THIRD-PARTY-NOTICES.md).
+#     To decide: give deps_check the groups (org.mongodb, net.java.dev.jna, com.mysql) and the Kafka version, and make it fail on a jar it cannot query.
+#  3. NO DATE on the two acceptances above (amqp-client 5.35.0, h2 2.1.212), accepted since 2026-10-24: this header asks "until when".
+#     To decide: a date for each.

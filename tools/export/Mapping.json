@@ -1,0 +1,5708 @@
+[
+ {
+  "label": "GLEIF record -> company legal information [GLEIF - Legal Entity Identifier (GLEIF) / lei — read: LEI record by LEI Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/84",
+  "content": {
+   "id": {
+    "content": 84
+   },
+   "connector": {
+    "content": "GLEIF",
+    "label": "GLEIF - Legal Entity Identifier (GLEIF)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GLEIF",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/84/connector?selector=true"
+   },
+   "operation": {
+    "content": "lei",
+    "label": "lei — read: LEI record by LEI",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/84/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/84/direction?selector=true"
+   },
+   "label": {
+    "content": "GLEIF record -> company legal information"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": "data.attributes"
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/84/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/84/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/84/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/84/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/84/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/84/rules"
+   }
+  }
+ },
+ {
+  "label": "GLEIF search by SIREN -> LEI [GLEIF - Legal Entity Identifier (GLEIF) / searchByRegistration — search: LEI record by national registration id (e.g. SIREN + RA000189) Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/85",
+  "content": {
+   "id": {
+    "content": 85
+   },
+   "connector": {
+    "content": "GLEIF",
+    "label": "GLEIF - Legal Entity Identifier (GLEIF)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GLEIF",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/85/connector?selector=true"
+   },
+   "operation": {
+    "content": "searchByRegistration",
+    "label": "searchByRegistration — search: LEI record by national registration id (e.g. SIREN + RA000189)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/85/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/85/direction?selector=true"
+   },
+   "label": {
+    "content": "GLEIF search by SIREN -> LEI"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": "data"
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/85/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/85/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/85/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/85/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/85/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/85/rules"
+   }
+  }
+ },
+ {
+  "label": "Sirene legal unit -> company [INSEE Sirene 3.11 (Sirene) / siren — read: Legal unit by SIREN (uniteLegale) Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/86",
+  "content": {
+   "id": {
+    "content": 86
+   },
+   "connector": {
+    "content": "Sirene",
+    "label": "INSEE Sirene 3.11 (Sirene)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Sirene",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/86/connector?selector=true"
+   },
+   "operation": {
+    "content": "siren",
+    "label": "siren — read: Legal unit by SIREN (uniteLegale)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/86/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/86/direction?selector=true"
+   },
+   "label": {
+    "content": "Sirene legal unit -> company"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": "uniteLegale"
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/86/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/86/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/86/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/86/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/86/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/86/rules"
+   }
+  }
+ },
+ {
+  "label": "Sirene head office -> company address [INSEE Sirene 3.11 (Sirene) / headOffice — read: Head office establishment of a SIREN (siren + nicSiegeUniteLegale) Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/87",
+  "content": {
+   "id": {
+    "content": 87
+   },
+   "connector": {
+    "content": "Sirene",
+    "label": "INSEE Sirene 3.11 (Sirene)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Sirene",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/87/connector?selector=true"
+   },
+   "operation": {
+    "content": "headOffice",
+    "label": "headOffice — read: Head office establishment of a SIREN (siren + nicSiegeUniteLegale)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/87/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/87/direction?selector=true"
+   },
+   "label": {
+    "content": "Sirene head office -> company address"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": "etablissement.adresseEtablissement"
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/87/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/87/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/87/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/87/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/87/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/87/rules"
+   }
+  }
+ },
+ {
+  "label": "Google Geocoding -> company coordinates [Google Geocoding (GoogleGeocoding) / geocode — read: Coordinates and normalised components of a postal address Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/88",
+  "content": {
+   "id": {
+    "content": 88
+   },
+   "connector": {
+    "content": "GoogleGeocoding",
+    "label": "Google Geocoding (GoogleGeocoding)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GoogleGeocoding",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/88/connector?selector=true"
+   },
+   "operation": {
+    "content": "geocode",
+    "label": "geocode — read: Coordinates and normalised components of a postal address",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/88/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/88/direction?selector=true"
+   },
+   "label": {
+    "content": "Google Geocoding -> company coordinates"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": "results[0]"
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/88/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/88/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/88/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/88/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/88/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/88/rules"
+   }
+  }
+ },
+ {
+  "label": "Salesforce Account -> company [Salesforce CRM (Salesforce) / getByExternalId — read: sObject by external id field Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/89",
+  "content": {
+   "id": {
+    "content": 89
+   },
+   "connector": {
+    "content": "Salesforce",
+    "label": "Salesforce CRM (Salesforce)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Salesforce",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/89/connector?selector=true"
+   },
+   "operation": {
+    "content": "getByExternalId",
+    "label": "getByExternalId — read: sObject by external id field",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/89/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/89/direction?selector=true"
+   },
+   "label": {
+    "content": "Salesforce Account -> company"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/89/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/89/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/89/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/89/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/89/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/89/rules"
+   }
+  }
+ },
+ {
+  "label": "Company -> Salesforce Account [Salesforce CRM (Salesforce) / upsert — write: Upsert an sObject by external id from the outbound document Outbound (EBX to external system)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/90",
+  "content": {
+   "id": {
+    "content": 90
+   },
+   "connector": {
+    "content": "Salesforce",
+    "label": "Salesforce CRM (Salesforce)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Salesforce",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/90/connector?selector=true"
+   },
+   "operation": {
+    "content": "upsert",
+    "label": "upsert — write: Upsert an sObject by external id from the outbound document",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/90/operation?selector=true"
+   },
+   "direction": {
+    "content": "OUTBOUND",
+    "label": "Outbound (EBX to external system)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/90/direction?selector=true"
+   },
+   "label": {
+    "content": "Company -> Salesforce Account"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/90/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/90/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/90/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/90/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/90/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/90/rules"
+   }
+  }
+ },
+ {
+  "label": "Company (with addresses and contacts) -> Kafka [Apache Kafka (Kafka) / publish — write: Publish the outbound document as a JSON message Outbound (EBX to external system)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/91",
+  "content": {
+   "id": {
+    "content": 91
+   },
+   "connector": {
+    "content": "Kafka",
+    "label": "Apache Kafka (Kafka)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Kafka",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/91/connector?selector=true"
+   },
+   "operation": {
+    "content": "publish",
+    "label": "publish — write: Publish the outbound document as a JSON message",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/91/operation?selector=true"
+   },
+   "direction": {
+    "content": "OUTBOUND",
+    "label": "Outbound (EBX to external system)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/91/direction?selector=true"
+   },
+   "label": {
+    "content": "Company (with addresses and contacts) -> Kafka"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/91/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/91/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/91/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/91/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/91/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/91/rules"
+   }
+  }
+ },
+ {
+  "label": "Company -> Kafka / addresses [Apache Kafka (Kafka) / publish — write: Publish the outbound document as a JSON message Outbound (EBX to external system)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/92",
+  "content": {
+   "id": {
+    "content": 92
+   },
+   "connector": {
+    "content": "Kafka",
+    "label": "Apache Kafka (Kafka)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Kafka",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/92/connector?selector=true"
+   },
+   "operation": {
+    "content": "publish",
+    "label": "publish — write: Publish the outbound document as a JSON message",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/92/operation?selector=true"
+   },
+   "direction": {
+    "content": "OUTBOUND",
+    "label": "Outbound (EBX to external system)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/92/direction?selector=true"
+   },
+   "label": {
+    "content": "Company -> Kafka / addresses"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/CompanyAddress"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": "91",
+    "label": "Company (with addresses and contacts) -> Kafka [Apache Kafka (Kafka) / publish — write: Publish the outbound document as a JSON message Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/91",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/92/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": "addresses"
+   },
+   "parentLinkField": {
+    "content": "./company"
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/92/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/92/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/92/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/92/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/92/rules"
+   }
+  }
+ },
+ {
+  "label": "Company -> Kafka / contacts [Apache Kafka (Kafka) / publish — write: Publish the outbound document as a JSON message Outbound (EBX to external system)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/93",
+  "content": {
+   "id": {
+    "content": 93
+   },
+   "connector": {
+    "content": "Kafka",
+    "label": "Apache Kafka (Kafka)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Kafka",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/93/connector?selector=true"
+   },
+   "operation": {
+    "content": "publish",
+    "label": "publish — write: Publish the outbound document as a JSON message",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/93/operation?selector=true"
+   },
+   "direction": {
+    "content": "OUTBOUND",
+    "label": "Outbound (EBX to external system)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/93/direction?selector=true"
+   },
+   "label": {
+    "content": "Company -> Kafka / contacts"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Contact"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": "91",
+    "label": "Company (with addresses and contacts) -> Kafka [Apache Kafka (Kafka) / publish — write: Publish the outbound document as a JSON message Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/91",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/93/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": "contacts"
+   },
+   "parentLinkField": {
+    "content": "./company"
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": "./active=true"
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/93/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/93/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/93/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/93/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/93/rules"
+   }
+  }
+ },
+ {
+  "label": "Kafka -> companies (with addresses and contacts) [Apache Kafka (Kafka) / consume — search: Poll messages of a topic (committed after the poll) Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/94",
+  "content": {
+   "id": {
+    "content": 94
+   },
+   "connector": {
+    "content": "Kafka",
+    "label": "Apache Kafka (Kafka)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Kafka",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/94/connector?selector=true"
+   },
+   "operation": {
+    "content": "consume",
+    "label": "consume — search: Poll messages of a topic (committed after the poll)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/94/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/94/direction?selector=true"
+   },
+   "label": {
+    "content": "Kafka -> companies (with addresses and contacts)"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/94/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": "messages[*].value"
+   },
+   "keyPredicate": {
+    "content": "./Identification/LegalEntityIdentifier='${lei}'"
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/94/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/94/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/94/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/94/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/94/rules"
+   }
+  }
+ },
+ {
+  "label": "Kafka -> companies / addresses [Apache Kafka (Kafka) / consume — search: Poll messages of a topic (committed after the poll) Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/95",
+  "content": {
+   "id": {
+    "content": 95
+   },
+   "connector": {
+    "content": "Kafka",
+    "label": "Apache Kafka (Kafka)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Kafka",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/95/connector?selector=true"
+   },
+   "operation": {
+    "content": "consume",
+    "label": "consume — search: Poll messages of a topic (committed after the poll)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/95/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/95/direction?selector=true"
+   },
+   "label": {
+    "content": "Kafka -> companies / addresses"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/CompanyAddress"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": "94",
+    "label": "Kafka -> companies (with addresses and contacts) [Apache Kafka (Kafka) / consume — search: Poll messages of a topic (committed after the poll) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/94",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/95/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": "addresses"
+   },
+   "parentLinkField": {
+    "content": "./company"
+   },
+   "childKeyFields": {
+    "content": "./type,./City"
+   },
+   "childFilter": {
+    "content": "./source='KAFKA'"
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/95/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/95/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/95/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/95/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/95/rules"
+   }
+  }
+ },
+ {
+  "label": "Kafka -> companies / contacts [Apache Kafka (Kafka) / consume — search: Poll messages of a topic (committed after the poll) Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/96",
+  "content": {
+   "id": {
+    "content": 96
+   },
+   "connector": {
+    "content": "Kafka",
+    "label": "Apache Kafka (Kafka)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Kafka",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/96/connector?selector=true"
+   },
+   "operation": {
+    "content": "consume",
+    "label": "consume — search: Poll messages of a topic (committed after the poll)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/96/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/96/direction?selector=true"
+   },
+   "label": {
+    "content": "Kafka -> companies / contacts"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Contact"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": "94",
+    "label": "Kafka -> companies (with addresses and contacts) [Apache Kafka (Kafka) / consume — search: Poll messages of a topic (committed after the poll) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/94",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/96/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": "contacts"
+   },
+   "parentLinkField": {
+    "content": "./company"
+   },
+   "childKeyFields": {
+    "content": "./email"
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/96/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/96/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/96/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/96/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/96/rules"
+   }
+  }
+ },
+ {
+  "label": "Snowflake CUSTOMERS -> companies [Snowflake (Snowflake) / query — search: Run a SELECT (input sql, optional bindings b1..bn) and return its rows Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/97",
+  "content": {
+   "id": {
+    "content": 97
+   },
+   "connector": {
+    "content": "Snowflake",
+    "label": "Snowflake (Snowflake)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Snowflake",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/97/connector?selector=true"
+   },
+   "operation": {
+    "content": "query",
+    "label": "query — search: Run a SELECT (input sql, optional bindings b1..bn) and return its rows",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/97/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/97/direction?selector=true"
+   },
+   "label": {
+    "content": "Snowflake CUSTOMERS -> companies"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/97/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": "rows"
+   },
+   "keyPredicate": {
+    "content": "./Identification/LegalEntityIdentifier='${LEI}'"
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/97/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/97/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/97/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/97/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/97/rules"
+   }
+  }
+ },
+ {
+  "label": "Company (with addresses) -> Snowflake COMPANIES [Snowflake (Snowflake) / merge — write: MERGE the outbound document into a table on keyColumn(s) Outbound (EBX to external system)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/98",
+  "content": {
+   "id": {
+    "content": 98
+   },
+   "connector": {
+    "content": "Snowflake",
+    "label": "Snowflake (Snowflake)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Snowflake",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/98/connector?selector=true"
+   },
+   "operation": {
+    "content": "merge",
+    "label": "merge — write: MERGE the outbound document into a table on keyColumn(s)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/98/operation?selector=true"
+   },
+   "direction": {
+    "content": "OUTBOUND",
+    "label": "Outbound (EBX to external system)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/98/direction?selector=true"
+   },
+   "label": {
+    "content": "Company (with addresses) -> Snowflake COMPANIES"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/98/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/98/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/98/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/98/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/98/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/98/rules"
+   }
+  }
+ },
+ {
+  "label": "Company -> Snowflake / ADDRESSES (VARIANT) [Snowflake (Snowflake) / merge — write: MERGE the outbound document into a table on keyColumn(s) Outbound (EBX to external system)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/99",
+  "content": {
+   "id": {
+    "content": 99
+   },
+   "connector": {
+    "content": "Snowflake",
+    "label": "Snowflake (Snowflake)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Snowflake",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/99/connector?selector=true"
+   },
+   "operation": {
+    "content": "merge",
+    "label": "merge — write: MERGE the outbound document into a table on keyColumn(s)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/99/operation?selector=true"
+   },
+   "direction": {
+    "content": "OUTBOUND",
+    "label": "Outbound (EBX to external system)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/99/direction?selector=true"
+   },
+   "label": {
+    "content": "Company -> Snowflake / ADDRESSES (VARIANT)"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/CompanyAddress"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": "98",
+    "label": "Company (with addresses) -> Snowflake COMPANIES [Snowflake (Snowflake) / merge — write: MERGE the outbound document into a table on keyColumn(s) Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/98",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/99/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": "ADDRESSES"
+   },
+   "parentLinkField": {
+    "content": "./company"
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/99/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/99/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/99/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/99/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/99/rules"
+   }
+  }
+ },
+ {
+  "label": "Databricks customers -> companies [Databricks SQL (Databricks) / query — search: Run a SELECT (input sql with :b1..:bn markers, inputs b1..bn) and return its rows Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/100",
+  "content": {
+   "id": {
+    "content": 100
+   },
+   "connector": {
+    "content": "Databricks",
+    "label": "Databricks SQL (Databricks)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Databricks",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/100/connector?selector=true"
+   },
+   "operation": {
+    "content": "query",
+    "label": "query — search: Run a SELECT (input sql, optional bindings b1..bn) and return its rows",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/100/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/100/direction?selector=true"
+   },
+   "label": {
+    "content": "Databricks customers -> companies"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/100/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": "rows"
+   },
+   "keyPredicate": {
+    "content": "./Identification/LegalEntityIdentifier='${lei}'"
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/100/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/100/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/100/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/100/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/100/rules"
+   }
+  }
+ },
+ {
+  "label": "Company (with addresses) -> Databricks companies [Databricks SQL (Databricks) / merge — write: MERGE the outbound document into a Delta table on keyColumn(s) Outbound (EBX to external system)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/101",
+  "content": {
+   "id": {
+    "content": 101
+   },
+   "connector": {
+    "content": "Databricks",
+    "label": "Databricks SQL (Databricks)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Databricks",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/101/connector?selector=true"
+   },
+   "operation": {
+    "content": "merge",
+    "label": "merge — write: MERGE the outbound document into a table on keyColumn(s)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/101/operation?selector=true"
+   },
+   "direction": {
+    "content": "OUTBOUND",
+    "label": "Outbound (EBX to external system)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/101/direction?selector=true"
+   },
+   "label": {
+    "content": "Company (with addresses) -> Databricks companies"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/101/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/101/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/101/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/101/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/101/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/101/rules"
+   }
+  }
+ },
+ {
+  "label": "Company -> Databricks / addresses (VARIANT) [Databricks SQL (Databricks) / merge — write: MERGE the outbound document into a Delta table on keyColumn(s) Outbound (EBX to external system)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/102",
+  "content": {
+   "id": {
+    "content": 102
+   },
+   "connector": {
+    "content": "Databricks",
+    "label": "Databricks SQL (Databricks)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Databricks",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/102/connector?selector=true"
+   },
+   "operation": {
+    "content": "merge",
+    "label": "merge — write: MERGE the outbound document into a table on keyColumn(s)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/102/operation?selector=true"
+   },
+   "direction": {
+    "content": "OUTBOUND",
+    "label": "Outbound (EBX to external system)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/102/direction?selector=true"
+   },
+   "label": {
+    "content": "Company -> Databricks / addresses (VARIANT)"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/CompanyAddress"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": "101",
+    "label": "Company (with addresses) -> Databricks companies [Databricks SQL (Databricks) / merge — write: MERGE the outbound document into a Delta table on keyColumn(s) Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/101",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/102/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": "addresses"
+   },
+   "parentLinkField": {
+    "content": "./company"
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/102/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/102/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/102/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/102/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/102/rules"
+   }
+  }
+ },
+ {
+  "label": "SAP business partners (organisations) -> companies [SAP S/4HANA Business Partner (OData) (SAP) / query — search: Entities of a set ($filter, $select, $expand, $orderby, $top as inputs) Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/103",
+  "content": {
+   "id": {
+    "content": 103
+   },
+   "connector": {
+    "content": "SAP",
+    "label": "SAP S/4HANA Business Partner (OData) (SAP)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SAP",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/103/connector?selector=true"
+   },
+   "operation": {
+    "content": "query",
+    "label": "query — search: Run a SELECT (input sql, optional bindings b1..bn) and return its rows",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/103/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/103/direction?selector=true"
+   },
+   "label": {
+    "content": "SAP business partners (organisations) -> companies"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/103/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": "results"
+   },
+   "keyPredicate": {
+    "content": "./LegalInformation/registrationNumber='${BusinessPartner}'"
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/103/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/103/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/103/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/103/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/103/rules"
+   }
+  }
+ },
+ {
+  "label": "SAP business partners / addresses [SAP S/4HANA Business Partner (OData) (SAP) / query — search: Entities of a set ($filter, $select, $expand, $orderby, $top as inputs) Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/104",
+  "content": {
+   "id": {
+    "content": 104
+   },
+   "connector": {
+    "content": "SAP",
+    "label": "SAP S/4HANA Business Partner (OData) (SAP)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SAP",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/104/connector?selector=true"
+   },
+   "operation": {
+    "content": "query",
+    "label": "query — search: Run a SELECT (input sql, optional bindings b1..bn) and return its rows",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/104/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/104/direction?selector=true"
+   },
+   "label": {
+    "content": "SAP business partners / addresses"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/CompanyAddress"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": "103",
+    "label": "SAP business partners (organisations) -> companies [SAP S/4HANA Business Partner (OData) (SAP) / query — search: Entities of a set ($filter, $select, $expand, $orderby, $top as inputs) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/103",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/104/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": "to_BusinessPartnerAddress"
+   },
+   "parentLinkField": {
+    "content": "./company"
+   },
+   "childKeyFields": {
+    "content": "./type,./City"
+   },
+   "childFilter": {
+    "content": "./source='SAP'"
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/104/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/104/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/104/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/104/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/104/rules"
+   }
+  }
+ },
+ {
+  "label": "Company (with addresses) -> SAP business partner (deep insert) [SAP S/4HANA Business Partner (OData) (SAP) / create — write: POST the outbound document (deep insert when it carries collections) Outbound (EBX to external system)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/105",
+  "content": {
+   "id": {
+    "content": 105
+   },
+   "connector": {
+    "content": "SAP",
+    "label": "SAP S/4HANA Business Partner (OData) (SAP)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SAP",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/105/connector?selector=true"
+   },
+   "operation": {
+    "content": "create",
+    "label": "create — write: POST the outbound document (deep insert when it carries collections)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/105/operation?selector=true"
+   },
+   "direction": {
+    "content": "OUTBOUND",
+    "label": "Outbound (EBX to external system)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/105/direction?selector=true"
+   },
+   "label": {
+    "content": "Company (with addresses) -> SAP business partner (deep insert)"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/105/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/105/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/105/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/105/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/105/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/105/rules"
+   }
+  }
+ },
+ {
+  "label": "Company -> SAP business partner / to_BusinessPartnerAddress [SAP S/4HANA Business Partner (OData) (SAP) / create — write: POST the outbound document (deep insert when it carries collections) Outbound (EBX to external system)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/106",
+  "content": {
+   "id": {
+    "content": 106
+   },
+   "connector": {
+    "content": "SAP",
+    "label": "SAP S/4HANA Business Partner (OData) (SAP)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SAP",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/106/connector?selector=true"
+   },
+   "operation": {
+    "content": "create",
+    "label": "create — write: POST the outbound document (deep insert when it carries collections)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/106/operation?selector=true"
+   },
+   "direction": {
+    "content": "OUTBOUND",
+    "label": "Outbound (EBX to external system)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/106/direction?selector=true"
+   },
+   "label": {
+    "content": "Company -> SAP business partner / to_BusinessPartnerAddress"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/CompanyAddress"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": "105",
+    "label": "Company (with addresses) -> SAP business partner (deep insert) [SAP S/4HANA Business Partner (OData) (SAP) / create — write: POST the outbound document (deep insert when it carries collections) Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/105",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/106/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": "to_BusinessPartnerAddress"
+   },
+   "parentLinkField": {
+    "content": "./company"
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/106/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/106/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/106/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/106/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/106/rules"
+   }
+  }
+ },
+ {
+  "label": "JDE address book (customers) -> companies [JD Edwards EnterpriseOne (AIS) (JDEdwards) / query — search: Data service BROWSE on a table or view (inputs table, columns, filter, max) Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/107",
+  "content": {
+   "id": {
+    "content": 107
+   },
+   "connector": {
+    "content": "JDEdwards",
+    "label": "JD Edwards EnterpriseOne (AIS) (JDEdwards)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JDEdwards",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/107/connector?selector=true"
+   },
+   "operation": {
+    "content": "query",
+    "label": "query — search: Run a SELECT (input sql, optional bindings b1..bn) and return its rows",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/107/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/107/direction?selector=true"
+   },
+   "label": {
+    "content": "JDE address book (customers) -> companies"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/107/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": "results"
+   },
+   "keyPredicate": {
+    "content": "./LegalInformation/registrationNumber='${AN8}'"
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/107/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/107/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/107/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/107/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/107/rules"
+   }
+  }
+ },
+ {
+  "label": "Company (with addresses) -> JDE orchestration EBX_UpsertAddressBook [JD Edwards EnterpriseOne (AIS) (JDEdwards) / orchestration — write: Run an orchestration with the outbound document as input Outbound (EBX to external system)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/108",
+  "content": {
+   "id": {
+    "content": 108
+   },
+   "connector": {
+    "content": "JDEdwards",
+    "label": "JD Edwards EnterpriseOne (AIS) (JDEdwards)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JDEdwards",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/108/connector?selector=true"
+   },
+   "operation": {
+    "content": "orchestration",
+    "label": "orchestration — write: Run an orchestration with the outbound document as input",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/108/operation?selector=true"
+   },
+   "direction": {
+    "content": "OUTBOUND",
+    "label": "Outbound (EBX to external system)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/108/direction?selector=true"
+   },
+   "label": {
+    "content": "Company (with addresses) -> JDE orchestration EBX_UpsertAddressBook"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/108/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/108/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/108/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/108/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/108/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/108/rules"
+   }
+  }
+ },
+ {
+  "label": "Company -> JDE orchestration / Addresses [JD Edwards EnterpriseOne (AIS) (JDEdwards) / orchestration — write: Run an orchestration with the outbound document as input Outbound (EBX to external system)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/109",
+  "content": {
+   "id": {
+    "content": 109
+   },
+   "connector": {
+    "content": "JDEdwards",
+    "label": "JD Edwards EnterpriseOne (AIS) (JDEdwards)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JDEdwards",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/109/connector?selector=true"
+   },
+   "operation": {
+    "content": "orchestration",
+    "label": "orchestration — write: Run an orchestration with the outbound document as input",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/109/operation?selector=true"
+   },
+   "direction": {
+    "content": "OUTBOUND",
+    "label": "Outbound (EBX to external system)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/109/direction?selector=true"
+   },
+   "label": {
+    "content": "Company -> JDE orchestration / Addresses"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/CompanyAddress"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": "108",
+    "label": "Company (with addresses) -> JDE orchestration EBX_UpsertAddressBook [JD Edwards EnterpriseOne (AIS) (JDEdwards) / orchestration — write: Run an orchestration with the outbound document as input Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/108",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/109/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": "Addresses"
+   },
+   "parentLinkField": {
+    "content": "./company"
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/109/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/109/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/109/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/109/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/109/rules"
+   }
+  }
+ },
+ {
+  "label": "D&B enrichment (registration number or name -> DUNS + company data) [Dun & Bradstreet Direct+ (DnB) / enrich — read: Best match then data blocks, in one call Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/110",
+  "content": {
+   "id": {
+    "content": 110
+   },
+   "connector": {
+    "content": "DnB",
+    "label": "Dun & Bradstreet Direct+ (DnB)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/DnB",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/110/connector?selector=true"
+   },
+   "operation": {
+    "content": "enrich",
+    "label": "enrich — read: Best match then data blocks, in one call",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/110/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/110/direction?selector=true"
+   },
+   "label": {
+    "content": "D&B enrichment (registration number or name -> DUNS + company data)"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": "organization"
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/110/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/110/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/110/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/110/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/110/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/110/rules"
+   }
+  }
+ },
+ {
+  "label": "D&B enrichment / DUNS identifier [Dun & Bradstreet Direct+ (DnB) / enrich — read: Best match then data blocks, in one call Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/111",
+  "content": {
+   "id": {
+    "content": 111
+   },
+   "connector": {
+    "content": "DnB",
+    "label": "Dun & Bradstreet Direct+ (DnB)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/DnB",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/111/connector?selector=true"
+   },
+   "operation": {
+    "content": "enrich",
+    "label": "enrich — read: Best match then data blocks, in one call",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/111/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/111/direction?selector=true"
+   },
+   "label": {
+    "content": "D&B enrichment / DUNS identifier"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/CompanyIdentifier"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": "110",
+    "label": "D&B enrichment (registration number or name -> DUNS + company data) [Dun & Bradstreet Direct+ (DnB) / enrich — read: Best match then data blocks, in one call Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/110",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/111/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": "./company"
+   },
+   "childKeyFields": {
+    "content": "./type"
+   },
+   "childFilter": {
+    "content": "./type='DUNS'"
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/111/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/111/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/111/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/111/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/111/rules"
+   }
+  }
+ },
+ {
+  "label": "D&B enrichment / global ultimate relationship [Dun & Bradstreet Direct+ (DnB) / enrich — read: Best match then data blocks, in one call Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/112",
+  "content": {
+   "id": {
+    "content": 112
+   },
+   "connector": {
+    "content": "DnB",
+    "label": "Dun & Bradstreet Direct+ (DnB)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/DnB",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/112/connector?selector=true"
+   },
+   "operation": {
+    "content": "enrich",
+    "label": "enrich — read: Best match then data blocks, in one call",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/112/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/112/direction?selector=true"
+   },
+   "label": {
+    "content": "D&B enrichment / global ultimate relationship"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/CompanyRelationship"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": "110",
+    "label": "D&B enrichment (registration number or name -> DUNS + company data) [Dun & Bradstreet Direct+ (DnB) / enrich — read: Best match then data blocks, in one call Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/110",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/112/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": "corporateLinkage.globalUltimate"
+   },
+   "parentLinkField": {
+    "content": "./fromCompany"
+   },
+   "childKeyFields": {
+    "content": "./type"
+   },
+   "childFilter": {
+    "content": "./source='DNB'"
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/112/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/112/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/112/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/112/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/112/rules"
+   }
+  }
+ },
+ {
+  "label": "VIES VAT check (EU VAT number -> validity, name, address) [VIES (EU VAT check) (VIES) / check — read: Validate an EU VAT number (input vat, or countryCode + vatNumber) Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/113",
+  "content": {
+   "id": {
+    "content": 113
+   },
+   "connector": {
+    "content": "VIES",
+    "label": "VIES (EU VAT check) (VIES)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/VIES",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/113/connector?selector=true"
+   },
+   "operation": {
+    "content": "check",
+    "label": "check — read: Validate an EU VAT number (input vat, or countryCode + vatNumber)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/113/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/113/direction?selector=true"
+   },
+   "label": {
+    "content": "VIES VAT check (EU VAT number -> validity, name, address)"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/113/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/113/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/113/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/113/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/113/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/113/rules"
+   }
+  }
+ },
+ {
+  "label": "VIES VAT check / VAT identifier [VIES (EU VAT check) (VIES) / check — read: Validate an EU VAT number (input vat, or countryCode + vatNumber) Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/114",
+  "content": {
+   "id": {
+    "content": 114
+   },
+   "connector": {
+    "content": "VIES",
+    "label": "VIES (EU VAT check) (VIES)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/VIES",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/114/connector?selector=true"
+   },
+   "operation": {
+    "content": "check",
+    "label": "check — read: Validate an EU VAT number (input vat, or countryCode + vatNumber)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/114/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/114/direction?selector=true"
+   },
+   "label": {
+    "content": "VIES VAT check / VAT identifier"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/CompanyIdentifier"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": "113",
+    "label": "VIES VAT check (EU VAT number -> validity, name, address) [VIES (EU VAT check) (VIES) / check — read: Validate an EU VAT number (input vat, or countryCode + vatNumber) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/113",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/114/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": "./company"
+   },
+   "childKeyFields": {
+    "content": "./type"
+   },
+   "childFilter": {
+    "content": "./type='VAT'"
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/114/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/114/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/114/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/114/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/114/rules"
+   }
+  }
+ },
+ {
+  "label": "BAN geocoding (French address -> normalised address + coordinates) [Base Adresse Nationale (FR) (BAN) / geocode — read: Best match of a French postal address Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/115",
+  "content": {
+   "id": {
+    "content": 115
+   },
+   "connector": {
+    "content": "BAN",
+    "label": "Base Adresse Nationale (FR) (BAN)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BAN",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/115/connector?selector=true"
+   },
+   "operation": {
+    "content": "geocode",
+    "label": "geocode — read: Coordinates and normalised components of a postal address",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/115/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/115/direction?selector=true"
+   },
+   "label": {
+    "content": "BAN geocoding (French address -> normalised address + coordinates)"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/115/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/115/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/115/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/115/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/115/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/115/rules"
+   }
+  }
+ },
+ {
+  "label": "Sanctions screening (hit -> blacklist reason and date) [OpenSanctions (OFAC, UN, EU, PEP) (OpenSanctions) / screen — read: Screen a name against sanctions and PEP lists (name, registrationNumber, country, schema) Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/116",
+  "content": {
+   "id": {
+    "content": 116
+   },
+   "connector": {
+    "content": "OpenSanctions",
+    "label": "OpenSanctions (OFAC, UN, EU, PEP) (OpenSanctions)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OpenSanctions",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/116/connector?selector=true"
+   },
+   "operation": {
+    "content": "screen",
+    "label": "screen — read: Screen a name against sanctions and PEP lists (name, registrationNumber, country, schema)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/116/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/116/direction?selector=true"
+   },
+   "label": {
+    "content": "Sanctions screening (hit -> blacklist reason and date)"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/116/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/116/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/116/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/116/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/116/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/116/rules"
+   }
+  }
+ },
+ {
+  "label": "Webhook: companies pushed by an external application [Inbound webhook (Webhook) / receive — search: Document pushed by the caller (items at itemsPath of the feed mapping) Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/117",
+  "content": {
+   "id": {
+    "content": 117
+   },
+   "connector": {
+    "content": "Webhook",
+    "label": "Inbound webhook (Webhook)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Webhook",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/117/connector?selector=true"
+   },
+   "operation": {
+    "content": "receive",
+    "label": "receive — search: Document pushed by the caller (items at itemsPath of the feed mapping)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/117/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/117/direction?selector=true"
+   },
+   "label": {
+    "content": "Webhook: companies pushed by an external application"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/117/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": "items"
+   },
+   "keyPredicate": {
+    "content": "./LegalInformation/registrationNumber='${siren}'"
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/117/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/117/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/117/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/117/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/117/rules"
+   }
+  }
+ },
+ {
+  "label": "Melissa address normalisation (record address -> verified address + coordinates) [Melissa Data (Melissa) / address — read: Global address verification (address, locality, postalCode, country) Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/118",
+  "content": {
+   "id": {
+    "content": 118
+   },
+   "connector": {
+    "content": "Melissa",
+    "label": "Melissa Data (Melissa)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Melissa",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/118/connector?selector=true"
+   },
+   "operation": {
+    "content": "address",
+    "label": "address — read: Global address verification (address, locality, postalCode, country)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/118/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/118/direction?selector=true"
+   },
+   "label": {
+    "content": "Melissa address normalisation (record address -> verified address + coordinates)"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/118/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/118/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/118/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/118/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/118/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/118/rules"
+   }
+  }
+ },
+ {
+  "label": "Loqate address verification (record address -> verified address + coordinates) [Loqate (Loqate) / verify — read: Cleanse and verify one address (address, locality, postalCode, country) Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/119",
+  "content": {
+   "id": {
+    "content": 119
+   },
+   "connector": {
+    "content": "Loqate",
+    "label": "Loqate (Loqate)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Loqate",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/119/connector?selector=true"
+   },
+   "operation": {
+    "content": "verify",
+    "label": "verify — read: Cleanse and verify one address (address, locality, postalCode, country)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/119/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/119/direction?selector=true"
+   },
+   "label": {
+    "content": "Loqate address verification (record address -> verified address + coordinates)"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/119/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/119/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/119/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/119/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/119/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/119/rules"
+   }
+  }
+ },
+ {
+  "label": "Catalog scan: DEMO_H2 [Data catalog demo warehouse (H2) (CatalogDemoH2) / catalog — search: Schema inventory as a document: tables and views with their columns (inputs source = catalog source id echoed on every item, schemas = comma-separated list (default: property schema, else all), types = TABLE,VIEW, rowCounts = true to COUNT(*) every table) Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/121",
+  "content": {
+   "id": {
+    "content": 121
+   },
+   "connector": {
+    "content": "CatalogDemoH2",
+    "label": "Data catalog demo warehouse (H2) (CatalogDemoH2)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/CatalogDemoH2",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/121/connector?selector=true"
+   },
+   "operation": {
+    "content": "catalog",
+    "label": "catalog — search: Schema inventory as a document: tables and views with their columns (inputs source = catalog source id echoed on every item, schemas = comma-separated list (default: property schema, else all), types = TABLE,VIEW, rowCounts = true to COUNT(*) every table)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/121/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/121/direction?selector=true"
+   },
+   "label": {
+    "content": "Catalog scan: DEMO_H2"
+   },
+   "description": {
+    "content": "Inventories the tables, views and columns of source DEMO_H2 into the Data catalog (Asset and Column)."
+   },
+   "dataspace": {
+    "content": "DataCatalog"
+   },
+   "dataset": {
+    "content": "DataCatalog"
+   },
+   "tablePath": {
+    "content": "/root/Asset"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/121/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": "tables"
+   },
+   "keyPredicate": {
+    "content": "./assetKey='${assetKey}'"
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/121/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/121/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/121/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/121/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/121/rules"
+   }
+  }
+ },
+ {
+  "label": "Catalog scan columns: DEMO_H2 [Data catalog demo warehouse (H2) (CatalogDemoH2) / catalog — search: Schema inventory as a document: tables and views with their columns (inputs source = catalog source id echoed on every item, schemas = comma-separated list (default: property schema, else all), types = TABLE,VIEW, rowCounts = true to COUNT(*) every table) Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/122",
+  "content": {
+   "id": {
+    "content": 122
+   },
+   "connector": {
+    "content": "CatalogDemoH2",
+    "label": "Data catalog demo warehouse (H2) (CatalogDemoH2)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/CatalogDemoH2",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/122/connector?selector=true"
+   },
+   "operation": {
+    "content": "catalog",
+    "label": "catalog — search: Schema inventory as a document: tables and views with their columns (inputs source = catalog source id echoed on every item, schemas = comma-separated list (default: property schema, else all), types = TABLE,VIEW, rowCounts = true to COUNT(*) every table)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/122/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/122/direction?selector=true"
+   },
+   "label": {
+    "content": "Catalog scan columns: DEMO_H2"
+   },
+   "description": {
+    "content": "Columns of each inventoried asset of source DEMO_H2 (sub-object of the scan flow)."
+   },
+   "dataspace": {
+    "content": "DataCatalog"
+   },
+   "dataset": {
+    "content": "DataCatalog"
+   },
+   "tablePath": {
+    "content": "/root/Column"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": "121",
+    "label": "Catalog scan: DEMO_H2 [Data catalog demo warehouse (H2) (CatalogDemoH2) / catalog — search: Schema inventory as a document: tables and views with their columns (inputs source = catalog source id echoed on every item, schemas = comma-separated list (default: property schema, else all), types = TABLE,VIEW, rowCounts = true to COUNT(*) every table) Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/121",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/122/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": "columns"
+   },
+   "parentLinkField": {
+    "content": "./asset"
+   },
+   "childKeyFields": {
+    "content": "./name"
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/122/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/122/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/122/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/122/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/122/rules"
+   }
+  }
+ },
+ {
+  "label": "Catalog profile: DEMO_H2 [Data catalog demo warehouse (H2) (CatalogDemoH2) / profile — search: Column statistics of one or every table: rows, nulls, distinct, min, max, mean, lengths (inputs source = catalog source id, tables = qualified names comma-separated or * for the whole inventory, schemas as for catalog, where = optional SQL filter) Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/123",
+  "content": {
+   "id": {
+    "content": 123
+   },
+   "connector": {
+    "content": "CatalogDemoH2",
+    "label": "Data catalog demo warehouse (H2) (CatalogDemoH2)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/CatalogDemoH2",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/123/connector?selector=true"
+   },
+   "operation": {
+    "content": "profile",
+    "label": "profile — search: Column statistics of one or every table: rows, nulls, distinct, min, max, mean, lengths (inputs source = catalog source id, tables = qualified names comma-separated or * for the whole inventory, schemas as for catalog, where = optional SQL filter)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/123/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/123/direction?selector=true"
+   },
+   "label": {
+    "content": "Catalog profile: DEMO_H2"
+   },
+   "description": {
+    "content": "Daily column statistics of source DEMO_H2 into the Data catalog (one ProfileSnapshot per column and day)."
+   },
+   "dataspace": {
+    "content": "DataCatalog"
+   },
+   "dataset": {
+    "content": "DataCatalog"
+   },
+   "tablePath": {
+    "content": "/root/ProfileSnapshot"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/123/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": "columns"
+   },
+   "keyPredicate": {
+    "content": "./columnKey='${columnKey}' and date-equal(./profileDate,'${profileDate}')"
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/123/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/123/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/123/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/123/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/123/rules"
+   }
+  }
+ },
+ {
+  "label": "Nominatim geocoding (record address -> coordinates) [OpenStreetMap Nominatim (sample extension jar) (Nominatim) / geocode — read: Best match of a free-text address (q, optional countrycodes) Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/127",
+  "content": {
+   "id": {
+    "content": 127
+   },
+   "connector": {
+    "content": "Nominatim",
+    "label": "OpenStreetMap Nominatim (sample extension jar) (Nominatim)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Nominatim",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/127/connector?selector=true"
+   },
+   "operation": {
+    "content": "geocode",
+    "label": "geocode — read: Coordinates and normalised components of a postal address",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/127/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/127/direction?selector=true"
+   },
+   "label": {
+    "content": "Nominatim geocoding (record address -> coordinates)"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/127/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/127/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/127/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/127/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/127/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/127/rules"
+   }
+  }
+ },
+ {
+  "label": "Company -> Kafka / CRM partner (transformations demo) [Apache Kafka (Kafka) / publish — write: Publish the outbound document as a JSON message Outbound (EBX to external system)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/131",
+  "content": {
+   "id": {
+    "content": 131
+   },
+   "connector": {
+    "content": "Kafka",
+    "label": "Apache Kafka (Kafka)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Kafka",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/131/connector?selector=true"
+   },
+   "operation": {
+    "content": "publish",
+    "label": "publish — write: Publish the outbound document as a JSON message",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/131/operation?selector=true"
+   },
+   "direction": {
+    "content": "OUTBOUND",
+    "label": "Outbound (EBX to external system)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/131/direction?selector=true"
+   },
+   "label": {
+    "content": "Company -> Kafka / CRM partner (transformations demo)"
+   },
+   "description": {
+    "content": "Publishes a company as a CRM 'partner' message on topic crm.partner.upsert: a nested JSON that differs from the EBX model, built with one transformation per rule (prefix, upper, capitalize, map, digits, vatfr, regex, number/round, boolean, isodate, constant...)."
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/131/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/131/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/131/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/131/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/131/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/131/rules"
+   }
+  }
+ },
+ {
+  "label": "Company -> Kafka / CRM partner / identifiers [Apache Kafka (Kafka) / publish — write: Publish the outbound document as a JSON message Outbound (EBX to external system)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/132",
+  "content": {
+   "id": {
+    "content": 132
+   },
+   "connector": {
+    "content": "Kafka",
+    "label": "Apache Kafka (Kafka)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Kafka",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/132/connector?selector=true"
+   },
+   "operation": {
+    "content": "publish",
+    "label": "publish — write: Publish the outbound document as a JSON message",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/132/operation?selector=true"
+   },
+   "direction": {
+    "content": "OUTBOUND",
+    "label": "Outbound (EBX to external system)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/132/direction?selector=true"
+   },
+   "label": {
+    "content": "Company -> Kafka / CRM partner / identifiers"
+   },
+   "description": {
+    "content": "Sub-object: one element per identifier of the company (Wikidata ids filtered out); the type code is translated through a lookup in the IdentifierType reference table."
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/CompanyIdentifier"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": "131",
+    "label": "Company -> Kafka / CRM partner (transformations demo) [Apache Kafka (Kafka) / publish — write: Publish the outbound document as a JSON message Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/131",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/132/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": "identifiers"
+   },
+   "parentLinkField": {
+    "content": "./company"
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": "./type!='WIKIDATA'"
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/132/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/132/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/132/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/132/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/132/rules"
+   }
+  }
+ },
+ {
+  "label": "Company -> Kafka / CRM partner / sites [Apache Kafka (Kafka) / publish — write: Publish the outbound document as a JSON message Outbound (EBX to external system)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/133",
+  "content": {
+   "id": {
+    "content": 133
+   },
+   "connector": {
+    "content": "Kafka",
+    "label": "Apache Kafka (Kafka)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Kafka",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/133/connector?selector=true"
+   },
+   "operation": {
+    "content": "publish",
+    "label": "publish — write: Publish the outbound document as a JSON message",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/133/operation?selector=true"
+   },
+   "direction": {
+    "content": "OUTBOUND",
+    "label": "Outbound (EBX to external system)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/133/direction?selector=true"
+   },
+   "label": {
+    "content": "Company -> Kafka / CRM partner / sites"
+   },
+   "description": {
+    "content": "Sub-object: the addresses of the company as 'sites' (a name the CRM chose), the usage label read from the AddressType reference table, a flag derived from the type."
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/CompanyAddress"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": "131",
+    "label": "Company -> Kafka / CRM partner (transformations demo) [Apache Kafka (Kafka) / publish — write: Publish the outbound document as a JSON message Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/131",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/133/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": "sites"
+   },
+   "parentLinkField": {
+    "content": "./company"
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/133/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/133/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/133/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/133/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/133/rules"
+   }
+  }
+ },
+ {
+  "label": "Company -> Kafka / CRM partner / people [Apache Kafka (Kafka) / publish — write: Publish the outbound document as a JSON message Outbound (EBX to external system)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/134",
+  "content": {
+   "id": {
+    "content": 134
+   },
+   "connector": {
+    "content": "Kafka",
+    "label": "Apache Kafka (Kafka)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Kafka",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/134/connector?selector=true"
+   },
+   "operation": {
+    "content": "publish",
+    "label": "publish — write: Publish the outbound document as a JSON message",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/134/operation?selector=true"
+   },
+   "direction": {
+    "content": "OUTBOUND",
+    "label": "Outbound (EBX to external system)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/134/direction?selector=true"
+   },
+   "label": {
+    "content": "Company -> Kafka / CRM partner / people"
+   },
+   "description": {
+    "content": "Sub-object: the active contacts only (childFilter), names normalised, phone in E.164, role label from the ContactRole reference table."
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Contact"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": "131",
+    "label": "Company -> Kafka / CRM partner (transformations demo) [Apache Kafka (Kafka) / publish — write: Publish the outbound document as a JSON message Outbound (EBX to external system)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/131",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/134/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": "people"
+   },
+   "parentLinkField": {
+    "content": "./company"
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": "./active=true"
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/134/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/134/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/134/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/134/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/134/rules"
+   }
+  }
+ },
+ {
+  "label": "Catalog alert: ChatWebhook [Slack / Teams notifications (ChatWebhook) / notify — write: Post a message (text, optional title) Outbound (EBX to external system)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/136",
+  "content": {
+   "id": {
+    "content": 136
+   },
+   "connector": {
+    "content": "ChatWebhook",
+    "label": "Slack / Teams notifications (ChatWebhook)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ChatWebhook",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/136/connector?selector=true"
+   },
+   "operation": {
+    "content": "notify",
+    "label": "notify — write: Post a message (text, optional title)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/136/operation?selector=true"
+   },
+   "direction": {
+    "content": "OUTBOUND",
+    "label": "Outbound (EBX to external system)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/136/direction?selector=true"
+   },
+   "label": {
+    "content": "Catalog alert: ChatWebhook"
+   },
+   "description": {
+    "content": "Posts a Data catalog alert (title and message) to the chat channel of connector ChatWebhook."
+   },
+   "dataspace": {
+    "content": "DataCatalog"
+   },
+   "dataset": {
+    "content": "DataCatalog"
+   },
+   "tablePath": {
+    "content": "/root/Alert"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/136/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/136/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/136/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/136/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/136/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/136/rules"
+   }
+  }
+ },
+ {
+  "label": "Catalog alert: ChatWebhook (answer) [Slack / Teams notifications (ChatWebhook) / notify — write: Post a message (text, optional title) Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/137",
+  "content": {
+   "id": {
+    "content": 137
+   },
+   "connector": {
+    "content": "ChatWebhook",
+    "label": "Slack / Teams notifications (ChatWebhook)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ChatWebhook",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/137/connector?selector=true"
+   },
+   "operation": {
+    "content": "notify",
+    "label": "notify — write: Post a message (text, optional title)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/137/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/137/direction?selector=true"
+   },
+   "label": {
+    "content": "Catalog alert: ChatWebhook (answer)"
+   },
+   "description": {
+    "content": "Response mapping of the alert flow: marks the alert SENT once the channel accepted it."
+   },
+   "dataspace": {
+    "content": "DataCatalog"
+   },
+   "dataset": {
+    "content": "DataCatalog"
+   },
+   "tablePath": {
+    "content": "/root/Alert"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/137/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/137/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/137/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/137/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/137/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/137/rules"
+   }
+  }
+ },
+ {
+  "label": "Wikidata search by name -> wikidataId [Wikidata (generic REST) (Wikidata) / search — read: GET /w/api.php Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/138",
+  "content": {
+   "id": {
+    "content": 138
+   },
+   "connector": {
+    "content": "Wikidata",
+    "label": "Wikidata (generic REST) (Wikidata)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Wikidata",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/138/connector?selector=true"
+   },
+   "operation": {
+    "content": "search",
+    "label": "search — read: GET /w/api.php",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/138/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/138/direction?selector=true"
+   },
+   "label": {
+    "content": "Wikidata search by name -> wikidataId"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/138/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/138/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/138/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/138/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/138/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/138/rules"
+   }
+  }
+ },
+ {
+  "label": "Wikidata claims -> company (website, LEI, ISIN, parent) [Wikidata (generic REST) (Wikidata) / claims — read: GET /w/api.php Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/139",
+  "content": {
+   "id": {
+    "content": 139
+   },
+   "connector": {
+    "content": "Wikidata",
+    "label": "Wikidata (generic REST) (Wikidata)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Wikidata",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/139/connector?selector=true"
+   },
+   "operation": {
+    "content": "claims",
+    "label": "claims — read: GET /w/api.php",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/139/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/139/direction?selector=true"
+   },
+   "label": {
+    "content": "Wikidata claims -> company (website, LEI, ISIN, parent)"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/139/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/139/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/139/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/139/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/139/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/139/rules"
+   }
+  }
+ },
+ {
+  "label": "Recherche d'entreprises (data.gouv) -> company [Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises) / search — search: Recherche textuelle Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/140",
+  "content": {
+   "id": {
+    "content": 140
+   },
+   "connector": {
+    "content": "RechercheEntreprises",
+    "label": "Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/140/connector?selector=true"
+   },
+   "operation": {
+    "content": "search",
+    "label": "search — read: GET /w/api.php",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/140/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/140/direction?selector=true"
+   },
+   "label": {
+    "content": "Recherche d'entreprises (data.gouv) -> company"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/Companies"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/140/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": null
+   },
+   "parentLinkField": {
+    "content": null
+   },
+   "childKeyFields": {
+    "content": null
+   },
+   "childFilter": {
+    "content": null
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/140/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/140/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/140/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/140/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/140/rules"
+   }
+  }
+ },
+ {
+  "label": "Wikidata search / WIKIDATA identifier [Wikidata (generic REST) (Wikidata) / search — read: GET /w/api.php Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/141",
+  "content": {
+   "id": {
+    "content": 141
+   },
+   "connector": {
+    "content": "Wikidata",
+    "label": "Wikidata (generic REST) (Wikidata)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Wikidata",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/141/connector?selector=true"
+   },
+   "operation": {
+    "content": "search",
+    "label": "search — read: GET /w/api.php",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/141/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/141/direction?selector=true"
+   },
+   "label": {
+    "content": "Wikidata search / WIKIDATA identifier"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/CompanyIdentifier"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": "138",
+    "label": "Wikidata search by name -> wikidataId [Wikidata (generic REST) (Wikidata) / search — read: GET /w/api.php Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/138",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/141/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": "search"
+   },
+   "parentLinkField": {
+    "content": "./company"
+   },
+   "childKeyFields": {
+    "content": "./type"
+   },
+   "childFilter": {
+    "content": "./type='WIKIDATA'"
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/141/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/141/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/141/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/141/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/141/rules"
+   }
+  }
+ },
+ {
+  "label": "Wikidata claims / ISIN identifier [Wikidata (generic REST) (Wikidata) / claims — read: GET /w/api.php Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/142",
+  "content": {
+   "id": {
+    "content": 142
+   },
+   "connector": {
+    "content": "Wikidata",
+    "label": "Wikidata (generic REST) (Wikidata)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Wikidata",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/142/connector?selector=true"
+   },
+   "operation": {
+    "content": "claims",
+    "label": "claims — read: GET /w/api.php",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/142/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/142/direction?selector=true"
+   },
+   "label": {
+    "content": "Wikidata claims / ISIN identifier"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/CompanyIdentifier"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": "139",
+    "label": "Wikidata claims -> company (website, LEI, ISIN, parent) [Wikidata (generic REST) (Wikidata) / claims — read: GET /w/api.php Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/139",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/142/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": "claims.P946"
+   },
+   "parentLinkField": {
+    "content": "./company"
+   },
+   "childKeyFields": {
+    "content": "./type"
+   },
+   "childFilter": {
+    "content": "./type='ISIN'"
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/142/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/142/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/142/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/142/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/142/rules"
+   }
+  }
+ },
+ {
+  "label": "Recherche d'entreprises / SIREN identifier [Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises) / search — search: Recherche textuelle Inbound (external system to EBX)]",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/143",
+  "content": {
+   "id": {
+    "content": 143
+   },
+   "connector": {
+    "content": "RechercheEntreprises",
+    "label": "Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises)",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/143/connector?selector=true"
+   },
+   "operation": {
+    "content": "search",
+    "label": "search — read: GET /w/api.php",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/143/operation?selector=true"
+   },
+   "direction": {
+    "content": "INBOUND",
+    "label": "Inbound (external system to EBX)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/143/direction?selector=true"
+   },
+   "label": {
+    "content": "Recherche d'entreprises / SIREN identifier"
+   },
+   "description": {
+    "content": null
+   },
+   "dataspace": {
+    "content": "Companies"
+   },
+   "dataset": {
+    "content": "Companies"
+   },
+   "tablePath": {
+    "content": "/root/CompanyIdentifier"
+   },
+   "responseRoot": {
+    "content": null
+   },
+   "active": {
+    "content": true
+   },
+   "parent": {
+    "content": "140",
+    "label": "Recherche d'entreprises (data.gouv) -> company [Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises) / search — search: Recherche textuelle Inbound (external system to EBX)]",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/140",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/143/parent?selector=true"
+   },
+   "collectionPath": {
+    "content": "results"
+   },
+   "parentLinkField": {
+    "content": "./company"
+   },
+   "childKeyFields": {
+    "content": "./type"
+   },
+   "childFilter": {
+    "content": "./type='SIREN'"
+   },
+   "deleteMissing": {
+    "content": false
+   },
+   "itemsPath": {
+    "content": null
+   },
+   "keyPredicate": {
+    "content": null
+   },
+   "createIfMissing": {
+    "content": true
+   },
+   "loadMode": {
+    "content": "FULL",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/143/loadMode?selector=true"
+   },
+   "checkpointStrategy": {
+    "content": null,
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/143/checkpointStrategy?selector=true"
+   },
+   "checkpointInput": {
+    "content": null
+   },
+   "checkpointValuePath": {
+    "content": null
+   },
+   "checkpointInitialValue": {
+    "content": null
+   },
+   "deleteOperation": {
+    "content": null
+   },
+   "maxAttempts": {
+    "content": 5
+   },
+   "retryDelayMinutes": {
+    "content": 30
+   },
+   "inputs": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/143/inputs"
+   },
+   "children": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/143/children"
+   },
+   "rules": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Mapping/143/rules"
+   }
+  }
+ }
+]

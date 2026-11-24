@@ -1,0 +1,41 @@
+name: Offline connector contracts
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    # EBX libraries are proprietary and are intentionally not downloaded by CI.
+    # Register a self-hosted runner with Java 8+ and set the repository variable
+    # EBX_LIB_DIR to its directory containing ebx.jar (or ebx-lib.jar); set EBX_STANDARD_JAR and TOMCAT_LIB_DIR too for the exact self-sufficiency check of the war.
+    # Do not execute code from an untrusted fork on an internal runner.
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: [self-hosted, ebx-connectors]
+    timeout-minutes: 20
+    env:
+      EBX_LIB_DIR: ${{ vars.EBX_LIB_DIR }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify runner configuration
+        shell: bash
+        run: |
+          test -n "$EBX_LIB_DIR"
+          test -f "$EBX_LIB_DIR/ebx-lib.jar" || test -f "$EBX_LIB_DIR/ebx.jar"
+      - name: Compile, package, and run offline contracts
+        shell: bash
+        run: ./build-test.sh
+  dependencies:
+    # The jars of runtime-libs/ are public artifacts: this job needs no EBX library and no self-hosted runner.
+    # It lists versions, checks that netty is on one line, and asks OSV for advisories (audit C2-15). A finding
+    # that is not accepted in ebx-connectors/runtime-libs/DEPS-KNOWN.txt fails the job.
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: "Third-party jars: versions, library families, OSV advisories"
+        shell: bash
+        run: ebx-connectors/tools/deps_check.sh --require-osv

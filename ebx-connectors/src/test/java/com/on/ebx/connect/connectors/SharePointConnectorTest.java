@@ -1,0 +1,8 @@
+package com.on.ebx.connect.connectors;
+import com.on.ebx.connect.spi.*;
+public final class SharePointConnectorTest
+{
+	public static void main(final String[]a){final SharePointConnector c=new SharePointConnector();final ConnectorConfig cfg=config();c.configure(cfg);check(c.validateConfiguration(cfg).isValid(),"valid");check("https://graph.microsoft.com/v1.0".equals(SharePointConnector.graphRoot(cfg)),"root");check(cfg.getProperty("oauth.tokenUrl","").contains("tenant-id"),"token URL");check("https://graph.microsoft.com/.default".equals(cfg.getProperty("oauth.scope",null)),"scope");final ConnectorConfig bad=config();bad.setBaseUrl("https://evil.example");bad.setProperty("tenantId","");check(!c.validateConfiguration(bad).isValid(),"invalid accepted");final ConnectorDescriptor d=c.getDescriptor();check("BUSINESS_APPS".equals(d.getCategory()),"category");check(d.getCapabilities().contains(ConnectorCapability.BULK_READ)&&d.getCapabilities().contains(ConnectorCapability.BULK_WRITE),"bulk");check(c.getOperations().size()==10,"operations");System.out.println("PASS: SharePoint Graph OAuth defaults, validation, bounded list/drive operations and descriptor");}
+	private static ConnectorConfig config(){final ConnectorConfig c=new ConnectorConfig();c.setId("SharePoint");c.setType("sharepoint");c.setBaseUrl("https://graph.microsoft.com/v1.0");c.setAuthType(ConnectorConfig.AuthType.OAUTH2);c.setApiKey("secret");c.setProperty("tenantId","tenant-id");c.setProperty("clientId","client-id");return c;}
+	private static void check(final boolean c,final String m){if(!c)throw new AssertionError(m);}
+}

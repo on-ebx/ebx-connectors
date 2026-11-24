@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Firebird database connector</title><desc id="desc">Neutral database and flame connector tile, not an official vendor logo.</desc>
+  <rect width="256" height="256" rx="42" fill="#fff4ee"/><ellipse cx="128" cy="72" rx="66" ry="24" fill="#9f2f22"/><path d="M62 72v104c0 14 30 24 66 24s66-10 66-24V72c-15 14-39 22-66 22s-51-8-66-22zm0 45c16 13 40 20 66 20s50-7 66-20v24c-16 13-40 20-66 20s-50-7-66-20z" fill="#c94832"/><path d="M131 40c17 19 9 34 4 42 15-7 25-20 24-35 18 17 22 39 9 55-10 13-25 19-40 17-21-2-35-17-34-36 1-16 12-26 24-37-1 14 3 21 9 25 7-10 7-20 4-31z" fill="#ffb138" stroke="#fff" stroke-width="5" stroke-linejoin="round"/><text x="128" y="231" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#7f271e">FIREBIRD</text>
+</svg>

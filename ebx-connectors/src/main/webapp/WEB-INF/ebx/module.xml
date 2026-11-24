@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="urn:ebx-schemas:module_2.4" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:ebx-schemas:module_2.4 https://schema.orchestranetworks.com/module_2.4.xsd">
+	<name>ebx-connectors</name>
+	<publicPath>ebx-connectors</publicPath>
+	<services>
+	</services>
+	<beans>
+		<bean className="com.on.ebx.connect.ebx.workflow.ConnectorScriptTaskBean">
+			<documentation xml:lang="en-US">
+				<label>Synchronise with an external application (connector)</label>
+				<description>Runs one or several connector mappings, in order, on one record (xpath) or a table (tablePath + predicate). Outputs report, changedCount, okCount, errorCount, status.</description>
+			</documentation>
+			<documentation xml:lang="fr-FR">
+				<label>Synchroniser avec une application externe (connecteur)</label>
+				<description>Exécute un ou plusieurs mappings de connecteurs, dans l'ordre, sur un enregistrement (xpath) ou une table (tablePath + predicate). Sorties : report, changedCount, okCount, errorCount, status.</description>
+			</documentation>
+			<properties>
+				<property name="mappings" input="true"><documentation xml:lang="en-US"><label>Mappings to run, in order: ids, labels or connector/operation (2,1,30 or GLEIF/lei,VIES/check)</label></documentation><documentation xml:lang="fr-FR"><label>Mappings à exécuter, dans l'ordre : ids, libellés ou connecteur/opération (2,1,30 ou GLEIF/lei,VIES/check)</label></documentation></property>
+				<property name="connectors" input="true"><documentation xml:lang="en-US"><label>Connectors to run, in order: all their inbound mappings of the table (GLEIF,VIES,BAN)</label></documentation><documentation xml:lang="fr-FR"><label>Connecteurs à exécuter, dans l'ordre : tous leurs mappings entrants de la table (GLEIF,VIES,BAN)</label></documentation></property>
+				<property name="connector" input="true"><documentation xml:lang="en-US"><label>Connector id (GLEIF, Sirene...)</label></documentation><documentation xml:lang="fr-FR"><label>Identifiant du connecteur (GLEIF, Sirene...)</label></documentation></property>
+				<property name="operation" input="true"><documentation xml:lang="en-US"><label>Operation (lei, siren, geocode...)</label></documentation><documentation xml:lang="fr-FR"><label>Opération (lei, siren, geocode...)</label></documentation></property>
+				<property name="direction" input="true"><documentation xml:lang="en-US"><label>Direction: INBOUND (default) or OUTBOUND</label></documentation><documentation xml:lang="fr-FR"><label>Sens : INBOUND (défaut) ou OUTBOUND</label></documentation></property>
+				<property name="dataspace" input="true"><documentation xml:lang="en-US"><label>Dataspace</label></documentation><documentation xml:lang="fr-FR"><label>Espace de données</label></documentation></property>
+				<property name="dataset" input="true"><documentation xml:lang="en-US"><label>Dataset</label></documentation><documentation xml:lang="fr-FR"><label>Jeu de données</label></documentation></property>
+				<property name="xpath" input="true"><documentation xml:lang="en-US"><label>Record XPath (one record)</label></documentation><documentation xml:lang="fr-FR"><label>XPath de l'enregistrement (un seul)</label></documentation></property>
+				<property name="tablePath" input="true"><documentation xml:lang="en-US"><label>Table path (whole table)</label></documentation><documentation xml:lang="fr-FR"><label>Chemin de la table (toute la table)</label></documentation></property>
+				<property name="predicate" input="true"><documentation xml:lang="en-US"><label>XPath predicate on the table (optional)</label></documentation><documentation xml:lang="fr-FR"><label>Prédicat XPath sur la table (optionnel)</label></documentation></property>
+				<property name="maxRecords" input="true"><documentation xml:lang="en-US"><label>Maximum records (default 200)</label></documentation><documentation xml:lang="fr-FR"><label>Nombre maximal d'enregistrements (défaut 200)</label></documentation></property>
+				<property name="dryRun" input="true"><documentation xml:lang="en-US"><label>Dry run (true/false)</label></documentation><documentation xml:lang="fr-FR"><label>Simulation (true/false)</label></documentation></property>
+				<property name="scope" input="true"><documentation xml:lang="en-US"><label>Outbound scope: all (default), unsent, changed, failed, dataspaceDelta</label></documentation><documentation xml:lang="fr-FR"><label>Portée sortante : all (défaut), unsent, changed, failed, dataspaceDelta</label></documentation></property>
+				<property name="failOnError" input="true"><documentation xml:lang="en-US"><label>Fail the step when a call fails (true/false, default false)</label></documentation><documentation xml:lang="fr-FR"><label>Mettre l'étape en erreur si un appel échoue (true/false, défaut false)</label></documentation></property>
+				<property name="runId" output="true"><documentation xml:lang="en-US"><label>Run identifier (POST /replay/{runId} replays its failures)</label></documentation><documentation xml:lang="fr-FR"><label>Identifiant de l'exécution (POST /replay/{runId} rejoue ses échecs)</label></documentation></property>
+				<property name="report" output="true"><documentation xml:lang="en-US"><label>Report</label></documentation><documentation xml:lang="fr-FR"><label>Rapport</label></documentation></property>
+				<property name="changedCount" output="true"><documentation xml:lang="en-US"><label>Number of updated records</label></documentation><documentation xml:lang="fr-FR"><label>Nombre d'enregistrements mis à jour</label></documentation></property>
+				<property name="okCount" output="true"><documentation xml:lang="en-US"><label>Number of successful calls</label></documentation><documentation xml:lang="fr-FR"><label>Nombre d'appels réussis</label></documentation></property>
+				<property name="errorCount" output="true"><documentation xml:lang="en-US"><label>Number of failed calls</label></documentation><documentation xml:lang="fr-FR"><label>Nombre d'appels en erreur</label></documentation></property>
+				<property name="conflictCount" output="true"><documentation xml:lang="en-US"><label>Number of conflicts logged (TRUSTED policy: a less trusted source proposed another value)</label></documentation><documentation xml:lang="fr-FR"><label>Nombre de conflits consignés (politique TRUSTED : une source moins fiable a proposé une autre valeur)</label></documentation></property>
+				<property name="hasConflicts" output="true"><documentation xml:lang="en-US"><label>true when at least one conflict was logged: route the workflow to the "Manage connector conflicts" user task</label></documentation><documentation xml:lang="fr-FR"><label>true si au moins un conflit a été consigné : router le workflow vers la tâche utilisateur « Gérer les conflits des connecteurs »</label></documentation></property>
+				<property name="status" output="true"><documentation xml:lang="en-US"><label>Status: OK, PARTIAL, ERROR or NO_DATA</label></documentation><documentation xml:lang="fr-FR"><label>Statut : OK, PARTIAL, ERROR ou NO_DATA</label></documentation></property>
+				<property name="truncated" output="true"><documentation xml:lang="en-US"><label>true when a feed or the table held more than maxRecords: the step did not process everything</label></documentation><documentation xml:lang="fr-FR"><label>true si un flux ou la table contenait plus que maxRecords : l'étape n'a pas tout traité</label></documentation></property>
+				<property name="problems" output="true"><documentation xml:lang="en-US"><label>What keeps the run from being a plain success, comma-separated (errors, rejected, conflicts, truncated, stopped); empty when clean</label></documentation><documentation xml:lang="fr-FR"><label>Ce qui empêche l'exécution d'être un succès complet, séparé par des virgules (errors, rejected, conflicts, truncated, stopped) ; vide si tout est propre</label></documentation></property>
+				<property name="warnings" output="true"><documentation xml:lang="en-US"><label>Run-time inputs that no mapping of the step read (not used); empty when none</label></documentation><documentation xml:lang="fr-FR"><label>Entrées d'exécution qu'aucun mapping de l'étape n'a lues (non utilisées) ; vide si aucune</label></documentation></property>
+			</properties>
+		</bean>
+		<bean className="com.on.ebx.connect.ebx.workflow.ProductPublishTaskBean">
+			<documentation xml:lang="en-US">
+				<label>Publish a data product to a connector (Snowflake)</label>
+				<description>Publishes one or more root outbound mappings, all on the same connector, as a whole product: one atomic commit for every target table against a contract (full reload, v1 scope: Snowflake only). Outputs runId, status, message, rowCount; the full report stays readable from the Publication table by runId.</description>
+			</documentation>
+			<documentation xml:lang="fr-FR">
+				<label>Publier un produit de données vers un connecteur (Snowflake)</label>
+				<description>Publie un ou plusieurs mappings sortants racines, tous sur le même connecteur, comme un produit complet : un commit atomique pour toutes les tables cibles selon un contrat (rechargement complet, périmètre v1 : Snowflake uniquement). Sorties : runId, status, message, rowCount ; le rapport complet reste lisible dans la table Publication par runId.</description>
+			</documentation>
+			<properties>
+				<property name="mappings" input="true"><documentation xml:lang="en-US"><label>Root outbound mappings to publish, all on the same connector: ids or labels (210 or 210,211)</label></documentation><documentation xml:lang="fr-FR"><label>Mappings sortants racines à publier, tous sur le même connecteur : ids ou libellés (210 ou 210,211)</label></documentation></property>
+				<property name="schema" input="true"><documentation xml:lang="en-US"><label>Target schema (DB.SCHEMA or SCHEMA), e.g. SNOWFLAKE_LEARNING_DB.DATA_PRODUCTS</label></documentation><documentation xml:lang="fr-FR"><label>Schéma cible (DB.SCHEMA ou SCHEMA), ex. SNOWFLAKE_LEARNING_DB.DATA_PRODUCTS</label></documentation></property>
+				<property name="product" input="true"><documentation xml:lang="en-US"><label>Product code, e.g. COMPANY_360</label></documentation><documentation xml:lang="fr-FR"><label>Code du produit, ex. COMPANY_360</label></documentation></property>
+				<property name="contractVersion" input="true"><documentation xml:lang="en-US"><label>Contract version (default 1)</label></documentation><documentation xml:lang="fr-FR"><label>Version du contrat (défaut 1)</label></documentation></property>
+				<property name="dryRun" input="true"><documentation xml:lang="en-US"><label>Dry run: plan and sample only, nothing executed (true/false)</label></documentation><documentation xml:lang="fr-FR"><label>Simulation : plan et échantillon seulement, rien n'est exécuté (true/false)</label></documentation></property>
+				<property name="recreate" input="true"><documentation xml:lang="en-US"><label>Replace a target table whose columns differ from the contract instead of failing (true/false)</label></documentation><documentation xml:lang="fr-FR"><label>Remplacer une table cible dont les colonnes diffèrent du contrat au lieu d'échouer (true/false)</label></documentation></property>
+				<property name="maxRecords" input="true"><documentation xml:lang="en-US"><label>Maximum rows per table (default 0 = every row; a cut makes the step PARTIAL)</label></documentation><documentation xml:lang="fr-FR"><label>Nombre maximal de lignes par table (défaut 0 = toutes ; une coupe rend l'étape PARTIAL)</label></documentation></property>
+				<property name="failOnError" input="true"><documentation xml:lang="en-US"><label>Fail the step when the publication report is ERROR (true/false, default true)</label></documentation><documentation xml:lang="fr-FR"><label>Mettre l'étape en erreur si le rapport de publication est ERROR (true/false, défaut true)</label></documentation></property>
+				<property name="runId" output="true"><documentation xml:lang="en-US"><label>Run identifier (the full report is the Publication row of this id)</label></documentation><documentation xml:lang="fr-FR"><label>Identifiant de l'exécution (le rapport complet est la ligne Publication de cet id)</label></documentation></property>
+				<property name="status" output="true"><documentation xml:lang="en-US"><label>Status: OK, ERROR or DRY_RUN</label></documentation><documentation xml:lang="fr-FR"><label>Statut : OK, ERROR ou DRY_RUN</label></documentation></property>
+				<property name="message" output="true"><documentation xml:lang="en-US"><label>Message (cut at 180 characters)</label></documentation><documentation xml:lang="fr-FR"><label>Message (tronqué à 180 caractères)</label></documentation></property>
+				<property name="rowCount" output="true"><documentation xml:lang="en-US"><label>Total rows published (or planned, for a dry run)</label></documentation><documentation xml:lang="fr-FR"><label>Nombre total de lignes publiées (ou planifiées, en simulation)</label></documentation></property>
+			</properties>
+		</bean>
+		<bean className="com.on.ebx.connect.ebx.workflow.ChatWorkItemTrigger">
+			<documentation xml:lang="en-US">
+				<label>Chat notification of work items (Slack)</label>
+				<description>Posts each new work item to a chat channel with a link that opens it in the EBX inbox, and edits the message when the work item ends. Connector Slack; properties workflow.channel, workflow.channel.&lt;role&gt;, workflow.baseUrl, workflow.startWorkItem.</description>
+			</documentation>
+			<documentation xml:lang="fr-FR">
+				<label>Notification des tâches dans une messagerie (Slack)</label>
+				<description>Poste chaque nouvelle tâche dans un canal avec un lien qui l'ouvre dans l'inbox EBX, et modifie le message quand la tâche se termine. Connecteur Slack ; propriétés workflow.channel, workflow.channel.&lt;rôle&gt;, workflow.baseUrl, workflow.startWorkItem.</description>
+			</documentation>
+		</bean>
+	</beans>
+</module>

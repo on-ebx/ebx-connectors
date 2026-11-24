@@ -1,0 +1,84 @@
+/* Faceted layout of the connector explorer (FacetedPage), the same one as the data catalog -- on top of connector-catalog.css.
+   Facets that navigate are check boxes in a left rail, advanced filters stay folded under the search line, and each
+   group shows two full rows of cards before a "show more" button. */
+.ftcx-heading{display:flex;justify-content:space-between;align-items:flex-end}.ftcx-heading h2 a{color:inherit;text-decoration:none}.ftcx-heading h2 a:hover{color:var(--accent-ink)}.ftcx-groupcount{font-size:12px;font-weight:400;color:#667085;margin-left:6px}
+/* Folded facets (2026-09-13) */
+.ftcx-more[hidden]{display:none!important}
+.ftcx-more-toggle{display:inline-flex;align-items:center;gap:6px;height:42px;border:1px solid #d8dee8;border-radius:10px;background:#fff;color:var(--accent-ink);font:inherit;font-size:12px;font-weight:700;padding:0 12px;cursor:pointer;white-space:nowrap}
+.ftcx-more-toggle:hover,.ftcx-more-toggle[aria-expanded=true]{border-color:var(--accent);background:var(--accent-soft)}
+.ftcx-more-toggle b{display:inline-flex;min-width:18px;height:18px;align-items:center;justify-content:center;border-radius:999px;background:var(--accent);color:var(--accent-text);font-size:10px;padding:0 5px}
+.ftcx-more-toggle b[hidden]{display:none}
+.ftcx-more-toggle:focus-visible,.ftcc-filters button:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
+.ftcx-more{padding:4px 0 2px}
+.ftcx-pills{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:8px}
+.ftcx-pills .ftcc-filter-label{min-width:92px}
+.ftcx-pills button{border:1px solid #dfe3ea;background:#fff;color:#475467;border-radius:999px;padding:4px 10px;font:inherit;font-size:12px;cursor:pointer;white-space:nowrap}
+.ftcx-pills button:hover,.ftcx-pills button.active{background:var(--accent);border-color:var(--accent);color:var(--accent-text)}
+.ftcx-pills button i{font-style:normal;font-size:11px;opacity:.7;margin-left:2px}
+.ftcx-pills button.ftcx-zero{opacity:.45}
+.ftcx-activebar{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:10px;min-height:24px}
+.ftcx-chips{display:contents}
+.ftcx-chip{display:inline-flex;align-items:center;gap:4px;background:var(--accent-soft);color:var(--ftc-accent-ink,#59447a);border:1px solid var(--ftc-accent-line,#cdc3ee);border-radius:999px;padding:2px 3px 2px 10px;font-size:12px;font-weight:600}
+.ftcx-chip button{border:0;background:transparent;color:inherit;width:18px;height:18px;border-radius:50%;padding:0;font-size:14px;line-height:1;cursor:pointer}
+.ftcx-chip button:hover{background:#fff}
+.ftcx-clear{border:0;background:none;color:var(--accent-ink);font:inherit;font-size:12px;font-weight:700;cursor:pointer;padding:0 4px}
+.ftcx-clear:hover{text-decoration:underline}
+.ftcx-activebar .ftcc-count{margin-left:auto}
+.ftcx-body{display:grid;grid-template-columns:230px minmax(0,1fr);gap:24px;align-items:start;margin-top:12px}
+.ftcx-rail{min-width:0}
+.ftcx-facet{border-bottom:1px solid var(--line);padding:10px 0 12px}
+.ftcx-facet:first-child{padding-top:2px}
+.ftcx-facet-h{display:flex;align-items:center;gap:6px;width:100%;border:0;background:none;padding:2px 0 6px;font:inherit;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);cursor:pointer;text-align:left}
+.ftcx-facet-h span{flex:1}
+.ftcx-facet-n{font-size:10px;min-width:16px;height:16px;border-radius:999px;background:var(--accent);color:var(--accent-text);display:inline-flex;align-items:center;justify-content:center;padding:0 4px}
+.ftcx-facet-n:empty{display:none}
+.ftcx-facet-h i{width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin:-3px 3px 0 0;transition:transform .15s}
+.ftcx-folded .ftcx-facet-h i{transform:rotate(-45deg);margin-top:0}
+.ftcx-folded .ftcx-opts,.ftcx-folded .ftcx-find,.ftcx-folded .ftcx-moreopts{display:none!important}
+.ftcx-find{width:100%;box-sizing:border-box;height:30px;border:1px solid #d8dee8;border-radius:8px;padding:0 9px;font:inherit;font-size:12px;margin:0 0 6px;color:var(--ink);background:#fff}
+.ftcx-opts{display:flex;flex-direction:column}
+.ftcx-opt{display:flex;align-items:center;gap:8px;padding:3px 4px;border-radius:6px;font-size:12.5px;color:var(--ink);cursor:pointer;line-height:1.3}
+.ftcx-opt:hover{background:var(--ftc-accent-soft,#f4f0fa)}
+.ftcx-opt input{margin:0;accent-color:var(--accent);flex:0 0 auto}
+.ftcx-opt span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ftcx-opt i{font-style:normal;font-size:11px;color:#98a2b3;font-variant-numeric:tabular-nums}
+.ftcx-opt.active span{font-weight:700}
+.ftcx-opt.ftcx-zero{opacity:.45}
+.ftcx-opt[hidden],.ftcx-moreopts[hidden],.ftcx-showmore[hidden],.ftcx-clear[hidden]{display:none!important}
+.ftcx-moreopts{border:0;background:none;color:var(--accent-ink);font:inherit;font-size:12px;font-weight:700;padding:4px 4px 0;cursor:pointer}
+.ftcx-moreopts:hover{text-decoration:underline}
+.ftcx-main{min-width:0}
+.ftcx-main .ftcc-group{margin-top:0;margin-bottom:26px}
+.ftcx-main .ftcc-grid{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.ftcc-card.ftcx-cut{display:none!important}
+.ftcx-showmore{display:block;width:100%;margin-top:10px;border:1px dashed #c9d1db;background:#fff;color:var(--accent-ink);border-radius:10px;padding:8px;font:inherit;font-size:12px;font-weight:700;cursor:pointer}
+.ftcx-showmore:hover{border-color:var(--accent);background:var(--accent-soft)}
+.ftcx-opt:focus-within,.ftcx-showmore:focus-visible,.ftcx-moreopts:focus-visible,.ftcx-facet-h:focus-visible,.ftcx-pills button:focus-visible,.ftcx-chip button:focus-visible{outline:2px solid var(--focus);outline-offset:1px}
+@media(max-width:900px){.ftcx-body{grid-template-columns:1fr}.ftcx-rail{border-bottom:1px solid var(--line)}}
+
+/* Search row: the search box takes the room, the sort is compact with a direction button, the rail can be folded. */
+.ftcx .ftcc-search-row{flex-wrap:nowrap}
+.ftcx .ftcc-search{flex:1 1 auto;min-width:200px}
+.ftcx-sort{display:inline-flex;align-items:stretch;flex:0 0 auto;height:42px;border:1px solid #d8dee8;border-radius:10px;background:#fff;overflow:hidden}
+.ftcx-sort select{border:0;background:transparent;height:100%;max-width:130px;padding:0 4px 0 10px;font:inherit;font-size:13px;color:var(--ink);cursor:pointer}
+.ftcx-sort select:focus-visible,.ftcx-dir:focus-visible,.ftcx-rail-toggle:focus-visible{outline:2px solid var(--focus);outline-offset:-2px}
+.ftcx-dir{border:0;border-left:1px solid #e4e7ec;background:#fff;width:36px;font:inherit;font-size:16px;font-weight:700;color:var(--accent-ink);cursor:pointer}
+.ftcx-dir:hover{background:var(--accent-soft)}
+.ftcx-rail-toggle{display:inline-flex;align-items:center;gap:7px;flex:0 0 auto;height:42px;border:1px solid #d8dee8;border-radius:10px;background:#fff;color:#475467;font:inherit;font-size:12px;font-weight:700;padding:0 12px;cursor:pointer;white-space:nowrap}
+.ftcx-rail-toggle i{width:14px;height:11px;border:2px solid currentColor;border-radius:3px;box-sizing:border-box;background:linear-gradient(to right,currentColor 0 4px,transparent 4px)}
+.ftcx-rail-toggle.active{border-color:var(--ftc-accent-line,#cdc3ee);color:var(--accent-ink);background:var(--accent-soft)}
+.ftcx-rail-toggle:hover{border-color:var(--accent);color:var(--accent-ink)}
+.ftcx-rail-toggle b{display:inline-flex;min-width:18px;height:18px;align-items:center;justify-content:center;border-radius:999px;background:var(--accent);color:var(--accent-text);font-size:10px;padding:0 5px}
+.ftcx-rail-toggle b[hidden]{display:none}
+.ftcx-norail .ftcx-body{grid-template-columns:minmax(0,1fr)}
+.ftcx-norail .ftcx-rail{display:none}
+.ftcx-links{display:inline-flex;align-items:center;gap:2px;margin-left:auto}
+.ftcx-links:empty{display:none}
+.ftcx-links+.ftcc-count{margin-left:12px}
+@media(max-width:900px){.ftcx-rail-toggle span{display:none}}
+@media(max-width:760px){.ftcx .ftcc-search-row{flex-wrap:wrap}.ftcx .ftcc-search{flex:1 1 100%;order:-1}}
+.ftcx-main .ftcx-probe{height:0;margin:0;overflow:hidden;visibility:hidden}
+
+/* the search box is the only thing that shrinks in the search row */
+.ftcx .ftcc-search-row>*:not(.ftcc-search){flex-shrink:0}

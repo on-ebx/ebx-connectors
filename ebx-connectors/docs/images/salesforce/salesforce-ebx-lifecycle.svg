@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Salesforce and ON EBX governed acceptance lifecycle</title>
+  <desc id="desc">An executive infographic showing business teams and data stewards working through five stages: discover, authenticate, map, govern, and prove, with controlled acceptance and audit from Salesforce to ON EBX.</desc>
+  <defs>
+    <linearGradient id="page" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f0f5ff"/></linearGradient>
+    <linearGradient id="navy" x1="0" x2="1"><stop stop-color="#1f1f68"/><stop offset="1" stop-color="#0057c6"/></linearGradient>
+    <linearGradient id="teal" x1="0" x2="1"><stop stop-color="#007b83"/><stop offset="1" stop-color="#00a7b5"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#1f2653" flood-opacity=".14"/></filter>
+  </defs>
+  <rect width="1400" height="900" fill="url(#page)" rx="32"/>
+  <circle cx="80" cy="85" r="115" fill="#eee8ff"/><circle cx="1310" cy="750" r="170" fill="#e3f7ff"/>
+  <g transform="translate(60 46)"><circle cx="34" cy="34" r="34" fill="#5016c9"/><circle cx="34" cy="34" r="17" fill="none" stroke="#fff" stroke-width="5"/><path d="M34 0v17M34 51v17M0 34h17M51 34h17" stroke="#a6c2ff" stroke-width="5" stroke-linecap="round"/><text x="86" y="46" font-family="Arial, sans-serif" font-size="38" font-weight="700" fill="#20244b">ON EBX</text><path d="M255 5v56" stroke="#9ca7c6" stroke-width="2"/><text x="284" y="44" font-family="Arial, sans-serif" font-size="45" font-weight="700" fill="#20244b">Salesforce acceptance journey</text><text x="287" y="76" font-family="Arial, sans-serif" font-size="18" fill="#53607a">Governed customer data · controlled integration · evidence-led delivery</text></g>
+
+  <g filter="url(#shadow)"><rect x="58" y="190" width="250" height="210" rx="22" fill="#fff" stroke="#3e79ff" stroke-width="2"/></g>
+  <circle cx="112" cy="244" r="30" fill="#e5f2ff"/><path d="M94 254c0-13 9-22 22-22 5 0 9 1 12 4 4-8 12-13 21-13 12 0 22 10 22 22 0 2 0 4-1 5 7 2 12 8 12 16 0 9-7 16-16 16h-49c-13 0-23-10-23-23 0-2 0-4 1-5z" fill="#1b96ff"/><text x="136" y="261" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#fff">SF</text>
+  <text x="88" y="315" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#20244b">Business teams</text><text x="88" y="348" font-family="Arial, sans-serif" font-size="17" fill="#53607a">Work with Accounts and Contacts</text><text x="88" y="375" font-family="Arial, sans-serif" font-size="17" fill="#53607a">in Salesforce.</text>
+  <path d="M309 293h84" stroke="#1557d6" stroke-width="5"/><path d="M393 293l-18-12v24z" fill="#1557d6"/>
+
+  <g filter="url(#shadow)"><rect x="1092" y="190" width="250" height="210" rx="22" fill="#fff" stroke="#087d72" stroke-width="2"/></g>
+  <circle cx="1146" cy="244" r="30" fill="#dff4ed"/><path d="M1132 245l10 10 19-22" fill="none" stroke="#087d72" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="1122" y="315" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#20244b">Data stewards</text><text x="1122" y="348" font-family="Arial, sans-serif" font-size="17" fill="#53607a">Govern Company data and</text><text x="1122" y="375" font-family="Arial, sans-serif" font-size="17" fill="#53607a">approve its reuse.</text>
+  <path d="M1007 293h84" stroke="#087d72" stroke-width="5"/><path d="M1007 293l18-12v24z" fill="#087d72"/>
+
+  <g transform="translate(700 362)">
+    <circle r="215" fill="none" stroke="#e0e6f5" stroke-width="112"/>
+    <path d="M-126-174 A215 215 0 0 1 126-174" fill="none" stroke="#7024dc" stroke-width="106"/>
+    <path d="M138-165 A215 215 0 0 1 204 38" fill="none" stroke="#075ac9" stroke-width="106"/>
+    <path d="M194 67 A215 215 0 0 1 36 212" fill="none" stroke="#00839a" stroke-width="106"/>
+    <path d="M4 215 A215 215 0 0 1-183 113" fill="none" stroke="#1247a7" stroke-width="106"/>
+    <path d="M-201 79 A215 215 0 0 1-149-155" fill="none" stroke="#26266e" stroke-width="106"/>
+    <circle r="143" fill="#fff" filter="url(#shadow)"/>
+    <circle r="57" fill="#4e18c5"/><circle r="27" fill="none" stroke="#fff" stroke-width="7"/><path d="M0-57v26M0 31v26M-57 0h26M31 0h26" stroke="#bdd2ff" stroke-width="7" stroke-linecap="round"/>
+    <text y="93" text-anchor="middle" font-family="Arial, sans-serif" font-size="29" font-weight="700" fill="#20244b">Existing ON EBX</text><text y="122" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#53607a">Connector · mappings · audit</text>
+    <g fill="#fff" font-family="Arial, sans-serif" font-weight="700"><text x="-86" y="-154" text-anchor="middle" font-size="19">1</text><text x="88" y="-154" text-anchor="middle" font-size="19">2</text><text x="164" y="7" text-anchor="middle" font-size="19">3</text><text x="-5" y="171" text-anchor="middle" font-size="19">4</text><text x="-166" y="14" text-anchor="middle" font-size="19">5</text></g>
+    <g fill="#fff" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M-86-130a17 17 0 1 0 13 7m-1-14v14h-14" fill="none"/><path d="M88-134v25m-12-12h24M76-143l12 9 12-9" fill="none"/><path d="M151 28l13-13 13 13-13 13z" fill="none"/><path d="M-5 188v-25m-12 12h24M-17 197l12-9 12 9" fill="none"/><path d="M-166 34c-13 0-23-10-23-23s10-23 23-23 23 10 23 23" fill="none"/></g>
+  </g>
+
+  <g font-family="Arial, sans-serif"><g transform="translate(365 150)"><circle r="27" fill="#eee8ff"/><text y="7" text-anchor="middle" font-size="18" font-weight="700" fill="#5c18c8">1</text><text x="44" y="-4" font-size="20" font-weight="700" fill="#432091">Discover</text><text x="44" y="24" font-size="16" fill="#53607a">Compare the scoped record</text></g><g transform="translate(760 139)"><circle r="27" fill="#e7edff"/><text y="7" text-anchor="middle" font-size="18" font-weight="700" fill="#115bcc">2</text><text x="44" y="-4" font-size="20" font-weight="700" fill="#174da3">Authenticate</text><text x="44" y="24" font-size="16" fill="#53607a">OAuth, no URL secrets</text></g><g transform="translate(1095 500)"><circle r="27" fill="#daf3f2"/><text y="7" text-anchor="middle" font-size="18" font-weight="700" fill="#007b83">3</text><text x="44" y="-4" font-size="20" font-weight="700" fill="#007378">Map &amp; govern</text><text x="44" y="24" font-size="16" fill="#53607a">Existing approved mappings</text></g><g transform="translate(748 620)"><circle r="27" fill="#e5eeff"/><text y="7" text-anchor="middle" font-size="18" font-weight="700" fill="#174da3">4</text><text x="44" y="-4" font-size="20" font-weight="700" fill="#174da3">Prove the result</text><text x="44" y="24" font-size="16" fill="#53607a">Read-back and execution record</text></g><g transform="translate(232 510)"><circle r="27" fill="#e9eaff"/><text y="7" text-anchor="middle" font-size="18" font-weight="700" fill="#26266e">5</text><text x="44" y="-4" font-size="20" font-weight="700" fill="#26266e">Close safely</text><text x="44" y="24" font-size="16" fill="#53607a">Evidence, cleanup, sign-off</text></g></g>
+
+  <g filter="url(#shadow)"><path d="M72 746h1052v-42l126 76-126 76v-42H72z" fill="url(#navy)"/></g>
+  <circle cx="142" cy="780" r="34" fill="#fff"/><path d="M130 780l9 9 18-21" fill="none" stroke="#1b51b5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><text x="202" y="774" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#fff">Controlled acceptance</text><text x="202" y="804" font-family="Arial, sans-serif" font-size="17" fill="#e9eeff">Existing connector · selected-record scope · safe diagnostics · evidence-first</text>
+  <text x="1055" y="787" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#fff">Test &amp; go live</text>
+</svg>

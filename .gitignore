@@ -1,0 +1,10 @@
+# build outputs
+**/target/
+ebx-connectors/dist/
+ebx-connectors/src/main/webapp/WEB-INF/lib/*.jar
+ebx-connectors-extension-sample/lib/*.jar
+# IDE / OS
+.settings/
+.DS_Store
+*.class
+__pycache__/

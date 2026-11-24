@@ -1,0 +1,4990 @@
+[
+ {
+  "label": "Apache ActiveMQ (ActiveMQ)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ActiveMQ",
+  "content": {
+   "id": {
+    "content": "ActiveMQ"
+   },
+   "label": {
+    "content": "Apache ActiveMQ"
+   },
+   "description": {
+    "content": "Apache ActiveMQ Classic JMS queues and topics. Operations publish, receive and non-consuming peek; supports selectors, client or transactional acknowledgement, and redelivery policy."
+   },
+   "category": {
+    "content": "MESSAGING",
+    "label": "Messaging & events",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/MESSAGING",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ActiveMQ/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/ActiveMQ.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/ActiveMQ.svg"
+   },
+   "type": {
+    "content": "activemq",
+    "label": "Apache ActiveMQ (activemq)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ActiveMQ/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "tcp://localhost:61616"
+   },
+   "authType": {
+    "content": "NONE",
+    "label": "None",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ActiveMQ/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ActiveMQ/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ActiveMQ/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ActiveMQ/mappings"
+   }
+  }
+ },
+ {
+  "label": "Azure Blob Storage (AzureBlob)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureBlob",
+  "content": {
+   "id": {
+    "content": "AzureBlob"
+   },
+   "label": {
+    "content": "Azure Blob Storage"
+   },
+   "description": {
+    "content": "Azure Blob container with a SAS token (apiKey) or a bearer token. Property container, root."
+   },
+   "category": {
+    "content": "CLOUD_STORAGE",
+    "label": "Cloud & file storage",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/CLOUD_STORAGE",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureBlob/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/AzureBlob.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/AzureBlob.svg"
+   },
+   "type": {
+    "content": "azure-blob",
+    "label": "Azure Blob Storage (files) (azure-blob)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureBlob/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://ACCOUNT.blob.core.windows.net"
+   },
+   "authType": {
+    "content": "API_KEY_HEADER",
+    "label": "API key in a header",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureBlob/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": "TO_BE_SET"
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureBlob/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureBlob/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureBlob/mappings"
+   }
+  }
+ },
+ {
+  "label": "Azure SQL Database (AzureSQL)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureSQL",
+  "content": {
+   "id": {
+    "content": "AzureSQL"
+   },
+   "label": {
+    "content": "Azure SQL Database"
+   },
+   "description": {
+    "content": "Dedicated Azure SQL Database connector. Requires an Azure SQL endpoint, TLS encryption, certificate validation, and the Microsoft JDBC driver packaged with EBX-Connectors."
+   },
+   "category": {
+    "content": "DATABASE",
+    "label": "Database",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/DATABASE",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureSQL/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/AzureSQL.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/AzureSQL.svg"
+   },
+   "type": {
+    "content": "azure-sql",
+    "label": "Azure SQL Database (azure-sql)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureSQL/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "jdbc:sqlserver://SERVER.database.windows.net:1433;databaseName=MDM"
+   },
+   "authType": {
+    "content": "BASIC",
+    "label": "HTTP Basic",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureSQL/authType?selector=true"
+   },
+   "username": {
+    "content": "TO_BE_SET"
+   },
+   "password": {
+    "content": "TO_BE_SET"
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureSQL/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureSQL/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureSQL/mappings"
+   }
+  }
+ },
+ {
+  "label": "Microsoft Azure Service Bus (AzureServiceBus)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureServiceBus",
+  "content": {
+   "id": {
+    "content": "AzureServiceBus"
+   },
+   "label": {
+    "content": "Microsoft Azure Service Bus"
+   },
+   "description": {
+    "content": "Azure Service Bus queues and topics. Store the connection string in the encrypted API key field, or select AZURE_IDENTITY; bounded receive defaults to peek-lock and requires explicit complete/abandon settlement."
+   },
+   "category": {
+    "content": "MESSAGING",
+    "label": "Messaging & events",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/MESSAGING",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureServiceBus/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/AzureServiceBus.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/AzureServiceBus.svg"
+   },
+   "type": {
+    "content": "azure-service-bus",
+    "label": "Microsoft Azure Service Bus (azure-service-bus)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureServiceBus/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "sb://NAMESPACE.servicebus.windows.net"
+   },
+   "authType": {
+    "content": "NONE",
+    "label": "None",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureServiceBus/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": "TO_BE_SET"
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureServiceBus/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureServiceBus/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/AzureServiceBus/mappings"
+   }
+  }
+ },
+ {
+  "label": "Base Adresse Nationale (FR) (BAN)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BAN",
+  "content": {
+   "id": {
+    "content": "BAN"
+   },
+   "label": {
+    "content": "Base Adresse Nationale (FR)"
+   },
+   "description": {
+    "content": "French national address base, no key. Operations geocode (address, postcode), reverse (lat, lon). Property score.min."
+   },
+   "category": {
+    "content": "REFERENCE_DATA",
+    "label": "Location & reference data",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/REFERENCE_DATA",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BAN/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/BAN.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/BAN.svg"
+   },
+   "type": {
+    "content": "ban",
+    "label": "Base Adresse Nationale (France) (ban)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BAN/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://api-adresse.data.gouv.fr"
+   },
+   "authType": {
+    "content": "NONE",
+    "label": "None",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BAN/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 70
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BAN/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BAN/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BAN/mappings"
+   }
+  }
+ },
+ {
+  "label": "Google BigQuery (BigQuery)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BigQuery",
+  "content": {
+   "id": {
+    "content": "BigQuery"
+   },
+   "label": {
+    "content": "Google BigQuery"
+   },
+   "description": {
+    "content": "BigQuery jobs.query with @named parameters. Service account key: property serviceAccountFile (path on the EBX server) or serviceAccountJson. Properties project, dataset, location."
+   },
+   "category": {
+    "content": "DATA_PLATFORMS",
+    "label": "Data platforms",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/DATA_PLATFORMS",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BigQuery/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/BigQuery.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/BigQuery.svg"
+   },
+   "type": {
+    "content": "bigquery",
+    "label": "Google BigQuery (bigquery)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BigQuery/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://bigquery.googleapis.com"
+   },
+   "authType": {
+    "content": "NONE",
+    "label": "None",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BigQuery/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BigQuery/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BigQuery/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BigQuery/mappings"
+   }
+  }
+ },
+ {
+  "label": "Microsoft Dynamics 365 Business Central (BusinessCentral)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BusinessCentral",
+  "content": {
+   "id": {
+    "content": "BusinessCentral"
+   },
+   "label": {
+    "content": "Microsoft Dynamics 365 Business Central"
+   },
+   "description": {
+    "content": "Business Central standard API over bounded OData v4, scoped by tenant, environment and company."
+   },
+   "category": {
+    "content": "BUSINESS_APPS",
+    "label": "Business applications",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/BUSINESS_APPS",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BusinessCentral/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/BusinessCentral.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/BusinessCentral.svg"
+   },
+   "type": {
+    "content": "dynamics-business-central",
+    "label": "Microsoft Dynamics 365 Business Central (dynamics-business-central)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BusinessCentral/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://api.businesscentral.dynamics.com"
+   },
+   "authType": {
+    "content": "OAUTH2",
+    "label": "OAuth 2.0 (token endpoint and flow in the oauth.* properties)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BusinessCentral/authType?selector=true"
+   },
+   "username": {
+    "content": "TO_BE_SET"
+   },
+   "password": {
+    "content": "TO_BE_SET"
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BusinessCentral/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BusinessCentral/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/BusinessCentral/mappings"
+   }
+  }
+ },
+ {
+  "label": "Data catalog demo warehouse (H2) (CatalogDemoH2)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/CatalogDemoH2",
+  "content": {
+   "id": {
+    "content": "CatalogDemoH2"
+   },
+   "label": {
+    "content": "Data catalog demo warehouse (H2)"
+   },
+   "description": {
+    "content": "Demonstration warehouse of the Data catalog: schemas SALES, FINANCE and HR of the catalogdemo H2 database (created by data-catalog-module/demo/load_demo.sh). Scanned and profiled by the DEMO_H2 source."
+   },
+   "category": {
+    "content": "DATABASE",
+    "label": "Database",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/DATABASE",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/CatalogDemoH2/category?selector=true"
+   },
+   "logo": {
+    "content": null
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/default.svg"
+   },
+   "type": {
+    "content": "h2",
+    "label": "H2 Database (h2)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/CatalogDemoH2/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "jdbc:h2:tcp://localhost:9092/catalogdemo"
+   },
+   "authType": {
+    "content": "NONE",
+    "label": "None",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/CatalogDemoH2/authType?selector=true"
+   },
+   "username": {
+    "content": "sa"
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 60
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/CatalogDemoH2/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/CatalogDemoH2/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/CatalogDemoH2/mappings"
+   }
+  }
+ },
+ {
+  "label": "Slack / Teams notifications (ChatWebhook)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ChatWebhook",
+  "content": {
+   "id": {
+    "content": "ChatWebhook"
+   },
+   "label": {
+    "content": "Slack / Teams notifications"
+   },
+   "description": {
+    "content": "Incoming webhook of a Slack channel or a Teams channel: the base URL is the webhook URL (it is a secret: restrict who can read this connector). Operation notify (text, title). Property format: auto, slack, teams (Office connector card) or adaptive (Power Automate workflow)."
+   },
+   "category": {
+    "content": "MESSAGING",
+    "label": "Messaging & events",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/MESSAGING",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ChatWebhook/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/ChatWebhook.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/ChatWebhook.svg"
+   },
+   "type": {
+    "content": "chat-webhook",
+    "label": "Slack / Microsoft Teams incoming webhook (chat-webhook)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ChatWebhook/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "http://127.0.0.1:8766/catalog-alerts"
+   },
+   "authType": {
+    "content": "NONE",
+    "label": "None",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ChatWebhook/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ChatWebhook/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ChatWebhook/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ChatWebhook/mappings"
+   }
+  }
+ },
+ {
+  "label": "Claude (Anthropic) - AI enrichment (Claude)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Claude",
+  "content": {
+   "id": {
+    "content": "Claude"
+   },
+   "label": {
+    "content": "Claude (Anthropic) - AI enrichment"
+   },
+   "description": {
+    "content": "Large language model as a low-trust enrichment source (trust 30): classify (NACE code from a description), extract (structured address from free text), match (same entity?), complete. Set the API key in apiKey. Properties: model (claude-sonnet-5), maxTokens, temperature, system, language. For OpenAI set baseUrl https://api.openai.com and BEARER; for Azure OpenAI the resource URL, API_KEY_HEADER api-key and model = deployment."
+   },
+   "category": {
+    "content": "AI",
+    "label": "AI & machine learning",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/AI",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Claude/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/Claude.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/Claude.svg"
+   },
+   "type": {
+    "content": "llm",
+    "label": "LLM (Claude, OpenAI, Azure OpenAI) (llm)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Claude/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://api.anthropic.com"
+   },
+   "authType": {
+    "content": "BEARER",
+    "label": "Bearer token",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Claude/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 30
+   },
+   "apiKey": {
+    "content": "TO_BE_SET"
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Claude/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Claude/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Claude/mappings"
+   }
+  }
+ },
+ {
+  "label": "Companies House (UK) (CompaniesHouse)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/CompaniesHouse",
+  "content": {
+   "id": {
+    "content": "CompaniesHouse"
+   },
+   "label": {
+    "content": "Companies House (UK)"
+   },
+   "description": {
+    "content": "UK register. apiKey = Companies House API key (sent as Basic user). Operations get, search, officers, pscs, filings."
+   },
+   "category": {
+    "content": "CORPORATE_REGISTRIES",
+    "label": "Corporate registries",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/CORPORATE_REGISTRIES",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/CompaniesHouse/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/CompaniesHouse.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/CompaniesHouse.svg"
+   },
+   "type": {
+    "content": "companies-house",
+    "label": "Companies House (UK) (companies-house)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/CompaniesHouse/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://api.company-information.service.gov.uk"
+   },
+   "authType": {
+    "content": "API_KEY_HEADER",
+    "label": "API key in a header",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/CompaniesHouse/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 90
+   },
+   "apiKey": {
+    "content": "TO_BE_SET"
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/CompaniesHouse/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/CompaniesHouse/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/CompaniesHouse/mappings"
+   }
+  }
+ },
+ {
+  "label": "Countries (GraphQL reference data) (Countries)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Countries",
+  "content": {
+   "id": {
+    "content": "Countries"
+   },
+   "label": {
+    "content": "Countries (GraphQL reference data)"
+   },
+   "description": {
+    "content": "Free GraphQL API of countries (the generic graphql type): operation country (code ISO-2) returns name, capital, currency, languages, continent."
+   },
+   "category": {
+    "content": "REFERENCE_DATA",
+    "label": "Location & reference data",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/REFERENCE_DATA",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Countries/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/Countries.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/Countries.svg"
+   },
+   "type": {
+    "content": "graphql",
+    "label": "Generic GraphQL API (graphql)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Countries/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://countries.trevorblades.com/graphql"
+   },
+   "authType": {
+    "content": "NONE",
+    "label": "None",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Countries/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Countries/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Countries/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Countries/mappings"
+   }
+  }
+ },
+ {
+  "label": "Creditsafe Connect (Creditsafe)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Creditsafe",
+  "content": {
+   "id": {
+    "content": "Creditsafe"
+   },
+   "label": {
+    "content": "Creditsafe Connect"
+   },
+   "description": {
+    "content": "Creditsafe Connect API. Username / password of the API account (token from /authenticate). Operations search, report, find."
+   },
+   "category": {
+    "content": "RISK_COMPLIANCE",
+    "label": "Risk & compliance",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/RISK_COMPLIANCE",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Creditsafe/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/Creditsafe.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/Creditsafe.svg"
+   },
+   "type": {
+    "content": "creditsafe",
+    "label": "Creditsafe Connect (creditsafe)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Creditsafe/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://connect.creditsafe.com/v1"
+   },
+   "authType": {
+    "content": "BASIC",
+    "label": "HTTP Basic",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Creditsafe/authType?selector=true"
+   },
+   "username": {
+    "content": "TO_BE_SET"
+   },
+   "password": {
+    "content": "TO_BE_SET"
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 80
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Creditsafe/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Creditsafe/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Creditsafe/mappings"
+   }
+  }
+ },
+ {
+  "label": "Databricks SQL (Databricks)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Databricks",
+  "content": {
+   "id": {
+    "content": "Databricks"
+   },
+   "label": {
+    "content": "Databricks SQL"
+   },
+   "description": {
+    "content": "SQL Statement Execution API. apiKey = personal access token, or property auth=oauth with clientId + secret in apiKey. Required property warehouse_id; context catalog, schema, wait, max.rows, nested.function (parse_json)."
+   },
+   "category": {
+    "content": "DATA_PLATFORMS",
+    "label": "Data platforms",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/DATA_PLATFORMS",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Databricks/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/Databricks.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/Databricks.svg"
+   },
+   "type": {
+    "content": "databricks",
+    "label": "Databricks (SQL Statement Execution API) (databricks)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Databricks/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://adb-0000000000000000.0.azuredatabricks.net"
+   },
+   "authType": {
+    "content": "BEARER",
+    "label": "Bearer token",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Databricks/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": "TO_BE_SET"
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Databricks/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Databricks/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Databricks/mappings"
+   }
+  }
+ },
+ {
+  "label": "Dun & Bradstreet Direct+ (DnB)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/DnB",
+  "content": {
+   "id": {
+    "content": "DnB"
+   },
+   "label": {
+    "content": "Dun & Bradstreet Direct+"
+   },
+   "description": {
+    "content": "Direct+ API. Authentication BASIC: username = consumer key, password = consumer secret (bearer token requested on /v2/token). Properties blockIDs, confidence.min, candidates.max, tradeUp, country."
+   },
+   "category": {
+    "content": "CORPORATE_REGISTRIES",
+    "label": "Corporate registries",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/CORPORATE_REGISTRIES",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/DnB/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/DnB.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/DnB.svg"
+   },
+   "type": {
+    "content": "dnb",
+    "label": "Dun & Bradstreet Direct+ (dnb)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/DnB/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://plus.dnb.com"
+   },
+   "authType": {
+    "content": "BASIC",
+    "label": "HTTP Basic",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/DnB/authType?selector=true"
+   },
+   "username": {
+    "content": "TO_BE_SET"
+   },
+   "password": {
+    "content": "TO_BE_SET"
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 85
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/DnB/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/DnB/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/DnB/mappings"
+   }
+  }
+ },
+ {
+  "label": "Microsoft Dynamics 365 (Dynamics365)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Dynamics365",
+  "content": {
+   "id": {
+    "content": "Dynamics365"
+   },
+   "label": {
+    "content": "Microsoft Dynamics 365"
+   },
+   "description": {
+    "content": "Dataverse Web API (OData v4). Entra ID client credentials: properties tenantId, clientId, apiKey = client secret. Objects accounts, contacts..."
+   },
+   "category": {
+    "content": "BUSINESS_APPS",
+    "label": "Business applications",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/BUSINESS_APPS",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Dynamics365/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/Dynamics365.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/Dynamics365.svg"
+   },
+   "type": {
+    "content": "dynamics365",
+    "label": "Microsoft Dynamics 365 (Dataverse) (dynamics365)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Dynamics365/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://ORG.crm4.dynamics.com"
+   },
+   "authType": {
+    "content": "BEARER",
+    "label": "Bearer token",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Dynamics365/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 60
+   },
+   "apiKey": {
+    "content": "TO_BE_SET"
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Dynamics365/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Dynamics365/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Dynamics365/mappings"
+   }
+  }
+ },
+ {
+  "label": "EBX (another instance) (EBX)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/EBX",
+  "content": {
+   "id": {
+    "content": "EBX"
+   },
+   "label": {
+    "content": "EBX (another instance)"
+   },
+   "description": {
+    "content": "Another EBX repository through Data Services: read (dataspace, dataset, table, key), search (feed: rows), write (create or update from an outbound mapping). Set the account in username / password; envelopes are unwrapped so that mappings see plain records."
+   },
+   "category": {
+    "content": "GENERIC_INTEGRATION",
+    "label": "Generic integration",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/GENERIC_INTEGRATION",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/EBX/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/EBX.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/EBX.svg"
+   },
+   "type": {
+    "content": "ebx",
+    "label": "EBX (another instance, Data Services) (ebx)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/EBX/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "http://localhost:8080/ebx-dataservices/rest/data/v1"
+   },
+   "authType": {
+    "content": "BASIC",
+    "label": "HTTP Basic",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/EBX/authType?selector=true"
+   },
+   "username": {
+    "content": "TO_BE_SET"
+   },
+   "password": {
+    "content": "TO_BE_SET"
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 70
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/EBX/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/EBX/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/EBX/mappings"
+   }
+  }
+ },
+ {
+  "label": "EORI validation (EU customs, SOAP) (EORI)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/EORI",
+  "content": {
+   "id": {
+    "content": "EORI"
+   },
+   "label": {
+    "content": "EORI validation (EU customs, SOAP)"
+   },
+   "description": {
+    "content": "European Commission EORI number validation, a SOAP service configured by properties (the generic soap type): operation validate (eori) returns status, statusDescr, name, street, postalCode, city, country."
+   },
+   "category": {
+    "content": "RISK_COMPLIANCE",
+    "label": "Risk & compliance",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/RISK_COMPLIANCE",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/EORI/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/EORI.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/EORI.svg"
+   },
+   "type": {
+    "content": "soap",
+    "label": "Generic SOAP web service (soap)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/EORI/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://ec.europa.eu/taxation_customs/dds2/eos/validation/services/validation"
+   },
+   "authType": {
+    "content": "NONE",
+    "label": "None",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/EORI/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/EORI/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/EORI/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/EORI/mappings"
+   }
+  }
+ },
+ {
+  "label": "Google Cloud Storage (GCS)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GCS",
+  "content": {
+   "id": {
+    "content": "GCS"
+   },
+   "label": {
+    "content": "Google Cloud Storage"
+   },
+   "description": {
+    "content": "GCS bucket. Service account key: property serviceAccountFile or serviceAccountJson. Property bucket, root."
+   },
+   "category": {
+    "content": "CLOUD_STORAGE",
+    "label": "Cloud & file storage",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/CLOUD_STORAGE",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GCS/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/GCS.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/GCS.svg"
+   },
+   "type": {
+    "content": "gcs",
+    "label": "Google Cloud Storage (files) (gcs)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GCS/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://storage.googleapis.com"
+   },
+   "authType": {
+    "content": "NONE",
+    "label": "None",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GCS/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GCS/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GCS/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GCS/mappings"
+   }
+  }
+ },
+ {
+  "label": "GLEIF - Legal Entity Identifier (GLEIF)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GLEIF",
+  "content": {
+   "id": {
+    "content": "GLEIF"
+   },
+   "label": {
+    "content": "GLEIF - Legal Entity Identifier"
+   },
+   "description": {
+    "content": "Public LEI registry, no key, 60 calls/min."
+   },
+   "category": {
+    "content": "CORPORATE_REGISTRIES",
+    "label": "Corporate registries",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/CORPORATE_REGISTRIES",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GLEIF/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/GLEIF.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/GLEIF.svg"
+   },
+   "type": {
+    "content": "gleif",
+    "label": "GLEIF (LEI) (gleif)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GLEIF/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://api.gleif.org/api/v1"
+   },
+   "authType": {
+    "content": "NONE",
+    "label": "None",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GLEIF/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 90
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GLEIF/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GLEIF/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GLEIF/mappings"
+   }
+  }
+ },
+ {
+  "label": "Google Geocoding (GoogleGeocoding)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GoogleGeocoding",
+  "content": {
+   "id": {
+    "content": "GoogleGeocoding"
+   },
+   "label": {
+    "content": "Google Geocoding"
+   },
+   "description": {
+    "content": "Set the API key (Connector > apiKey); sent as the key query parameter."
+   },
+   "category": {
+    "content": "REFERENCE_DATA",
+    "label": "Location & reference data",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/REFERENCE_DATA",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GoogleGeocoding/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/GoogleGeocoding.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/GoogleGeocoding.svg"
+   },
+   "type": {
+    "content": "google-geocoding",
+    "label": "Google Geocoding (google-geocoding)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GoogleGeocoding/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://maps.googleapis.com/maps/api"
+   },
+   "authType": {
+    "content": "NONE",
+    "label": "None",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GoogleGeocoding/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 60
+   },
+   "apiKey": {
+    "content": "TO_BE_SET"
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GoogleGeocoding/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GoogleGeocoding/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/GoogleGeocoding/mappings"
+   }
+  }
+ },
+ {
+  "label": "H2 Database (H2)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/H2",
+  "content": {
+   "id": {
+    "content": "H2"
+   },
+   "label": {
+    "content": "H2 Database"
+   },
+   "description": {
+    "content": "Dedicated H2 connector for embedded or TCP databases. Supports query, get, insert, update, upsert, execute, schema discovery, preview, batching, and transactions. The H2 JDBC driver is packaged with EBX-Connectors; use property jndi for a container-managed DataSource."
+   },
+   "category": {
+    "content": "DATABASE",
+    "label": "Database",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/DATABASE",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/H2/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/H2.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/H2.svg"
+   },
+   "type": {
+    "content": "h2",
+    "label": "H2 Database (h2)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/H2/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "jdbc:h2:tcp://localhost:9092/mdm"
+   },
+   "authType": {
+    "content": "BASIC",
+    "label": "HTTP Basic",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/H2/authType?selector=true"
+   },
+   "username": {
+    "content": "sa"
+   },
+   "password": {
+    "content": "TO_BE_SET"
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/H2/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/H2/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/H2/mappings"
+   }
+  }
+ },
+ {
+  "label": "Handelsregister (OffeneRegister, DE) (Handelsregister)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Handelsregister",
+  "content": {
+   "id": {
+    "content": "Handelsregister"
+   },
+   "label": {
+    "content": "Handelsregister (OffeneRegister, DE)"
+   },
+   "description": {
+    "content": "German register through the OffeneRegister open data mirror, no key. Operations search (name), get (id)."
+   },
+   "category": {
+    "content": "CORPORATE_REGISTRIES",
+    "label": "Corporate registries",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/CORPORATE_REGISTRIES",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Handelsregister/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/Handelsregister.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/Handelsregister.svg"
+   },
+   "type": {
+    "content": "handelsregister",
+    "label": "Handelsregister (OffeneRegister mirror) (handelsregister)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Handelsregister/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://db.offeneregister.de"
+   },
+   "authType": {
+    "content": "NONE",
+    "label": "None",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Handelsregister/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 85
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Handelsregister/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Handelsregister/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Handelsregister/mappings"
+   }
+  }
+ },
+ {
+  "label": "HubSpot CRM (HubSpot)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/HubSpot",
+  "content": {
+   "id": {
+    "content": "HubSpot"
+   },
+   "label": {
+    "content": "HubSpot CRM"
+   },
+   "description": {
+    "content": "HubSpot CRM v3. apiKey = private app token. Objects companies, contacts, deals; upsert on a lookup field such as domain."
+   },
+   "category": {
+    "content": "BUSINESS_APPS",
+    "label": "Business applications",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/BUSINESS_APPS",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/HubSpot/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/HubSpot.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/HubSpot.svg"
+   },
+   "type": {
+    "content": "hubspot",
+    "label": "HubSpot CRM (hubspot)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/HubSpot/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://api.hubapi.com"
+   },
+   "authType": {
+    "content": "BEARER",
+    "label": "Bearer token",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/HubSpot/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 60
+   },
+   "apiKey": {
+    "content": "TO_BE_SET"
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/HubSpot/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/HubSpot/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/HubSpot/mappings"
+   }
+  }
+ },
+ {
+  "label": "INPI - Registre National des Entreprises (INPI)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/INPI",
+  "content": {
+   "id": {
+    "content": "INPI"
+   },
+   "label": {
+    "content": "INPI - Registre National des Entreprises"
+   },
+   "description": {
+    "content": "Official French register (legal identity, head office, beneficial owners). Free account: set username / password; a bearer token is obtained and cached. Operations company (siren), search (name, postalCode)."
+   },
+   "category": {
+    "content": "CORPORATE_REGISTRIES",
+    "label": "Corporate registries",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/CORPORATE_REGISTRIES",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/INPI/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/INPI.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/INPI.svg"
+   },
+   "type": {
+    "content": "inpi",
+    "label": "INPI - Registre National des Entreprises (France) (inpi)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/INPI/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://registre-national-entreprises.inpi.fr/api"
+   },
+   "authType": {
+    "content": "BASIC",
+    "label": "HTTP Basic",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/INPI/authType?selector=true"
+   },
+   "username": {
+    "content": "TO_BE_SET"
+   },
+   "password": {
+    "content": "TO_BE_SET"
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 90
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/INPI/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/INPI/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/INPI/mappings"
+   }
+  }
+ },
+ {
+  "label": "JDBC database (JDBC)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JDBC",
+  "content": {
+   "id": {
+    "content": "JDBC"
+   },
+   "label": {
+    "content": "JDBC database"
+   },
+   "description": {
+    "content": "Any database with a JDBC driver in ebx-ps-fasttrack-server/lib (PostgreSQL, H2, Oracle, SQL Server, MySQL, Azure Synapse, Redshift...). baseUrl = JDBC URL. Operations query (:named parameters), get, insert, update, upsert, execute. Property schema, driver, jdbc.* passed to the driver."
+   },
+   "category": {
+    "content": "DATA_PLATFORMS",
+    "label": "Data platforms",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/DATA_PLATFORMS",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JDBC/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/JDBC.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/JDBC.svg"
+   },
+   "type": {
+    "content": "jdbc",
+    "label": "JDBC database (generic) (jdbc)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JDBC/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "jdbc:postgresql://localhost:5432/mdm"
+   },
+   "authType": {
+    "content": "BASIC",
+    "label": "HTTP Basic",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JDBC/authType?selector=true"
+   },
+   "username": {
+    "content": "TO_BE_SET"
+   },
+   "password": {
+    "content": "TO_BE_SET"
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JDBC/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JDBC/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JDBC/mappings"
+   }
+  }
+ },
+ {
+  "label": "JD Edwards EnterpriseOne (AIS) (JDEdwards)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JDEdwards",
+  "content": {
+   "id": {
+    "content": "JDEdwards"
+   },
+   "label": {
+    "content": "JD Edwards EnterpriseOne (AIS)"
+   },
+   "description": {
+    "content": "AIS REST server. Authentication BASIC = EnterpriseOne user / password (session token requested and renewed). Properties ais.version (v2), environment, role, device, max.rows, strip.prefix."
+   },
+   "category": {
+    "content": "BUSINESS_APPS",
+    "label": "Business applications",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/BUSINESS_APPS",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JDEdwards/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/JDEdwards.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/JDEdwards.svg"
+   },
+   "type": {
+    "content": "jde-ais",
+    "label": "JD Edwards EnterpriseOne (AIS) (jde-ais)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JDEdwards/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://jde-ais.example.com:9080/jderest"
+   },
+   "authType": {
+    "content": "BASIC",
+    "label": "HTTP Basic",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JDEdwards/authType?selector=true"
+   },
+   "username": {
+    "content": "JDE_USER"
+   },
+   "password": {
+    "content": "TO_BE_SET"
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 70
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JDEdwards/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JDEdwards/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JDEdwards/mappings"
+   }
+  }
+ },
+ {
+  "label": "JMS messaging (JMS)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JMS",
+  "content": {
+   "id": {
+    "content": "JMS"
+   },
+   "label": {
+    "content": "JMS messaging"
+   },
+   "description": {
+    "content": "Provider-neutral JMS queues and topics through JNDI. Operations publish, receive and non-consuming peek are bounded; acknowledgement and redelivery are explicit."
+   },
+   "category": {
+    "content": "MESSAGING",
+    "label": "Messaging & events",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/MESSAGING",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JMS/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/JMS.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/JMS.svg"
+   },
+   "type": {
+    "content": "jms",
+    "label": "JMS messaging (jms)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JMS/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "tcp://BROKER:61616"
+   },
+   "authType": {
+    "content": "NONE",
+    "label": "None",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JMS/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JMS/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JMS/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/JMS/mappings"
+   }
+  }
+ },
+ {
+  "label": "Apache Kafka (Kafka)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Kafka",
+  "content": {
+   "id": {
+    "content": "Kafka"
+   },
+   "label": {
+    "content": "Apache Kafka"
+   },
+   "description": {
+    "content": "baseUrl = bootstrap servers. Properties: topic, group.id, envelope, key.field, security.protocol, sasl.mechanism, kafka.* passed through. Authentication BASIC = SASL/PLAIN with username / password."
+   },
+   "category": {
+    "content": "MESSAGING",
+    "label": "Messaging & events",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/MESSAGING",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Kafka/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/Kafka.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/Kafka.svg"
+   },
+   "type": {
+    "content": "kafka",
+    "label": "Apache Kafka (kafka)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Kafka/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "localhost:9092"
+   },
+   "authType": {
+    "content": "NONE",
+    "label": "None",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Kafka/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Kafka/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Kafka/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Kafka/mappings"
+   }
+  }
+ },
+ {
+  "label": "Loqate (Loqate)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Loqate",
+  "content": {
+   "id": {
+    "content": "Loqate"
+   },
+   "label": {
+    "content": "Loqate"
+   },
+   "description": {
+    "content": "Loqate international address verification. apiKey = Loqate key. Operations verify (address, locality, postalCode, country), find, retrieve."
+   },
+   "category": {
+    "content": "REFERENCE_DATA",
+    "label": "Location & reference data",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/REFERENCE_DATA",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Loqate/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/Loqate.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/Loqate.svg"
+   },
+   "type": {
+    "content": "loqate",
+    "label": "Loqate address verification (loqate)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Loqate/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://api.addressy.com"
+   },
+   "authType": {
+    "content": "API_KEY_HEADER",
+    "label": "API key in a header",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Loqate/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 75
+   },
+   "apiKey": {
+    "content": "TO_BE_SET"
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Loqate/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Loqate/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Loqate/mappings"
+   }
+  }
+ },
+ {
+  "label": "Melissa Data (Melissa)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Melissa",
+  "content": {
+   "id": {
+    "content": "Melissa"
+   },
+   "label": {
+    "content": "Melissa Data"
+   },
+   "description": {
+    "content": "Melissa global address, email and phone verification. apiKey = license key. Operations address, email, phone."
+   },
+   "category": {
+    "content": "REFERENCE_DATA",
+    "label": "Location & reference data",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/REFERENCE_DATA",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Melissa/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/Melissa.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/Melissa.svg"
+   },
+   "type": {
+    "content": "melissa",
+    "label": "Melissa Data (melissa)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Melissa/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://address.melissadata.net"
+   },
+   "authType": {
+    "content": "API_KEY_HEADER",
+    "label": "API key in a header",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Melissa/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 75
+   },
+   "apiKey": {
+    "content": "TO_BE_SET"
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Melissa/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Melissa/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Melissa/mappings"
+   }
+  }
+ },
+ {
+  "label": "MySQL Database (MySQL)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/MySQL",
+  "content": {
+   "id": {
+    "content": "MySQL"
+   },
+   "label": {
+    "content": "MySQL Database"
+   },
+   "description": {
+    "content": "Dedicated MySQL connector with verified TLS, parameterized SQL, bounded preview, discovery, batching and transactions."
+   },
+   "category": {
+    "content": "DATABASE",
+    "label": "Database",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/DATABASE",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/MySQL/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/MySQL.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/MySQL.svg"
+   },
+   "type": {
+    "content": "mysql",
+    "label": "MySQL Database (mysql)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/MySQL/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "jdbc:mysql://HOST:3306/MDM"
+   },
+   "authType": {
+    "content": "BASIC",
+    "label": "HTTP Basic",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/MySQL/authType?selector=true"
+   },
+   "username": {
+    "content": "TO_BE_SET"
+   },
+   "password": {
+    "content": "TO_BE_SET"
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/MySQL/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/MySQL/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/MySQL/mappings"
+   }
+  }
+ },
+ {
+  "label": "Oracle NetSuite (NetSuite)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/NetSuite",
+  "content": {
+   "id": {
+    "content": "NetSuite"
+   },
+   "label": {
+    "content": "Oracle NetSuite"
+   },
+   "description": {
+    "content": "NetSuite SuiteTalk REST Record and bounded SuiteQL connector."
+   },
+   "category": {
+    "content": "BUSINESS_APPS",
+    "label": "Business applications",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/BUSINESS_APPS",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/NetSuite/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/NetSuite.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/NetSuite.svg"
+   },
+   "type": {
+    "content": "netsuite",
+    "label": "Oracle NetSuite (netsuite)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/NetSuite/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://ACCOUNT.suitetalk.api.netsuite.com/services/rest"
+   },
+   "authType": {
+    "content": "BEARER",
+    "label": "Bearer token",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/NetSuite/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": "TO_BE_SET"
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/NetSuite/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/NetSuite/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/NetSuite/mappings"
+   }
+  }
+ },
+ {
+  "label": "OpenStreetMap Nominatim (sample extension jar) (Nominatim)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Nominatim",
+  "content": {
+   "id": {
+    "content": "Nominatim"
+   },
+   "label": {
+    "content": "OpenStreetMap Nominatim (sample extension jar)"
+   },
+   "description": {
+    "content": "Third-party connector loaded from ebx-connectors-extension-sample.jar (WEB-INF/lib). Free geocoder, 1 request/s, User-Agent required (property user.agent)."
+   },
+   "category": {
+    "content": "REFERENCE_DATA",
+    "label": "Location & reference data",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/REFERENCE_DATA",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Nominatim/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/Nominatim.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/Nominatim.svg"
+   },
+   "type": {
+    "content": "nominatim",
+    "label": "OpenStreetMap Nominatim (sample extension) (nominatim)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Nominatim/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://nominatim.openstreetmap.org"
+   },
+   "authType": {
+    "content": "NONE",
+    "label": "None",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Nominatim/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 55
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Nominatim/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Nominatim/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Nominatim/mappings"
+   }
+  }
+ },
+ {
+  "label": "OpenCorporates (OpenCorporates)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OpenCorporates",
+  "content": {
+   "id": {
+    "content": "OpenCorporates"
+   },
+   "label": {
+    "content": "OpenCorporates"
+   },
+   "description": {
+    "content": "Worldwide company registry aggregate. apiKey = api_token. Operations get (jurisdiction, number), search (q, jurisdiction)."
+   },
+   "category": {
+    "content": "CORPORATE_REGISTRIES",
+    "label": "Corporate registries",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/CORPORATE_REGISTRIES",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OpenCorporates/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/OpenCorporates.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/OpenCorporates.svg"
+   },
+   "type": {
+    "content": "opencorporates",
+    "label": "OpenCorporates (opencorporates)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OpenCorporates/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://api.opencorporates.com/v0.4"
+   },
+   "authType": {
+    "content": "API_KEY_HEADER",
+    "label": "API key in a header",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OpenCorporates/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": "api_token"
+   },
+   "trust": {
+    "content": 70
+   },
+   "apiKey": {
+    "content": "TO_BE_SET"
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OpenCorporates/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OpenCorporates/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OpenCorporates/mappings"
+   }
+  }
+ },
+ {
+  "label": "openFDA (US FDA devices and drugs) (OpenFDA)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OpenFDA",
+  "content": {
+   "id": {
+    "content": "OpenFDA"
+   },
+   "label": {
+    "content": "openFDA (US FDA devices and drugs)"
+   },
+   "description": {
+    "content": "Public US FDA API, no key (an optional key in apiKey raises the quota). Operations udi (device identifier -> GUDID record), deviceSearch (brand, company), drug (NDC)."
+   },
+   "category": {
+    "content": "RISK_COMPLIANCE",
+    "label": "Risk & compliance",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/RISK_COMPLIANCE",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OpenFDA/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/OpenFDA.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/OpenFDA.svg"
+   },
+   "type": {
+    "content": "openfda",
+    "label": "openFDA (US FDA: devices GUDID, drugs) (openfda)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OpenFDA/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://api.fda.gov"
+   },
+   "authType": {
+    "content": "NONE",
+    "label": "None",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OpenFDA/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 85
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OpenFDA/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OpenFDA/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OpenFDA/mappings"
+   }
+  }
+ },
+ {
+  "label": "OpenSanctions (OFAC, UN, EU, PEP) (OpenSanctions)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OpenSanctions",
+  "content": {
+   "id": {
+    "content": "OpenSanctions"
+   },
+   "label": {
+    "content": "OpenSanctions (OFAC, UN, EU, PEP)"
+   },
+   "description": {
+    "content": "Sanctions and PEP screening over OFAC SDN, UN, EU, UK and 200+ lists. apiKey = OpenSanctions API key. Operations screen (name, registrationNumber, country), search, entity. Properties dataset (default, sanctions, us_ofac_sdn, eu_fsf, un_sc_sanctions), threshold."
+   },
+   "category": {
+    "content": "RISK_COMPLIANCE",
+    "label": "Risk & compliance",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/RISK_COMPLIANCE",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OpenSanctions/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/OpenSanctions.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/OpenSanctions.svg"
+   },
+   "type": {
+    "content": "opensanctions",
+    "label": "OpenSanctions (OFAC, UN, EU sanctions and PEPs) (opensanctions)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OpenSanctions/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://api.opensanctions.org"
+   },
+   "authType": {
+    "content": "API_KEY_HEADER",
+    "label": "API key in a header",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OpenSanctions/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": "Authorization"
+   },
+   "trust": {
+    "content": 80
+   },
+   "apiKey": {
+    "content": "TO_BE_SET"
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OpenSanctions/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OpenSanctions/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OpenSanctions/mappings"
+   }
+  }
+ },
+ {
+  "label": "Oracle Database (OracleDatabase)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OracleDatabase",
+  "content": {
+   "id": {
+    "content": "OracleDatabase"
+   },
+   "label": {
+    "content": "Oracle Database"
+   },
+   "description": {
+    "content": "Dedicated Oracle Database connector. Supports query, get, insert, update, upsert, execute, schema discovery, preview, batching, and transactions. The Oracle JDBC driver is packaged with EBX-Connectors; use property jndi for a container-managed DataSource."
+   },
+   "category": {
+    "content": "DATABASE",
+    "label": "Database",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/DATABASE",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OracleDatabase/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/OracleDatabase.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/OracleDatabase.svg"
+   },
+   "type": {
+    "content": "oracle-database",
+    "label": "Oracle Database (oracle-database)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OracleDatabase/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "jdbc:oracle:thin:@//localhost:1521/FREEPDB1"
+   },
+   "authType": {
+    "content": "BASIC",
+    "label": "HTTP Basic",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OracleDatabase/authType?selector=true"
+   },
+   "username": {
+    "content": "TO_BE_SET"
+   },
+   "password": {
+    "content": "TO_BE_SET"
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OracleDatabase/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OracleDatabase/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OracleDatabase/mappings"
+   }
+  }
+ },
+ {
+  "label": "Oracle Fusion Cloud (OracleFusion)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OracleFusion",
+  "content": {
+   "id": {
+    "content": "OracleFusion"
+   },
+   "label": {
+    "content": "Oracle Fusion Cloud"
+   },
+   "description": {
+    "content": "Oracle Fusion Cloud Applications REST (ERP / SCM / HCM / CX). Integration user in BASIC. Properties family (fscmRestApi, crmRestApi, hcmRestApi), apiVersion."
+   },
+   "category": {
+    "content": "BUSINESS_APPS",
+    "label": "Business applications",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/BUSINESS_APPS",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OracleFusion/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/OracleFusion.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/OracleFusion.svg"
+   },
+   "type": {
+    "content": "oracle-fusion",
+    "label": "Oracle Fusion Cloud (REST) (oracle-fusion)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OracleFusion/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://HOST.oraclecloud.com"
+   },
+   "authType": {
+    "content": "BASIC",
+    "label": "HTTP Basic",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OracleFusion/authType?selector=true"
+   },
+   "username": {
+    "content": "TO_BE_SET"
+   },
+   "password": {
+    "content": "TO_BE_SET"
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 60
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OracleFusion/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OracleFusion/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/OracleFusion/mappings"
+   }
+  }
+ },
+ {
+  "label": "Moody's Orbis (Orbis)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Orbis",
+  "content": {
+   "id": {
+    "content": "Orbis"
+   },
+   "label": {
+    "content": "Moody's Orbis"
+   },
+   "description": {
+    "content": "Bureau van Dijk Orbis. apiKey = ApiToken. Operations match (name, country, registration number), data (bvdId), property select."
+   },
+   "category": {
+    "content": "CORPORATE_REGISTRIES",
+    "label": "Corporate registries",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/CORPORATE_REGISTRIES",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Orbis/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/Orbis.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/Orbis.svg"
+   },
+   "type": {
+    "content": "orbis",
+    "label": "Bureau van Dijk Orbis (orbis)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Orbis/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://api.bvdinfo.com/v1/orbis"
+   },
+   "authType": {
+    "content": "API_KEY_HEADER",
+    "label": "API key in a header",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Orbis/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": "ApiToken"
+   },
+   "trust": {
+    "content": 85
+   },
+   "apiKey": {
+    "content": "TO_BE_SET"
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Orbis/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Orbis/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Orbis/mappings"
+   }
+  }
+ },
+ {
+  "label": "PostgreSQL (PostgreSQL)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/PostgreSQL",
+  "content": {
+   "id": {
+    "content": "PostgreSQL"
+   },
+   "label": {
+    "content": "PostgreSQL"
+   },
+   "description": {
+    "content": "Dedicated PostgreSQL connector. Supports query, get, insert, update, upsert, execute, schema discovery, preview, batching, and transactions. The PostgreSQL JDBC driver is packaged with EBX-Connectors; use property jndi for a container-managed DataSource."
+   },
+   "category": {
+    "content": "DATABASE",
+    "label": "Database",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/DATABASE",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/PostgreSQL/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/PostgreSQL.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/PostgreSQL.svg"
+   },
+   "type": {
+    "content": "postgresql",
+    "label": "PostgreSQL (postgresql)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/PostgreSQL/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "jdbc:postgresql://localhost:5432/mdm"
+   },
+   "authType": {
+    "content": "BASIC",
+    "label": "HTTP Basic",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/PostgreSQL/authType?selector=true"
+   },
+   "username": {
+    "content": "TO_BE_SET"
+   },
+   "password": {
+    "content": "TO_BE_SET"
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/PostgreSQL/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/PostgreSQL/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/PostgreSQL/mappings"
+   }
+  }
+ },
+ {
+  "label": "RabbitMQ (RabbitMQ)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RabbitMQ",
+  "content": {
+   "id": {
+    "content": "RabbitMQ"
+   },
+   "label": {
+    "content": "RabbitMQ"
+   },
+   "description": {
+    "content": "RabbitMQ AMQP 0-9-1. Bounded publish and manual-ack receive; peek requeues deliveries. Use TLS (amqps) outside local development."
+   },
+   "category": {
+    "content": "MESSAGING",
+    "label": "Messaging & events",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/MESSAGING",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RabbitMQ/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/RabbitMQ.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/RabbitMQ.svg"
+   },
+   "type": {
+    "content": "rabbitmq",
+    "label": "RabbitMQ (rabbitmq)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RabbitMQ/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "amqps://localhost:5671"
+   },
+   "authType": {
+    "content": "BASIC",
+    "label": "HTTP Basic",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RabbitMQ/authType?selector=true"
+   },
+   "username": {
+    "content": "TO_BE_SET"
+   },
+   "password": {
+    "content": "TO_BE_SET"
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RabbitMQ/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RabbitMQ/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RabbitMQ/mappings"
+   }
+  }
+ },
+ {
+  "label": "Recherche d'entreprises (api.gouv.fr) (RechercheEntreprises)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises",
+  "content": {
+   "id": {
+    "content": "RechercheEntreprises"
+   },
+   "label": {
+    "content": "Recherche d'entreprises (api.gouv.fr)"
+   },
+   "description": {
+    "content": "Imported from OpenAPI 3.0.0 - Recherche d'entreprises (api.gouv.fr) v1.0.0. # Bienvenue sur la documentation interactive d'API Recherche d’entreprises !\n\nL’API Recherche d’Entreprises permet à tout le monde retrouver une entreprise,\nune association, ou un service public en France. Elle propose un grand nombre de\ncritères de recherche, en particulier la dénomination, l’adresse et les\ndirigeants ou élus.\n\n## Données accessibles dans l'API\n\nL’API étant totalement ouverte d'accès, elle comporte des limitations. Ainsi\nne sont pas accessibles dans l'API :\n\n- les entreprises non-diffusibles\n\n- les entreprises qui se sont vues refuser leurs immatriculation au RCS\n\n\n**Attention :** cette API ne permet pas d'accèder aux données complètes de\nla base Sirene, mais uniquement de rechercher une entreprise par sa\ndénomination ou son adresse. Pour savoir comment obtenir les données\ncomplètes, consultez [notre fiche\nexplicative.](https://api.gouv.fr/guides/quelle-api-sirene)\n\n\n## Commencer à utiliser l'API\n\nL'API est accessible à partir de cette adresse : [https://recherche-entreprises.api.gouv.fr](https://recherche-entreprises.api.gouv.fr)\n\n\n**Attention :** Vous devez rajouter votre requête sur l'adresse.\n\n## Limite des requêtes\n\nL'API accepte **au maximum 7 requêtes par seconde** par adresse IP. Une limite de 30 requêtes par seconde par ASN est aussi en place. Il est donc probable de faire face à cette limite sur les cloud publics.\nCette valeur correspond à une **limite maximale** et ne constitue pas un débit garanti.\n\n\nEn cas d'usage excessif, notamment en période de forte activité, l'accès à l'API\npeut être temporairement restreint afin d'assurer un accès équitable à l'ensemble\ndes utilisateurs. La priorité est alors donnée aux systèmes internes et aux\nservices publics.\n\n\nLorsque la limite est dépassée, le serveur renvoie une réponse\n**HTTP 429 – Too Many Requests**.\nL'en-tête **`R"
+   },
+   "category": {
+    "content": "CORPORATE_REGISTRIES",
+    "label": "Corporate registries",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/CORPORATE_REGISTRIES",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/RechercheEntreprises.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/RechercheEntreprises.svg"
+   },
+   "type": {
+    "content": "rest",
+    "label": "Generic JSON REST (rest)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://recherche-entreprises.api.gouv.fr"
+   },
+   "authType": {
+    "content": "NONE",
+    "label": "None",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 85
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/RechercheEntreprises/mappings"
+   }
+  }
+ },
+ {
+  "label": "Amazon S3 (S3)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/S3",
+  "content": {
+   "id": {
+    "content": "S3"
+   },
+   "label": {
+    "content": "Amazon S3"
+   },
+   "description": {
+    "content": "S3 bucket (SigV4). Username = access key id, password = secret access key; properties bucket, region, endpoint (S3-compatible), root."
+   },
+   "category": {
+    "content": "CLOUD_STORAGE",
+    "label": "Cloud & file storage",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/CLOUD_STORAGE",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/S3/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/S3.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/S3.svg"
+   },
+   "type": {
+    "content": "s3",
+    "label": "Amazon S3 (files) (s3)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/S3/type?selector=true"
+   },
+   "baseUrl": {
+    "content": null
+   },
+   "authType": {
+    "content": "BASIC",
+    "label": "HTTP Basic",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/S3/authType?selector=true"
+   },
+   "username": {
+    "content": "TO_BE_SET"
+   },
+   "password": {
+    "content": "TO_BE_SET"
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/S3/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/S3/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/S3/mappings"
+   }
+  }
+ },
+ {
+  "label": "SAP S/4HANA Business Partner (OData) (SAP)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SAP",
+  "content": {
+   "id": {
+    "content": "SAP"
+   },
+   "label": {
+    "content": "SAP S/4HANA Business Partner (OData)"
+   },
+   "description": {
+    "content": "OData v2 service root. Sandbox of the SAP Business Accelerator Hub: header APIKey. Real system: authentication BASIC (communication user) or BEARER, property sap-client. Property odata.version=4 for OData v4 services."
+   },
+   "category": {
+    "content": "BUSINESS_APPS",
+    "label": "Business applications",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/BUSINESS_APPS",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SAP/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/SAP.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/SAP.svg"
+   },
+   "type": {
+    "content": "sap-odata",
+    "label": "SAP (OData v2 / v4) (sap-odata)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SAP/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER"
+   },
+   "authType": {
+    "content": "API_KEY_HEADER",
+    "label": "API key in a header",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SAP/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": "APIKey"
+   },
+   "trust": {
+    "content": 70
+   },
+   "apiKey": {
+    "content": "TO_BE_SET"
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SAP/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SAP/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SAP/mappings"
+   }
+  }
+ },
+ {
+  "label": "SAP Ariba (SAPAriba)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SAPAriba",
+  "content": {
+   "id": {
+    "content": "SAPAriba"
+   },
+   "label": {
+    "content": "SAP Ariba"
+   },
+   "description": {
+    "content": "SAP Ariba supplier and procurement APIs with bounded reads and realm-scoped writes."
+   },
+   "category": {
+    "content": "BUSINESS_APPS",
+    "label": "Business applications",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/BUSINESS_APPS",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SAPAriba/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/SAPAriba.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/SAPAriba.svg"
+   },
+   "type": {
+    "content": "sap-ariba",
+    "label": "SAP Ariba (sap-ariba)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SAPAriba/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://openapi.ariba.com"
+   },
+   "authType": {
+    "content": "API_KEY_HEADER",
+    "label": "API key in a header",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SAPAriba/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": "apiKey"
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": "TO_BE_SET"
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SAPAriba/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SAPAriba/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SAPAriba/mappings"
+   }
+  }
+ },
+ {
+  "label": "SFTP server (SFTP)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SFTP",
+  "content": {
+   "id": {
+    "content": "SFTP"
+   },
+   "label": {
+    "content": "SFTP server"
+   },
+   "description": {
+    "content": "Files on an SFTP server (jsch.jar). Password, or property privateKey = path of an OpenSSH key. Operations read (csv/json/jsonl), write, list. Property root."
+   },
+   "category": {
+    "content": "CLOUD_STORAGE",
+    "label": "Cloud & file storage",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/CLOUD_STORAGE",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SFTP/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/SFTP.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/SFTP.svg"
+   },
+   "type": {
+    "content": "sftp",
+    "label": "SFTP (files) (sftp)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SFTP/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "sftp://HOST:22"
+   },
+   "authType": {
+    "content": "BASIC",
+    "label": "HTTP Basic",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SFTP/authType?selector=true"
+   },
+   "username": {
+    "content": "TO_BE_SET"
+   },
+   "password": {
+    "content": "TO_BE_SET"
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SFTP/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SFTP/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SFTP/mappings"
+   }
+  }
+ },
+ {
+  "label": "Microsoft SQL Server (SQLServer)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SQLServer",
+  "content": {
+   "id": {
+    "content": "SQLServer"
+   },
+   "label": {
+    "content": "Microsoft SQL Server"
+   },
+   "description": {
+    "content": "Dedicated on-premises Microsoft SQL Server connector. Encrypted transport and certificate validation are required; use property jndi for a managed DataSource."
+   },
+   "category": {
+    "content": "DATABASE",
+    "label": "Database",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/DATABASE",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SQLServer/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/SQLServer.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/SQLServer.svg"
+   },
+   "type": {
+    "content": "sql-server",
+    "label": "Microsoft SQL Server (sql-server)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SQLServer/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "jdbc:sqlserver://HOST:1433;databaseName=MDM"
+   },
+   "authType": {
+    "content": "BASIC",
+    "label": "HTTP Basic",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SQLServer/authType?selector=true"
+   },
+   "username": {
+    "content": "TO_BE_SET"
+   },
+   "password": {
+    "content": "TO_BE_SET"
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SQLServer/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SQLServer/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SQLServer/mappings"
+   }
+  }
+ },
+ {
+  "label": "Salesforce CRM (Salesforce)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Salesforce",
+  "content": {
+   "id": {
+    "content": "Salesforce"
+   },
+   "label": {
+    "content": "Salesforce CRM"
+   },
+   "description": {
+    "content": "OAuth 2.0 client credentials by default. Set the consumer secret (apiKey) and the property clientId (consumer key); properties oauth.flow (client_credentials | password), securityToken, apiVersion, instanceUrl."
+   },
+   "category": {
+    "content": "BUSINESS_APPS",
+    "label": "Business applications",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/BUSINESS_APPS",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Salesforce/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/Salesforce.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/Salesforce.svg"
+   },
+   "type": {
+    "content": "salesforce",
+    "label": "Salesforce (REST, OAuth 2.0) (salesforce)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Salesforce/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://login.salesforce.com"
+   },
+   "authType": {
+    "content": "NONE",
+    "label": "None",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Salesforce/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 60
+   },
+   "apiKey": {
+    "content": "TO_BE_SET"
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Salesforce/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Salesforce/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Salesforce/mappings"
+   }
+  }
+ },
+ {
+  "label": "ServiceNow (ServiceNow)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ServiceNow",
+  "content": {
+   "id": {
+    "content": "ServiceNow"
+   },
+   "label": {
+    "content": "ServiceNow"
+   },
+   "description": {
+    "content": "ServiceNow Table API. Tables core_company, customer_account, cmdb_ci... Filter = encoded query (name=ACME^country=FR)."
+   },
+   "category": {
+    "content": "BUSINESS_APPS",
+    "label": "Business applications",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/BUSINESS_APPS",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ServiceNow/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/ServiceNow.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/ServiceNow.svg"
+   },
+   "type": {
+    "content": "servicenow",
+    "label": "ServiceNow (Table API) (servicenow)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ServiceNow/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://INSTANCE.service-now.com"
+   },
+   "authType": {
+    "content": "BASIC",
+    "label": "HTTP Basic",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ServiceNow/authType?selector=true"
+   },
+   "username": {
+    "content": "TO_BE_SET"
+   },
+   "password": {
+    "content": "TO_BE_SET"
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 60
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ServiceNow/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ServiceNow/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/ServiceNow/mappings"
+   }
+  }
+ },
+ {
+  "label": "Microsoft SharePoint Online (SharePoint)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SharePoint",
+  "content": {
+   "id": {
+    "content": "SharePoint"
+   },
+   "label": {
+    "content": "Microsoft SharePoint Online"
+   },
+   "description": {
+    "content": "Microsoft Graph connector for bounded SharePoint site, list, item, drive and master-data file operations."
+   },
+   "category": {
+    "content": "BUSINESS_APPS",
+    "label": "Business applications",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/BUSINESS_APPS",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SharePoint/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/SharePoint.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/SharePoint.svg"
+   },
+   "type": {
+    "content": "sharepoint",
+    "label": "Microsoft SharePoint (sharepoint)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SharePoint/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://graph.microsoft.com/v1.0"
+   },
+   "authType": {
+    "content": "OAUTH2",
+    "label": "OAuth 2.0 (token endpoint and flow in the oauth.* properties)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SharePoint/authType?selector=true"
+   },
+   "username": {
+    "content": "TO_BE_SET"
+   },
+   "password": {
+    "content": "TO_BE_SET"
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SharePoint/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SharePoint/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SharePoint/mappings"
+   }
+  }
+ },
+ {
+  "label": "INSEE Sirene 3.11 (Sirene)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Sirene",
+  "content": {
+   "id": {
+    "content": "Sirene"
+   },
+   "label": {
+    "content": "INSEE Sirene 3.11"
+   },
+   "description": {
+    "content": "French business register. Set the API key (Connector > apiKey)."
+   },
+   "category": {
+    "content": "CORPORATE_REGISTRIES",
+    "label": "Corporate registries",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/CORPORATE_REGISTRIES",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Sirene/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/Sirene.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/Sirene.svg"
+   },
+   "type": {
+    "content": "sirene",
+    "label": "INSEE Sirene (sirene)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Sirene/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://api.insee.fr/api-sirene/3.11"
+   },
+   "authType": {
+    "content": "API_KEY_HEADER",
+    "label": "API key in a header",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Sirene/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": "X-INSEE-Api-Key-Integration"
+   },
+   "trust": {
+    "content": 90
+   },
+   "apiKey": {
+    "content": "TO_BE_SET"
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Sirene/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Sirene/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Sirene/mappings"
+   }
+  }
+ },
+ {
+  "label": "Snowflake (Snowflake)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Snowflake",
+  "content": {
+   "id": {
+    "content": "Snowflake"
+   },
+   "label": {
+    "content": "Snowflake"
+   },
+   "description": {
+    "content": "SQL REST API. apiKey = programmatic access token (property tokenType=PAT) or OAuth token (tokenType=OAUTH); or property auth=keypair with username + private key in password + property account. Context: properties warehouse, database, schema, role, timeout, max.rows."
+   },
+   "category": {
+    "content": "DATA_PLATFORMS",
+    "label": "Data platforms",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/DATA_PLATFORMS",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Snowflake/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/Snowflake.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/Snowflake.svg"
+   },
+   "type": {
+    "content": "snowflake",
+    "label": "Snowflake (SQL REST API) (snowflake)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Snowflake/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://ACCOUNT.snowflakecomputing.com"
+   },
+   "authType": {
+    "content": "BEARER",
+    "label": "Bearer token",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Snowflake/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": "TO_BE_SET"
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Snowflake/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Snowflake/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Snowflake/mappings"
+   }
+  }
+ },
+ {
+  "label": "SAP SuccessFactors (SuccessFactors)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SuccessFactors",
+  "content": {
+   "id": {
+    "content": "SuccessFactors"
+   },
+   "label": {
+    "content": "SAP SuccessFactors"
+   },
+   "description": {
+    "content": "SAP SuccessFactors OData v2 profile for person, employment and user master data."
+   },
+   "category": {
+    "content": "BUSINESS_APPS",
+    "label": "Business applications",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/BUSINESS_APPS",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SuccessFactors/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/SuccessFactors.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/SuccessFactors.svg"
+   },
+   "type": {
+    "content": "sap-successfactors",
+    "label": "SAP SuccessFactors (sap-successfactors)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SuccessFactors/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://HOST.successfactors.com"
+   },
+   "authType": {
+    "content": "OAUTH2",
+    "label": "OAuth 2.0 (token endpoint and flow in the oauth.* properties)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SuccessFactors/authType?selector=true"
+   },
+   "username": {
+    "content": "TO_BE_SET"
+   },
+   "password": {
+    "content": "TO_BE_SET"
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SuccessFactors/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SuccessFactors/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/SuccessFactors/mappings"
+   }
+  }
+ },
+ {
+  "label": "VIES (EU VAT check) (VIES)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/VIES",
+  "content": {
+   "id": {
+    "content": "VIES"
+   },
+   "label": {
+    "content": "VIES (EU VAT check)"
+   },
+   "description": {
+    "content": "European Commission VAT number validation, no key. Operation check (countryCode, vatNumber)."
+   },
+   "category": {
+    "content": "RISK_COMPLIANCE",
+    "label": "Risk & compliance",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/RISK_COMPLIANCE",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/VIES/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/VIES.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/VIES.svg"
+   },
+   "type": {
+    "content": "vies",
+    "label": "VIES (EU VAT validation) (vies)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/VIES/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://ec.europa.eu/taxation_customs/vies/rest-api"
+   },
+   "authType": {
+    "content": "NONE",
+    "label": "None",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/VIES/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 80
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/VIES/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/VIES/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/VIES/mappings"
+   }
+  }
+ },
+ {
+  "label": "Inbound webhook (Webhook)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Webhook",
+  "content": {
+   "id": {
+    "content": "Webhook"
+   },
+   "label": {
+    "content": "Inbound webhook"
+   },
+   "description": {
+    "content": "POST /ebx-ps-fasttrack/connectors/webhook/{mapping id or label}. apiKey = shared secret expected in X-Webhook-Secret; username / password = the EBX account the import runs as (or the caller uses HTTP Basic with its own EBX account). Property sample = sample JSON for the designer."
+   },
+   "category": {
+    "content": "MESSAGING",
+    "label": "Messaging & events",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/MESSAGING",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Webhook/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/Webhook.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/Webhook.svg"
+   },
+   "type": {
+    "content": "webhook",
+    "label": "Inbound webhook (HTTP POST) (webhook)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Webhook/type?selector=true"
+   },
+   "baseUrl": {
+    "content": null
+   },
+   "authType": {
+    "content": "API_KEY_HEADER",
+    "label": "API key in a header",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Webhook/authType?selector=true"
+   },
+   "username": {
+    "content": "TO_BE_SET"
+   },
+   "password": {
+    "content": "TO_BE_SET"
+   },
+   "apiKeyHeader": {
+    "content": "X-Webhook-Secret"
+   },
+   "trust": {
+    "content": 50
+   },
+   "apiKey": {
+    "content": "TO_BE_SET"
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Webhook/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Webhook/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Webhook/mappings"
+   }
+  }
+ },
+ {
+  "label": "Wikidata (generic REST) (Wikidata)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Wikidata",
+  "content": {
+   "id": {
+    "content": "Wikidata"
+   },
+   "label": {
+    "content": "Wikidata (generic REST)"
+   },
+   "description": {
+    "content": "Configured only through properties (no Java): op.search = wbsearchentities by name, op.claims = wbgetclaims of an entity. No key. Demonstrates the generic REST connector."
+   },
+   "category": {
+    "content": "REFERENCE_DATA",
+    "label": "Location & reference data",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/REFERENCE_DATA",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Wikidata/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/Wikidata.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/Wikidata.svg"
+   },
+   "type": {
+    "content": "rest",
+    "label": "Generic JSON REST (rest)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Wikidata/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://www.wikidata.org"
+   },
+   "authType": {
+    "content": "NONE",
+    "label": "None",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Wikidata/authType?selector=true"
+   },
+   "username": {
+    "content": null
+   },
+   "password": {
+    "content": null
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 40
+   },
+   "apiKey": {
+    "content": null
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Wikidata/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Wikidata/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Wikidata/mappings"
+   }
+  }
+ },
+ {
+  "label": "Workday (Workday)",
+  "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Workday",
+  "content": {
+   "id": {
+    "content": "Workday"
+   },
+   "label": {
+    "content": "Workday"
+   },
+   "description": {
+    "content": "Workday REST (OAuth refresh token: properties clientId, refreshToken, apiKey = client secret) and RaaS reports (integration user in BASIC). Property tenant."
+   },
+   "category": {
+    "content": "BUSINESS_APPS",
+    "label": "Business applications",
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/ConnectorCategory/BUSINESS_APPS",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Workday/category?selector=true"
+   },
+   "logo": {
+    "content": "ebx-connectors:ext-images:connect/logos/Workday.svg"
+   },
+   "uploadedLogo": {
+    "content": null
+   },
+   "logoUrl": {
+    "content": "/ebx-connectors/www/common/images/connect/logos/Workday.svg"
+   },
+   "type": {
+    "content": "workday",
+    "label": "Workday (REST and RaaS) (workday)",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Workday/type?selector=true"
+   },
+   "baseUrl": {
+    "content": "https://wd3-impl-services1.workday.com"
+   },
+   "authType": {
+    "content": "BASIC",
+    "label": "HTTP Basic",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Workday/authType?selector=true"
+   },
+   "username": {
+    "content": "TO_BE_SET"
+   },
+   "password": {
+    "content": "TO_BE_SET"
+   },
+   "apiKeyHeader": {
+    "content": null
+   },
+   "trust": {
+    "content": 60
+   },
+   "apiKey": {
+    "content": "TO_BE_SET"
+   },
+   "connectTimeoutMs": {
+    "content": 10000
+   },
+   "readTimeoutMs": {
+    "content": 30000
+   },
+   "active": {
+    "content": true
+   },
+   "connectionStatus": {
+    "content": "NOT_CONNECTED",
+    "selector": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Workday/connectionStatus?selector=true"
+   },
+   "connectionVerifiedAt": {
+    "content": null
+   },
+   "connectionFingerprint": {
+    "content": null
+   },
+   "connectionMessage": {
+    "content": null
+   },
+   "properties": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Workday/properties"
+   },
+   "mappings": {
+    "details": "http://localhost:8080/ebx-dataservices/rest/data/v1/BConnectors/Connectors/root/Connector/Workday/mappings"
+   }
+  }
+ }
+]

@@ -1,0 +1,322 @@
+{
+ "model": {
+  "name": "DemoEnrichmentConflicts",
+  "label": {
+   "en_US": "Demo Multiple enrichments and conflict management",
+   "fr_FR": "Demo Enrichissements multiples et gestion des conflits"
+  },
+  "description": {
+   "en_US": "Demo: a company is enriched by connectors by decreasing trust (Recherche d'entreprises, then Wikidata); a steward arbitrates the conflicts, then reviews the record.",
+   "fr_FR": "Démo : une société enrichie par confiance décroissante (Recherche d'entreprises, puis Wikidata) ; un steward tranche les conflits puis contrôle la fiche."
+  },
+  "owner": "Badministrator",
+  "launching": {
+   "quick": true,
+   "synchronous": false
+  },
+  "moduleName": "ebx-connectors",
+  "permissionsOnInstances": {
+   "administrate": "Badministrator",
+   "view": "Badministrator",
+   "agentAccessForAdmin": "Badministrator",
+   "agentAccessForInbox": "Badministrator",
+   "creatorIsViewer": true
+  },
+  "notificationProcessTermination": {
+   "notifyProcessCreator": true
+  },
+  "modelOrientation": 90,
+  "startNodeId": 1
+ },
+ "dataContext": {
+  "variables": [
+   {
+    "name": "dataspace",
+    "defaultValue": "Companies",
+    "direction": "in"
+   },
+   {
+    "name": "dataset",
+    "defaultValue": "Companies",
+    "direction": "in"
+   },
+   {
+    "name": "companyId",
+    "defaultValue": "739",
+    "direction": "in"
+   },
+   {
+    "name": "mappings",
+    "defaultValue": "140,139",
+    "direction": "in"
+   },
+   {
+    "name": "xpath",
+    "direction": "inout"
+   },
+   {
+    "name": "report",
+    "direction": "out"
+   },
+   {
+    "name": "changedCount",
+    "direction": "out"
+   },
+   {
+    "name": "okCount",
+    "direction": "out"
+   },
+   {
+    "name": "errorCount",
+    "direction": "out"
+   },
+   {
+    "name": "status",
+    "direction": "out"
+   },
+   {
+    "name": "conflictCount",
+    "direction": "out"
+   },
+   {
+    "name": "hasConflicts",
+    "direction": "out"
+   },
+   {
+    "name": "runId",
+    "direction": "out"
+   },
+   {
+    "name": "resolvedCount",
+    "direction": "out"
+   },
+   {
+    "name": "remainingCount",
+    "direction": "out"
+   }
+  ]
+ },
+ "nodes": [
+  {
+   "nodeId": 1,
+   "kind": "scriptTask",
+   "label": "Enrichir la société (sources par confiance décroissante)",
+   "description": "Exécute les mappings ${mappings} sur la société ${companyId} : Recherche d'entreprises (confiance 85) écrit les valeurs, Wikidata (confiance 40) ne peut que proposer, ses désaccords deviennent des conflits.",
+   "firstInProcess": true,
+   "scriptClass": "ebx-connectors@com.on.ebx.connect.ebx.workflow.ConnectorScriptTaskBean",
+   "scriptMode": "library",
+   "scriptLibrary": true,
+   "beanParams": [
+    {
+     "name": "dataspace",
+     "value": "${dataspace}"
+    },
+    {
+     "name": "dataset",
+     "value": "${dataset}"
+    },
+    {
+     "name": "xpath",
+     "value": "/root/Companies[./Identification/Id=${companyId}]"
+    },
+    {
+     "name": "mappings",
+     "value": "${mappings}"
+    },
+    {
+     "name": "dryRun",
+     "value": "false"
+    },
+    {
+     "name": "failOnError",
+     "value": "false"
+    }
+   ],
+   "outputMappingParams": [
+    {
+     "name": "report",
+     "value": "report"
+    },
+    {
+     "name": "changedCount",
+     "value": "changedCount"
+    },
+    {
+     "name": "okCount",
+     "value": "okCount"
+    },
+    {
+     "name": "errorCount",
+     "value": "errorCount"
+    },
+    {
+     "name": "status",
+     "value": "status"
+    },
+    {
+     "name": "conflictCount",
+     "value": "conflictCount"
+    },
+    {
+     "name": "hasConflicts",
+     "value": "hasConflicts"
+    },
+    {
+     "name": "runId",
+     "value": "runId"
+    }
+   ]
+  },
+  {
+   "nodeId": 2,
+   "kind": "condition",
+   "label": "Des conflits à arbitrer ?",
+   "description": "Vrai si l'enrichissement a consigné au moins un conflit (politique TRUSTED).",
+   "scriptClass": "ebx-root-1.0@com.orchestranetworks.workflow.beans.ConditionIsValueEqualsTo",
+   "conditionLibrary": true,
+   "beanParams": [
+    {
+     "name": "value1",
+     "value": "${hasConflicts}"
+    },
+    {
+     "name": "value2",
+     "value": "true"
+    }
+   ]
+  },
+  {
+   "nodeId": 3,
+   "kind": "userTask",
+   "label": "Arbitrer les conflits",
+   "description": "${conflictCount} conflit(s) : pour chaque champ, garder la valeur en place (source la plus fiable) ou prendre la valeur proposée. Statut de l'enrichissement : ${status}, ${changedCount} enregistrement(s) modifié(s).",
+   "userTaskVersion": 2,
+   "agentAccess": "allowed",
+   "agentGuidance": "askHuman",
+   "agentInstruction": "Open the conflict manager on the company and decide each proposal: keep the current value (more trusted source) or take the proposed one. GET /ebx-connectors/rest/v1/conflicts?recordKey=<id> lists them; POST /conflicts/{id}/accept or /reject decides.",
+   "serviceDeclarationKey": "ebx-connectors@ConflictManager",
+   "profiles": [
+    "Badministrator"
+   ],
+   "offeredToProfiles": [
+    "Badministrator"
+   ],
+   "input": {
+    "parameters": [
+     {
+      "name": "service",
+      "value": "ebx-connectors@ConflictManager"
+     },
+     {
+      "name": "branch",
+      "value": "${dataspace}"
+     },
+     {
+      "name": "dataset",
+      "value": "${dataset}"
+     },
+     {
+      "name": "table",
+      "value": "/root/Companies"
+     },
+     {
+      "name": "recordKey",
+      "value": "${companyId}"
+     }
+    ]
+   },
+   "output": {
+    "parameters": [
+     {
+      "name": "resolvedCount",
+      "value": "resolvedCount"
+     },
+     {
+      "name": "remainingCount",
+      "value": "remainingCount"
+     }
+    ]
+   },
+   "enableReject": false,
+   "enableConfirmationRequest": true,
+   "enableComment": true,
+   "termination": {
+    "completionStrategy": "allWorkItemsCompleted",
+    "rejectionThreshold": 0
+   }
+  },
+  {
+   "nodeId": 4,
+   "kind": "userTask",
+   "label": "Contrôler la société enrichie",
+   "description": "Fiche de la société ${companyId} après enrichissement (statut ${status}, ${changedCount} modification(s), ${conflictCount} conflit(s), ${resolvedCount} tranché(s)). Les onglets Provenance et Conflits du dataset Connectors gardent la trace de chaque valeur.",
+   "userTaskVersion": 2,
+   "agentAccess": "allowed",
+   "agentGuidance": "askHuman",
+   "serviceDeclarationKey": "ebx-root-1.0@default",
+   "profiles": [
+    "Badministrator"
+   ],
+   "offeredToProfiles": [
+    "Badministrator"
+   ],
+   "input": {
+    "parameters": [
+     {
+      "name": "service",
+      "value": "@default"
+     },
+     {
+      "name": "branch",
+      "value": "${dataspace}"
+     },
+     {
+      "name": "instance",
+      "value": "${dataset}"
+     },
+     {
+      "name": "xpath",
+      "value": "/root/Companies[./Identification/Id=${companyId}]"
+     },
+     {
+      "name": "firstCallDisplay",
+      "value": "record"
+     }
+    ]
+   },
+   "enableReject": false,
+   "enableConfirmationRequest": false,
+   "enableComment": true,
+   "customizedAcceptLabel": {
+    "en_US": "Close the demo",
+    "fr_FR": "Terminer la démo"
+   },
+   "termination": {
+    "completionStrategy": "allWorkItemsCompleted",
+    "rejectionThreshold": 0
+   }
+  }
+ ],
+ "links": [
+  {
+   "fromNodeId": 1,
+   "toNodeId": 2,
+   "role": "default"
+  },
+  {
+   "fromNodeId": 2,
+   "toNodeId": 3,
+   "role": "ifTrue"
+  },
+  {
+   "fromNodeId": 2,
+   "toNodeId": 4,
+   "role": "ifFalse"
+  },
+  {
+   "fromNodeId": 3,
+   "toNodeId": 4,
+   "role": "default"
+  }
+ ]
+}
