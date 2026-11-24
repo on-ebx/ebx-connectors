@@ -77,10 +77,9 @@ An item:
 }
 ```
 
-## The confidence envelope (read only while `documents` is open)
+## The confidence envelope (any connector)
 
-Since 1.4.2 the envelope is a capability of the `documents` preview function: it is read only while the word `documents` is in `-Debx.connectors.preview`; closed, a document that carries `_minConfidence` is treated as before November
-(see [CONTRACT.md](CONTRACT.md), "Reserved names"). The engine rule itself does not look at the connector type. When the document a mapping reads (at its response root) carries a numeric
+The engine rule is generic. When the document a mapping reads (at its response root) carries a numeric
 `_minConfidence`:
 
 - a rule whose **source path** has a `_confidence` below the threshold, or no confidence at all, writes

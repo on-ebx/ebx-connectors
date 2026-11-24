@@ -25,7 +25,7 @@ public final class PreviewMappingRefusalTest
 			check(ConfigTransfer.templateRefusal(null, json("{\"label\":\"m\",\"operation\":\"cdc\",\"inputs\":{\"matching\":\"policy\"}}")) == null, "matching=policy is not a preview function");
 			check(ConfigTransfer.templateRefusal(null, json("{\"label\":\"m\",\"operation\":\"cdc\",\"inputs\":{\"deleteMode\":\"flag\"}}")) == null, "a CDC mapping without matching is accepted");
 			check(ConfigTransfer.templateRefusal(null, json("{\"label\":\"m\",\"operation\":\"query\",\"inputs\":{\"matching\":\"off\"}}")) == null, "another operation's input named matching is accepted");
-			System.setProperty(PreviewFeatures.PROPERTY, "cdc,cdcMatching");
+			System.setProperty(PreviewFeatures.PROPERTY, "cdcMatching");
 			check(ConfigTransfer.templateRefusal(null, json("{\"label\":\"m\",\"operation\":\"cdc\",\"inputs\":{\"matching\":\"off\"}}")) == null, "opened: accepted");
 		}
 		finally

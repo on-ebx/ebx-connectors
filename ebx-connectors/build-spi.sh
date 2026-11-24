@@ -31,18 +31,13 @@ JAR_BIN="${JAVA_HOME_VALUE:+$JAVA_HOME_VALUE/bin/}jar"
 CP="$EBX_API_JAR:$RT/jackson-core-2.18.12.jar:$RT/jackson-databind-2.18.12.jar:$RT/jackson-annotations-2.18.12.jar"
 FILES=("$SRC"/com/on/ebx/connect/spi/*.java "$SRC/com/on/ebx/connect/core/AbstractRestConnector.java" "$SRC/com/on/ebx/connect/core/HttpJsonClient.java" "$SRC/com/on/ebx/connect/core/HttpExchangeStats.java" "$SRC/com/on/ebx/connect/core/HttpRetryPolicy.java" "$SRC/com/on/ebx/connect/core/RestSchemaRefresh.java" "$SRC/com/on/ebx/connect/core/Json.java" "$SRC/com/on/ebx/connect/core/OAuth2.java" "$SRC/com/on/ebx/connect/core/Tls.java" "$SRC/com/on/ebx/connect/core/Secrets.java" "$SRC/com/on/ebx/connect/core/SecretResolvers.java" "$SRC/com/on/ebx/connect/core/AwsCredentials.java" "$SRC/com/on/ebx/connect/core/AwsSigV4.java" "$SRC/com/on/ebx/connect/core/Jwt.java" "$SRC/com/on/ebx/connect/core/Hashing.java" "$SRC/com/on/ebx/connect/core/Webhooks.java" "$SRC/com/on/ebx/connect/core/Egress.java" "$SRC/com/on/ebx/connect/core/Redaction.java")
 "$JAVAC_BIN" --release 8 -nowarn -Xlint:none -cp "$CP" -d "$OUT" "${FILES[@]}"
-# reproducible (audit F3-100, 1.4.2): see tools/jar_repro.sh. EBX_JAR_OUT_DIR is where the jars go (default dist/); tools/package.sh sets it.
-source "$HERE/tools/jar_repro.sh"
-EPOCH="$(repro_epoch "$HERE")"
-VERSION="$(repro_version "$EPOCH")"
-DIST="${EBX_JAR_OUT_DIR:-$HERE/dist}"
-mkdir -p "$DIST"
-printf 'Manifest-Version: 1.0\nCreated-By: ebx-connectors tools/jar_repro.sh\nImplementation-Title: ebx-connectors-spi\nImplementation-Version: %s\n' "$VERSION" > "$OUT/MANIFEST.MF"
-repro_jar "$JAR_BIN" "$DIST/ebx-connectors-spi.jar" "$OUT/MANIFEST.MF" "$EPOCH" "$OUT"
+VERSION="$(date +%Y.%m.%d)"
+mkdir -p "$HERE/dist"
+printf 'Manifest-Version: 1.0\nImplementation-Title: ebx-connectors-spi\nImplementation-Version: %s\n' "$VERSION" > "$OUT/MANIFEST.MF"
+"$JAR_BIN" cfm "$HERE/dist/ebx-connectors-spi.jar" "$OUT/MANIFEST.MF" -C "$OUT" com
 # sources, for the IDE of the extension developer
 SRCOUT="$(mktemp -d)"; mkdir -p "$SRCOUT/com/on/ebx/connect/spi" "$SRCOUT/com/on/ebx/connect/core"
 cp "$SRC"/com/on/ebx/connect/spi/*.java "$SRCOUT/com/on/ebx/connect/spi/"
 cp "$SRC/com/on/ebx/connect/core/AbstractRestConnector.java" "$SRC/com/on/ebx/connect/core/HttpJsonClient.java" "$SRC/com/on/ebx/connect/core/HttpExchangeStats.java" "$SRC/com/on/ebx/connect/core/HttpRetryPolicy.java" "$SRC/com/on/ebx/connect/core/RestSchemaRefresh.java" "$SRC/com/on/ebx/connect/core/Json.java" "$SRC/com/on/ebx/connect/core/OAuth2.java" "$SRC/com/on/ebx/connect/core/Tls.java" "$SRC/com/on/ebx/connect/core/Secrets.java" "$SRC/com/on/ebx/connect/core/SecretResolvers.java" "$SRC/com/on/ebx/connect/core/AwsCredentials.java" "$SRC/com/on/ebx/connect/core/AwsSigV4.java" "$SRC/com/on/ebx/connect/core/Jwt.java" "$SRC/com/on/ebx/connect/core/Hashing.java" "$SRC/com/on/ebx/connect/core/Webhooks.java" "$SRC/com/on/ebx/connect/core/Egress.java" "$SRC/com/on/ebx/connect/core/Redaction.java" "$SRCOUT/com/on/ebx/connect/core/"
-printf 'Manifest-Version: 1.0\nCreated-By: ebx-connectors tools/jar_repro.sh\n' > "$SRCOUT/MANIFEST.MF"
-repro_jar "$JAR_BIN" "$DIST/ebx-connectors-spi-sources.jar" "$SRCOUT/MANIFEST.MF" "$EPOCH" "$SRCOUT"
-echo "built $DIST/ebx-connectors-spi.jar ($VERSION): $(unzip -l "$DIST/ebx-connectors-spi.jar" | grep -c '\.class$') classes"
+"$JAR_BIN" cf "$HERE/dist/ebx-connectors-spi-sources.jar" -C "$SRCOUT" com
+echo "built $HERE/dist/ebx-connectors-spi.jar ($VERSION): $(unzip -l "$HERE/dist/ebx-connectors-spi.jar" | grep -c '\.class$') classes"

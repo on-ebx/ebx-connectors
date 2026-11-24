@@ -8,9 +8,7 @@
 # and licenses/ (the licence and notice texts of the jars the war ships; the war carries them too, in META-INF/licenses),
 # OPERATIONS.md, UPGRADE-ROLLBACK.md, RELEASE-NOTES.md (the first-parent git log since the previous tag, or since --since),
 # DEPENDENCY-CHECK.txt (the output of the advisory check below), tools/smoke.sh and tools/schema_diff.py (what an operator runs around
-# an upgrade), jars/ (since 1.4.2, audit F3-100: on-ebx-agent.jar, on-ebx-mapping.jar and ebx-connectors-spi.jar, built here from the packed
-# commit by build-agent.sh, build-mapping.sh and build-spi.sh, which other repositories embed or compile against: the MDM Factory pins their
-# SHA-256, so its package can be rebuilt on any machine from this package), and SHA256SUMS (of everything else, the three jars included).
+# an upgrade), and SHA256SUMS (of everything else).
 #
 # The advisory gate (lot 1.4.1, audit X3-08): BEFORE the build, tools/deps_check.sh --require-osv asks OSV (https://osv.dev) for the
 # advisories of every jar of runtime-libs/ and REFUSES the package (CONN-PACKAGE-3) on any advisory that runtime-libs/DEPS-KNOWN.txt
@@ -98,20 +96,6 @@ root="$stage/$name"
 mkdir -p "$root"
 
 cp "$war" "$root/ebx-connectors.war"
-# the three jars that other repositories consume, from the packed commit (the tree is clean: HEAD is what is built). The jar scripts take the
-# server lib from EBX_LIB_DIR like build-test.sh; their entries and manifest are reproducible (tools/jar_repro.sh): the same commit and JDK give the same bytes.
-mkdir -p "$root/jars"
-for jar_script in build-agent.sh build-mapping.sh build-spi.sh; do
-	if ! EBX_JAR_OUT_DIR="$root/jars" "$module_dir/$jar_script" >> "$stage/jars.log" 2>&1; then
-		tail -20 "$stage/jars.log" >&2
-		printf 'CONN-PACKAGE-4: %s failed (log above): the package would not carry the jar that other modules consume.\n' "$jar_script" >&2
-		exit 1
-	fi
-done
-rm -f "$root/jars/ebx-connectors-spi-sources.jar"
-for jar in on-ebx-agent.jar on-ebx-mapping.jar ebx-connectors-spi.jar; do
-	[[ -f "$root/jars/$jar" ]] || { printf 'CONN-PACKAGE-4: jars/%s was not produced.\n' "$jar" >&2; exit 1; }
-done
 cp "$module_dir/runtime-libs/THIRD-PARTY-NOTICES.md" "$root/THIRD-PARTY-NOTICES.md"
 mkdir -p "$root/licenses"
 cp "$module_dir/runtime-libs/licenses/"* "$root/licenses/"
@@ -145,9 +129,6 @@ fi
 	printf '# ebx-connectors %s\n\n' "$version"
 	printf -- '- Commit: `%s`\n- Built: %s (UTC)\n' "$commit" "$built_at"
 	printf -- '- war SHA-256: `%s`\n' "$(sha256 "$war" | awk '{print $1}')"
-	for jar in on-ebx-agent.jar on-ebx-mapping.jar ebx-connectors-spi.jar; do
-		printf -- '- jars/%s SHA-256: `%s`\n' "$jar" "$(sha256 "$root/jars/$jar" | awk '{print $1}')"
-	done
 	if [[ -n "$waiver" ]]; then
 		printf -- '- **OSV advisory check NOT RUN, waived**: %s\n\n' "$waiver"
 	else
@@ -172,7 +153,7 @@ fi
 } > "$root/RELEASE-NOTES.md"
 
 # --- checksums of everything in the folder, then the zip ---------------------------------------------------------
-( cd "$root" && { sha256 ebx-connectors.war THIRD-PARTY-NOTICES.md OPERATIONS.md UPGRADE-ROLLBACK.md RELEASE-NOTES.md DEPENDENCY-CHECK.txt tools/smoke.sh tools/schema_diff.py jars/on-ebx-agent.jar jars/on-ebx-mapping.jar jars/ebx-connectors-spi.jar; find licenses -type f | LC_ALL=C sort | while IFS= read -r f; do sha256 "$f"; done; } > SHA256SUMS )
+( cd "$root" && { sha256 ebx-connectors.war THIRD-PARTY-NOTICES.md OPERATIONS.md UPGRADE-ROLLBACK.md RELEASE-NOTES.md DEPENDENCY-CHECK.txt tools/smoke.sh tools/schema_diff.py; find licenses -type f | LC_ALL=C sort | while IFS= read -r f; do sha256 "$f"; done; } > SHA256SUMS )
 
 zip_path="$dist_dir/$name.zip"
 rm -f "$zip_path"

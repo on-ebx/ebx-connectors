@@ -67,15 +67,6 @@ public final class ConnectorTableTrigger extends TableTrigger
 		{
 			pContext.addError("ConnectorTableTrigger: publish=golden needs the queued send (blocking=false): the golden is known only after the commit");
 		}
-		// preview function, closed by default (audit C3-05, decision of 2026-11-12): the trigger is refused when it is registered
-		try
-		{
-			com.on.ebx.connect.core.PreviewFeatures.requirePublishAllowed(this.publish);
-		}
-		catch (final com.on.ebx.connect.spi.ConnectorException closed)
-		{
-			pContext.addError("ConnectorTableTrigger: " + closed.getMessage());
-		}
 	}
 
 	@Override
@@ -124,15 +115,6 @@ public final class ConnectorTableTrigger extends TableTrigger
 		if (OutboundQueue.isSending())
 		{
 			return; // a send of the queue writes the record in its own procedure: that write must not queue the record again
-		}
-		try
-		{
-			// preview function, closed by default: a trigger that was compiled before the function was closed refuses here too, and queues nothing
-			com.on.ebx.connect.core.PreviewFeatures.requirePublishAllowed(this.publish);
-		}
-		catch (final com.on.ebx.connect.spi.ConnectorException closed)
-		{
-			throw OperationException.createError("ConnectorTableTrigger: " + closed.getMessage());
 		}
 		if (com.on.ebx.connect.core.CdcOrigin.skips(this.skipOrigin, com.on.ebx.connect.core.CdcOrigin.current()))
 		{

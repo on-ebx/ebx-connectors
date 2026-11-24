@@ -32,20 +32,6 @@ public final class DocumentConfidenceTest
 
 	public static void main(final String[] args)
 	{
-		final String saved = System.getProperty(PreviewFeatures.PROPERTY);
-		try
-		{
-			System.setProperty(PreviewFeatures.PROPERTY, "documents");
-			run();
-		}
-		finally
-		{
-			if (saved == null) System.clearProperty(PreviewFeatures.PROPERTY); else System.setProperty(PreviewFeatures.PROPERTY, saved);
-		}
-	}
-
-	private static void run()
-	{
 		final ObjectNode item = Json.object();
 		item.put("document", "invoice-42.pdf");
 		item.put("invoiceNumber", "INV-2026-0042");
@@ -85,19 +71,6 @@ public final class DocumentConfidenceTest
 		final MappingResult written = MappingEngine.applyValues(plain, null, update, table);
 		check(staged.size() == 3 && written.getConflicts().isEmpty() && written.getChanges().get(0).getSource() == null, "every value written, no source");
 		check(MappingEngine.proposalComment(0.1, 0.8, String.join("", java.util.Collections.nCopies(600, "x"))).length() == 500, "comment fits Conflict.comment");
-
-		// audit C3-17 (1.4.2): the envelope belongs to the documents function. Closed, a document that carries the reserved names is treated
-		// as before November: no threshold, no proposal, every rule writes, no source kept (a third-party API that sends _minConfidence changes nothing)
-		item.put(DocumentExtraction.MIN_CONFIDENCE, 0.8);
-		check(DocumentExtraction.envelope(item) != null, "opened: the envelope is read");
-		System.clearProperty(PreviewFeatures.PROPERTY);
-		check(DocumentExtraction.envelope(item) == null, "closed: the envelope is not read");
-		final MappingEngine.Values closed = MappingEngine.compute(mapping(), item, null);
-		check(closed.getProposals().isEmpty(), "closed: no proposal from a document that carries _minConfidence: " + closed.getProposals());
-		staged.clear();
-		final MappingResult writtenClosed = MappingEngine.applyValues(closed, null, update, table);
-		check(staged.size() == 3 && writtenClosed.getConflicts().isEmpty() && writtenClosed.getChanges().get(0).getSource() == null,
-			"closed: every value written as before November, no source, no conflict: " + staged);
 		System.out.println("DocumentConfidenceTest PASS: below-threshold values proposed with comment, confident values written with source, no envelope unchanged");
 	}
 }

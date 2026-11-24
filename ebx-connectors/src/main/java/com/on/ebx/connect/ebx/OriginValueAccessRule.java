@@ -43,15 +43,11 @@ public final class OriginValueAccessRule implements AccessRule
 		final OriginValueAccessRule provenance = new OriginValueAccessRule(ConnectorsPaths.FieldProvenance.DATASPACE, ConnectorsPaths.FieldProvenance.DATASET,
 			ConnectorsPaths.FieldProvenance.TABLE_PATH, ConnectorsPaths.FieldProvenance.RECORD_KEY);
 		OriginValueAccessRule.on(pContext, ConnectorsPaths.FIELD_PROVENANCE, ConnectorsPaths.FieldProvenance.VALUE, provenance);
-		// audit C3-02, C2-03 (1.4.2): where the value was read (document, page, quoted words, up to 2,000 characters) is a value of the origin record too
-		OriginValueAccessRule.on(pContext, ConnectorsPaths.FIELD_PROVENANCE, ConnectorsPaths.FieldProvenance.SOURCE, provenance);
 		final OriginValueAccessRule conflict = new OriginValueAccessRule(ConnectorsPaths.Conflict.DATASPACE, ConnectorsPaths.Conflict.DATASET,
 			ConnectorsPaths.Conflict.TABLE_PATH, ConnectorsPaths.Conflict.RECORD_KEY);
 		OriginValueAccessRule.on(pContext, ConnectorsPaths.CONFLICT, ConnectorsPaths.Conflict.CURRENT_VALUE, conflict);
 		OriginValueAccessRule.on(pContext, ConnectorsPaths.CONFLICT, ConnectorsPaths.Conflict.PROPOSED_VALUE, conflict);
 		OriginValueAccessRule.on(pContext, ConnectorsPaths.CONFLICT, ConnectorsPaths.Conflict.RECORD_LABEL, conflict);
-		// audit C3-02, C2-03 (1.4.2): the comment of a proposal quotes the source (up to 500 characters); the steward's decision comment shares the column
-		OriginValueAccessRule.on(pContext, ConnectorsPaths.CONFLICT, ConnectorsPaths.Conflict.COMMENT, conflict);
 		final OriginValueAccessRule outbound = new OriginValueAccessRule(ConnectorsPaths.OutboundState.DATASPACE, ConnectorsPaths.OutboundState.DATASET,
 			ConnectorsPaths.OutboundState.TABLE_PATH, ConnectorsPaths.OutboundState.RECORD_KEY);
 		OriginValueAccessRule.on(pContext, ConnectorsPaths.OUTBOUND_STATE, ConnectorsPaths.OutboundState.LAST_DOCUMENT, outbound);

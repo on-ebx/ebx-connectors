@@ -171,8 +171,7 @@ public final class BigQueryConnector extends AbstractRestConnector
 				}
 				else
 				{
-					value.put("value", parameter.getValue() instanceof java.sql.Timestamp
-						? ((java.sql.Timestamp) parameter.getValue()).toInstant().toString() : String.valueOf(parameter.getValue()));
+					value.put("value", String.valueOf(parameter.getValue()));
 				}
 			}
 		}
@@ -421,93 +420,8 @@ public final class BigQueryConnector extends AbstractRestConnector
 		return Json.fromJava(text);
 	}
 
-	/**
-	 * Audit C2-05 (1.4.2): the {@code sql} input of {@code query} takes the engine's bound parameters. A feed's {@code ${...}} in that input
-	 * is turned by the engine into {@code :__bN} (and {@code ${watermark}} into {@code :watermark}) with the values passed as inputs; BigQuery's
-	 * syntax is {@code @name}, so the engine's tokens are rewritten here, outside quoted text, and the values go in {@code queryParameters}:
-	 * a value is never written into the statement.
-	 */
-	@Override
-	public boolean bindsWatermark(final String pOperation, final String pInputName)
-	{
-		return "query".equals(pOperation) && "sql".equals(pInputName);
-	}
-
-	/** The statement with the engine's {@code :__bN} and {@code :watermark} written as BigQuery named parameters; quoted text is left alone. */
-	static String namedParameters(final String pSql)
-	{
-		final Matcher token = Pattern.compile("^:(__b[0-9]+|watermark)(?![A-Za-z0-9_])").matcher("");
-		final StringBuilder out = new StringBuilder(pSql.length() + 8);
-		char quote = 0;
-		for (int i = 0; i < pSql.length(); i++)
-		{
-			final char c = pSql.charAt(i);
-			if (quote != 0)
-			{
-				out.append(c);
-				if (c == '\\' && i + 1 < pSql.length())
-				{
-					out.append(pSql.charAt(++i));
-				}
-				else if (c == quote)
-				{
-					quote = 0;
-				}
-			}
-			else if (c == '\'' || c == '"' || c == '`')
-			{
-				quote = c;
-				out.append(c);
-			}
-			else if (c == ':' && token.reset(pSql.substring(i)).find())
-			{
-				out.append('@').append(token.group(1));
-				i += token.group(1).length();
-			}
-			else
-			{
-				out.append(c);
-			}
-		}
-		return out.toString();
-	}
-
-	/**
-	 * The values of the {@code @name} parameters of a statement: an engine-bound {@code __bN} is a number only when its text is the canonical
-	 * form of that number (a code such as "0012" stays text), the feed {@code watermark} keeps its declared type, any other name is read from
-	 * the inputs as before.
-	 */
-	static Map<String, Object> parametersOf(final String pSql, final Map<String, String> pInputs)
-	{
-		final Map<String, Object> parameters = new LinkedHashMap<String, Object>();
-		final Matcher m = Pattern.compile("@([A-Za-z_][A-Za-z0-9_]*)").matcher(pSql);
-		final Object watermark = JdbcConnector.watermarkValue(pInputs);
-		while (m.find())
-		{
-			final String name = m.group(1);
-			final String value = pInputs.get(name);
-			if (name.startsWith(com.on.ebx.connect.core.ValueTemplates.BOUND_PREFIX))
-			{
-				parameters.put(name, JdbcConnector.boundValue(value));
-			}
-			else if (JdbcConnector.WATERMARK_PARAMETER.equals(name) && watermark != null)
-			{
-				parameters.put(name, watermark);
-			}
-			else
-			{
-				parameters.put(name, value == null ? null : value.matches("-?[0-9]+") ? (Object) Long.valueOf(value) : value);
-			}
-		}
-		return parameters;
-	}
-
 	private static String typeOf(final Object pValue)
 	{
-		if (pValue instanceof java.sql.Timestamp)
-		{
-			return "TIMESTAMP";
-		}
 		if (pValue instanceof Boolean)
 		{
 			return "BOOL";
@@ -573,8 +487,14 @@ public final class BigQueryConnector extends AbstractRestConnector
 		}
 		if ("query".equals(pOperation))
 		{
-			final String sql = BigQueryConnector.namedParameters(AbstractRestConnector.require(inputs, "sql"));
-			final Map<String, Object> parameters = BigQueryConnector.parametersOf(sql, inputs);
+			final String sql = AbstractRestConnector.require(inputs, "sql");
+			final Map<String, Object> parameters = new LinkedHashMap<String, Object>();
+			final Matcher m = Pattern.compile("@([A-Za-z_][A-Za-z0-9_]*)").matcher(sql);
+			while (m.find())
+			{
+				final String value = inputs.get(m.group(1));
+				parameters.put(m.group(1), value == null ? null : value.matches("-?[0-9]+") ? (Object) Long.valueOf(value) : value);
+			}
 			final JsonNode out = this.run(sql, parameters, max);
 			return out == null || out.get("count").asInt() == 0 ? null : out;
 		}

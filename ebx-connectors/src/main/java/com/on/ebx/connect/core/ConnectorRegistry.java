@@ -98,8 +98,6 @@ import com.on.ebx.connect.connectors.AlationConnector;
 import com.on.ebx.connect.connectors.MicrosoftPurviewConnector;
 import com.on.ebx.connect.connectors.HadoopWebHdfsConnector;
 import com.on.ebx.connect.connectors.SparkSqlConnector;
-import com.on.ebx.connect.connectors.ClouderaHiveConnector;
-import com.on.ebx.connect.connectors.ClouderaImpalaConnector;
 import com.on.ebx.connect.connectors.DominoRestConnector;
 import com.on.ebx.connect.spi.Connector;
 import com.on.ebx.connect.spi.ConnectorConfig;
@@ -189,8 +187,6 @@ public final class ConnectorRegistry
 		this.registerType(MicrosoftPurviewConnector.class);
 		this.registerType(HadoopWebHdfsConnector.class);
 		this.registerType(SparkSqlConnector.class);
-		this.registerType(ClouderaHiveConnector.class);
-		this.registerType(ClouderaImpalaConnector.class);
 		this.registerType(DominoRestConnector.class);
 		this.registerType(OrbisConnector.class);
 		this.registerType(S3Connector.class);

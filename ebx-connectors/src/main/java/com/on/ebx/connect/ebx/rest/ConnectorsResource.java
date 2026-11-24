@@ -1399,23 +1399,6 @@ public final class ConnectorsResource
 		final Repository repository = this.sessionContext.getRepository();
 		try
 		{
-			// The session and the RUN right come first (itest S7.4, 2026-11-12): a caller without the right learns nothing about a mapping,
-			// neither that it exists, nor what its connector is, nor that it is inactive.
-			// C2-10: an EBX user with the RUN right, like POST /sync. The shared-secret and signature modes are gone (the REST
-			// Toolkit never let them through, and they fell back to the login and password stored on the connection).
-			final Session session = this.sessionContext.getSessionOrNull();
-			final int access = com.on.ebx.connect.core.Webhooks.access(session != null,
-				session != null && ConnectorsAccess.has(session, ConnectorsAccess.Right.RUN));
-			if (access == com.on.ebx.connect.core.Webhooks.UNAUTHENTICATED)
-			{
-				return Response.status(401).header("WWW-Authenticate", "Basic realm=\"EBX\"").type(MediaType.APPLICATION_JSON)
-						.entity(Json.write(ConnectorsResource.errorBody(com.on.ebx.connect.core.Webhooks.refusal(access)))).build();
-			}
-			final Response refused = this.refused("webhook", ConnectorsAccess.Right.RUN);
-			if (refused != null)
-			{
-				return refused;
-			}
 			if (pMax < 1 || pMax > com.on.ebx.connect.core.RunLimits.WEBHOOK)
 			{
 				return ConnectorsResource.fail(400, "max must be between 1 and " + com.on.ebx.connect.core.RunLimits.WEBHOOK);
@@ -1434,6 +1417,21 @@ public final class ConnectorsResource
 			if (!connector.isActive())
 			{
 				return ConnectorsResource.fail(403, "Connector " + connector.getId() + " is inactive");
+			}
+			// C2-10: an EBX user with the RUN right, like POST /sync. The shared-secret and signature modes are gone (the REST
+			// Toolkit never let them through, and they fell back to the login and password stored on the connection).
+			final Session session = this.sessionContext.getSessionOrNull();
+			final int access = com.on.ebx.connect.core.Webhooks.access(session != null,
+				session != null && ConnectorsAccess.has(session, ConnectorsAccess.Right.RUN));
+			if (access == com.on.ebx.connect.core.Webhooks.UNAUTHENTICATED)
+			{
+				return Response.status(401).header("WWW-Authenticate", "Basic realm=\"EBX\"").type(MediaType.APPLICATION_JSON)
+						.entity(Json.write(ConnectorsResource.errorBody(com.on.ebx.connect.core.Webhooks.refusal(access)))).build();
+			}
+			final Response refused = this.refused("webhook", ConnectorsAccess.Right.RUN);
+			if (refused != null)
+			{
+				return refused;
 			}
 			// audit C2-06: the body is read only now, once the caller is known to hold the RUN right
 			final String[] bodyText = new String[1];

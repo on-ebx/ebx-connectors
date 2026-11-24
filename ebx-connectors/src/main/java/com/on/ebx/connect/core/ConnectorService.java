@@ -1511,9 +1511,6 @@ public final class ConnectorService
 			MappingSynchronizationPolicy.requireValid(connector, pFeed);
 			if (connector instanceof com.on.ebx.connect.connectors.KafkaConnector && "cdc".equals(pFeed.getOperation()))
 			{
-				// preview function, closed by default: change data capture does nothing until the word cdc is in -Debx.connectors.preview
-				// (the Kafka consume feed of the same connector is older and is not asked for it)
-				PreviewFeatures.requireOperation("kafka", "cdc");
 				// Gartner lot B: Debezium change events, applied then checkpointed per mapping (never a broker commit)
 				return this.runCdc(pSession, repo, pFeed, dataset, (com.on.ebx.connect.connectors.KafkaConnector) connector, pExtraInputs,
 					pDryRun, pOrigin, header, start, runId);
@@ -2172,8 +2169,6 @@ public final class ConnectorService
 		final com.on.ebx.connect.connectors.KafkaConnector pKafka, final Map<String, String> pExtraInputs, final boolean pDryRun, final String pOrigin,
 		final SyncResult pHeader, final long pStart, final String pRunId) throws Exception
 	{
-		// preview function, closed by default (audit C3-13, C3-15): the second door, for a caller that reaches this method by another way
-		PreviewFeatures.requireOperation("kafka", pFeed.getOperation());
 		// audit C3-04: the mapping's own inputs rule (delete mode, matching, topic...); a run-time input only lowers the size of the batch
 		final List<String> refusedInputs = new java.util.ArrayList<String>();
 		final Map<String, String> inputs = ConnectorService.cdcRunInputs(pFeed.getInputs(), pExtraInputs, refusedInputs);

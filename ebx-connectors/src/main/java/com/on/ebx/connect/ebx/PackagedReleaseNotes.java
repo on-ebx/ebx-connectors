@@ -169,7 +169,7 @@ public final class PackagedReleaseNotes
 				stepOrder += 10;
 			}
 		}
-		return new Release(version,release.getAttribute("releasedOn"),releaseStatus(formal,release.getAttribute("status")),text(release,"title"),text(release,"summary"),items,metrics,passes,steps);
+		return new Release(version,release.getAttribute("releasedOn"),formal?"CURRENT":"IN_PROGRESS",text(release,"title"),text(release,"summary"),items,metrics,passes,steps);
 	}
 	private static List<Element> children(final Element parent, final String name)
 	{
@@ -225,31 +225,6 @@ public final class PackagedReleaseNotes
 		if ("known-issue".equals(category)) return "KNOWN_ISSUE";
 		if ("upgrade".equals(category)) return "UPGRADE";
 		return "FEATURE";
-	}
-	/**
-	 * The status of the Release table for an entry of the manifest. A formal release is {@code current} (one only),
-	 * {@code supported} or {@code archived}; a development increment is {@code in-progress} or {@code complete}, and a
-	 * complete one is shown as ARCHIVED (the table has no other value for "closed"). Until 1.5.0 the attribute was not read:
-	 * every formal release was CURRENT and every increment IN_PROGRESS. An unknown value keeps that old reading; the
-	 * manifest test refuses it at build time.
-	 */
-	static String releaseStatus(final boolean formal, final String declared)
-	{
-		final String value = declared == null ? "" : declared.trim().toLowerCase(java.util.Locale.ENGLISH);
-		if (formal)
-		{
-			return "supported".equals(value) ? "SUPPORTED" : "archived".equals(value) ? "ARCHIVED" : "CURRENT";
-		}
-		return "complete".equals(value) ? "ARCHIVED" : "draft".equals(value) ? "DRAFT" : "IN_PROGRESS";
-	}
-	/**
-	 * Whether the status of an installed release row follows the packaged notes: only a row the module owns, and only when
-	 * the value differs (1.4.2 was installed as CURRENT; once 1.5.0 is the current one it becomes SUPPORTED). A customer
-	 * row is never touched, and nothing else of an installed row is rewritten.
-	 */
-	static boolean updatePackagedStatus(final String existingOwnership, final String existingStatus, final String packagedStatus)
-	{
-		return "PACKAGED".equals(existingOwnership) && packagedStatus != null && !packagedStatus.equals(existingStatus);
 	}
 	/** Existing records of either owner are authoritative and therefore skipped. */
 	static boolean installPackagedRelease(final String existingOwnership){return existingOwnership==null;}

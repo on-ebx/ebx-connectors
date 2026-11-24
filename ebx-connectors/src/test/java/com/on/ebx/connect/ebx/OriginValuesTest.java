@@ -71,26 +71,6 @@ public final class OriginValuesTest
 			// the field paths the rule is declared on are absolute paths of the model
 			check(Path.parse(ConnectorsPaths.SYNC_LOG.format() + "/" + ConnectorsPaths.SyncLog.CHANGES.format().substring(2)).format().equals("/root/SyncLog/changes"), "field path");
 
-			// audit C3-02, C2-03 (1.4.2): every column that holds a value read from the origin record is under the rule, FieldProvenance.source and Conflict.comment included
-			final java.util.Set<String> declared = new java.util.TreeSet<String>();
-			final com.orchestranetworks.schema.SchemaExtensionsContext recorder = (com.orchestranetworks.schema.SchemaExtensionsContext) Proxy.newProxyInstance(
-				OriginValuesTest.class.getClassLoader(), new Class<?>[] { com.orchestranetworks.schema.SchemaExtensionsContext.class }, new InvocationHandler()
-				{
-					@Override
-					public Object invoke(final Object pProxy, final Method pMethod, final Object[] pArguments)
-					{
-						if ("setAccessRuleOnNode".equals(pMethod.getName()) && pArguments[1] instanceof OriginValueAccessRule) declared.add(((Path) pArguments[0]).format());
-						return null;
-					}
-				});
-			OriginValueAccessRule.register(recorder);
-			for (final String path : new String[] { "/root/SyncLog/changes", "/root/SyncLog/recordLabel", "/root/FieldProvenance/value", "/root/FieldProvenance/source",
-				"/root/Conflict/currentValue", "/root/Conflict/proposedValue", "/root/Conflict/recordLabel", "/root/Conflict/comment",
-				"/root/OutboundState/lastDocument", "/root/OutboundState/recordLabel" })
-			{
-				check(declared.contains(path), "the origin rule must be declared on " + path + ", declared: " + declared);
-			}
-
 			// storeChanges: off by default, on only when asked
 			final String old = System.getProperty("ebx.connectors.log.storeChanges");
 			try

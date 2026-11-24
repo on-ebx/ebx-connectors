@@ -66,15 +66,6 @@ language-model connector").
   `changed` send does not resend them. Reference: [REFERENCE.md §2.14.6a](REFERENCE.md#2146a-asynchronous-outbound-scope-send-wave-13).
 - **Not offered in 1.2**: streaming, a tool run by ebx-connectors, Google tool use, listing the flows of a module.
 
-## Reserved names in a document a mapping reads (1.4.2)
-
-A document that a mapping reads at its response root, from any connector, is read by the mapping engine as a **confidence envelope** when it carries a numeric `_minConfidence`: the names `_minConfidence`,
-`_confidence` and `_sources` (and the `_evidence`, `_proposed` the documents connector adds) are then reserved. A rule whose source has no confidence, or a lower one than `_minConfidence`, writes nothing and logs a proposal
-(an OPEN conflict) instead; a confident rule writes and keeps the text of `_sources` in `FieldProvenance.source`. The envelope is **a capability of the `documents` preview function, not of the contract**: it is read only while
-`-Debx.connectors.preview` names `documents` (closed by default). A document that carries these names while it is closed is treated as before November (every rule writes, no proposal, no source). A third-party API or an extension
-connector that wants confidence-gated writes must therefore not rely on it before the function is open; one that merely happens to return a `_minConfidence` field is unaffected by default and, once `documents` is open, must rename it. The envelope is
-bounded: the comment of a proposal is cut at 500 characters, a source at 2,000. Detail: [DOCUMENTS.md](DOCUMENTS.md), "The confidence envelope".
-
 ## Transport
 
 The platform MBean `com.on.ebx.connectors:type=Contract`, registered when ebx-connectors starts and removed when it

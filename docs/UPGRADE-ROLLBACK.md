@@ -5,107 +5,6 @@ after. It does not replace a repository backup, and nothing in it has been rehea
 two upgrade paths it describes (a new table or field, a changed primary key) were read in the model history and in
 EBX's own documentation, not exercised end to end. Where that matters it says "not verified".
 
-## From 1.4.2 to 1.5.0
-
-**Rehearsed on 2026-11-23, before the tag, on a blank ON EBX 6.3.0-gp of the standard distribution** (ten core wars, no add-on, embedded H2), with the package built from commit `a3a464f` (stamped `1.4.2-10-ga3a464f`; the commit after it changes this section and the
-release-notes entry only): the repository the released 1.4.2 had created, then 1.4.2 → 1.5.0 → 1.4.2 → 1.5.0, and a new repository. **Not rehearsed**: a FastTrack workspace (`tools/install.sh`), a repository that holds mappings, runs or provenance (that one held connections and
-templates only), a real Cloudera connection inside ON EBX, the package built from the tag. The three HiveServer2 connections were played against a real Apache Hive 4.0.1, outside ON EBX.
-Each statement says how it is known: **measured** (a command or a test), **read** (in the code), or **not tried**.
-
-| Step of the rehearsal | Start | ERROR lines | What was read |
-|---|---|---|---|
-| 1.4.2, its own repository | 15 s | 0 | 102 connections, 231 properties, 7 templates, 104 seed markers |
-| → package of 1.5.0 | 20 s | 0 | `seeded 2 missing wave connector catalog record(s)`: 104 connections, 235 properties; `tools/upgrade_snapshot.py compare`: every earlier key and value preserved; `smoke.sh` 0 failed; `itest.sh` 58 passed, 0 failed, 2 not run (as on 1.4.2) |
-| → 1.4.2 again (the rollback) | 18 s | 0 | compare: preserved; the two Cloudera cards still listed; `smoke.sh` 0 failed |
-| → package of 1.5.0 again | 17 s | 0 | nothing seeded twice; compare: preserved; `smoke.sh` 0 failed |
-| package of 1.5.0, new repository | 25 s | 0 | 51 `[connectors]` lines in the kernel log, 104 connections, 7 templates; `smoke.sh` (administrator only) 0 failed |
-
-### What changes for the operator
-
-**The data model**: nothing (**measured**: `git diff v1.4.2 -- '*.xsd'` is empty). No JVM option is new. Replace the war as a unit and restart Tomcat, as for every release.
-
-**Two more connection cards.** `ClouderaHive` and `ClouderaImpala` are created by the additive seed at the first start (**measured** in the rehearsal: 102 → 104 connections, once), with placeholder URL and credentials, like every seeded card. Not with `-Debx.connectors.seed=none`; a card deleted afterwards stays deleted (`SeedMarker`).
-No driver is packaged for them: see `ebx-connectors/docs/CLOUDERA-USER-GUIDE.html`.
-
-**The Apache Spark SQL connection behaves differently**, because it could not work before on the Apache Hive driver (**measured** on Apache Hive 4.0.1, `tools/live-hive/run.sh`: the generic engine fails on every query, preview, discovery and description; the connection now passes them):
-
-| What | 1.4.2 | 1.5.0 |
-|---|---|---|
-| a query, a preview, a discovery, a description | failed on the Hive driver ("Method not supported", "Enabling read-only mode not supported") | answer |
-| `SELECT TRANSFORM(...) USING '...'` (and `MAP` / `REDUCE ... USING`) | reached the server and ran there | refused before the server is contacted |
-| the columns of a `SELECT *` | `table.column` | `column` (unless two columns would share a name) |
-| a URL with `principal=`, `AuthMech=1`, a `Krb...` option | accepted at validation | reported at validation: Kerberos is not handled |
-
-A mapping written against the `table.column` names of a `SELECT *` could not have run on 1.4.2, so nothing that worked changes its field names.
-
-**A timestamp read through JDBC keeps its seconds** (**measured** on a real in-memory H2 by `JdbcTimestampTextTest`, and on Apache Hive): `2026-11-20T10:15:00` where 1.4.2 wrote `2026-11-20T10:15`, for the rows of every JDBC connection, the profiler's minimum and maximum, and the Snowflake connector.
-What it changes on an instance: a dateTime field fed from a timestamp that falls on a whole minute (midnight included) was refused by ON EBX and stayed empty, the run reading `PARTIAL`; it is written at the next run of its flow. Values already stored are not touched. A watermark stored without seconds still compares (**measured**:
-the watermark tests read both forms). The refusal itself was **not replayed** on a JDBC mapping of a running ON EBX (it was measured on the catalogue scans in September, which write through the same call); whether ON EBX accepts a dateTime text carrying an offset is **not established**.
-
-**The installer's start-up lines are in the kernel log** (**measured** on a blank standard ON EBX 6.3.0-gp: 51 `[connectors]` lines where 1.4.2 showed 27). An alert on `[connectors]` ERROR lines can now fire for an installation that fails, which is its purpose. The line
-`ebx.log4j.category.log.wbp= INFO, Console, ebxFile:kernel` that `OPERATIONS.md` section 7.2 gave for 1.4.2 is no longer needed for them.
-
-### Before the first start of 1.5.0
-
-1. Stop the schedules and Tomcat; keep the 1.4.2 war with its libraries (the rollback).
-2. Replace the war as a unit (or `tools/install.sh` on a FastTrack workspace), restart Tomcat.
-3. `tools/smoke.sh` with `EXPECT_VERSION=1.5.0`; read `GET /v1/status`: `version.version` `1.5.0`, `installation.installerCompleted` `true`; read the `[connectors]` lines of the kernel log.
-4. The Factory's package embeds `on-ebx-agent.jar` and `on-ebx-mapping.jar`: none of the classes of their closures changed (**read**: `build-agent.sh`, `build-mapping.sh`), so the Factory may keep the jars of 1.4.2. The jars of this package differ in bytes all the same (their manifest carries the date of the commit).
-
-### Rolling back from 1.5.0 to 1.4.2
-
-Nothing in the data depends on 1.5.0 (no model change). Stop the schedules and Tomcat, put the 1.4.2 war back whole with its libraries, start (**measured** in the rehearsal: 18 s, no ERROR line, every value preserved, `smoke.sh` green). Two things stay behind: the two Cloudera cards, whose
-connection type 1.4.2 does not know (1.4.2 still lists them, with their type name; delete them or leave them unused: what its connection catalogue SCREEN draws for them was **not looked at**), and the dateTime values 1.5.0 wrote, which are ordinary values (**not tried**: that repository held no mapping).
-
-## From 1.4.1 to 1.4.2
-
-**Nothing in this section was rehearsed on a running instance.** 1.4.2 was built and tested offline (the suite, the package); the upgrade from 1.4.1 and the rollback to it were not run on a copy of a repository.
-Each statement says how it is known: **measured** (a command or a test on the source tree), **read** (in the code), or **not tried**.
-
-### What changes for the operator
-
-**The data model**: nothing (no field, no table, no key: **read**, the XSD is untouched in this lot). Replace the war as a unit and restart Tomcat, as for every release.
-
-**The capture is closed (the one change that can stop a flow).** In 1.4.0 and 1.4.1 the Debezium capture (`kafka` / `cdc`) was open; in 1.4.2 it is a preview function with its own word, **`cdc`**, closed by default like `documents`,
-`cdcMatching` and `redshift`. If a capture feed runs on this instance (a mapping on operation `cdc`, scheduled or started by hand), **add `cdc` to `-Debx.connectors.preview` before the restart**, in `ebx.sh` AND in the Eclipse launcher.
-Without it the next run answers `[CN-PREVIEW-CLOSED]` (coded, bilingual, before the broker is contacted), the checkpoint does not move, and the run reads the same batch once the word is added. **Measured** by `KafkaCdcClosedTest` and
-`PreviewFeaturesTest`. The ordinary Kafka operations (`consume`, `peek`, `publish`, the catalog operations) and a `consume` feed are NOT concerned and keep running with every word closed. `cdcMatching` opens nothing without `cdc`:
-`GET /v1/status` → `preview.cdcMatchingWithoutCdc` is `true` and the start-up log says so. Example: `-Debx.connectors.preview=documents,cdc,cdcMatching,redshift` (only the words actually in use).
-
-**New refusals** (all `[CN-PREVIEW-CLOSED]`, none is a 500; **measured**, offline tests named in the release notes):
-
-| What | Refused while | Before 1.4.2 |
-|---|---|---|
-| any run of a capture feed, and a direct `connectors_call` of `kafka` / `cdc` | `cdc` is not named | ran |
-| accepting a conflict whose field starts with `dama:` (a write into DAMA from the conflict screen) | `documents` is not named | wrote into DAMA |
-| a trigger or setting with `publish=golden`, when it is registered (the model does not compile) and when it fires (the user's save is refused, nothing is queued) | `cdc` and `cdcMatching` are not both named | accepted, then died after five attempts in the outbound queue |
-| the confidence envelope (`_minConfidence` in a document a mapping reads) | `documents` is not named | applied to every connector |
-
-A conflict refused for a closed `documents` stays open and can be accepted once the word is added. Rejecting a `dama:` conflict is not a DAMA write and is not refused.
-
-**`POST /v1/webhook/{feed}`** checks the session and the RUN right before it looks at the feed: a caller without the right now gets 401 or 403 and learns nothing about a mapping (before: 404, 400 or 403 with the connection's id). **Measured** by the integration suite of the lot (not rerun here).
-
-**What the permission rule now hides**: `FieldProvenance.source` and `Conflict.comment` (they quote the words of a document) follow the rule of the other stored values: a reader who cannot read the origin record sees them hidden. Rows already
-written are covered at once (the rule is applied at display); nothing is rewritten.
-
-### Before the first start of 1.4.2
-
-1. Stop the schedules and Tomcat; keep the 1.4.1 war with its libraries (the rollback).
-2. Add `cdc` to `-Debx.connectors.preview` if a capture feed runs here (above).
-3. Replace the war as a unit (or `tools/install.sh` on a FastTrack workspace), restart Tomcat. `tools/install.sh` now also delivers `tools/upgrade_snapshot.py` inside the module copy (`<workspace>/ebx-connectors/tools/`); it writes nothing in `<workspace>/tools/`.
-4. `tools/smoke.sh` with `EXPECT_VERSION=1.4.2`; read `GET /v1/status`: `version.version` `1.4.2`, `preview.open`, `preview.cdcMatchingWithoutCdc` `false`.
-5. The Factory's package embeds `on-ebx-agent.jar` and `on-ebx-mapping.jar`: take them from `jars/` of this package (their SHA-256 are in `SHA256SUMS`) and update the Factory's pins together with this war. `on-ebx-mapping.jar` could not be built from 1.4.0 and 1.4.1 (the mapping engine had grown out of its closure): the jar the Factory holds is older than the engine.
-
-### Taking the snapshot before an upgrade
-
-`tools/upgrade_snapshot.py capture <folder>` now reads 21 of the 27 tables; it leaves out `OutboundQueue` (the sender consumes its rows: count them by hand and let the queue drain) and the five `Release*` tables (rewritten from the release notes at every start). Both
-lists, with the reason, are in the script and checked against the model by `src/test/python/verify_upgrade_snapshot.py`. **Never run on a real upgrade.**
-
-### Rolling back from 1.4.2 to 1.4.1
-
-Nothing in the data depends on 1.4.2 (no model change). Stop the schedules and Tomcat, put the 1.4.1 war back whole with its libraries, start. 1.4.1 has no `cdc` word: a capture feed runs again by itself, which is what it did before. Conflicts and rows
-written by 1.4.2 are readable by 1.4.1. **Not tried.**
-
 ## From 1.4.0 to 1.4.1
 
 **Rehearsed on 2026-11-12, after the text below was written.** The three 1.4.1 wars, as packaged, were installed on a clean ON EBX 6.3.0-gp built from the standard distribution: new repository, 28 s, 0 ERROR, `/rest/v1/status` 200 for the three modules, each reporting Jackson 2.18.12 and its own read bounds; a body nested 80 and 5,000 levels deep got the coded refusal on the Connectors and catalog MCP entries; the OpenAPI import in YAML and the catalog's YAML contract route answered. The same wars then started on the repository created by 1.4.0, with Match and Merge and DAMA (43 s, 0 ERROR). `tools/install.sh` of the three modules was run on a copy of the development workspace: jars added and replaced, unknown jars left, Eclipse `.classpath` amended, build green, second run a no-op. Not done: an installation on the running development instance, a start from Eclipse, Kafka with snappy, a real Service Bus, a project of the MDM Factory from end to end, the way back to 1.4.0.
@@ -204,7 +103,7 @@ was read (document feeds only); `OutboundQueue.publish` holds `golden` when a tr
 
 | Property | Default in 1.4.0 | Meaning |
 |---|---|---|
-| `ebx.connectors.preview` | unset: everything closed | Comma-separated list of `documents`, `cdcMatching`, `redshift` in 1.4.0 and 1.4.1 (the capture itself was open); since 1.4.2 also `cdc`, and `cdcMatching` needs `cdc` too. Exact spelling; a misspelt word opens nothing and is logged once. |
+| `ebx.connectors.preview` | unset: everything closed | Comma-separated list of `documents`, `cdcMatching`, `redshift`; opens the three preview functions. Exact spelling; a misspelt word opens nothing and is logged once. |
 | `ebx.connectors.mcp.maxBodyBytes` | `4194304` (4 MiB) | Largest body of `POST /rest/mcp` and of the in-JVM bridges. |
 | `ebx.connectors.mcp.maxBatch` | `20` | Messages in one JSON-RPC batch. |
 | `ebx.connectors.mcp.maxJsonDepth` | `64` | Nesting depth of a message. |
@@ -309,7 +208,9 @@ over a repository that 1.4.0 has opened is not a rollback.** What 1.3.1 then doe
   `cdcMatching`: scenario B8 was never run on an instance. `redshift`, SAP OData, Workday and BigQuery: never run against a tenant.
   The capture feed itself ran against a live Kafka broker with Debezium-format events (17 checks), never against a real
   Debezium connector.
-- **`tools/upgrade_snapshot.py`** covered 17 of the 27 tables in 1.4.0 and 1.4.1; since 1.4.2 it covers 21 (see "From 1.4.1 to 1.4.2").
+- **`tools/upgrade_snapshot.py`** covers 17 of the 27 tables. It does not cover `AccessRight`, `OutboundQueue`, `SeedMarker`,
+  `Publication`, `Favorite` and the five `Release*` tables: count at least `AccessRight` and `OutboundQueue` by hand before and
+  after (Data Services `GET` on the table).
 - **A reload of the module's context on a live instance** has not been measured for this version (threads of the module and the
   class loader they carry). Replace the war with Tomcat stopped; do not touch a context file while EBX boots.
 

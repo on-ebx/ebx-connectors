@@ -424,9 +424,6 @@ def _remove_rights(ctx):
             ctx.report.failed("S3.9 temporary AccessRight row removed", ctx.rights_item["error"])
         else:
             ctx.report.passed("S3.9 temporary AccessRight row removed")
-            # The module keeps the rights for 5 s (AccessRightTable.TTL_MILLIS): the removal applies within that delay, like a change.
-            # Without this wait the boundary scenario S7 runs while the removed right still holds and reports refusals as missing.
-            ctx.sleep(ctx.rights_wait)
 
 
 def scenario_3_rights(ctx):

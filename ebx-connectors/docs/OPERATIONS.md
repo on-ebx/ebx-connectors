@@ -2,7 +2,7 @@
 
 For the person who installs, configures, upgrades and runs the `ebx-connectors` module on an ON EBX 6.3 server and
 did not write it. Everything below was read in the sources, scripts and existing guides of this repository and revised on
-2026-11-12 for release 1.4.0 (base commit `15ea90c`); the changes of 1.4.2 are marked "1.4.2" where they occur (preview word `cdc`, section 4 and 10; origin columns, section 4; upgrade snapshot, section 7.1; webhook and jars in `docs/UPGRADE-ROLLBACK.md`), and those of 1.5.0 "1.5.0" (start-up lines in the kernel log, section 7.2; the Cloudera connections and the timestamps are in `docs/UPGRADE-ROLLBACK.md` and `CLOUDERA-USER-GUIDE.html`). Where something could not be established by reading, it says "not established";
+2026-11-12 for release 1.4.0 (base commit `15ea90c`). Where something could not be established by reading, it says "not established";
 where it is described but was never run on an instance, it says "not rehearsed". Where the code and
 a guide disagree, the code is followed and the disagreement is stated in one line. "The owner's field notes" means the
 `CLAUDE.md` knowledge base of the module's owner; it is not shipped with the module.
@@ -24,7 +24,7 @@ for agents. Its configuration and its traces are stored in the dataspace and dat
 | EBX version it was run on | ON EBX 6.3: 6.3.0-gp on the owner's test instance (the offline suite compiles against that instance's `lib/`), after 6.3.0-dev and 6.3.0-rc2 to rc4; no other instance has been tried. `web.xml` is Jakarta EE 5.0 and the REST layer uses `jakarta.ws.rs`: it needs an EBX 6 build on Tomcat 10 or later. The module detects older builds only for the native MCP registration (it then serves `/ebx-connectors/rest/mcp` alone). |
 | Java level | Sources are compiled with `javac --release 8` (`build-test.sh`, `build-agent.sh`), so class files are major 52; the JDK that builds and the JVM that runs may be newer. The CI workflow asks for "Java 8+". Collibra's PATCH assumes `java.net.http` (JDK 11+) (REFERENCE.md §6.2.2). |
 | EBX jars | Compile time: `ebx.jar` (a standard ON EBX installation) or `ebx-lib.jar` (FastTrack; the same bytes), `ebx-addons.jar` (the Match and Merge public API, needed to compile `GoldenRecords`/`MameGoldenRecords`; the build stops if it is missing) and the servlet API, taken from `EBX_LIB_DIR` (default: `ebx-ps-fasttrack-server/lib` two folders above the module); Jackson and SLF4J come from `runtime-libs/`, the copies the war ships. Run time: ON EBX supplies its own API (`com.orchestranetworks.*`, `com.onwbp.*`, `jakarta.ws.rs.*`) and Tomcat the servlet API; **the war carries everything else**, Jackson and the SLF4J API included (section 1.1). |
-| Libraries owned by the module | `ebx-connectors/runtime-libs/*.jar` (JDBC drivers, Kafka, JSch, AMQP, ActiveMQ, Mongo, Cassandra, Couchbase, Azure Service Bus, codecs...), listed with licences in `THIRD-PARTY-NOTICES.md` and checksums in `SHA256SUMS`. The build packages them into `WEB-INF/lib` of the WAR, together with Jackson 2.18.12 (since 1.4.1; 2.14.2 before) and the SLF4J API (section 1.1). A connector type whose class cannot be loaded is not registered; REFERENCE.md §6.2.1 notes that only `kafka` and `sftp` are skipped quietly. GUIDE §18 still says to put some jars in Tomcat's shared `lib` (and quotes older versions: Kafka 3.6.1, JSch 0.2.16): **the build and `runtime-libs/README.md` win** (they package them; a second copy in the shared lib must not exist). |
+| Libraries owned by the module | `ebx-connectors/runtime-libs/*.jar` (JDBC drivers, Kafka, JSch, AMQP, ActiveMQ, Mongo, Cassandra, Couchbase, Azure Service Bus, codecs...), listed with licences in `THIRD-PARTY-NOTICES.md` and checksums in `SHA256SUMS`. The build packages them into `WEB-INF/lib` of the WAR, together with Jackson 2.14.2 and the SLF4J API (section 1.1). A connector type whose class cannot be loaded is not registered; REFERENCE.md §6.2.1 notes that only `kafka` and `sftp` are skipped quietly. GUIDE §18 still says to put some jars in Tomcat's shared `lib` (and quotes older versions: Kafka 3.6.1, JSch 0.2.16): **the build and `runtime-libs/README.md` win** (they package them; a second copy in the shared lib must not exist). |
 | Other modules | `ebx-data-catalog`: optional, detected at run time (`CatalogDetection`: dataset `DataCatalog`/`DataCatalog` of the catalog's own model, else `ABSENT`/`FOREIGN`); without it lineage events are simply not delivered to a local catalog. `ebx-addon-mame` (Match and Merge): only the golden-record helpers use it and keep the dependency in one class. `ebx-assistant` web application: needed only for the native MCP registration. Other modules depend on this one: `ebx-mdm-factory` embeds `on-ebx-agent.jar` built here (`ebx-connectors/build-agent.sh`) and calls the in-JVM bridge `com.on.ebx.connectors:type=InJvmMcp`. Since wave 11 the module also offers the sibling modules a versioned contract, `com.on.ebx.connectors:type=Contract` (`ebx-connectors.sibling` 1.1.0 since wave 12: ask a language-model connector one prompt or one tool-use turn of a conversation, declare, read, delete and run flows; 1.2.0 since wave 13: follow (`run.get`) and stop (`run.stop`) a run started with `async`; [CONTRACT.md](CONTRACT.md)); the Factory and the catalog do not call it yet. The agent library (`on-ebx-agent.jar`) ships `ContractLlmChat`, the client of its `llm.chat`. |
 | Connector types | 96 types: `ConnectorRegistry` registers them (`kafka` and `sftp` only when their library is present), and the generated operational-readiness catalogue (`docs/CONNECTOR-OPERATIONAL-READINESS.md`) lists the same 96. Two of them, `documents` and `redshift`, are known but closed by default (section 4, "Preview functions"). The seeded connector ids are another count: at least 61 (section 2.3). Which were run for real: section 9. |
 
@@ -179,11 +179,8 @@ either. The second should run at the next push; the first needs the runner to be
   recorded (`seed markers recorded for N existing item(s)` in the kernel log); one you deleted *before* that start, while
   the server ran, comes back once at it. To have the installer create an item again, delete its `SeedMarker` row.
   **`-Debx.connectors.seed=none` creates no connector, no mapping and no catalogue card at all** (default `all`): set
-  it on a production installation before the first start, so that it holds only what its owners made. Categories
-  and release notes are product content, not demonstration, and are still installed. The packaged templates are NOT: each
-  needs a seeded connection, so with `none` the table `ConnectorTemplate` stays empty and the installer logs one
-  `packaged profile product.<x> skipped: connector <X> is not installed` warning per template at each start (measured
-  2026-11-21 on a blank instance: 7 templates by default, 0 with `none`). A model that
+  it on a production installation before the first start, so that it holds only what its owners made. Categories,
+  packaged templates and release notes are product content, not demonstration, and are still installed. A model that
   does not have the table yet (not reloaded after the upgrade) behaves as before: an absent seeded connector is created at every
   start. `-Debx.connectors.seedMappings=never` turns off only the demonstration **mappings**.
 - If a dataset named `Connectors` exists on another module's model (an older FastTrack installation), startup stops and
@@ -638,22 +635,20 @@ accepted (no field can be set); to be checked live.
 
 ### Preview functions (closed by default, decision of 2026-11-12; audit C3-03 to C3-06)
 
-Four functions that arrived after the October release stay in the code but are **closed** until the server administrator opens
-them (the fourth, `cdc`, since 1.4.2). One JVM property, `-Debx.connectors.preview=<words>`, a comma-separated list; the module reads it at each use, so a change
+Three functions that arrived after the October release stay in the code but are **closed** until the server administrator opens
+them. One JVM property, `-Debx.connectors.preview=<words>`, a comma-separated list; the module reads it at each use, so a change
 is taken at the next Tomcat start (it is a JVM option). It is not a setting stored in EBX: a designer cannot
 open anything from a screen.
 
 | Word | Opens | Closed means |
 |---|---|---|
 | `documents` | the connection type `documents`: reading PDF, DOCX and text, extraction, DAMA annotation, vision | no run of any operation of a `documents` connection, no seeded "Documents" connection |
-| `cdc` | Debezium change data capture through Kafka: the `cdc` operation of the `kafka` connector, as a feed (REST, MCP, screen, scheduled task, workflow step, in-JVM contract) and as a direct call (`connectors_call` previewing the next batch) | nothing of it runs: no `runCdc`, no feed on operation `cdc`, no direct preview, no read of the topic for CDC; the refusal comes before the broker is contacted. **Not concerned:** the ordinary Kafka operations `consume`, `peek`, `publish`, `catalog`, `profile`, `sample` and a `consume` feed (older than November): they stay open with every word closed |
-| `cdcMatching` | `matching=afterApply` and `matching=off` on a `cdc` feed (Match and Merge around a batch), and `publish=golden` on an outbound trigger. **It opens nothing without `cdc`**: matching works on capture batches and on the golden records of what they merged, so naming `cdcMatching` alone leaves it closed, and says so (below) | a `cdc` mapping that carries `matching=afterApply` or `matching=off` is refused when saved and when run; a trigger or setting with `publish=golden` is refused when it is registered (the model does not compile) and when it fires (the user's save is refused with the coded text, nothing is queued); a queued `publish=golden` row is not resolved |
+| `cdcMatching` | `matching=afterApply` and `matching=off` on a `cdc` feed (Match and Merge around a batch), and `publish=golden` on an outbound trigger | a `cdc` mapping that carries `matching=afterApply` or `matching=off` is refused when saved and when run; a queued `publish=golden` row is not resolved |
 | `redshift` | the connection type `redshift` | no run of any operation of a `redshift` connection |
 
 Absent, empty or misspelt means everything closed. The spelling is exact (`cdcMatching`, not `cdcmatching`); a word that is none of
-the four opens nothing and is logged once as a WARN (`names [...], which is not a preview function`). `cdcMatching` without `cdc` opens nothing: the start-up log says
-`names cdcMatching without cdc: cdcMatching opens nothing`, and `GET /ebx-connectors/rest/v1/status` shows `preview.cdcMatchingWithoutCdc: true`. The same block shows
-`preview.open`, `preview.closed`, `preview.unknownWords` and the property name; the start-up log has one line `preview functions open: ...`.
+the three opens nothing and is logged once as a WARN (`names [...], which is not a preview function`). `GET /ebx-connectors/rest/v1/status`
+shows `preview.open`, `preview.closed`, `preview.unknownWords` and the property name.
 
 What a user sees when a function is closed: the run, the call (`connectors_call`, `connectors_sync`, a scheduled task, a workflow
 task, a trigger send) ends with an error whose text starts with `[CN-PREVIEW-CLOSED]`, says in English then in French that the function is closed on
@@ -675,7 +670,7 @@ properties, with a `JDBC: ... is refused` error before any driver is loaded (the
 connection stored with such a URL, which could not have worked as designed, fails at its next use with that text.
 
 **To keep these functions on an instance that already uses them** (the test instance does), add before the first start of this version:
-`-Debx.connectors.preview=documents,cdc,cdcMatching,redshift` (only the words actually in use; `cdc` as soon as a capture feed runs, before 1.4.2 it was open), in `ebx.sh` AND in the Eclipse launcher
+`-Debx.connectors.preview=documents,cdcMatching,redshift` (only the words actually in use), in `ebx.sh` AND in the Eclipse launcher
 (`Start EBX Server.launch`), like `-Debx.connectors.egress.privateExceptions`. Check `GET /v1/status` → `preview.open` after the start.
 
 ## 5. What runs in the background
@@ -738,14 +733,7 @@ those nodes (`OriginValueAccessRule`) hide them in the screens, Data Services an
 `ConnectorRepository.outboundStates(session, ...)` / `ConflictResolver.page(session, ...)` leave out the rows of unreadable records.
 A value whose origin cannot be established (record deleted, dataset gone) is hidden; an administrator and the system user see all.
 A log line names dataspace, table and key but no dataset: every dataset of the dataspace holding that key must be readable.
-Since 1.4.2 the rule also covers `FieldProvenance.source` (where a value was read: document, page, quoted words, up to 2,000 characters) and `Conflict.comment` (the proposal's comment quotes that source, up to 500 characters;
-the steward's decision comment shares the column): a reader who cannot read the origin record no longer sees the words of a document there (audit C3-02, C2-03).
 `storeChanges` is off by default; values already stored are not removed (migration: `UPGRADE-ROLLBACK.md`).
-
-**What 1.4.2 closes with the preview words** (bilan 1.4.1, gap 1). Accepting a conflict whose field starts with `dama:` writes into DAMA: it is part of `documents` and answers `[CN-PREVIEW-CLOSED]` while that word is
-absent (the conflict stays open and acceptable once the word is added; rejecting it is not a DAMA write and is not refused). A trigger or setting with `publish=golden` is part of `cdcMatching` (which itself needs `cdc`): refused when
-registered and when it fires. The confidence envelope (`_minConfidence`, `_confidence`, `_sources` in a document a mapping reads) belongs to `documents`: while it is closed a document that carries those names is
-treated as it was before November (every rule writes, no proposal, no source kept); open, the three names are reserved for that function (CONTRACT.md, "Reserved names").
 
 Tables that grow with activity: `SyncLog` (one line per record call; 2,000-character message, 4,000-character
 `changes`), `FieldProvenance` (one row per field a connector wrote, key `dataspace, dataset, tablePath, recordKey,
@@ -785,11 +773,9 @@ Because retention is on by default, `ExecutionRun` and `SyncLog` purges mean a p
   field. `docs/UPGRADE-ROLLBACK.md` now says so. Before deploying a build, run
   `tools/schema_diff.py --git <installed> <new>` (or on the two extracted XSD): it exits 1 and lists every key change,
   removed field, removed table and type change.
-- `tools/upgrade_snapshot.py` takes a read-only snapshot through Data Services GET (credentials from `EBX_USER` and `EBX_PASSWORD`) and compares two snapshots. Since 1.4.2 the script
-  lives in the module (`ebx-connectors/tools/upgrade_snapshot.py`, shipped by `tools/install.sh` with the rest of the module; the file at the repository root only launches it) and covers **21 of the 27 tables**;
-  the 6 it leaves out are listed WITH their reason in the script (`EXCLUDED_TABLES`): `OutboundQueue` (the sender consumes its rows: count them by hand and let the queue drain before the upgrade) and the five
-  `Release*` tables (rewritten from `release-notes.xml` at every start). `src/test/python/verify_upgrade_snapshot.py` reads the model (`Connectors.xsd`) and FAILS when a table is neither captured nor excluded
-  with a reason, or when a primary key differs; it reads the script of the module it sits in, so a replay in a workspace never reads a copy left in `<workspace>/tools/`. It was not run on a real upgrade: not established.
+- `tools/upgrade_snapshot.py` (repository root) takes a read-only snapshot of 17 of the 27 tables (not `AccessRight`, `OutboundQueue`, `SeedMarker`, `Publication`, `Favorite`, `Release*`) through Data Services GET (credentials from
+  `EBX_USER` and `EBX_PASSWORD`) and compares two snapshots; `src/test/python/verify_upgrade_snapshot.py` tests it
+  offline. It was not run on a real upgrade: not established.
 - Libraries: replace the WAR as a unit with its `runtime-libs`. Do not mix.
 - Other modules: `ebx-mdm-factory` embeds `on-ebx-agent.jar` from this repository; upgrade both together.
 
@@ -808,15 +794,7 @@ After the start, check in the kernel log (`[connectors]` lines): `dataspace Conn
 `MCP server 'ebx-connectors' registered with the EBX MCP runtime (N tools)` or one of the "served by
 /ebx-connectors/rest/mcp" lines, `OpenLineage sink ...`, `marked N run(s) INTERRUPTED at startup`. Error lines:
 `installation failed`, `installation stopped: dataset Connectors uses the data model of another module`,
-`migration failed`, `stop of the background work incomplete`.
-**Up to 1.4.2 the installer's lines are NOT in the kernel log of a standard instance (corrected in 1.5.0)** (`dataspace Connectors created`, `seeded ...`, `seed markers recorded`,
-`-Debx.connectors.seed=none: ...`, `migration: ...`, `release notes seeded`, `packaged product profiles ready`, `perspective DataConnector installed`,
-`marked N run(s) INTERRUPTED`, and the errors `installation failed`, `installation stopped`, `dataset creation failed`, `migration failed`): they were
-written to the module's own category (`log.wbp.ebx-connectors.main`), which the standard `ebx.properties` sets to `FATAL, Console`, so a failed
-installation logged nothing (measured 2026-11-21 on a blank ON EBX 6.3.0-gp of the standard distribution with the 1.4.2 package: 27 `[connectors]`
-lines at the first start, 51 with the category opened; the 24 others were all INFO). On 1.4.2 and before, add
-`ebx.log4j.category.log.wbp= INFO, Console, ebxFile:kernel` to `ebx.properties` to see them, and check `installation.installerCompleted` in
-`GET /v1/status` in any case. Since 1.5.0 every start-up line goes to the kernel category (`LogCategoryTest` reads the sources). Then run `tools/smoke.sh` (section 2.4; `EXPECT_VERSION` set to the version you installed), and
+`migration failed`, `stop of the background work incomplete`. Then run `tools/smoke.sh` (section 2.4; `EXPECT_VERSION` set to the version you installed), and
 `POST /ebx-connectors/rest/mcp` `tools/list` as an
 administrator (23 tools: `ConnectorsTools` defines 23 and every guide and README now says 23),
 `GET /ebx-connectors/rest/v1/connectors`, and the "Connection catalog" screen. Compare row counts with the snapshot.
@@ -845,7 +823,7 @@ redacted (`***`) in everything the module keeps or returns.
 | `Too many asynchronous runs: 4 may run and 16 may wait ...` (HTTP 429) | The slots of section 3.1 are all taken; start again later or raise the two properties. |
 | `Mapping N (...) is already running (run R...)` (REST 409 on `async=true`, 422 on a synchronous start, MCP error, a failed scheduled task or workflow step) | A real run of that mapping is still going on this node (audit C-20). Nothing was read or written for the refused start. Wait, or stop the run named (`connectors_run_stop`); a scheduled task whose previous execution is still running fails with this message. |
 | `Checkpoint was advanced concurrently` | Two executions of one mapping on different nodes: the in-JVM lock of the line above does not cover them. |
-| `[CN-PREVIEW-CLOSED] ...` (run, call, scheduled task, workflow step, trigger send) | The function is a preview and closed: add the word it names (`documents`, `cdc`, `cdcMatching`, `redshift`; `cdcMatching` needs `cdc` too) to `-Debx.connectors.preview`, restart (section 4, "Preview functions"). |
+| `[CN-PREVIEW-CLOSED] ...` (run, call, scheduled task, workflow step, trigger send) | The function is a preview and closed: add the word it names (`documents`, `cdcMatching`, `redshift`) to `-Debx.connectors.preview`, restart (section 4, "Preview functions"). |
 | `CN_BODY_TOO_LARGE` (413), `CN_BATCH_TOO_LONG` (400), `CN_JSON_TOO_DEEP` (400); MCP error `-32600` | A request over a bound of section 3.1, "Request bounds"; the message names the property and the limit. |
 | 403 on `POST /rest/mcp` for an account that logs in | The account holds no Connectors right at all (READ is enough): section 4, "Who may call the module". |
 | `Google: serviceAccountFile is refused: ...` | The key file is outside `-Debx.connectors.secrets.dir`, or the property is unset: put the file there and name it relative to it, or use `serviceAccountJson`. |
@@ -1001,8 +979,8 @@ What 1.4.0 adds to run, and how far each piece has been proved. Detail: [CDC.md]
 
 | Function | State in 1.4.0 | Run on an instance? |
 |---|---|---|
-| Debezium capture into a table (`kafka` / `cdc`, deletes, flags, resume position) | **preview, word `cdc` (closed by default since 1.4.2; open in 1.4.0 and 1.4.1)** | 17 checks on the test instance, Kafka broker real, Debezium-format events published by the script; a real Debezium connector never |
-| Match and Merge around a batch (`matching=afterApply` / `off`), golden records out (`publish=golden`), no echo to the origin (`skipOrigin`) | preview, words `cdc` AND `cdcMatching` | never (scenario B8) |
+| Debezium capture into a table (`kafka` / `cdc`, deletes, flags, resume position) | **open** | 17 checks on the test instance, Kafka broker real, Debezium-format events published by the script; a real Debezium connector never |
+| Match and Merge around a batch (`matching=afterApply` / `off`), golden records out (`publish=golden`), no echo to the origin (`skipOrigin`) | preview, word `cdcMatching` | never (scenario B8) |
 | `documents` (PDF, DOCX, text, DAMA, `annotate`, vision) | preview, word `documents` | scenarios A1 to A3 (36 checks, real model); DAMA write-back and vision partly |
 | `redshift` | preview, word `redshift` | never |
 
@@ -1011,11 +989,10 @@ What 1.4.0 adds to run, and how far each piece has been proved. Detail: [CDC.md]
 strategy `VENDOR_CURSOR`, value = a JSON object `{"<topic>:<partition>": <last applied offset>}`), saved only after EBX applied the whole batch, so a failed
 batch is read again (at least once). The consumer never commits to the broker (group `<group.id>-cdc-no-commit`). **Restarting a feed from the beginning** = deleting
 that row. Two runs of one mapping are refused (section 8). A run-time input cannot change the mapping's settings (section 4). Watch `cdc.flows[]` in
-`GET /v1/status` (the flows are listed even while the function is closed; a closed flow does not run) (running now, saved position, age of the last applied batch) and the run message (`CDC: 9 event(s) -> 2 upsert(s), 2 delete(s)`); an old
+`GET /v1/status` (running now, saved position, age of the last applied batch) and the run message (`CDC: 9 event(s) -> 2 upsert(s), 2 delete(s)`); an old
 `savedAtAgeSeconds` on a flow that has events is the sign of a flow that cannot apply.
 
-**Known limits of capture, not fixed (audit C3-13 and C3-15, read in the code). They are limits of a function that is CLOSED by default since 1.4.2 (word `cdc`):
-they decide whether to open it, they are not corrected by this version. A real Debezium connector with a stop longer than the retention has never been tried.**
+**Known limits of capture, not fixed in 1.4.0 (audit C3-13, read in the code):**
 
 - *A retention gap is skipped without a word.* If the saved position is older than the first message the topic still holds, the read starts at that first
   message; the lost events (deletes included) are neither counted nor reported and the run is green. Keep the topic's retention longer than the longest stop of the flow;
@@ -1023,12 +1000,9 @@ they decide whether to open it, they are not corrected by this version. A real D
 - *An unreadable message blocks the flow.* A message whose JSON is invalid, or a Debezium operation the module does not know, fails the batch before any write; the position does
   not move and the next run reads the same message again, until someone moves the position past it by editing the `SynchronizationCheckpoint` row (or removes the message
   from the topic). Nothing in `/v1/status` says it except the age of `savedAt`; the run history says why.
-- *The Kafka client of capture is created without the module's class loader* (C3-15): every other Kafka path of the connector sets it before creating a client, `executeCdc` and the
-  direct preview do not. Called from a scheduled task or a workflow step, the client resolves its classes with the loader of the calling thread, so the `kafka-clients` of the server `lib/`
-  (3.7.1) may answer instead of the module's (3.9.2). Not observed to fail; not measured.
 - *Not covered:* Avro or Protobuf values, Debezium transaction metadata, schema-change events, child tables (CDC.md, "Not covered").
 
-**Matching around a batch** (only with `cdc` AND `cdcMatching`, **never run on an instance**; audit C3-05). With `matching=afterApply` or `off` the module pauses the Match and Merge trigger of
+**Matching around a batch** (only with `cdcMatching`, **never run on an instance**; audit C3-05). With `matching=afterApply` or `off` the module pauses the Match and Merge trigger of
 the whole table (a persistent setting of the add-on, `pauseMatching`), writes the batch, resumes it, then matches the keys the batch wrote. Consequences to know: a record
 created or changed by someone else in that window is not matched by the trigger (paused) nor by the module; **if the JVM stops during the writes the table stays paused** and nothing
 resumes it at the next start (the module has no recovery for it): after any stop of the server during a capture run, check `get_matching_config` / the table settings of the

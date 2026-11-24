@@ -207,9 +207,7 @@ public final class JdbcGuardTest
 			{ new SapHanaConnector(), "jdbc:sap://HOST:30015" }, { new TeradataConnector(), "jdbc:teradata://HOST/DATABASE=DATABASE" },
 			{ new VerticaConnector(), "jdbc:vertica://HOST:5433/DATABASE" }, { new ActianVectorConnector(), "jdbc:ingres://HOST:II7/DATABASE" },
 			{ new ActianIngresConnector(), "jdbc:ingres://HOST:II7/DATABASE" }, { new MonetDbConnector(), "jdbc:monetdb://HOST:50000/DATABASE" },
-			{ new SparkSqlConnector(), "jdbc:hive2://HOST:10000/default;ssl=true" },
-			{ new ClouderaHiveConnector(), "jdbc:hive2://HOST/default;transportMode=http;httpPath=cliservice;ssl=true" },
-			{ new ClouderaImpalaConnector(), "jdbc:impala://HOST:443/default;AuthMech=3;transportMode=http;httpPath=cliservice;SSL=1" }, { new FirebirdConnector(), "jdbc:firebirdsql://HOST:3050/DATABASE" },
+			{ new SparkSqlConnector(), "jdbc:hive2://HOST:10000/default;ssl=true" }, { new FirebirdConnector(), "jdbc:firebirdsql://HOST:3050/DATABASE" },
 			{ new GreenplumConnector(), "jdbc:postgresql://HOST:5432/DATABASE" }, { new SingleStoreConnector(), "jdbc:singlestore://HOST:3306/DATABASE" },
 			{ new SingleStoreConnector(), "jdbc:mysql://HOST:3306/DATABASE" } };
 		for (final Object[] seed : seeds)

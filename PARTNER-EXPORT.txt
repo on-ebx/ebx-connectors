@@ -1,3 +1,3 @@
-Exported from EBX-Connectors commit c6d95687641c4f0fbfb4d2144a8b1f09c96a7fa7
-Merge fix/release-page-order-and-dates: the release-notes page lists the newest release first and writes its date as a date
+Exported from EBX-Connectors commit 350aa56fd9c2e538f4f68ffee89605be876160d6
+Record the 1.4.1 rehearsal in the release documents (X3-08)
 This repository is generated: every sync replaces its whole content. A change made here is lost at the next sync.
