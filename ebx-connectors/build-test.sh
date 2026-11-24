@@ -173,8 +173,6 @@ export JAVA_TOOL_OPTIONS="-Debx.connectors.egress.blockPrivate=false -Debx.conne
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.core.BatchKeySegmentsTest
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.core.MappingRunLocksTest
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.ebx.SeedMarkersTest
-# the start-up lines go to the kernel log, never to the module category that a standard ebx.properties sets to FATAL (read from the sources)
-"$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.ebx.LogCategoryTest "$module_dir/src/main/java"
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.ebx.InstallerEnsureTest
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.core.RunLogPageTest
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" com.on.ebx.connect.core.ListingPageTest
@@ -669,15 +667,6 @@ export JAVA_TOOL_OPTIONS="-Debx.connectors.egress.blockPrivate=false -Debx.conne
 
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" \
 	com.on.ebx.connect.connectors.SparkSqlConnectorTest
-
-"$java_bin" -cp "$test_classes:$main_classes:$classpath" \
-	com.on.ebx.connect.connectors.ClouderaConnectorsTest
-
-"$java_bin" -cp "$test_classes:$main_classes:$classpath" \
-	com.on.ebx.connect.connectors.JdbcTimestampTextTest
-
-"$java_bin" -cp "$test_classes:$main_classes:$classpath" \
-	com.on.ebx.connect.ebx.ui.ReleaseOrderTest
 
 "$java_bin" -cp "$test_classes:$main_classes:$classpath" \
 	com.on.ebx.connect.connectors.DominoRestConnectorTest

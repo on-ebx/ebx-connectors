@@ -44,25 +44,22 @@ public final class ConnectorsModuleRegistration extends ModuleRegistrationListen
 	public void handleRepositoryStartup(final ModuleContextOnRepositoryStartup pContext) throws OperationException
 	{
 		super.handleRepositoryStartup(pContext);
-		// every line of the start goes to the kernel log: the category a context hands a module (log.wbp.<module>.main) is at FATAL in the standard
-		// ebx.properties, so the installer's lines, its errors included, appeared in no file on a standard instance (measured 2026-11-21)
-		final com.orchestranetworks.service.LoggingCategory log = com.orchestranetworks.service.LoggingCategory.getKernel();
 		// before anything below starts a thread: a repository restarted in the same class loader finds
 		// the executors stopped by the previous shutdown
 		com.on.ebx.connect.core.BackgroundWork.start();
 		// C2-12: the installer's own session, kept for the later calls that find the installation incomplete
 		final com.orchestranetworks.service.Session installSession = pContext.createSystemUserSession("connectors");
 		ConnectorsInstaller.useInstallSession(installSession);
-		ConnectorsInstaller.install(pContext.getRepository(), installSession, pContext.getModuleName(), log);
+		ConnectorsInstaller.install(pContext.getRepository(), installSession, pContext.getModuleName(), pContext.getLoggingCategory());
 		// which connections hold a secret in clear (refused at use unless -Debx.connectors.secrets.allowClear=true)
 		com.on.ebx.connect.core.ClearSecrets.logAtStartup(pContext.getRepository());
 		com.on.ebx.connect.core.Egress.logAtStartup();
 		com.on.ebx.connect.core.PreviewFeatures.logAtStartup();
 		PackagedProductProfileInstaller.install(pContext.getRepository(), pContext.createSystemUserSession("connectors-product-profiles"),
-			log);
+			pContext.getLoggingCategory());
 		// the "Data connector" perspective, created when absent (never modified once it exists)
 		PerspectiveInstaller.install(pContext.getRepository(), pContext.createSystemUserSession("connectors-perspective"),
-			log);
+			pContext.getLoggingCategory());
 		/*
 		 * Synchronisation results are logged by ConnectorRepository.  Install the
 		 * durable observer during repository startup so those same live results
@@ -87,7 +84,7 @@ public final class ConnectorsModuleRegistration extends ModuleRegistrationListen
 		}
 		catch (final IllegalStateException ex)
 		{
-			log.warn("[connectors] in-JVM contract not registered: " + ex.getCause());
+			pContext.getLoggingCategory().warn("[connectors] in-JVM contract not registered: " + ex.getCause());
 		}
 		// audit C-07 (lot L8): table triggers queue their sends; this sender writes the queue and sends after the user's commit.
 		// Rows left PENDING by a stop or a crash are taken by its first pass.
@@ -119,7 +116,7 @@ public final class ConnectorsModuleRegistration extends ModuleRegistrationListen
 			.markInterruptedRunningRuns(pContext.createSystemUserSession("connectors-run-recovery"));
 		if (interrupted > 0)
 		{
-			log.warn("[connectors] marked " + interrupted + " run(s) INTERRUPTED at startup (was RUNNING across a restart)");
+			pContext.getLoggingCategory().warn("[connectors] marked " + interrupted + " run(s) INTERRUPTED at startup (was RUNNING across a restart)");
 		}
 	}
 

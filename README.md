@@ -27,7 +27,7 @@ the security model is the one an enterprise architect expects: secrets in a **va
 
 ## Highlights
 
-- **98 connector types** out of the box:
+- **96 connector types** out of the box:
   - *registers and data providers*: GLEIF, INSEE Sirene, INPI, VIES, Companies House, Handelsregister,
     OpenCorporates, D&B, Orbis, Creditsafe, OpenSanctions, openFDA;
   - *addresses*: Melissa, Loqate, BAN, Google Geocoding;
@@ -35,8 +35,7 @@ the security model is the one an enterprise architect expects: secrets in a **va
     SAP SuccessFactors, SAP Ariba, JD Edwards AIS, Oracle Fusion, Oracle NetSuite, HubSpot, ServiceNow,
     Workday, SharePoint Online;
   - *databases and data platforms*: PostgreSQL, MySQL, Oracle Database, SQL Server, Azure SQL, H2,
-    generic JDBC, Snowflake, Databricks, BigQuery, Cloudera Hive and Cloudera Impala (1.5.0, read-only,
-    played against Apache Hive only), Apache Spark SQL;
+    generic JDBC, Snowflake, Databricks, BigQuery;
   - *messaging*: Kafka, JMS, ActiveMQ, RabbitMQ, Azure Service Bus;
   - *files*: SFTP, S3, Azure Blob, Google Cloud Storage, and a manually uploaded CSV/JSON sample
     (declares a source's shape before a real connection exists);
@@ -98,7 +97,7 @@ carrying the glossary synonyms), Kafka on a local broker, the EBX connector agai
 itself, Slack, and the LLM connector with OpenAI and Ollama. The `mcp` connector type and its three
 seeded EBX connectors answer a connection test on the four EBX MCP servers.
 
-Most of the 98 connector types are covered by offline contract tests against recorded fixtures
+Most of the 96 connector types are covered by offline contract tests against recorded fixtures
 only, because no vendor account or live endpoint is used by the test suite (see below): Power BI,
 Collibra, Databricks, and the Gemini / Vertex AI, Azure OpenAI and Mistral providers, among others,
 have never been called for real. Treat a type as verified only once it is listed above.

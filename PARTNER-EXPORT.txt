@@ -1,3 +1,3 @@
-Exported from EBX-Connectors commit c6d95687641c4f0fbfb4d2144a8b1f09c96a7fa7
-Merge fix/release-page-order-and-dates: the release-notes page lists the newest release first and writes its date as a date
+Exported from EBX-Connectors commit 38ccadf161c32fd9316d54cf5c96bab8faf60f33
+Merge fix/v1.4.2-hardening: remaining points of the October scope found by the verified ledger of 2026-11-12
 This repository is generated: every sync replaces its whole content. A change made here is lost at the next sync.

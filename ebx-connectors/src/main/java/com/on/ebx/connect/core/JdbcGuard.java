@@ -82,8 +82,7 @@ public final class JdbcGuard
 		JdbcGuard.driver(drivers, "monetdbs", "org.monetdb.jdbc.MonetDriver", "nl.cwi.monetdb.jdbc.MonetDriver");
 		JdbcGuard.driver(drivers, "mapi", "org.monetdb.jdbc.MonetDriver", "nl.cwi.monetdb.jdbc.MonetDriver");
 		JdbcGuard.driver(drivers, "firebirdsql", "org.firebirdsql.jdbc.FBDriver");
-		JdbcGuard.driver(drivers, "hive2", "org.apache.hive.jdbc.HiveDriver", "com.cloudera.hive.jdbc.HS2Driver");
-		JdbcGuard.driver(drivers, "impala", "com.cloudera.impala.jdbc.Driver");
+		JdbcGuard.driver(drivers, "hive2", "org.apache.hive.jdbc.HiveDriver");
 		JdbcGuard.driver(drivers, "snowflake", "net.snowflake.client.jdbc.SnowflakeDriver");
 		JdbcGuard.driver(drivers, "databricks", "com.databricks.client.jdbc.Driver", "com.databricks.jdbc.Driver");
 		DRIVERS = Collections.unmodifiableMap(drivers);

@@ -99,18 +99,6 @@ public class JdbcConnector implements Connector
 		return false;
 	}
 
-	/**
-	 * HiveServer2-family engines (Apache Hive, Spark Thrift Server, Impala) have no transaction to roll back and no
-	 * read-only connection mode: the Apache Hive JDBC driver throws on {@code setReadOnly(true)}, {@code commit()} and
-	 * {@code rollback()}. A profile that answers {@code true} here gets its reads without those three calls being
-	 * required; it must then expose read operations only and check the statement text itself, since no connection
-	 * mode backs the read-only promise any more.
-	 */
-	protected boolean withoutTransactions()
-	{
-		return false;
-	}
-
 	@Override
 	public String getType()
 	{
@@ -258,26 +246,9 @@ public class JdbcConnector implements Connector
 
 	private void makeReadOnly(final Connection pConnection) throws SQLException
 	{
-		if (this.withoutTransactions())
-		{
-			// asked for, never required: the Apache Hive driver answers "Enabling read-only mode not supported"
-			try { pConnection.setReadOnly(true); } catch (final SQLException ignored) { }
-			return;
-		}
 		pConnection.setReadOnly(true);
 		pConnection.setAutoCommit(false);
 		if (!pConnection.isReadOnly()) throw new SQLException("JDBC driver refused read-only mode");
-	}
-
-	/** Ends a read: a rollback, so that nothing is ever committed; an engine without transactions has nothing to roll back. */
-	private void endRead(final Connection pConnection) throws SQLException
-	{
-		if (!this.withoutTransactions())
-		{
-			pConnection.rollback();
-			return;
-		}
-		try { pConnection.rollback(); } catch (final SQLException ignored) { }
 	}
 
 	/**
@@ -706,16 +677,7 @@ public class JdbcConnector implements Connector
 			}
 			else if (value instanceof java.sql.Timestamp)
 			{
-				row.put(name, com.on.ebx.connect.core.CatalogOperations.dateTime(((java.sql.Timestamp) value).toLocalDateTime()));
-			}
-			else if (value instanceof java.time.LocalDateTime)
-			{
-				row.put(name, com.on.ebx.connect.core.CatalogOperations.dateTime((java.time.LocalDateTime) value));
-			}
-			else if (value instanceof java.time.OffsetDateTime)
-			{
-				// what a driver returns for TIMESTAMP WITH TIME ZONE (H2 2.x)
-				row.put(name, com.on.ebx.connect.core.CatalogOperations.dateTime((java.time.OffsetDateTime) value));
+				row.put(name, ((java.sql.Timestamp) value).toLocalDateTime().toString());
 			}
 			else if (value instanceof java.sql.Date)
 			{
@@ -819,7 +781,7 @@ public class JdbcConnector implements Connector
 					break;
 				}
 			}
-			this.endRead(connection); // a read never commits, read-only mode granted or not (readOnlyOrGuarded)
+			connection.rollback(); // a read never commits, read-only mode granted or not (readOnlyOrGuarded)
 			return new Connector.RowStreamResult(delivered, truncated, -1);
 		}
 		catch (final SQLException ex)
@@ -1059,7 +1021,7 @@ public class JdbcConnector implements Connector
 					if ("query".equals(pOperation))
 					{
 						final ObjectNode out = JdbcConnector.boundedQuery(statement, max);
-						this.endRead(connection); // a read never commits, read-only mode granted or not (readOnlyOrGuarded)
+						connection.rollback(); // a read never commits, read-only mode granted or not (readOnlyOrGuarded)
 						return out.get("count").asInt() == 0 ? null : out;
 					}
 					final boolean hasResult = statement.execute();
@@ -1091,7 +1053,7 @@ public class JdbcConnector implements Connector
 					statement.setFetchSize(1);
 					JdbcConnector.setParameters(statement, Arrays.asList(JdbcConnector.inputValue(AbstractFileConnector.required(inputs, "value"))));
 					final JsonNode row = Json.at(JdbcConnector.rows(statement.executeQuery(), 1), "rows[0]");
-					this.endRead(connection);
+					connection.rollback();
 					return row;
 				}
 				finally
@@ -1712,9 +1674,7 @@ public class JdbcConnector implements Connector
 
 	private static String text(final Object pValue)
 	{
-		final String s = pValue instanceof java.sql.Timestamp ? com.on.ebx.connect.core.CatalogOperations.dateTime(((java.sql.Timestamp) pValue).toLocalDateTime())
-			: pValue instanceof java.time.LocalDateTime ? com.on.ebx.connect.core.CatalogOperations.dateTime((java.time.LocalDateTime) pValue)
-			: pValue instanceof java.time.OffsetDateTime ? com.on.ebx.connect.core.CatalogOperations.dateTime((java.time.OffsetDateTime) pValue)
+		final String s = pValue instanceof java.sql.Timestamp ? ((java.sql.Timestamp) pValue).toLocalDateTime().toString()
 			: pValue instanceof java.sql.Date ? ((java.sql.Date) pValue).toLocalDate().toString() : String.valueOf(pValue);
 		return s.length() > 500 ? s.substring(0, 500) : s;
 	}

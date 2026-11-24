@@ -5,58 +5,6 @@ after. It does not replace a repository backup, and nothing in it has been rehea
 two upgrade paths it describes (a new table or field, a changed primary key) were read in the model history and in
 EBX's own documentation, not exercised end to end. Where that matters it says "not verified".
 
-## From 1.4.2 to 1.5.0
-
-**Rehearsed on 2026-11-23, before the tag, on a blank ON EBX 6.3.0-gp of the standard distribution** (ten core wars, no add-on, embedded H2), with the package built from commit `a3a464f` (stamped `1.4.2-10-ga3a464f`; the commit after it changes this section and the
-release-notes entry only): the repository the released 1.4.2 had created, then 1.4.2 → 1.5.0 → 1.4.2 → 1.5.0, and a new repository. **Not rehearsed**: a FastTrack workspace (`tools/install.sh`), a repository that holds mappings, runs or provenance (that one held connections and
-templates only), a real Cloudera connection inside ON EBX, the package built from the tag. The three HiveServer2 connections were played against a real Apache Hive 4.0.1, outside ON EBX.
-Each statement says how it is known: **measured** (a command or a test), **read** (in the code), or **not tried**.
-
-| Step of the rehearsal | Start | ERROR lines | What was read |
-|---|---|---|---|
-| 1.4.2, its own repository | 15 s | 0 | 102 connections, 231 properties, 7 templates, 104 seed markers |
-| → package of 1.5.0 | 20 s | 0 | `seeded 2 missing wave connector catalog record(s)`: 104 connections, 235 properties; `tools/upgrade_snapshot.py compare`: every earlier key and value preserved; `smoke.sh` 0 failed; `itest.sh` 58 passed, 0 failed, 2 not run (as on 1.4.2) |
-| → 1.4.2 again (the rollback) | 18 s | 0 | compare: preserved; the two Cloudera cards still listed; `smoke.sh` 0 failed |
-| → package of 1.5.0 again | 17 s | 0 | nothing seeded twice; compare: preserved; `smoke.sh` 0 failed |
-| package of 1.5.0, new repository | 25 s | 0 | 51 `[connectors]` lines in the kernel log, 104 connections, 7 templates; `smoke.sh` (administrator only) 0 failed |
-
-### What changes for the operator
-
-**The data model**: nothing (**measured**: `git diff v1.4.2 -- '*.xsd'` is empty). No JVM option is new. Replace the war as a unit and restart Tomcat, as for every release.
-
-**Two more connection cards.** `ClouderaHive` and `ClouderaImpala` are created by the additive seed at the first start (**measured** in the rehearsal: 102 → 104 connections, once), with placeholder URL and credentials, like every seeded card. Not with `-Debx.connectors.seed=none`; a card deleted afterwards stays deleted (`SeedMarker`).
-No driver is packaged for them: see `ebx-connectors/docs/CLOUDERA-USER-GUIDE.html`.
-
-**The Apache Spark SQL connection behaves differently**, because it could not work before on the Apache Hive driver (**measured** on Apache Hive 4.0.1, `tools/live-hive/run.sh`: the generic engine fails on every query, preview, discovery and description; the connection now passes them):
-
-| What | 1.4.2 | 1.5.0 |
-|---|---|---|
-| a query, a preview, a discovery, a description | failed on the Hive driver ("Method not supported", "Enabling read-only mode not supported") | answer |
-| `SELECT TRANSFORM(...) USING '...'` (and `MAP` / `REDUCE ... USING`) | reached the server and ran there | refused before the server is contacted |
-| the columns of a `SELECT *` | `table.column` | `column` (unless two columns would share a name) |
-| a URL with `principal=`, `AuthMech=1`, a `Krb...` option | accepted at validation | reported at validation: Kerberos is not handled |
-
-A mapping written against the `table.column` names of a `SELECT *` could not have run on 1.4.2, so nothing that worked changes its field names.
-
-**A timestamp read through JDBC keeps its seconds** (**measured** on a real in-memory H2 by `JdbcTimestampTextTest`, and on Apache Hive): `2026-11-20T10:15:00` where 1.4.2 wrote `2026-11-20T10:15`, for the rows of every JDBC connection, the profiler's minimum and maximum, and the Snowflake connector.
-What it changes on an instance: a dateTime field fed from a timestamp that falls on a whole minute (midnight included) was refused by ON EBX and stayed empty, the run reading `PARTIAL`; it is written at the next run of its flow. Values already stored are not touched. A watermark stored without seconds still compares (**measured**:
-the watermark tests read both forms). The refusal itself was **not replayed** on a JDBC mapping of a running ON EBX (it was measured on the catalogue scans in September, which write through the same call); whether ON EBX accepts a dateTime text carrying an offset is **not established**.
-
-**The installer's start-up lines are in the kernel log** (**measured** on a blank standard ON EBX 6.3.0-gp: 51 `[connectors]` lines where 1.4.2 showed 27). An alert on `[connectors]` ERROR lines can now fire for an installation that fails, which is its purpose. The line
-`ebx.log4j.category.log.wbp= INFO, Console, ebxFile:kernel` that `OPERATIONS.md` section 7.2 gave for 1.4.2 is no longer needed for them.
-
-### Before the first start of 1.5.0
-
-1. Stop the schedules and Tomcat; keep the 1.4.2 war with its libraries (the rollback).
-2. Replace the war as a unit (or `tools/install.sh` on a FastTrack workspace), restart Tomcat.
-3. `tools/smoke.sh` with `EXPECT_VERSION=1.5.0`; read `GET /v1/status`: `version.version` `1.5.0`, `installation.installerCompleted` `true`; read the `[connectors]` lines of the kernel log.
-4. The Factory's package embeds `on-ebx-agent.jar` and `on-ebx-mapping.jar`: none of the classes of their closures changed (**read**: `build-agent.sh`, `build-mapping.sh`), so the Factory may keep the jars of 1.4.2. The jars of this package differ in bytes all the same (their manifest carries the date of the commit).
-
-### Rolling back from 1.5.0 to 1.4.2
-
-Nothing in the data depends on 1.5.0 (no model change). Stop the schedules and Tomcat, put the 1.4.2 war back whole with its libraries, start (**measured** in the rehearsal: 18 s, no ERROR line, every value preserved, `smoke.sh` green). Two things stay behind: the two Cloudera cards, whose
-connection type 1.4.2 does not know (1.4.2 still lists them, with their type name; delete them or leave them unused: what its connection catalogue SCREEN draws for them was **not looked at**), and the dateTime values 1.5.0 wrote, which are ordinary values (**not tried**: that repository held no mapping).
-
 ## From 1.4.1 to 1.4.2
 
 **Nothing in this section was rehearsed on a running instance.** 1.4.2 was built and tested offline (the suite, the package); the upgrade from 1.4.1 and the rollback to it were not run on a copy of a repository.

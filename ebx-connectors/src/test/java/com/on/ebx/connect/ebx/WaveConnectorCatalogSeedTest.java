@@ -25,7 +25,6 @@ public final class WaveConnectorCatalogSeedTest
 			{ "MongoDB", "mongodb" }, { "Couchbase", "couchbase" }, { "CMIS", "cmis" },
 			{ "VeevaVault", "veeva-vault" }, { "Alation", "alation" }, { "MicrosoftPurview", "microsoft-purview" },
 			{ "HadoopWebHDFS", "hadoop-webhdfs" }, { "SparkSQL", "spark-sql" }, { "DominoREST", "domino-rest" },
-			{ "ClouderaHive", "cloudera-hive" }, { "ClouderaImpala", "cloudera-impala" },
 			{ "Firebird", "firebird" }, { "Greenplum", "greenplum" }, { "SingleStore", "singlestore" },
 			{ "GenericREST", "rest" }, { "OpenLineage", "openlineage" }, { "GoogleDrive", "google-drive" },
 			{ "OneDrive", "onedrive" }, { "Redshift", "redshift" }, { "Documents", "documents" }
@@ -40,7 +39,7 @@ public final class WaveConnectorCatalogSeedTest
 		}
 		check(installer.contains("lookupAdaptationByPrimaryKey") && installer.contains("return false;"),
 			"catalog seed must preserve existing customer connector rows");
-		System.out.println("PASS: 38 wave connectors are additively seeded into the data-backed catalog");
+		System.out.println("PASS: 36 wave connectors are additively seeded into the data-backed catalog");
 	}
 
 	private static void check(final boolean pCondition, final String pMessage)

@@ -59,12 +59,6 @@ public final class ReleaseNotesManifestTest {
     for (int index = 0; index < releases.getLength(); index++) {
       validateRelease((Element) releases.item(index), ids);
     }
-    int current = 0;
-    for (int index = 0; index < releases.getLength(); index++) {
-      Element release = (Element) releases.item(index);
-      if ("formal".equals(release.getAttribute("kind")) && "current".equals(release.getAttribute("status"))) current++;
-    }
-    require(current == 1, "Exactly one formal release must be the current one, found " + current);
     System.out.println("ReleaseNotesManifestTest passed (" + releases.getLength() + " entries)");
   }
 
@@ -75,10 +69,6 @@ public final class ReleaseNotesManifestTest {
     require("formal".equals(kind) || "development".equals(kind), "Invalid release kind: " + kind);
     require(hasNonBlankChild(release, "title"), "Release " + id + " requires a title");
     require(hasNonBlankChild(release, "summary"), "Release " + id + " requires a summary");
-
-    String status = requiredAttribute(release, "status");
-    require("formal".equals(kind) ? status.matches("current|supported|archived") : status.matches("in-progress|complete|draft"),
-        "Release " + id + " has status " + status + ": a formal release is current, supported or archived; a development increment is in-progress, complete or draft");
 
     if ("formal".equals(kind)) {
       String version = requiredAttribute(release, "version");

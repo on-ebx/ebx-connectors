@@ -191,21 +191,6 @@ public final class CatalogOperations
 	 */
 	public static final java.time.format.DateTimeFormatter TIMESTAMP = java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
 
-	/**
-	 * A date-time read from a source, as text ON EBX parses as a dateTime: the seconds are always written, a fraction is
-	 * kept when there is one. {@code toString()} would give {@code 2026-11-20T10:15} for a whole minute, midnight included.
-	 */
-	public static String dateTime(final java.time.LocalDateTime pValue)
-	{
-		return pValue.getSecond() == 0 && pValue.getNano() == 0 ? pValue.format(CatalogOperations.TIMESTAMP) : pValue.toString();
-	}
-
-	/** The same rule for a date-time with an offset: {@code 2026-11-20T10:15:00+01:00}, never {@code 2026-11-20T10:15+01:00}. */
-	public static String dateTime(final java.time.OffsetDateTime pValue)
-	{
-		return CatalogOperations.dateTime(pValue.toLocalDateTime()) + pValue.getOffset().getId();
-	}
-
 	/** The current local time as a dateTime EBX parses, seconds always written. */
 	public static String timestamp()
 	{
